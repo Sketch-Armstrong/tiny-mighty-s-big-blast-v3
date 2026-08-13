@@ -35,6 +35,7 @@ const CONTROLLER_BUTTON_LABELS: Dictionary = {
 	JoyButton.JOY_BUTTON_GUIDE: "Select",
 }
 const CONTROLLER_AXIS_LABELS: Dictionary = {
+	"String Key": [1, 2, 3, 4, 5],
 	JoyAxis.JOY_AXIS_LEFT_X: "left stick X",
 	JoyAxis.JOY_AXIS_LEFT_Y: "left stick Y",
 	JoyAxis.JOY_AXIS_RIGHT_X: "right stick X",
@@ -59,6 +60,7 @@ const CONTROLLER_AXIS_LABELS: Dictionary = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(CONTROLLER_AXIS_LABELS["String Key"])
 	InputConfigHandler.defaulted.connect(reset_labels)
 	InputConfigHandler.duplicate_detected.connect(undo_duplicate_label)
 	toggle_mode = true

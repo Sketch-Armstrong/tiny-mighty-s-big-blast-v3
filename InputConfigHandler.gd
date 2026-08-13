@@ -10,6 +10,7 @@ const INPUT_SETTINGS_FILE_PATH = "user://input_settings.cfg"
 
 var input_config_controller_button_index
 var input_config_controller_axis_index
+var input_config_controller_axis_index_value
 var input_config_keyboard_keycode
 
 var loading_values_test: Key
@@ -54,8 +55,7 @@ func _ready():
 		pass
 		#load_inputs()
 		#load_keyboard_inputs()
-	#testing by putting a change in to see if Github will recognize it
-	#testing making more changes for github
+
 
 
 func load_inputs() -> void:
