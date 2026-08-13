@@ -58,7 +58,7 @@ const CONTROLLER_AXIS_LABELS: Dictionary = {
 #Game controller left trigger axis.
 #● JOY_AXIS_TRIGGER_RIGHT = 5
 
-
+var axis_reference_tester := 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print(CONTROLLER_AXIS_LABELS["JoyAxis Left X"])
@@ -74,10 +74,12 @@ func _ready() -> void:
 		## both this, and the preceding 2 lines, worked
 	
 
+
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
-	action_axis_value = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
+	
+	action_axis_value = Input.get_joy_axis(axis_reference_tester, JOY_AXIS_LEFT_X)
 	print(str(CONTROLLER_AXIS_LABELS["JoyAxis Left X"]) + str(action_axis_value))
 	#if action == "tiny_move_up":
 		#print("testing for filtering based on action string worked")
