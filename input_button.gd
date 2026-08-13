@@ -5,6 +5,7 @@ const INPUT_SETTINGS_FILE_PATH = "user://input_settings.cfg"
 
 @export var action: String
 @export var action_event_index: int = 0
+@export var action_axis_value: float = 0.0
 
 @export var brute_force_input_label_controller_up: String
 
@@ -35,13 +36,13 @@ const CONTROLLER_BUTTON_LABELS: Dictionary = {
 	JoyButton.JOY_BUTTON_GUIDE: "Select",
 }
 const CONTROLLER_AXIS_LABELS: Dictionary = {
-	"String Key": [1, 2, 3, 4, 5],
-	JoyAxis.JOY_AXIS_LEFT_X: "left stick X",
-	JoyAxis.JOY_AXIS_LEFT_Y: "left stick Y",
-	JoyAxis.JOY_AXIS_RIGHT_X: "right stick X",
-	JoyAxis.JOY_AXIS_RIGHT_Y: "right stick Y",
-	JoyAxis.JOY_AXIS_TRIGGER_LEFT: "LT",
-	JoyAxis.JOY_AXIS_TRIGGER_RIGHT: "RT",
+	"JoyAxis Left X": [JoyAxis.JOY_AXIS_LEFT_X],
+	#JoyAxis.JOY_AXIS_LEFT_X: "left stick X",
+	#JoyAxis.JOY_AXIS_LEFT_Y: "left stick Y",
+	#JoyAxis.JOY_AXIS_RIGHT_X: "right stick X",
+	#JoyAxis.JOY_AXIS_RIGHT_Y: "right stick Y",
+	#JoyAxis.JOY_AXIS_TRIGGER_LEFT: "LT",
+	#JoyAxis.JOY_AXIS_TRIGGER_RIGHT: "RT",
 	
 }
 #
@@ -60,7 +61,7 @@ const CONTROLLER_AXIS_LABELS: Dictionary = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(CONTROLLER_AXIS_LABELS["String Key"])
+	print(CONTROLLER_AXIS_LABELS["JoyAxis Left X"])
 	InputConfigHandler.defaulted.connect(reset_labels)
 	InputConfigHandler.duplicate_detected.connect(undo_duplicate_label)
 	toggle_mode = true
@@ -76,6 +77,8 @@ func _ready() -> void:
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
+	action_axis_value = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
+	print(str(CONTROLLER_AXIS_LABELS["JoyAxis Left X"]) + str(action_axis_value))
 	#if action == "tiny_move_up":
 		#print("testing for filtering based on action string worked")
 
