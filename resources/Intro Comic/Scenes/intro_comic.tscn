@@ -1,0 +1,1157 @@
+[gd_scene load_steps=27 format=3 uid="uid://dh7fj8m06es3s"]
+
+[ext_resource type="Script" uid="uid://7j21kv52q6ap" path="res://resources/Intro Comic/Scenes/intro_comic.gd" id="1_2ryo7"]
+[ext_resource type="Texture2D" uid="uid://88e3vpad6ccy" path="res://resources/Intro Comic/Panels/panels and gutters.png" id="1_hbts5"]
+[ext_resource type="Texture2D" uid="uid://caufibdaxji82" path="res://resources/Intro Comic/Panels/panels contents.png" id="2_hhrn2"]
+[ext_resource type="Script" uid="uid://bghaddibpt6f1" path="res://addons/crt/crt.gd" id="3_hhrn2"]
+[ext_resource type="Texture2D" uid="uid://cddig2ytwwyhs" path="res://resources/Intro Comic/Panels/Panel 2/ring.png" id="4_akh22"]
+[ext_resource type="Material" uid="uid://cjwh072dhg4bd" path="res://Shaders/Tests/shader_test.tres" id="4_u0jjc"]
+[ext_resource type="Texture2D" uid="uid://dtlbiq5toqutk" path="res://resources/Intro Comic/Tiny/Tiny sitting foot stomp.png" id="5_vql3w"]
+[ext_resource type="Texture2D" uid="uid://y8hu4jrumauh" path="res://resources/Intro Comic/Panels/phone-Sheet.png" id="6_51t2t"]
+[ext_resource type="Texture2D" uid="uid://devd6acxh7pxb" path="res://resources/Intro Comic/Tiny/intro comic fuse sprite sheet.png" id="6_bjslu"]
+[ext_resource type="Texture2D" uid="uid://bqtq6ul0ftiit" path="res://resources/Intro Comic/Panels/panel 3 gray back.png" id="6_hygxs"]
+[ext_resource type="Texture2D" uid="uid://ckkfw150cj8ab" path="res://resources/Intro Comic/Panels/panel 3 hand.png" id="7_51t2t"]
+[ext_resource type="Texture2D" uid="uid://unbbr7f8vokc" path="res://resources/Intro Comic/Panels/Panel 2/foot stomp effect-Sheet.png" id="8_hvov7"]
+[ext_resource type="Texture2D" uid="uid://n3hnv1ql88l1" path="res://resources/Intro Comic/Panels/panel 4.png" id="8_uiink"]
+[ext_resource type="Texture2D" uid="uid://cn8t1uxypjiq1" path="res://resources/Intro Comic/Panels/Panel 3/CATCH.png" id="11_6g3pv"]
+[ext_resource type="Texture2D" uid="uid://ns3wtopbu3of" path="res://resources/Intro Comic/Panels/Panel 3/repurposed foot stomp effect.png" id="12_dab11"]
+[ext_resource type="Texture2D" uid="uid://deg2k1hoq215p" path="res://resources/Intro Comic/Panels/Panel 4/speech bubble-Sheet.png" id="14_dthgb"]
+[ext_resource type="Texture2D" uid="uid://uc252hy8i84b" path="res://resources/Intro Comic/Panels/Panel 5/panel 5 bg.png" id="15_f1107"]
+[ext_resource type="Texture2D" uid="uid://bskb2vixq7b3g" path="res://resources/Intro Comic/Panels/Panel 5/tiny launched.png" id="16_jji4u"]
+[ext_resource type="Texture2D" uid="uid://cknd5jwya60qq" path="res://resources/Intro Comic/Panels/Panel 5/panel 5 mask.png" id="17_dab11"]
+[ext_resource type="Texture2D" uid="uid://p3jd0eo36e3q" path="res://resources/Intro Comic/Panels/Panel 7/Tiny launched big.png" id="17_pnh4t"]
+[ext_resource type="Texture2D" uid="uid://dbvabn26qmyud" path="res://resources/Intro Comic/Panels/Panel 7/THOOMP.png" id="18_gw03a"]
+[ext_resource type="Texture2D" uid="uid://mu45hfbcq4tx" path="res://resources/Intro Comic/Panels/Panel 7/panel 7 masking.png" id="20_dthgb"]
+[ext_resource type="Texture2D" uid="uid://bpgltw6ndim2a" path="res://resources/Intro Comic/Panels/intro comic_020a.png" id="20_hvov7"]
+
+[sub_resource type="Animation" id="Animation_vql3w"]
+resource_name = "temp"
+length = 600.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(51),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"load_scene_test"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IntroComicAnimationPlayer:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 12.2401),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1.0, 3.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Comic:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.06667, 3, 9.5, 12.1938, 35.4333, 35.4986, 42.5738, 45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-92, -103), Vector2(-92, -103), Vector2(-593, -114), Vector2(-109, -722), Vector2(-579, -643), Vector2(-579, -643), Vector2(-579, -1106), Vector2(-116, -1476), Vector2(-354, -1485)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Comic:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.433333, 9.45, 9.5, 12.1938, 42.5667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(4, 4), Vector2(0.8, 0.8), Vector2(0.8, 0.8), Vector2(0.7, 0.7), Vector2(0.8, 0.8), Vector2(0.7, 0.7)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteOfIntroComic/Sprite2DOfIntroComic:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteOfIntroComic/Sprite2DOfIntroComic:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.433333, 9.45, 9.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(0.8, 0.8), Vector2(0.8, 0.8), Vector2(0.7, 0.7)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpriteOfIntroComic/Sprite2DOfIntroComic:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.06667, 3, 9.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-92, -103), Vector2(-92, -103), Vector2(-593, -114), Vector2(-109, -722)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Comic/Panel2/TinyPanel2/TinyFuse:offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3.03333, 3.86667, 4.73333, 5.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -10), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Comic/Panel2/Ring:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 5.6, 6.13333, 7.13815, 7.67149, 8.76728, 9.30061),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Comic/Panel2/Ring2:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 6.09754, 6.66667, 7.63569, 8.20482, 9.26482, 9.83395),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Comic/Panel2/TinyPanel2/TinyFuse:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 5.86667, 6, 6.46667, 7.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 1, 2, 4, 0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Comic/Panel2/TinyPanel2/TinyBody:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 7.4, 7.46667, 7.53333, 7.63333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Comic/Panel2/Phone:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 7.53333, 7.6, 7.66666, 7.73333, 7.8, 7.86666, 7.93333, 8, 8.06666, 8.13333, 8.2, 8.26667, 8.33333, 8.4, 8.46667, 8.53333, 8.6, 8.66667, 8.73334, 8.8, 8.86667, 8.93333, 9, 9.06667, 9.13334, 9.2, 9.26667, 9.33334, 9.4, 9.46667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 3, 4, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Comic/Panel2/TinyPanel2/TinyFootStomp:frame")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(7.55751, 7.63333, 7.73333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Comic/Panel2/TinyPanel2/TinyFootStomp:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 7.23333, 7.56667, 7.86667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Comic/Panel3/BigPhone:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(9.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Comic/Panel3/BigPhone:frame")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(9.5, 9.56667, 9.63333, 9.7, 9.76667, 9.83333, 9.9, 9.96667, 10.0333, 10.1, 10.1667, 10.2333, 10.3, 10.3667, 10.4333, 10.5, 10.5667, 10.6333, 10.7, 10.7667, 10.8289, 10.8956, 10.9622, 11.0289, 11.0956, 11.1622, 11.2289, 11.2956, 11.3622, 11.4289),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Comic/Panel3/BigPhone:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(9.5, 10.9667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Comic/Panel3/TinyHand:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 9.1, 10.9333, 10.9667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, false, true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Comic/Panel3/CatchEffect:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 10.9333, 10.9667, 11.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Comic/Panel3/CatchEffect:frame")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(10.9667, 11, 11.0333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Comic/Panel3/CatchEffect2:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 10.9333, 10.9667, 11.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Comic/Panel3/CatchEffect2:frame")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(10.9667, 11, 11.0333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Comic/Panel3/Catch:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 10.9333, 10.9575),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Comic/Panel3/Catch:offset")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(11.1667, 12.1),
+"transitions": PackedFloat32Array(0.133972, 1),
+"update": 0,
+"values": [Vector2(0, 1000), Vector2(0, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Comic/Panel4:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(12.2, 13, 13.7, 13.7667, 18.2667, 20.1, 24.8, 26.0333, 29.2333, 30.1417, 32.2667, 33.7106, 34.5106),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(323, -41), Vector2(323, -41), Vector2(111.25, -41), Vector2(111.25, -41), Vector2(111.25, -41), Vector2(550, -41), Vector2(550, -41), Vector2(111.25, -41), Vector2(111.25, -41), Vector2(550, -41), Vector2(550, -41), Vector2(323, -41), Vector2(323, -41)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Comic/Panel4/SpeechBubbles:visible")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0, 12.0667, 15.7, 17.8667, 21.5333, 24.0333, 26.2, 28.4667, 30.0977, 32.5977),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false, true, false, true, false, true, false]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Comic/Panel4/SpeechBubbles/SpeechBubbles:frame")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(15.4333, 21.5333, 25.9333, 30.0977),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Comic/Panel4/SpeechBubbles/Pictograms:frame")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(15.4333, 21.5333, 25.9333, 30.0977),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Comic/Panel4/SpeechBubbles:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0, 15.5666, 19.8, 21.2333, 26.2, 29.7977),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(1806, 1210), Vector2(1798.75, 1088.5), Vector2(1798.75, 1088.5), Vector2(648.75, 1158.5), Vector2(1798.75, 1088.5), Vector2(648.75, 1158.5)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Comic/Panel4/TinyPanel4/TinyFuse:frame")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0, 31.2333, 33.5667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 0, 3]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Comic/Panel4/TinyPanel4/TinyFuse:position")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(33.5667),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(205.381, -353.25)]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Comic/Panel5/PanelBG:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0, 37.9333, 38.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Comic/Panel5/PanelBG:frame")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(33.6667, 37.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Comic/Panel5/Panel5Masking:visible")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0, 37.9333, 38.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Comic/Panel5/TinyLaunched:visible")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0, 37.9, 39, 40.7333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("Comic/Panel5/TinyLaunched:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(38.9667, 40.6276),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(879.82, 484.75), Vector2(908.57, -332.75)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("Comic/Panel7/TinyLaunchedBIG:visible")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(20.0333, 43.1055, 46.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("Comic/Panel7/THOOMP:visible")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(19.8667, 43.1055, 47.3333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("Comic/Panel7/TinyLaunchedBIG:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(46.3834, 48.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-8.99989, -327.286), Vector2(8.14296, 501.286)]
+}
+
+[sub_resource type="Animation" id="Animation_u0jjc"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Comic:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Comic/Panel2/TinyPanel2/TinyFuse:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Comic/Panel2/Ring:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Comic/Panel2/Ring2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Comic/Panel2/TinyPanel2/TinyFuse:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Comic/Panel2/TinyPanel2/TinyBody:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Comic/Panel2/Phone:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Comic/Panel2/TinyPanel2/TinyFootStomp:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Comic/Panel2/TinyPanel2/TinyFootStomp:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Comic:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-109, -722)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Comic/Panel3/BigPhone:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Comic/Panel3/BigPhone:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Comic/Panel3/BigPhone:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Comic/Panel3/TinyHand:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Comic/Panel3/CatchEffect:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Comic/Panel3/CatchEffect:frame")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Comic/Panel3/CatchEffect2:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Comic/Panel3/CatchEffect2:frame")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("SpriteOfIntroComic/Sprite2DOfIntroComic:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Comic/Panel3/Catch:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Comic/Panel3/Catch:offset")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1000)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Comic/Panel4/SpeechBubbles:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Comic/Panel4:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(323, -41)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Comic/Panel4/SpeechBubbles/SpeechBubbles:frame")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Comic/Panel4/SpeechBubbles/Pictograms:frame")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Comic/Panel4/SpeechBubbles:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(4282, 1327)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Comic/Panel4/TinyPanel4/TinyFuse:frame")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Comic/Panel4/TinyPanel4/TinyFuse:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(205.381, -353.25)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Comic/Panel5/PanelBG:visible")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Comic/Panel5/PanelBG:frame")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Comic/Panel5/TinyLaunched:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Comic/Panel5/Panel5Masking:visible")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Comic/Panel5/TinyLaunched:position")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(879.82, 484.75)]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Comic/Panel7/TinyLaunchedBIG:visible")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Comic/Panel7/THOOMP:visible")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Comic/Panel7/TinyLaunchedBIG:position")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8.99989, -327.286)]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("IntroComicAnimationPlayer:speed_scale")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bjslu"]
+_data = {
+&"IntroCutscene": SubResource("Animation_vql3w"),
+&"RESET": SubResource("Animation_u0jjc")
+}
+
+[node name="IntroComic" type="Node2D"]
+script = ExtResource("1_2ryo7")
+
+[node name="Comic" type="Node2D" parent="."]
+position = Vector2(-109, -722)
+
+[node name="PanelsContents" type="Node2D" parent="Comic"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Comic/PanelsContents"]
+z_index = -3
+texture = ExtResource("2_hhrn2")
+centered = false
+
+[node name="Panel2" type="Node2D" parent="Comic"]
+
+[node name="Phone" type="Sprite2D" parent="Comic/Panel2"]
+position = Vector2(1717, 493)
+texture = ExtResource("6_51t2t")
+hframes = 4
+vframes = 2
+frame = 1
+
+[node name="Ring2" type="Sprite2D" parent="Comic/Panel2"]
+position = Vector2(1906, 438)
+texture = ExtResource("4_akh22")
+
+[node name="Ring" type="Sprite2D" parent="Comic/Panel2"]
+visible = false
+position = Vector2(1761, 323)
+texture = ExtResource("4_akh22")
+
+[node name="TinyPanel2" type="Node2D" parent="Comic/Panel2"]
+position = Vector2(2012.73, 581.818)
+
+[node name="TinyBody" type="Sprite2D" parent="Comic/Panel2/TinyPanel2"]
+material = ExtResource("4_u0jjc")
+texture = ExtResource("5_vql3w")
+hframes = 2
+vframes = 2
+
+[node name="TinyFuse" type="Sprite2D" parent="Comic/Panel2/TinyPanel2"]
+position = Vector2(145.455, -247.273)
+texture = ExtResource("6_bjslu")
+hframes = 2
+vframes = 3
+frame = 1
+
+[node name="TinyFootStomp" type="Sprite2D" parent="Comic/Panel2/TinyPanel2"]
+position = Vector2(7.27002, 138.182)
+texture = ExtResource("8_hvov7")
+vframes = 3
+
+[node name="Panel3" type="Node2D" parent="Comic"]
+
+[node name="GrayBack" type="Sprite2D" parent="Comic/Panel3"]
+z_index = -5
+position = Vector2(384, 1624)
+texture = ExtResource("6_hygxs")
+
+[node name="BigPhone" type="Sprite2D" parent="Comic/Panel3"]
+visible = false
+position = Vector2(-504.286, 888.571)
+scale = Vector2(3, 3)
+texture = ExtResource("6_51t2t")
+centered = false
+hframes = 4
+vframes = 2
+frame = 6
+
+[node name="TinyHand" type="Sprite2D" parent="Comic/Panel3"]
+z_index = -5
+position = Vector2(496, 1656)
+texture = ExtResource("7_51t2t")
+
+[node name="Catch" type="Sprite2D" parent="Comic/Panel3"]
+position = Vector2(476, 1316)
+texture = ExtResource("11_6g3pv")
+offset = Vector2(0, 1000)
+
+[node name="CatchEffect" type="Sprite2D" parent="Comic/Panel3"]
+position = Vector2(662.857, 1332.86)
+rotation = -0.397375
+scale = Vector2(2, 2)
+texture = ExtResource("12_dab11")
+vframes = 3
+
+[node name="CatchEffect2" type="Sprite2D" parent="Comic/Panel3"]
+position = Vector2(288.571, 1802.86)
+rotation = -1.20485
+scale = Vector2(2, 2)
+texture = ExtResource("12_dab11")
+flip_h = true
+vframes = 3
+frame = 1
+
+[node name="Panel4" type="Node2D" parent="Comic"]
+position = Vector2(323, -41)
+
+[node name="TinyPanel4" type="Node2D" parent="Comic/Panel4"]
+position = Vector2(1229, 1408)
+
+[node name="Panel4Contents" type="Sprite2D" parent="Comic/Panel4/TinyPanel4"]
+z_index = -6
+position = Vector2(-136, -216)
+texture = ExtResource("8_uiink")
+
+[node name="TinyFuse" type="Sprite2D" parent="Comic/Panel4/TinyPanel4"]
+z_index = 1
+position = Vector2(205.381, -353.25)
+scale = Vector2(2, 2)
+texture = ExtResource("6_bjslu")
+hframes = 2
+vframes = 3
+frame = 3
+
+[node name="SpeechBubbles" type="Node2D" parent="Comic/Panel4"]
+z_index = 1
+position = Vector2(4282, 1327)
+
+[node name="SpeechBubbles" type="Sprite2D" parent="Comic/Panel4/SpeechBubbles"]
+texture = ExtResource("14_dthgb")
+vframes = 6
+
+[node name="Pictograms" type="Sprite2D" parent="Comic/Panel4/SpeechBubbles"]
+texture = ExtResource("14_dthgb")
+vframes = 6
+frame = 2
+
+[node name="Panel5" type="Node2D" parent="Comic"]
+position = Vector2(757.68, 1609)
+
+[node name="PanelBG" type="Sprite2D" parent="Comic/Panel5"]
+visible = false
+texture = ExtResource("15_f1107")
+centered = false
+vframes = 2
+
+[node name="TinyLaunched" type="Sprite2D" parent="Comic/Panel5"]
+position = Vector2(879.82, 484.75)
+texture = ExtResource("16_jji4u")
+
+[node name="Panel5Masking" type="Sprite2D" parent="Comic/Panel5"]
+visible = false
+position = Vector2(789.82, 254.75)
+texture = ExtResource("17_dab11")
+
+[node name="Panel7" type="Node2D" parent="Comic"]
+position = Vector2(1949, 2343)
+
+[node name="TinyLaunchedBIG" type="Sprite2D" parent="Comic/Panel7"]
+visible = false
+position = Vector2(-8.99989, -327.286)
+texture = ExtResource("17_pnh4t")
+
+[node name="THOOMP" type="Sprite2D" parent="Comic/Panel7"]
+visible = false
+z_index = 1
+texture = ExtResource("18_gw03a")
+
+[node name="Panel7Masking" type="Sprite2D" parent="Comic/Panel7"]
+position = Vector2(-7.57132, 347)
+texture = ExtResource("20_dthgb")
+
+[node name="PanelsGutters" type="Node2D" parent="Comic"]
+
+[node name="PanelsAndGutters" type="Sprite2D" parent="Comic/PanelsGutters"]
+texture = ExtResource("1_hbts5")
+centered = false
+
+[node name="CRT" type="CanvasLayer" parent="."]
+script = ExtResource("3_hhrn2")
+resolution = Vector2(1280, 800)
+scan_line_amount = 0.1
+warp_amount = 0.3
+interference_amount = 0.6
+vignette_amount = 0.7
+vignette_intensity = 0.3
+aberation_amount = 0.05
+metadata/_custom_type_script = "uid://bghaddibpt6f1"
+
+[node name="IntroComicAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bjslu")
+}
+
+[node name="SpriteOfIntroComic" type="Node2D" parent="."]
+
+[node name="Sprite2DOfIntroComic" type="Sprite2D" parent="SpriteOfIntroComic"]
+position = Vector2(-92, -103)
+scale = Vector2(4, 4)
+texture = ExtResource("20_hvov7")
+centered = false

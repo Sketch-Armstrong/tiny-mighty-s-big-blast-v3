@@ -1,0 +1,660 @@
+[gd_scene load_steps=46 format=3 uid="uid://bkjyvdxuebm0n"]
+
+[ext_resource type="Script" uid="uid://bmp62hod205fu" path="res://resources/menus/main menu/main_menu.gd" id="1_qhkso"]
+[ext_resource type="Script" uid="uid://c5n73aagba6gk" path="res://resources/menus/main menu/button_manager.gd" id="3_iw0os"]
+[ext_resource type="Texture2D" uid="uid://deh5ulsgj4yhq" path="res://resources/menus/main menu/sprites/Buttons/Start/Start 1.png" id="3_j8vij"]
+[ext_resource type="Texture2D" uid="uid://effdkkfoxux5" path="res://resources/temporary assets/SCORES.png" id="3_sucl3"]
+[ext_resource type="Texture2D" uid="uid://upfc8rbwaltl" path="res://resources/menus/main menu/sprites/Buttons/Start/Start 3.png" id="4_bwclg"]
+[ext_resource type="Texture2D" uid="uid://bgpfn6hhns603" path="res://resources/menus/main menu/sprites/Buttons/Start/Start 2.png" id="5_23658"]
+[ext_resource type="PackedScene" uid="uid://byg3h2cdfnfn" path="res://resources/menus/transitions/transition attempt 2.tscn" id="5_btbi6"]
+[ext_resource type="PackedScene" uid="uid://drb12hb6ul2cr" path="res://resources/menus/options/options.tscn" id="6_e8su1"]
+[ext_resource type="Texture2D" uid="uid://dpie7q5dni8sy" path="res://resources/menus/main menu/sprites/Buttons/Options/Options 1.png" id="6_eujnn"]
+[ext_resource type="PackedScene" uid="uid://bdl6km1k10wdd" path="res://Test Scenes/control node testing.tscn" id="6_j88g7"]
+[ext_resource type="Script" uid="uid://bghaddibpt6f1" path="res://addons/crt/crt.gd" id="7_a52uf"]
+[ext_resource type="Texture2D" uid="uid://08t1mqsw326i" path="res://resources/menus/main menu/sprites/Buttons/Options/Options 3.png" id="7_gvlbf"]
+[ext_resource type="Texture2D" uid="uid://n6u88is4p0qe" path="res://resources/menus/main menu/sprites/Buttons/Options/Options 2.png" id="8_gbyhc"]
+[ext_resource type="Texture2D" uid="uid://b8qp8q5v5biuk" path="res://resources/menus/main menu/cityscape bg.png" id="8_j55om"]
+[ext_resource type="Texture2D" uid="uid://c0o7y7u504gyl" path="res://resources/menus/main menu/sprites/Buttons/Quit/Quit 1.png" id="9_8mio5"]
+[ext_resource type="Texture2D" uid="uid://dcmeg7kyg7r1j" path="res://resources/menus/main menu/sprites/Excalibur.png" id="9_b1wwd"]
+[ext_resource type="Texture2D" uid="uid://rw3vjpsiu71x" path="res://resources/menus/main menu/sprites/Clouds 1.png" id="10_kv0xo"]
+[ext_resource type="Texture2D" uid="uid://08jjk4tj5jdi" path="res://resources/menus/main menu/sprites/Buttons/Quit/Quit 3.png" id="10_sucl3"]
+[ext_resource type="Texture2D" uid="uid://btvsmhossifuw" path="res://resources/menus/main menu/sprites/Buttons/Quit/Quit 2.png" id="11_56eka"]
+[ext_resource type="Texture2D" uid="uid://b6e6cs58utkcc" path="res://resources/menus/main menu/sprites/Clouds 2.png" id="11_o5ce5"]
+[ext_resource type="Texture2D" uid="uid://b7ubnywmxn2y0" path="res://resources/menus/main menu/sprites/Buttons/Options/Options Focus Test.png" id="11_tflpo"]
+[ext_resource type="Texture2D" uid="uid://bdtc1a8uhwok1" path="res://resources/temporary assets/LEGAL.png" id="13_56eka"]
+[ext_resource type="Texture2D" uid="uid://dxjnsfcvya7jl" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 1.png" id="13_eujnn"]
+[ext_resource type="Texture2D" uid="uid://b5xgxqfnwknor" path="res://resources/menus/main menu/Tiny's Sprites/main menu tiny body sheet.png" id="13_w07cb"]
+[ext_resource type="Texture2D" uid="uid://dhyogygxv7lmw" path="res://resources/menus/main menu/Tiny's Sprites/hands default.png" id="14_1mfvg"]
+[ext_resource type="Texture2D" uid="uid://bsu3c4lej74" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 3.png" id="14_gvlbf"]
+[ext_resource type="Texture2D" uid="uid://bevdnbcs3ac14" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 2.png" id="15_gbyhc"]
+[ext_resource type="Texture2D" uid="uid://p1t8ks2o7yad" path="res://resources/menus/main menu/Tiny's Sprites/star.png" id="15_x3ts8"]
+[ext_resource type="PackedScene" uid="uid://bh50a1p6nl5sx" path="res://resources/menus/high score menu/high scores bulletin board.tscn" id="19_56eka"]
+[ext_resource type="Texture2D" uid="uid://b78584c7kmkrl" path="res://resources/HUD/style meter white backing backing.png" id="20_k5bj2"]
+[ext_resource type="Texture2D" uid="uid://doy7xj5rusgmy" path="res://resources/menus/main menu/sprites/Title/logo.png" id="25_gvlbf"]
+[ext_resource type="PackedScene" uid="uid://cff8kn466e7eb" path="res://Singletons/highscore handler.tscn" id="26_gbyhc"]
+
+[sub_resource type="Animation" id="Animation_e8su1"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer2/Node2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tiny/Body:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tiny/Hands:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tiny/Fuse:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Tiny/Body:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TinyAnimationPlayer:speed_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer2/HighScores:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-96, -800)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer2/Legal:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(376, 880)]
+}
+
+[sub_resource type="Animation" id="Animation_x3ts8"]
+resource_name = "frown"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tiny/Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_sucl3"]
+resource_name = "legal_enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/Legal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(376, 880), Vector2(376, 200)]
+}
+
+[sub_resource type="Animation" id="Animation_56eka"]
+resource_name = "legal_exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/Legal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(376, 200), Vector2(376, 880)]
+}
+
+[sub_resource type="Animation" id="Animation_kv0xo"]
+resource_name = "main_buttons_enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.12074202, 1),
+"update": 0,
+"values": [Vector2(720, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o5ce5"]
+resource_name = "main_buttons_exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.4, 1),
+"transitions": PackedFloat32Array(1, 2, 0.5, 0.19614597),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(15, 0), Vector2(-50, 0), Vector2(1400, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b1wwd"]
+resource_name = "options_menu_enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/Node2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.079660274, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1240, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qvej4"]
+resource_name = "options_menu_exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/Node2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.4, 1),
+"transitions": PackedFloat32Array(1, 2, 0.5, 0.19614597),
+"update": 0,
+"values": [Vector2(-1240, 0), Vector2(-1225, 0), Vector2(-1280, 0), Vector2(640, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iw0os"]
+resource_name = "scores_exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/HighScores:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-96, -800), Vector2(-96, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tflpo"]
+resource_name = "Scores_Enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/HighScores:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.19614597, 1),
+"update": 0,
+"values": [Vector2(-96, 0), Vector2(-96, -800)]
+}
+
+[sub_resource type="Animation" id="Animation_1mfvg"]
+resource_name = "tiny_enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tiny/Body:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.56666666, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 600), Vector2(0, -50), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tiny/Hands:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333337),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 600), Vector2(0, -50), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tiny/Fuse:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6666667, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 600), Vector2(0, -50), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TinyAnimationPlayer:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 1.5]
+}
+
+[sub_resource type="Animation" id="Animation_w07cb"]
+resource_name = "tiny_idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tiny/Body:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tiny/Hands:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tiny/Fuse:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3.0314324, 2.6390178),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o5ce5"]
+_data = {
+&"RESET": SubResource("Animation_e8su1"),
+&"frown": SubResource("Animation_x3ts8"),
+&"legal_enter": SubResource("Animation_sucl3"),
+&"legal_exit": SubResource("Animation_56eka"),
+&"main_buttons_enter": SubResource("Animation_kv0xo"),
+&"main_buttons_exit": SubResource("Animation_o5ce5"),
+&"options_menu_enter": SubResource("Animation_b1wwd"),
+&"options_menu_exit": SubResource("Animation_qvej4"),
+&"scores_enter": SubResource("Animation_iw0os"),
+&"scores_exit": SubResource("Animation_tflpo"),
+&"tiny_enter": SubResource("Animation_1mfvg"),
+&"tiny_idle": SubResource("Animation_w07cb")
+}
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_qhkso")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="CRT" type="CanvasLayer" parent="CanvasLayer2"]
+layer = 2
+script = ExtResource("7_a52uf")
+resolution = Vector2(1280, 800)
+scan_line_amount = 0.1
+warp_amount = 0.3
+interference_amount = 0.6
+vignette_amount = 0.7
+vignette_intensity = 0.3
+aberation_amount = 0.05
+metadata/_custom_type_script = "uid://bghaddibpt6f1"
+
+[node name="Node2D" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 0
+focus_neighbor_left = NodePath("ButtonManager/Start")
+focus_neighbor_top = NodePath("ButtonManager/Scores")
+focus_neighbor_right = NodePath("ButtonManager/Start")
+focus_neighbor_bottom = NodePath("ButtonManager/Legal")
+focus_next = NodePath("ButtonManager/Scores")
+focus_previous = NodePath("ButtonManager/Scores")
+focus_mode = 2
+
+[node name="ButtonManager" type="VBoxContainer" parent="CanvasLayer2/Node2D"]
+z_index = 1
+y_sort_enabled = true
+layout_mode = 0
+offset_left = 448.0
+offset_top = 72.0
+offset_right = 1192.0
+offset_bottom = 733.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+focus_mode = 2
+script = ExtResource("3_iw0os")
+
+[node name="Scores" type="TextureButton" parent="CanvasLayer2/Node2D/ButtonManager"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+mouse_filter = 1
+texture_normal = ExtResource("3_sucl3")
+texture_pressed = ExtResource("3_sucl3")
+texture_hover = ExtResource("3_sucl3")
+texture_focused = ExtResource("11_tflpo")
+
+[node name="Start" type="TextureButton" parent="CanvasLayer2/Node2D/ButtonManager"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+texture_normal = ExtResource("3_j8vij")
+texture_pressed = ExtResource("4_bwclg")
+texture_hover = ExtResource("5_23658")
+texture_focused = ExtResource("11_tflpo")
+
+[node name="Options" type="TextureButton" parent="CanvasLayer2/Node2D/ButtonManager"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+mouse_filter = 1
+texture_normal = ExtResource("6_eujnn")
+texture_pressed = ExtResource("7_gvlbf")
+texture_hover = ExtResource("8_gbyhc")
+texture_focused = ExtResource("11_tflpo")
+
+[node name="Quit" type="TextureButton" parent="CanvasLayer2/Node2D/ButtonManager"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+mouse_filter = 1
+texture_normal = ExtResource("9_8mio5")
+texture_pressed = ExtResource("10_sucl3")
+texture_hover = ExtResource("11_56eka")
+texture_focused = ExtResource("11_tflpo")
+
+[node name="Legal" type="TextureButton" parent="CanvasLayer2/Node2D/ButtonManager"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+mouse_filter = 1
+texture_normal = ExtResource("13_56eka")
+texture_pressed = ExtResource("13_56eka")
+texture_hover = ExtResource("13_56eka")
+texture_focused = ExtResource("11_tflpo")
+
+[node name="Node2D2" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Options" parent="CanvasLayer2/Node2D2" instance=ExtResource("6_e8su1")]
+position = Vector2(1368, -24)
+
+[node name="BackButton" type="TextureButton" parent="CanvasLayer2/Node2D2"]
+layout_mode = 0
+offset_left = 2168.0
+offset_top = 672.0
+offset_right = 2489.0
+offset_bottom = 801.0
+mouse_filter = 1
+texture_normal = ExtResource("13_eujnn")
+texture_pressed = ExtResource("14_gvlbf")
+texture_hover = ExtResource("15_gbyhc")
+texture_focused = ExtResource("20_k5bj2")
+
+[node name="HighScores2DNode" type="Node2D" parent="CanvasLayer2"]
+position = Vector2(-96, -800)
+
+[node name="Legal" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 376.0
+offset_top = 880.0
+offset_right = 416.0
+offset_bottom = 920.0
+
+[node name="LegalBackButton" type="TextureButton" parent="CanvasLayer2/Legal"]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 464.0
+offset_right = 889.0
+offset_bottom = 593.0
+mouse_filter = 1
+texture_normal = ExtResource("13_eujnn")
+texture_pressed = ExtResource("14_gvlbf")
+texture_hover = ExtResource("15_gbyhc")
+texture_focused = ExtResource("20_k5bj2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Legal"]
+layout_mode = 0
+offset_right = 496.0
+offset_bottom = 338.0
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+text = "LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL "
+
+[node name="HighScores" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -96.0
+offset_top = -800.0
+offset_right = -56.0
+offset_bottom = -760.0
+
+[node name="HighScoreHandler" parent="CanvasLayer2/HighScores" instance=ExtResource("26_gbyhc")]
+position = Vector2(680, 80)
+
+[node name="ScoreBackButton" type="TextureButton" parent="CanvasLayer2/HighScores"]
+layout_mode = 0
+offset_left = 992.0
+offset_top = 664.0
+offset_right = 1313.0
+offset_bottom = 793.0
+mouse_filter = 1
+texture_normal = ExtResource("13_eujnn")
+texture_pressed = ExtResource("14_gvlbf")
+texture_hover = ExtResource("15_gbyhc")
+texture_focused = ExtResource("11_tflpo")
+
+[node name="BulletinBoard" parent="CanvasLayer2/HighScores" instance=ExtResource("19_56eka")]
+z_index = -1
+position = Vector2(731, 408)
+
+[node name="Node2D" parent="." instance=ExtResource("5_btbi6")]
+visible = false
+y_sort_enabled = true
+
+[node name="Control" parent="." instance=ExtResource("6_j88g7")]
+visible = false
+z_index = 5
+z_as_relative = false
+custom_minimum_size = Vector2(1200, 800)
+offset_right = 1200.0
+offset_bottom = 800.0
+mouse_filter = 1
+
+[node name="Background" type="CanvasGroup" parent="."]
+z_index = -1
+
+[node name="WhiteSky" type="ColorRect" parent="Background"]
+z_index = -1
+offset_right = 1280.0
+offset_bottom = 800.0
+
+[node name="Excalibur" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(880, 560)
+texture = ExtResource("9_b1wwd")
+
+[node name="Parallax2D" type="Parallax2D" parent="Background"]
+scroll_offset = Vector2(0, 900)
+repeat_size = Vector2(2480, 0)
+autoscroll = Vector2(125, 0)
+
+[node name="City1" type="Sprite2D" parent="Background/Parallax2D"]
+position = Vector2(392, -28)
+texture = ExtResource("8_j55om")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Background"]
+z_index = -1
+scroll_offset = Vector2(-600, 850)
+repeat_size = Vector2(2480, 0)
+autoscroll = Vector2(75, 0)
+
+[node name="City2" type="Sprite2D" parent="Background/Parallax2D2"]
+position = Vector2(392, -28)
+texture = ExtResource("8_j55om")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Background"]
+scroll_offset = Vector2(0, 275)
+repeat_size = Vector2(2480, 0)
+autoscroll = Vector2(20, 0)
+
+[node name="Clouds2" type="Sprite2D" parent="Background/Parallax2D4"]
+texture = ExtResource("11_o5ce5")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Background"]
+scroll_offset = Vector2(0, 120)
+repeat_size = Vector2(2480, 0)
+autoscroll = Vector2(25, 0)
+
+[node name="Clouds1" type="Sprite2D" parent="Background/Parallax2D3"]
+texture = ExtResource("10_kv0xo")
+
+[node name="Tiny" type="CanvasGroup" parent="."]
+position = Vector2(360, 744)
+
+[node name="Body" type="Sprite2D" parent="Tiny"]
+texture = ExtResource("13_w07cb")
+hframes = 2
+frame = 1
+
+[node name="Hands" type="Sprite2D" parent="Tiny"]
+position = Vector2(8, 56)
+texture = ExtResource("14_1mfvg")
+
+[node name="Fuse" type="Sprite2D" parent="Tiny"]
+z_index = -1
+position = Vector2(-160, -304)
+texture = ExtResource("15_x3ts8")
+
+[node name="MenusAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_o5ce5")
+}
+speed_scale = 1.5
+
+[node name="TinyAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_o5ce5")
+}
+speed_scale = 1.5
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(384, 288)
+texture = ExtResource("25_gvlbf")
+
+[connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Scores" to="." method="_on_scores_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Legal" to="." method="_on_legal_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Node2D2/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Legal/LegalBackButton" to="." method="_on_legal_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/HighScores/ScoreBackButton" to="." method="_on_score_back_button_pressed"]
+[connection signal="BulletinBackPressed" from="CanvasLayer2/HighScores/BulletinBoard" to="." method="_on_score_back_button_pressed"]
+[connection signal="BulletinClearPressed" from="CanvasLayer2/HighScores/BulletinBoard" to="CanvasLayer2/HighScores/HighScoreHandler" method="_on_clear_button_pressed"]

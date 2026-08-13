@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://c457u3guua7rm"]
+
+[ext_resource type="Script" uid="uid://cla7tx5fm8wnn" path="res://resources/menus/high score menu/high_scores_panel.gd" id="1_j67yj"]
+
+[node name="HighScores" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_j67yj")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 800.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_left = 960.0
+offset_right = 1280.0
+offset_bottom = 800.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Label 1"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Label 2"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Label 3"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Label 4"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Label 5"
+fit_content = true

@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://hm707k6uixju"]
+
+[ext_resource type="Script" uid="uid://dgj7ccx6yewrl" path="res://resources/Hazards/Scenes/hazard_b.gd" id="1_stiiq"]
+[ext_resource type="Texture2D" uid="uid://djmw5vhwm1sxa" path="res://resources/Hazards/Sprites/temp hazard rock sprite.png" id="2_8hqr8"]
+[ext_resource type="Material" uid="uid://cjwh072dhg4bd" path="res://Shaders/Tests/shader_test.tres" id="2_a8xfw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8hqr8"]
+radius = 25.0
+
+[sub_resource type="Animation" id="Animation_10tql"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_coi2i"]
+resource_name = "spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ydfuv"]
+_data = {
+&"RESET": SubResource("Animation_10tql"),
+&"spin": SubResource("Animation_coi2i")
+}
+
+[node name="HazardB" type="RigidBody2D"]
+position = Vector2(80, 96)
+collision_layer = 128
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_stiiq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8hqr8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+material = ExtResource("2_a8xfw")
+texture = ExtResource("2_8hqr8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ydfuv")
+}

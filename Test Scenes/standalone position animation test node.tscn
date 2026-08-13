@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://dca0mi8fsqn8x"]
+
+[ext_resource type="Script" uid="uid://ce261dkrh5r4b" path="res://Test Scenes/standalone_position_animation_test_node.gd" id="1_d6hef"]
+[ext_resource type="Texture2D" uid="uid://cbg0j8t2u2fr6" path="res://resources/character/sprites/Berlioz temp.png" id="1_yvov4"]
+[ext_resource type="Texture2D" uid="uid://cpwqenxmyefbu" path="res://resources/background/sprites/Tiny/tiny mighty idle sprite.png" id="2_d6hef"]
+
+[sub_resource type="Animation" id="Animation_3xo3g"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("moving sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 248)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("stationary sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jy0u8"]
+resource_name = "orbit"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("moving sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(264, 0), Vector2(0, 248), Vector2(-256, 0), Vector2(0, -264), Vector2(264, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("stationary sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_312kx"]
+_data = {
+&"RESET": SubResource("Animation_3xo3g"),
+&"orbit": SubResource("Animation_jy0u8")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_d6hef")
+
+[node name="stationary sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_yvov4")
+
+[node name="moving sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 248)
+texture = ExtResource("2_d6hef")
+
+[node name="ChildAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_312kx")
+}

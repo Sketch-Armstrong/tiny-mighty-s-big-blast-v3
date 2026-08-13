@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://chdffxth257uw"]
+
+[ext_resource type="Texture2D" uid="uid://bwy1mgobb0fff" path="res://resources/temporary assets/lilac stay classsy (vectorized).png.svg" id="1_ac12k"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(878, 1361.7959)
+scale = Vector2(5.479592, 5.479592)
+texture = ExtResource("1_ac12k")

@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0ojnesmismsn"]
+
+[ext_resource type="Texture2D" uid="uid://chusvukxehrl5" path="res://resources/Hazards/Sprites/droppers.png" id="1_3cawo"]
+[ext_resource type="Script" uid="uid://ul2dbrr8gfrk" path="res://resources/Hazards/Scenes/hazards.gd" id="1_leci4"]
+[ext_resource type="PackedScene" uid="uid://th3tpqh83vwn" path="res://resources/Hazards/Scenes/hazard_a_test_subscene.tscn" id="2_mh3pq"]
+[ext_resource type="PackedScene" uid="uid://gutmd6uh2gd3" path="res://resources/Hazards/Scenes/hazard_coin.tscn" id="4_2dhwo"]
+[ext_resource type="PackedScene" uid="uid://bgyb1rj58ew20" path="res://resources/Hazards/Scenes/bouncy_coin_shell.tscn" id="4_as1as"]
+[ext_resource type="PackedScene" uid="uid://hm707k6uixju" path="res://resources/Hazards/Scenes/hazard_b_test_subscene.tscn" id="4_pyxcp"]
+[ext_resource type="Texture2D" uid="uid://cbg0j8t2u2fr6" path="res://resources/character/sprites/Berlioz temp.png" id="5_v0y56"]
+[ext_resource type="Script" uid="uid://bk04ce6ht4o15" path="res://resources/Hazards/Scenes/coin_timer.gd" id="8_tv06h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtp5h"]
+size = Vector2(1200, 200)
+
+[node name="Hazards" type="Node2D"]
+script = ExtResource("1_leci4")
+hazard_C_gravity = 2.0
+hazard_one_spawn = Vector2(900, 0)
+
+[node name="HazardA" parent="." instance=ExtResource("2_mh3pq")]
+position = Vector2(1360, 344)
+
+[node name="HazardB" parent="." instance=ExtResource("4_pyxcp")]
+position = Vector2(1360, 120)
+collision_layer = 132
+gravity_scale = 10.0
+
+[node name="BouncyCoinShell" parent="." instance=ExtResource("4_as1as")]
+visible = false
+position = Vector2(300, 0)
+
+[node name="HazardCoin" parent="." instance=ExtResource("4_2dhwo")]
+
+[node name="background scenery sprite" type="Sprite2D" parent="."]
+visible = false
+z_index = -3
+position = Vector2(592, 80)
+texture = ExtResource("1_3cawo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(600, 700)
+shape = SubResource("RectangleShape2D_vtp5h")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(632, 756)
+scale = Vector2(14.25, 2.6875)
+texture = ExtResource("5_v0y56")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
+autostart = true
+
+[node name="CoinTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+script = ExtResource("8_tv06h")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CoinTimer" to="." method="_on_coin_timer_timeout"]

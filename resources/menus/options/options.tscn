@@ -1,0 +1,228 @@
+[gd_scene load_steps=7 format=3 uid="uid://drb12hb6ul2cr"]
+
+[ext_resource type="Script" uid="uid://d1v53fcgqch8j" path="res://resources/menus/options/options.gd" id="1_1ssaa"]
+[ext_resource type="Script" uid="uid://do6jlh7g8f433" path="res://input_button.gd" id="3_qsv3m"]
+[ext_resource type="Texture2D" uid="uid://kxlgtobkkp6g" path="res://resources/menus/input settings/input settings backing texture.png" id="3_rt4v4"]
+[ext_resource type="FontFile" uid="uid://dnav6lhamfw13" path="res://resources/fonts/Bangers-Regular.ttf" id="4_g2gsc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vh1wk"]
+texture = ExtResource("3_rt4v4")
+texture_margin_left = 25.0
+texture_margin_top = 30.0
+texture_margin_right = 35.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vh1wk"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Options" type="Node2D"]
+script = ExtResource("1_1ssaa")
+
+[node name="Control" type="Control" parent="."]
+z_index = 2
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_mode = 2
+focus_behavior_recursive = 2
+
+[node name="InputSettings" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 653.0
+offset_top = 427.0
+offset_right = 653.0
+offset_bottom = 427.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+focus_behavior_recursive = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="InputSettings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -256.0
+offset_right = 368.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vh1wk")
+
+[node name="ActionList" type="VBoxContainer" parent="InputSettings/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UpRemapButton" type="Button" parent="InputSettings"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = -311.0
+offset_right = 333.0
+offset_bottom = -303.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+script = ExtResource("3_qsv3m")
+action = "tiny_move_up"
+action_event_index = 11
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="Label" type="Label" parent="InputSettings/UpRemapButton"]
+layout_mode = 0
+offset_left = -111.0
+offset_right = -71.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "up"
+
+[node name="DownRemapButton" type="Button" parent="InputSettings"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = -226.0
+offset_right = 333.0
+offset_bottom = -218.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+script = ExtResource("3_qsv3m")
+action = "tiny_move_down"
+action_event_index = 12
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="Label" type="Label" parent="InputSettings/DownRemapButton"]
+layout_mode = 0
+offset_left = -111.0
+offset_right = -68.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "down"
+
+[node name="LeftRemapButton" type="Button" parent="InputSettings"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = -143.0
+offset_right = 333.0
+offset_bottom = -135.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+script = ExtResource("3_qsv3m")
+action = "tiny_move_left"
+action_event_index = 13
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="Label" type="Label" parent="InputSettings/LeftRemapButton"]
+layout_mode = 0
+offset_left = -111.0
+offset_right = -71.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "left
+"
+
+[node name="RightRemapButton" type="Button" parent="InputSettings"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = -67.0
+offset_right = 333.0
+offset_bottom = -59.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+script = ExtResource("3_qsv3m")
+action = "tiny_move_right"
+action_event_index = 14
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="Label" type="Label" parent="InputSettings/RightRemapButton"]
+layout_mode = 0
+offset_left = -111.0
+offset_right = -71.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "right"
+
+[node name="TauntRemapButton" type="Button" parent="InputSettings"]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 333.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+script = ExtResource("3_qsv3m")
+action = "taunt"
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="Label" type="Label" parent="InputSettings/TauntRemapButton"]
+layout_mode = 0
+offset_left = -111.0
+offset_right = -68.0
+offset_bottom = 23.0
+text = "taunt"
+
+[node name="StartRemapButton" type="Button" parent="InputSettings"]
+visible = false
+layout_mode = 0
+offset_left = -293.0
+offset_top = 56.0
+offset_right = 15.0
+offset_bottom = 64.0
+script = ExtResource("3_qsv3m")
+action = "start"
+action_event_index = 6
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="Label" type="Label" parent="InputSettings/StartRemapButton"]
+layout_mode = 0
+offset_left = -111.0
+offset_right = -71.0
+offset_bottom = 23.0
+text = "start"
+
+[node name="MarginContainer" type="MarginContainer" parent="InputSettings"]
+visible = false
+layout_mode = 0
+offset_left = 25.0
+offset_top = -154.0
+offset_right = 333.0
+offset_bottom = 56.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ResetButton" type="Button" parent="InputSettings"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 60.0
+offset_right = 333.0
+offset_bottom = 93.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+theme_override_fonts/font = ExtResource("4_g2gsc")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vh1wk")
+text = "Reset to default"
+
+[node name="Button" type="Button" parent="InputSettings"]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 25.0
+offset_top = 97.0
+offset_right = 333.0
+offset_bottom = 128.0
+focus_neighbor_left = NodePath("../PanelContainer/ActionList")
+theme_override_colors/font_focus_color = Color(0.9490196, 0, 0.9490196, 1)
+text = "back placeholder"
+
+[connection signal="done_remapping" from="InputSettings/UpRemapButton" to="." method="_on_up_remap_button_done_remapping"]
+[connection signal="done_remapping" from="InputSettings/DownRemapButton" to="." method="_on_down_remap_button_done_remapping"]
+[connection signal="done_remapping" from="InputSettings/LeftRemapButton" to="." method="_on_left_remap_button_done_remapping"]
+[connection signal="done_remapping" from="InputSettings/RightRemapButton" to="." method="_on_right_remap_button_done_remapping"]
+[connection signal="done_remapping" from="InputSettings/TauntRemapButton" to="." method="_on_taunt_remap_button_done_remapping"]
+[connection signal="pressed" from="InputSettings/ResetButton" to="." method="_on_reset_button_pressed"]

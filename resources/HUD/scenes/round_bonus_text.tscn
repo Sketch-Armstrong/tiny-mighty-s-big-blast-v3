@@ -1,0 +1,129 @@
+[gd_scene load_steps=6 format=3 uid="uid://brm3svg6n4770"]
+
+[ext_resource type="Script" uid="uid://2qctdt222qg6" path="res://resources/HUD/scenes/round_bonus_text.gd" id="1_l0doe"]
+[ext_resource type="FontFile" uid="uid://cmb0cakpnob6w" path="res://resources/fonts/MetalMania-Regular.ttf" id="2_71ydn"]
+
+[sub_resource type="Animation" id="Animation_71ydn"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/RoundBonusTextControl/RoundBonusTextLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/RoundBonusTextControl/RoundBonusTextLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_l60dg"]
+resource_name = "show_bonus"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/RoundBonusTextControl/RoundBonusTextLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 1.2333333, 1.4666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/RoundBonusTextControl/RoundBonusTextLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.73333335, 1.5),
+"transitions": PackedFloat32Array(0.1830108, 3.8637443, 1),
+"update": 0,
+"values": [200.0, 0.0, -200.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hw687"]
+_data = {
+&"RESET": SubResource("Animation_71ydn"),
+&"show_bonus": SubResource("Animation_l60dg")
+}
+
+[node name="RoundBonusText" type="Node2D"]
+script = ExtResource("1_l0doe")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="RoundBonusTextControl" type="Control" parent="Node2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RoundBonusTextLabel" type="RichTextLabel" parent="Node2D/RoundBonusTextControl"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.6000001
+anchor_top = -1.6
+anchor_right = 3.4
+anchor_bottom = 1.1750001
+offset_left = -104.0
+offset_top = -69.5
+offset_right = 112.0
+offset_bottom = 69.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/normal_font = ExtResource("2_71ydn")
+theme_override_font_sizes/normal_font_size = 100
+text = "123456789."
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoundBonusTextAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hw687")
+}

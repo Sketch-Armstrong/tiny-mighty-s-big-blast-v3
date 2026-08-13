@@ -1,0 +1,213 @@
+[gd_scene load_steps=6 format=3 uid="uid://dli57wv5ewf6s"]
+
+[ext_resource type="Script" uid="uid://bqb5oq7j7d5vp" path="res://resources/non standard/caution_tape_for_coinsplosion.gd" id="1_cwd3f"]
+[ext_resource type="Texture2D" uid="uid://rclwqbyfjacs" path="res://resources/non standard/caution tape sprite with borders.png" id="2_cwd3f"]
+
+[sub_resource type="Animation" id="Animation_cwd3f"]
+resource_name = "RESET"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CautionTape2D:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CautionTape2D2:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CautionTape2D3:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CautionTape2D3/TapeParallax2D/CautionTapeSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CautionTape2D/TapeParallax2D/CautionTapeSprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CautionTape2D2/TapeParallax2D/CautionTapeSprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0u0s2"]
+resource_name = "caution_tape"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CautionTape2D2:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.16666667, 0.8333333, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 2.0, 1.0, 1.0, 2.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CautionTape2D2/TapeParallax2D/CautionTapeSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CautionTape2D:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.16666667, 0.8333333, 0.9, 1),
+"transitions": PackedFloat32Array(1.2745605, 0.68302, 1, 1.624505, 0.70710677, 1),
+"update": 0,
+"values": [0.0, 2.0, 1.0, 1.0, 2.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CautionTape2D/TapeParallax2D/CautionTapeSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CautionTape2D3:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.16666667, 0.8333333, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 2.0, 1.0, 1.0, 2.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CautionTape2D3/TapeParallax2D/CautionTapeSprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0u0s2"]
+_data = {
+&"RESET": SubResource("Animation_cwd3f"),
+&"caution_tape": SubResource("Animation_0u0s2")
+}
+
+[node name="CautionTapeImpact" type="Node2D"]
+script = ExtResource("1_cwd3f")
+caution_rotation = -0.1
+
+[node name="CautionAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0u0s2")
+}
+
+[node name="CautionTape2D2" type="Node2D" parent="."]
+editor_description = "Top"
+z_index = -1
+position = Vector2(500, -100)
+
+[node name="TapeParallax2D" type="Parallax2D" parent="CautionTape2D2"]
+repeat_size = Vector2(1728, 0)
+autoscroll = Vector2(50, 0)
+repeat_times = 3
+ignore_camera_scroll = true
+
+[node name="CautionTapeSprite" type="Sprite2D" parent="CautionTape2D2/TapeParallax2D"]
+visible = false
+texture = ExtResource("2_cwd3f")
+
+[node name="CautionTape2D" type="Node2D" parent="."]
+editor_description = "Center"
+
+[node name="TapeParallax2D" type="Parallax2D" parent="CautionTape2D"]
+repeat_size = Vector2(1728, 0)
+autoscroll = Vector2(-50, 0)
+repeat_times = 3
+ignore_camera_scroll = true
+
+[node name="CautionTapeSprite" type="Sprite2D" parent="CautionTape2D/TapeParallax2D"]
+visible = false
+texture = ExtResource("2_cwd3f")
+
+[node name="CautionTape2D3" type="Node2D" parent="."]
+editor_description = "Bottom"
+z_index = -2
+position = Vector2(-500, 100)
+
+[node name="TapeParallax2D" type="Parallax2D" parent="CautionTape2D3"]
+repeat_size = Vector2(1728, 0)
+autoscroll = Vector2(50, 0)
+repeat_times = 3
+ignore_camera_scroll = true
+
+[node name="CautionTapeSprite" type="Sprite2D" parent="CautionTape2D3/TapeParallax2D"]
+visible = false
+texture = ExtResource("2_cwd3f")

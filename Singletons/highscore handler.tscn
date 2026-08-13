@@ -1,0 +1,530 @@
+[gd_scene load_steps=11 format=3 uid="uid://cff8kn466e7eb"]
+
+[ext_resource type="Script" uid="uid://cla7tx5fm8wnn" path="res://resources/menus/high score menu/high_scores_panel.gd" id="2_056gn"]
+[ext_resource type="FontFile" uid="uid://bob38lm8684j4" path="res://resources/fonts/BitcountPropDouble-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="2_iwmtd"]
+[ext_resource type="FontFile" uid="uid://cmb0cakpnob6w" path="res://resources/fonts/MetalMania-Regular.ttf" id="2_pvkmt"]
+[ext_resource type="Texture2D" uid="uid://bj615kqutwboc" path="res://resources/temporary assets/highscores gutter 1 idea.png" id="3_rt4oo"]
+[ext_resource type="Script" uid="uid://xja6w2gy36vk" path="res://Singletons/save_panel.gd" id="3_wnx2b"]
+[ext_resource type="Texture2D" uid="uid://crmdf45m45frc" path="res://resources/temporary assets/highscores gutter 2 idea.png" id="4_pvkmt"]
+[ext_resource type="Script" uid="uid://by5exe7x8250u" path="res://Singletons/bonuses_panel.gd" id="4_rsr31"]
+[ext_resource type="PackedScene" uid="uid://c8xdrejwy7770" path="res://resources/menus/high score menu/high_scores_initials_inputter.tscn" id="6_2uy8k"]
+
+[sub_resource type="GDScript" id="GDScript_056gn"]
+script/source = "extends Node2D
+
+#var typed_dict_reference_array: Array[int] = [0, 1, 2, 3, 4]
+#var name_entry: String = \"\"
+#var typed_dict_test: Dictionary[int, String] = {
+	#typed_dict_reference_array[0] : name_entry
+#}
+
+@onready var Score_End_Label1 = $HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel
+@onready var Score_End_Label2 = $HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel2
+@onready var Score_End_Label3 = $HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel3
+@onready var Score_End_Label4 = $HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel4
+@onready var Score_End_Label5 = $HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel5
+
+@onready var Score_Title_Label1 = $HighScoresTitleScreen/ScoresLabels/MarginContainer/VBoxContainer/RichTextLabel
+@onready var Score_Title_Label2 = $HighScoresTitleScreen/ScoresLabels/MarginContainer/VBoxContainer/RichTextLabel2
+@onready var Score_Title_Label3 = $HighScoresTitleScreen/ScoresLabels/MarginContainer/VBoxContainer/RichTextLabel3
+@onready var Score_Title_Label4 = $HighScoresTitleScreen/ScoresLabels/MarginContainer/VBoxContainer/RichTextLabel4
+@onready var Score_Title_Label5 = $HighScoresTitleScreen/ScoresLabels/MarginContainer/VBoxContainer/RichTextLabel5
+
+@onready var Score_End_Initials1 = $HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer/RichTextLabel
+@onready var Score_End_Initials2 = $HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer/RichTextLabel2
+@onready var Score_End_Initials3 = $HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer/RichTextLabel3
+@onready var Score_End_Initials4 = $HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer/RichTextLabel4
+@onready var Score_End_Initials5 = $HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer/RichTextLabel5
+
+@onready var Score_Title_Iniitals1 = $HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer/RichTextLabel
+@onready var Score_Title_Iniitals2 = $HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer/RichTextLabel2
+@onready var Score_Title_Iniitals3 = $HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer/RichTextLabel3
+@onready var Score_Title_Iniitals4 = $HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer/RichTextLabel4
+@onready var Score_Title_Iniitals5 = $HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer/RichTextLabel5
+
+@onready var scores_title_screen = $HighScoresTitleScreen
+
+
+
+
+
+
+
+
+
+
+
+@warning_ignore(\"unused_parameter\")
+func _process(delta: float) -> void:
+	#_equalize_labels()
+	pass
+
+func _ready() -> void:
+	pass
+
+func save_game_now():
+	GlobalHighscoreHandler.save_game()
+
+func load_game_now():
+	pass
+
+func _on_save_button_pressed() -> void:
+	save_game_now()
+
+
+func _on_load_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_clear_button_pressed() -> void:
+	GlobalHighscoreHandler.clear_highscores()
+	print(\"Clearing...\")
+	await get_tree().create_timer(2.0).timeout
+	
+		## you need to add a waiting animation for this. Might want to add failsafe buffer
+		## animations to the other save/load areas, too
+		##
+	
+	_equalize_labels()
+	print(\"Cleared! :)\")
+
+func hide_end_highscores_panel() -> void:
+	$HighScoresPanel.hide()
+	$Sprite2D2.hide()
+
+func show_end_highscores_panel() -> void:
+	$HighScoresPanel.show()
+	$Sprite2D2.show()
+
+func show_title_scores_panels() -> void:
+	_equalize_labels()
+	await get_tree().process_frame
+	scores_title_screen.show()
+	
+
+func hide_title_scores_panels() -> void:
+	scores_title_screen.hide()
+
+func _equalize_labels() -> void:
+	Score_Title_Label1.text = Score_End_Label1.text
+	Score_Title_Label2.text = Score_End_Label2.text
+	Score_Title_Label3.text = Score_End_Label3.text
+	Score_Title_Label4.text = Score_End_Label4.text
+	Score_Title_Label5.text = Score_End_Label5.text
+	
+	Score_Title_Iniitals1.text = Score_End_Initials1.text
+	Score_Title_Iniitals2.text = Score_End_Initials2.text
+	Score_Title_Iniitals3.text = Score_End_Initials3.text
+	Score_Title_Iniitals4.text = Score_End_Initials4.text
+	Score_Title_Iniitals5.text = Score_End_Initials5.text
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2uy8k"]
+
+[node name="HighScoreHandler" type="Node2D"]
+script = SubResource("GDScript_056gn")
+
+[node name="HighScoresPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 64.0
+offset_right = 64.0
+mouse_filter = 2
+mouse_behavior_recursive = 2
+script = ExtResource("2_056gn")
+
+[node name="Control" type="Control" parent="HighScoresPanel"]
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 800.0
+mouse_filter = 2
+mouse_behavior_recursive = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HighScoresPanel/Control"]
+layout_mode = 0
+offset_left = 952.0
+offset_right = 1120.0
+offset_bottom = 470.0
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2uy8k")
+
+[node name="MarginContainer" type="MarginContainer" parent="HighScoresPanel/Control/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HighScoresPanel/Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/separation = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 1"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 2"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 3"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 4"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 5"
+fit_content = true
+
+[node name="PanelContainer2" type="PanelContainer" parent="HighScoresPanel/Control"]
+layout_mode = 0
+offset_left = 1102.0
+offset_right = 1270.0
+offset_bottom = 470.0
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2uy8k")
+
+[node name="MarginContainer" type="MarginContainer" parent="HighScoresPanel/Control/PanelContainer2"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/separation = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 1"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 2"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 3"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 4"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 5"
+fit_content = true
+
+[node name="BonusesPanel" type="Control" parent="HighScoresPanel"]
+anchors_preset = 0
+offset_left = 1008.0
+offset_top = 568.0
+offset_right = 1008.0
+offset_bottom = 568.0
+script = ExtResource("4_rsr31")
+
+[node name="CoinsLabel" type="RichTextLabel" parent="HighScoresPanel/BonusesPanel"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -72.0
+offset_right = 144.0
+offset_bottom = 8.0
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 50
+text = "test"
+
+[node name="TimerLabel" type="RichTextLabel" parent="HighScoresPanel/BonusesPanel"]
+layout_mode = 0
+offset_left = -8.0
+offset_right = 152.0
+offset_bottom = 64.0
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 50
+text = "test"
+
+[node name="CoinTimerLabel" type="RichTextLabel" parent="HighScoresPanel/BonusesPanel"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 72.0
+offset_right = 152.0
+offset_bottom = 136.0
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 50
+text = "test"
+
+[node name="RoundsLabel" type="RichTextLabel" parent="HighScoresPanel/BonusesPanel"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 144.0
+offset_right = 168.0
+offset_bottom = 208.0
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 50
+text = "test"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(1432, 440)
+texture = ExtResource("3_rt4oo")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1416, 440)
+rotation = -0.034906585
+texture = ExtResource("4_pvkmt")
+
+[node name="InitialInputter" parent="." instance=ExtResource("6_2uy8k")]
+visible = false
+
+[node name="HighScoresTitleScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoresLabels" type="PanelContainer" parent="HighScoresTitleScreen"]
+layout_mode = 0
+offset_left = 320.0
+offset_right = 488.0
+offset_bottom = 770.0
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2uy8k")
+
+[node name="MarginContainer" type="MarginContainer" parent="HighScoresTitleScreen/ScoresLabels"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HighScoresTitleScreen/ScoresLabels/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/separation = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HighScoresTitleScreen/ScoresLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 1"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HighScoresTitleScreen/ScoresLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 2"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HighScoresTitleScreen/ScoresLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 3"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="HighScoresTitleScreen/ScoresLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 4"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HighScoresTitleScreen/ScoresLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 5"
+fit_content = true
+
+[node name="InitialsLabels" type="PanelContainer" parent="HighScoresTitleScreen"]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 56.0
+offset_right = 760.0
+offset_bottom = 526.0
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2uy8k")
+
+[node name="MarginContainer" type="MarginContainer" parent="HighScoresTitleScreen/InitialsLabels"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HighScoresTitleScreen/InitialsLabels/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/separation = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 1"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 2"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 3"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 4"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 5"
+fit_content = true
+
+[node name="SavePanel" type="Panel" parent="HighScoresTitleScreen"]
+layout_mode = 0
+offset_left = 536.0
+offset_top = -72.0
+offset_right = 704.0
+offset_bottom = -32.0
+script = ExtResource("3_wnx2b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HighScoresTitleScreen/SavePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SaveButton" type="Button" parent="HighScoresTitleScreen/SavePanel/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "save"
+
+[node name="LoadButton" type="Button" parent="HighScoresTitleScreen/SavePanel/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "load"
+
+[node name="ClearButton" type="Button" parent="HighScoresTitleScreen/SavePanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "clear"
+
+[connection signal="pressed" from="HighScoresTitleScreen/SavePanel/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="HighScoresTitleScreen/SavePanel/HBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="HighScoresTitleScreen/SavePanel/HBoxContainer/ClearButton" to="." method="_on_clear_button_pressed"]

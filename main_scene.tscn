@@ -1,0 +1,241 @@
+[gd_scene load_steps=22 format=3 uid="uid://of1qt3olovgl"]
+
+[ext_resource type="Script" uid="uid://cionb2fw474m3" path="res://main_scene.gd" id="1_iwt3a"]
+[ext_resource type="PackedScene" uid="uid://xflhitgj8yn4" path="res://resources/menus/pause menu/pause_menu.tscn" id="2_42l1d"]
+[ext_resource type="PackedScene" uid="uid://csbs8n2714pdv" path="res://player.tscn" id="2_hriit"]
+[ext_resource type="PackedScene" uid="uid://cbmyj2nvqrgf6" path="res://resources/menus/game over menu/game_over.tscn" id="3_2jcla"]
+[ext_resource type="PackedScene" uid="uid://c0ojnesmismsn" path="res://resources/Hazards/Scenes/hazards.tscn" id="3_dw2uc"]
+[ext_resource type="Texture2D" uid="uid://baxx8rlylcu71" path="res://resources/character/sprites/desaturated distance marker.png" id="4_82dhx"]
+[ext_resource type="Texture2D" uid="uid://dv62j4myb4bkw" path="res://resources/background/sprites/temp background.png" id="5_0qlbb"]
+[ext_resource type="Texture2D" uid="uid://ubpnbwmha4h5" path="res://resources/character/sprites/corrected grid.png" id="5_hssss"]
+[ext_resource type="PackedScene" uid="uid://qbl3ytyr8x4x" path="res://resources/HUD/scenes/miss_bomb.tscn" id="6_7ycvg"]
+[ext_resource type="FontFile" uid="uid://cmb0cakpnob6w" path="res://resources/fonts/MetalMania-Regular.ttf" id="6_84odl"]
+[ext_resource type="PackedScene" uid="uid://cff8kn466e7eb" path="res://Singletons/highscore handler.tscn" id="7_6jybn"]
+[ext_resource type="PackedScene" uid="uid://48wh1xmsbnwk" path="res://resources/HUD/scenes/bonus_text.tscn" id="7_84odl"]
+[ext_resource type="PackedScene" uid="uid://bn7wr7ya6rnku" path="res://resources/non standard/style_meter.tscn" id="7_nfk4m"]
+[ext_resource type="PackedScene" uid="uid://brm3svg6n4770" path="res://resources/HUD/scenes/round_bonus_text.tscn" id="8_ak604"]
+[ext_resource type="PackedScene" uid="uid://0tk34jlfox77" path="res://resources/background/scenes/backdrop/background.tscn" id="9_7ycvg"]
+[ext_resource type="PackedScene" uid="uid://bdl6km1k10wdd" path="res://Test Scenes/control node testing.tscn" id="12_671wp"]
+[ext_resource type="Script" uid="uid://bghaddibpt6f1" path="res://addons/crt/crt.gd" id="13_mo76n"]
+[ext_resource type="AudioStream" uid="uid://dyhkryjucwqjg" path="res://resources/audio/music/Fiery Greatsword DOVA-SYNDROME.mp3" id="14_6jybn"]
+[ext_resource type="AudioStream" uid="uid://ceb8xha5omsq3" path="res://resources/audio/temp/temp sfx/jackpot stock sound effect.wav" id="15_6jybn"]
+[ext_resource type="PackedScene" uid="uid://bw5b4c2gd4eod" path="res://resources/HUD/scenes/round_timer.tscn" id="17_u0ygc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6324"]
+size = Vector2(1474.85, 438.806)
+
+[node name="Main" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_iwt3a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CRTCanvasLayer" type="CanvasLayer" parent="CanvasLayer"]
+visible = false
+
+[node name="CRT" type="CanvasLayer" parent="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("13_mo76n")
+resolution = Vector2(1280, 800)
+scan_line_amount = 0.1
+warp_amount = 0.3
+interference_amount = 0.6
+vignette_amount = 0.7
+vignette_intensity = 0.3
+aberation_amount = 0.05
+metadata/_custom_type_script = "uid://bghaddibpt6f1"
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_42l1d")]
+visible = false
+mouse_filter = 1
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("3_2jcla")]
+visible = false
+mouse_filter = 1
+
+[node name="Score" type="RichTextLabel" parent="."]
+z_index = 2
+offset_left = 872.0
+offset_top = 640.0
+offset_right = 1271.0
+offset_bottom = 809.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/normal_font = ExtResource("6_84odl")
+theme_override_font_sizes/normal_font_size = 129
+text = "123456789."
+scroll_active = false
+horizontal_alignment = 2
+
+[node name="BonusText" parent="." instance=ExtResource("7_84odl")]
+z_index = 6
+position = Vector2(926, 260)
+
+[node name="RoundBonusText" parent="." instance=ExtResource("8_ak604")]
+position = Vector2(216, 138)
+
+[node name="HighScoreHandler" parent="." instance=ExtResource("7_6jybn")]
+visible = false
+position = Vector2(-608, -504)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(136, 80)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3232, 1112)
+shape = SubResource("RectangleShape2D_a6324")
+
+[node name="Player" parent="." instance=ExtResource("2_hriit")]
+spawn_point = Vector2(40, 500)
+
+[node name="Hazards" parent="." instance=ExtResource("3_dw2uc")]
+z_index = 2
+hazard_one_spawn = Vector2(340, 0)
+hazard_two_spawn = Vector2(490, 0)
+hazard_three_spawn = Vector2(640, 0)
+hazard_four_spawn = Vector2(790, 0)
+hazard_five_spawn = Vector2(940, 0)
+
+[node name="RoundMeterMain" parent="." instance=ExtResource("17_u0ygc")]
+z_index = 1
+position = Vector2(0, 773)
+
+[node name="Miss" type="Node2D" parent="."]
+z_index = 2
+z_as_relative = false
+position = Vector2(126, 721)
+
+[node name="BombSprite" parent="Miss" instance=ExtResource("6_7ycvg")]
+position = Vector2(-16, -3)
+
+[node name="BombSprite2" parent="Miss" instance=ExtResource("6_7ycvg")]
+position = Vector2(90, -3)
+
+[node name="BombSprite3" parent="Miss" instance=ExtResource("6_7ycvg")]
+position = Vector2(194, -3)
+
+[node name="StyleMeterRoot" parent="." instance=ExtResource("7_nfk4m")]
+z_index = 2
+position = Vector2(538, 734)
+
+[node name="MainBonusTimer" type="Timer" parent="."]
+
+[node name="Background" parent="." instance=ExtResource("9_7ycvg")]
+
+[node name="Control" parent="." instance=ExtResource("12_671wp")]
+visible = false
+z_index = 10
+custom_minimum_size = Vector2(1200, 800)
+offset_top = -1.0
+offset_right = 1200.0
+offset_bottom = 799.0
+
+[node name="MusicTester" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("14_6jybn")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[node name="JackpotTester" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_6jybn")
+
+[node name="MissSound" type="AudioStreamPlayer" parent="."]
+volume_db = -16.805
+
+[node name="SPACER-NODE-IGNORE-BELOW" type="Node" parent="."]
+
+[node name="DashGauges" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(300, 400)
+texture = ExtResource("4_82dhx")
+centered = false
+
+[node name="DashGauges2" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(600, 400)
+texture = ExtResource("4_82dhx")
+offset = Vector2(150, 100)
+
+[node name="Grid" type="Sprite2D" parent="."]
+visible = false
+z_index = -4
+texture = ExtResource("5_hssss")
+centered = false
+
+[node name="BackgroundTEMP" type="Sprite2D" parent="."]
+visible = false
+z_index = -3
+texture = ExtResource("5_0qlbb")
+centered = false
+
+[node name="IgnoreMe" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 328)
+
+[node name="IgnoreMe2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(802, 301)
+
+[node name="IgnoreMe3" type="TextureRect" parent="."]
+visible = false
+z_index = -1
+offset_left = 250.0
+offset_top = 222.0
+offset_right = 502.0
+offset_bottom = 354.0
+scale = Vector2(1.16708, 1.18784)
+
+[node name="IgnoreMe4" type="TextureRect" parent="."]
+visible = false
+z_index = -1
+offset_left = 656.0
+offset_top = 229.0
+offset_right = 908.0
+offset_bottom = 361.0
+scale = Vector2(1.16708, 1.18784)
+
+[connection signal="game_over" from="." to="CanvasLayer/GameOver" method="_on_main_game_over"]
+[connection signal="game_over" from="." to="HighScoreHandler" method="_on_main_game_over"]
+[connection signal="game_over" from="." to="Player" method="_on_main_game_over"]
+[connection signal="game_over" from="." to="Hazards" method="_on_main_game_over"]
+[connection signal="game_over" from="." to="RoundMeterMain" method="_on_main_game_over"]
+[connection signal="round_timer_start" from="." to="RoundMeterMain" method="_on_main_round_timer_start"]
+[connection signal="round_timer_stop" from="." to="RoundMeterMain" method="_on_main_round_timer_stop"]
+[connection signal="style_off" from="." to="StyleMeterRoot" method="_on_main_style_off"]
+[connection signal="style_on" from="." to="StyleMeterRoot" method="_on_main_style_on"]
+[connection signal="quit" from="CanvasLayer/GameOver" to="." method="_on_game_over_quit"]
+[connection signal="retry" from="CanvasLayer/GameOver" to="." method="_on_game_over_retry"]
+[connection signal="retry" from="CanvasLayer/GameOver" to="Player" method="_on_game_over_retry"]
+[connection signal="retry" from="CanvasLayer/GameOver" to="Hazards" method="_on_game_over_retry"]
+[connection signal="retry" from="CanvasLayer/GameOver" to="Background" method="_on_game_over_retry"]
+[connection signal="down_spin" from="Player" to="StyleMeterRoot" method="_down_style_cooldown"]
+[connection signal="half_left" from="Player" to="StyleMeterRoot" method="_half_left_style_cooldown"]
+[connection signal="half_right" from="Player" to="StyleMeterRoot" method="_half_right_style_cooldown"]
+[connection signal="hop" from="Player" to="StyleMeterRoot" method="_hop_style_cooldown"]
+[connection signal="left" from="Player" to="StyleMeterRoot" method="_left_style_cooldown"]
+[connection signal="near_miss" from="Player" to="StyleMeterRoot" method="_near_miss_style_cooldown"]
+[connection signal="player_miss" from="Player" to="StyleMeterRoot" method="_on_main_style_off"]
+[connection signal="player_nova_blast" from="Player" to="Hazards" method="_on_player_player_nova_blast"]
+[connection signal="player_nova_blast" from="Player" to="RoundMeterMain" method="_on_player_player_nova_blast"]
+[connection signal="player_nova_blast" from="Player" to="StyleMeterRoot" method="_on_main_style_off"]
+[connection signal="player_nova_blast" from="Player" to="Background" method="_on_player_player_nova_blast"]
+[connection signal="player_reset" from="Player" to="RoundMeterMain" method="_on_player_player_reset"]
+[connection signal="player_reset" from="Player" to="StyleMeterRoot" method="_on_main_style_on"]
+[connection signal="right" from="Player" to="StyleMeterRoot" method="_right_style_cooldown"]
+[connection signal="style_test" from="Player" to="StyleMeterRoot" method="_on_player_style_test"]
+[connection signal="taunt" from="Player" to="StyleMeterRoot" method="_taunt_style_cooldown"]
+[connection signal="timeout" from="Player/TauntTimer" to="StyleMeterRoot" method="_taunt_style_cooldown"]
+[connection signal="round_timer_timeout" from="RoundMeterMain" to="." method="_on_round_meter_main_round_timer_timeout"]
+[connection signal="rank_a" from="StyleMeterRoot" to="Hazards" method="_on_style_meter_root_rank_a"]
+[connection signal="rank_b" from="StyleMeterRoot" to="Hazards" method="_on_style_meter_root_rank_b"]
+[connection signal="rank_c" from="StyleMeterRoot" to="Hazards" method="_on_style_meter_root_rank_c"]
+[connection signal="rank_d" from="StyleMeterRoot" to="Hazards" method="_on_style_meter_root_rank_d"]
+[connection signal="rank_s" from="StyleMeterRoot" to="Hazards" method="_on_style_meter_root_rank_s"]
+
+[editable path="Player"]
+[editable path="RoundMeterMain"]

@@ -1,0 +1,18 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dac0uqus5smiy"
+valid=false
+
+[deps]
+
+source_file="res://resources/audio/temp/temp sfx/Metal pipe falling sound effect but its more violent.mp3"
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

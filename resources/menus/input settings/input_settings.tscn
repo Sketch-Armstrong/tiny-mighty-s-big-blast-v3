@@ -1,0 +1,311 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6kjyahoovv0s"]
+
+[ext_resource type="Script" uid="uid://ee5ijqy0dw8p" path="res://resources/menus/input settings/input_settings.gd" id="1_vh1wk"]
+[ext_resource type="Texture2D" uid="uid://kxlgtobkkp6g" path="res://resources/menus/input settings/input settings backing texture.png" id="2_4knt1"]
+[ext_resource type="FontFile" uid="uid://dnav6lhamfw13" path="res://resources/fonts/Bangers-Regular.ttf" id="4_u7xuk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vh1wk"]
+texture = ExtResource("2_4knt1")
+texture_margin_left = 25.0
+texture_margin_top = 30.0
+texture_margin_right = 35.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jv3fb"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2c7ub"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vh1wk"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="InputSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vh1wk")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -256.0
+offset_right = 368.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vh1wk")
+
+[node name="ActionList" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InputButton" type="Button" parent="PanelContainer/ActionList"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jv3fb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2c7ub")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2c7ub")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2c7ub")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ActionList/InputButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.5
+offset_right = -5.0
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/ActionList/InputButton/MarginContainer"]
+layout_mode = 2
+
+[node name="LabelAction" type="Label" parent="PanelContainer/ActionList/InputButton/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_u7xuk")
+theme_override_font_sizes/font_size = 30
+text = "action name"
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="PanelContainer/ActionList/InputButton/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="LabelInput" type="Label" parent="PanelContainer/ActionList/InputButton/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_u7xuk")
+theme_override_font_sizes/font_size = 30
+text = "input key"
+vertical_alignment = 1
+
+[node name="InputButton2" type="Button" parent="PanelContainer/ActionList"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jv3fb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2c7ub")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2c7ub")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2c7ub")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ActionList/InputButton2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.5
+offset_right = -5.0
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/ActionList/InputButton2/MarginContainer"]
+layout_mode = 2
+
+[node name="LabelAction" type="Label" parent="PanelContainer/ActionList/InputButton2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_u7xuk")
+theme_override_font_sizes/font_size = 30
+text = "action name"
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="PanelContainer/ActionList/InputButton2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="LabelInput" type="Label" parent="PanelContainer/ActionList/InputButton2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_u7xuk")
+theme_override_font_sizes/font_size = 30
+text = "input key"
+vertical_alignment = 1
+
+[node name="InputButton3" type="Button" parent="PanelContainer/ActionList"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jv3fb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2c7ub")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2c7ub")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2c7ub")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ActionList/InputButton3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.5
+offset_right = -5.0
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/ActionList/InputButton3/MarginContainer"]
+layout_mode = 2
+
+[node name="LabelAction" type="Label" parent="PanelContainer/ActionList/InputButton3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_u7xuk")
+theme_override_font_sizes/font_size = 30
+text = "action name"
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="PanelContainer/ActionList/InputButton3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="LabelInput" type="Label" parent="PanelContainer/ActionList/InputButton3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_u7xuk")
+theme_override_font_sizes/font_size = 30
+text = "input key"
+vertical_alignment = 1
+
+[node name="InputButton4" type="Button" parent="PanelContainer/ActionList"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jv3fb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2c7ub")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2c7ub")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2c7ub")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ActionList/InputButton4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.5
+offset_right = -5.0
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/ActionList/InputButton4/MarginContainer"]
+layout_mode = 2
+
+[node name="LabelAction" type="Label" parent="PanelContainer/ActionList/InputButton4/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_u7xuk")
+theme_override_font_sizes/font_size = 30
+text = "action name"
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="PanelContainer/ActionList/InputButton4/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="LabelInput" type="Label" parent="PanelContainer/ActionList/InputButton4/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_u7xuk")
+theme_override_font_sizes/font_size = 30
+text = "input key"
+vertical_alignment = 1
+
+[node name="InputButton5" type="Button" parent="PanelContainer/ActionList"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jv3fb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2c7ub")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2c7ub")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2c7ub")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ActionList/InputButton5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.5
+offset_right = -5.0
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/ActionList/InputButton5/MarginContainer"]
+layout_mode = 2
+
+[node name="LabelAction" type="Label" parent="PanelContainer/ActionList/InputButton5/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_u7xuk")
+theme_override_font_sizes/font_size = 30
+text = "action name"
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="PanelContainer/ActionList/InputButton5/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="LabelInput" type="Label" parent="PanelContainer/ActionList/InputButton5/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_u7xuk")
+theme_override_font_sizes/font_size = 30
+text = "input key"
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ActionList"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ActionList/MarginContainer"]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="PanelContainer/ActionList"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_u7xuk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vh1wk")
+text = "Reset to default"
+
+[connection signal="pressed" from="PanelContainer/ActionList/ResetButton" to="." method="_on_reset_button_pressed"]

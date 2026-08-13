@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bofv8xg2kvnle"]
+
+[ext_resource type="Script" uid="uid://bghaddibpt6f1" path="res://addons/crt/crt.gd" id="1_hh6o8"]
+[ext_resource type="Texture2D" uid="uid://54811a34xao1" path="res://Test Scenes/Test Resources/intro comic test png.png" id="2_mt7t4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CRT" type="CanvasLayer" parent="."]
+script = ExtResource("1_hh6o8")
+resolution = Vector2(1200, 800)
+scan_line_amount = 0.0
+warp_amount = 0.3
+interference_amount = 0.6
+vignette_amount = 0.7
+vignette_intensity = 0.3
+aberation_amount = 0.05
+metadata/_custom_type_script = "uid://bghaddibpt6f1"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(144, 1504)
+texture = ExtResource("2_mt7t4")

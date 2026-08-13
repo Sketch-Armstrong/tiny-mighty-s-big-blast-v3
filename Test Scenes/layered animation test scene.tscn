@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://c146alwo1ssmj"]
+
+[ext_resource type="Texture2D" uid="uid://c0bqqoke84cfb" path="res://resources/character/sprites/pullback-Sheet.png" id="1_wvg15"]
+
+[sub_resource type="Animation" id="Animation_n55kt"]
+resource_name = "ONE"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_wvg15"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_sho6y"]
+resource_name = "TWO"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ano7f"]
+_data = {
+&"ONE": SubResource("Animation_n55kt"),
+&"RESET": SubResource("Animation_wvg15"),
+&"TWO": SubResource("Animation_sho6y")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 208)
+texture = ExtResource("1_wvg15")
+hframes = 2
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ano7f")
+}

@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=3 uid="uid://uwnxvqlq14w0"]
+
+[ext_resource type="Script" uid="uid://cqwgv4alrnv08" path="res://resources/Hazards/Scenes/bouncy_coin.gd" id="1_gq71i"]
+[ext_resource type="Texture2D" uid="uid://d06ueq0tmkn2p" path="res://resources/Hazards/Sprites/final design coin sheet-Sheet.png" id="2_gq71i"]
+[ext_resource type="AudioStream" uid="uid://dkaob83865ct3" path="res://resources/audio/temp/temp sfx/853714__alexzavesa__clinking-coins-9.wav" id="3_hptx7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gq71i"]
+radius = 35.0
+
+[sub_resource type="Animation" id="Animation_hptx7"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_uafof"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_gq71i"]
+resource_name = "spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uafof"]
+_data = {
+&"RESET": SubResource("Animation_hptx7"),
+&"pickup": SubResource("Animation_uafof"),
+&"spin": SubResource("Animation_gq71i")
+}
+
+[node name="BouncyCoin" type="Area2D"]
+z_index = 5
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_gq71i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gq71i")
+hframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gq71i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uafof")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hptx7")
+volume_db = -12.0

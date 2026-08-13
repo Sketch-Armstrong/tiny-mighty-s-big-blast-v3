@@ -1,0 +1,342 @@
+[gd_scene load_steps=13 format=3 uid="uid://bn7wr7ya6rnku"]
+
+[ext_resource type="Script" uid="uid://cxbo46hlhdpba" path="res://resources/non standard/style_meter.gd" id="1_8432c"]
+[ext_resource type="Script" uid="uid://ckup1xpb5kioa" path="res://resources/non standard/style_meter_label.gd" id="2_kr1sc"]
+[ext_resource type="Texture2D" uid="uid://djkqnil5lvpa5" path="res://resources/HUD/Style rankings-Sheet.png" id="3_1u4ur"]
+[ext_resource type="Material" uid="uid://cjwh072dhg4bd" path="res://Shaders/Tests/shader_test.tres" id="3_cj0lk"]
+[ext_resource type="PackedScene" uid="uid://cihb1ao5gu587" path="res://Test Scenes/bar clipping.tscn" id="3_n0wl7"]
+
+[sub_resource type="Animation" id="Animation_wkmwy"]
+resource_name = "ATOMIC"
+length = 60.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StyleRankings/StyleRanks:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StyleRankings/StyleRanks:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.23333333, 0.5, 0.96666753, 1.4666677, 2.000001, 2.500001, 3.0333343, 3.5333343, 4.0333343, 4.5333343, 5.000001, 5.500001, 6.000001, 6.500001, 7.0666676, 7.5666676, 8.100001, 8.600001, 9.133334, 9.633334, 10.100001, 10.599999, 11.100001, 11.600001, 12.100001, 12.600001, 13.166668, 13.666668, 14.166668, 14.666668, 15.233334, 15.733334, 16.233334, 16.733334, 17.266668, 17.766668, 18.266668, 18.766668, 19.266666, 19.766666, 20.3, 20.8, 21.333334, 21.833334, 22.333334, 22.833334, 23.3, 23.8, 24.3, 24.8, 25.366667, 25.866667, 26.400002, 26.900002, 27.433334, 27.933334, 28.400002, 28.899998, 29.400002, 29.900002, 30.400002, 30.900002, 31.46667, 31.96667, 32.466667, 32.966667, 33.533333, 34.033333, 34.533333, 35.033333, 35.566666, 36.066666, 36.566666, 37.066666, 37.566666, 38.066666, 38.533333, 39.03333, 39.533333, 40.033333, 40.533333, 41.033333, 41.6, 42.1, 42.6, 43.1, 43.666664, 44.166664, 44.666664, 45.166664, 45.7, 46.2, 46.7, 47.2, 47.699997, 48.199997, 48.73333, 49.23333, 49.766666, 50.266666, 50.766666, 51.266666, 51.73333, 52.23333, 52.73333, 53.23333, 53.8, 54.3, 54.833332, 55.333332, 55.866665, 56.366665, 56.833332, 57.333332, 57.833332, 58.333332, 58.833332, 59.333332),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-20, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StyleRankings/RankingsAnimationPlayer:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 4.0]
+}
+
+[sub_resource type="Animation" id="Animation_trooj"]
+resource_name = "BLASTING"
+length = 60.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StyleRankings/StyleRanks:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StyleRankings/StyleRanks:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.23333333, 0.5, 0.96666753, 1.4666677, 2.000001, 2.500001, 3.0333343, 3.5333343, 4.0333343, 4.5333343, 5.000001, 5.500001, 6.000001, 6.500001, 7.0666676, 7.5666676, 8.100001, 8.600001, 9.133334, 9.633334, 10.100001, 10.599999, 11.100001, 11.600001, 12.100001, 12.600001, 13.166668, 13.666668, 14.166668, 14.666668, 15.233334, 15.733334, 16.233334, 16.733334, 17.266668, 17.766668, 18.266668, 18.766668, 19.266666, 19.766666, 20.3, 20.8, 21.333334, 21.833334, 22.333334, 22.833334, 23.3, 23.8, 24.3, 24.8, 25.366667, 25.866667, 26.400002, 26.900002, 27.433334, 27.933334, 28.400002, 28.899998, 29.400002, 29.900002, 30.400002, 30.900002, 31.46667, 31.96667, 32.466667, 32.966667, 33.533333, 34.033333, 34.533333, 35.033333, 35.566666, 36.066666, 36.566666, 37.066666, 37.566666, 38.066666, 38.533333, 39.03333, 39.533333, 40.033333, 40.533333, 41.033333, 41.6, 42.1, 42.6, 43.1, 43.666664, 44.166664, 44.666664, 45.166664, 45.7, 46.2, 46.7, 47.2, 47.699997, 48.199997, 48.73333, 49.23333, 49.766666, 50.266666, 50.766666, 51.266666, 51.73333, 52.23333, 52.73333, 53.23333, 53.8, 54.3, 54.833332, 55.333332, 55.866665, 56.366665, 56.833332, 57.333332, 57.833332, 58.333332, 58.833332, 59.333332),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-20, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StyleRankings/RankingsAnimationPlayer:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 3.0]
+}
+
+[sub_resource type="Animation" id="Animation_xsoa2"]
+resource_name = "CRASHING"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StyleRankings/StyleRanks:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StyleRankings/StyleRanks:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.23333333, 0.5, 0.96666753, 1.4666677, 2.000001, 2.500001, 3.0333343, 3.5333343, 4.0333343, 4.5333343, 5.000001, 5.500001, 6.000001, 6.500001, 7.0666676, 7.5666676, 8.100001, 8.600001, 9.133334, 9.633334, 10.100001, 10.599999, 11.100001, 11.600001, 12.100001, 12.600001, 13.166668, 13.666668, 14.166668, 14.666668, 15.233334, 15.733334, 16.233334, 16.733334, 17.266668, 17.766668, 18.266668, 18.766668, 19.233334, 19.733334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-20, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StyleRankings/RankingsAnimationPlayer:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 2.0]
+}
+
+[sub_resource type="Animation" id="Animation_bd4jl"]
+resource_name = "DUD"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StyleRankings/StyleRanks:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StyleRankings/StyleRanks:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.23333333, 0.5, 0.96666753, 1.4666677, 2.000001, 2.500001, 3.0333343, 3.5333343, 4.0333343, 4.5333343, 5.000001, 5.500001, 6.000001, 6.500001, 7.0666676, 7.5666676, 8.100001, 8.600001, 9.133334, 9.633334, 10.100001, 10.599999, 11.100001, 11.600001, 12.100001, 12.600001, 13.166668, 13.666668, 14.166668, 14.666668, 15.233334, 15.733334, 16.233334, 16.733334, 17.266668, 17.766668, 18.266668, 18.766668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-20, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StyleRankings/RankingsAnimationPlayer:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_cj0lk"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StyleRankings/StyleRanks:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StyleRankings/StyleRanks:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StyleRankings/RankingsAnimationPlayer:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_reyc2"]
+resource_name = "SEISMIC"
+length = 60.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StyleRankings/StyleRanks:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StyleRankings/StyleRanks:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.23333333, 0.5, 0.96666753, 1.4666677, 2.000001, 2.500001, 3.0333343, 3.5333343, 4.0333343, 4.5333343, 5.000001, 5.500001, 6.000001, 6.500001, 7.0666676, 7.5666676, 8.100001, 8.600001, 9.133334, 9.633334, 10.100001, 10.599999, 11.100001, 11.600001, 12.100001, 12.600001, 13.166668, 13.666668, 14.166668, 14.666668, 15.233334, 15.733334, 16.233334, 16.733334, 17.266668, 17.766668, 18.266668, 18.766668, 19.266666, 19.766666, 20.3, 20.8, 21.333334, 21.833334, 22.333334, 22.833334, 23.3, 23.8, 24.3, 24.8, 25.366667, 25.866667, 26.400002, 26.900002, 27.433334, 27.933334, 28.400002, 28.899998, 29.400002, 29.900002, 30.400002, 30.900002, 31.46667, 31.96667, 32.466667, 32.966667, 33.533333, 34.033333, 34.533333, 35.033333, 35.566666, 36.066666, 36.566666, 37.066666, 37.566666, 38.066666, 38.533333, 39.03333, 39.533333, 40.033333, 40.533333, 41.033333, 41.6, 42.1, 42.6, 43.1, 43.666664, 44.166664, 44.666664, 45.166664, 45.7, 46.2, 46.7, 47.2, 47.699997, 48.199997, 48.73333, 49.23333, 49.766666, 50.266666, 50.766666, 51.266666, 51.73333, 52.23333, 52.73333, 53.23333, 53.8, 54.3, 54.833332, 55.333332, 55.866665, 56.366665, 56.833332, 57.333332, 57.833332, 58.333332, 58.833332, 59.333332),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-20, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0), Vector2(-2, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StyleRankings/RankingsAnimationPlayer:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 5.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bd4jl"]
+_data = {
+&"ATOMIC": SubResource("Animation_wkmwy"),
+&"BLASTING": SubResource("Animation_trooj"),
+&"CRASHING": SubResource("Animation_xsoa2"),
+&"DUD": SubResource("Animation_bd4jl"),
+&"RESET": SubResource("Animation_cj0lk"),
+&"SEISMIC": SubResource("Animation_reyc2")
+}
+
+[node name="StyleMeterRoot" type="Node2D"]
+script = ExtResource("1_8432c")
+
+[node name="VisualBarRoot" parent="." instance=ExtResource("3_n0wl7")]
+position = Vector2(160, 8)
+
+[node name="StyleRankings" type="Node2D" parent="."]
+position = Vector2(0, -2)
+
+[node name="StyleRanks" type="Sprite2D" parent="StyleRankings"]
+self_modulate = Color(1, 1, 1, 0)
+material = ExtResource("3_cj0lk")
+position = Vector2(104, -22)
+texture = ExtResource("3_1u4ur")
+vframes = 5
+
+[node name="RankingsAnimationPlayer" type="AnimationPlayer" parent="StyleRankings"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_bd4jl")
+}
+
+[node name="StyleMeterButton" type="Button" parent="."]
+process_mode = 3
+visible = false
+z_index = 20
+z_as_relative = false
+offset_left = 320.0
+offset_right = 432.0
+offset_bottom = 64.0
+mouse_filter = 1
+
+[node name="StyleMeterLabel" type="Label" parent="."]
+visible = false
+offset_left = 336.0
+offset_top = 16.0
+offset_right = 376.0
+offset_bottom = 39.0
+script = ExtResource("2_kr1sc")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_right = 314.0
+offset_bottom = 27.0
+min_value = -30.0
+max_value = 150.0
+
+[node name="StyleTimer" type="Timer" parent="."]
+wait_time = 0.09
+autostart = true
+
+[node name="NearMissTimer" type="Timer" parent="."]
+
+[node name="RightTimer" type="Timer" parent="."]
+
+[node name="LeftTimer" type="Timer" parent="."]
+
+[node name="HalfRightTimer" type="Timer" parent="."]
+
+[node name="HalfLeftTimer" type="Timer" parent="."]
+
+[node name="HopTimer" type="Timer" parent="."]
+
+[node name="DownTimer" type="Timer" parent="."]
+
+[node name="TauntTimer" type="Timer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="StyleMeterButton" to="." method="_on_style_meter_button_pressed"]
+[connection signal="timeout" from="StyleTimer" to="." method="_on_style_timer_timeout"]
+[connection signal="timeout" from="RightTimer" to="." method="_on_right_timer_timeout"]
+[connection signal="timeout" from="LeftTimer" to="." method="_on_left_timer_timeout"]
+[connection signal="timeout" from="HalfRightTimer" to="." method="_on_half_right_timer_timeout"]
+[connection signal="timeout" from="HalfLeftTimer" to="." method="_on_half_left_timer_timeout"]
+[connection signal="timeout" from="HopTimer" to="." method="_on_hop_timer_timeout"]
+[connection signal="timeout" from="DownTimer" to="." method="_on_down_timer_timeout"]
+[connection signal="timeout" from="TauntTimer" to="." method="_on_taunt_timer_timeout"]

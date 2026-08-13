@@ -1,0 +1,150 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh50a1p6nl5sx"]
+
+[ext_resource type="Texture2D" uid="uid://c1hkqpvhyo5ev" path="res://resources/menus/high score menu/sprites/bulletin board test layout single sprite.png" id="1_3o8vp"]
+[ext_resource type="Script" uid="uid://brqiklbnnt7r4" path="res://resources/menus/high score menu/high_scores_bulletin_board.gd" id="1_8kha8"]
+[ext_resource type="Texture2D" uid="uid://etsc781bsk52" path="res://resources/menus/game over menu/bonuses sprites-Sheet (complete).png" id="3_j17mc"]
+[ext_resource type="Texture2D" uid="uid://lbu4l660k43o" path="res://resources/character/sprites/corrected grid rotate white.png" id="4_bjfcy"]
+[ext_resource type="Texture2D" uid="uid://2wvdkfmyhssv" path="res://resources/temporary assets/Screenshot from 2026-07-06 23-22-30.png" id="4_wll3b"]
+
+[node name="BulletinBoard" type="Node2D"]
+script = ExtResource("1_8kha8")
+
+[node name="BulletinBoardSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_3o8vp")
+
+[node name="reminder" type="Sprite2D" parent="BulletinBoardSprite"]
+position = Vector2(-344, -320)
+texture = ExtResource("4_wll3b")
+
+[node name="Small" type="Node2D" parent="."]
+
+[node name="ElGrande" type="Sprite2D" parent="Small"]
+position = Vector2(-376, 208)
+texture = ExtResource("3_j17mc")
+hframes = 4
+vframes = 6
+
+[node name="SallyPhoto" type="Sprite2D" parent="Small"]
+position = Vector2(-208, -176)
+texture = ExtResource("3_j17mc")
+hframes = 4
+vframes = 6
+frame = 20
+
+[node name="SallyNote" type="Sprite2D" parent="Small"]
+position = Vector2(-368, -144)
+texture = ExtResource("3_j17mc")
+hframes = 4
+vframes = 6
+
+[node name="Papi" type="Sprite2D" parent="Small"]
+position = Vector2(-208, -64)
+texture = ExtResource("3_j17mc")
+hframes = 4
+vframes = 6
+frame = 12
+
+[node name="Claire" type="Sprite2D" parent="Small"]
+position = Vector2(-224, 96)
+texture = ExtResource("3_j17mc")
+hframes = 4
+vframes = 6
+frame = 4
+
+[node name="Max" type="Sprite2D" parent="Small"]
+position = Vector2(-352, 48)
+texture = ExtResource("3_j17mc")
+hframes = 4
+vframes = 6
+frame = 8
+
+[node name="Big" type="Node2D" parent="."]
+
+[node name="ElGrande" type="Sprite2D" parent="Big"]
+texture = ExtResource("3_j17mc")
+hframes = 4
+vframes = 6
+frame = 2
+
+[node name="SallyPhoto" type="Sprite2D" parent="Big"]
+texture = ExtResource("3_j17mc")
+hframes = 4
+vframes = 6
+frame = 22
+
+[node name="SallyNote" type="Sprite2D" parent="Big"]
+texture = ExtResource("3_j17mc")
+hframes = 4
+vframes = 6
+frame = 18
+
+[node name="Papi" type="Sprite2D" parent="Big"]
+texture = ExtResource("3_j17mc")
+hframes = 4
+vframes = 6
+frame = 14
+
+[node name="Claire" type="Sprite2D" parent="Big"]
+texture = ExtResource("3_j17mc")
+hframes = 4
+vframes = 6
+frame = 6
+
+[node name="Max" type="Sprite2D" parent="Big"]
+texture = ExtResource("3_j17mc")
+hframes = 4
+vframes = 6
+frame = 10
+
+[node name="Toggler" type="Node2D" parent="."]
+position = Vector2(560, 32)
+
+[node name="Control" type="VBoxContainer" parent="Toggler"]
+offset_left = -244.0
+offset_top = -128.0
+offset_right = -200.0
+offset_bottom = 36.0
+
+[node name="ClearSignalerButton" type="Button" parent="Toggler/Control"]
+visible = false
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="Toggler/Control"]
+layout_mode = 2
+
+[node name="CheckButton2" type="CheckButton" parent="Toggler/Control"]
+layout_mode = 2
+
+[node name="CheckButton3" type="CheckButton" parent="Toggler/Control"]
+layout_mode = 2
+
+[node name="CheckButton4" type="CheckButton" parent="Toggler/Control"]
+layout_mode = 2
+
+[node name="CheckButton5" type="CheckButton" parent="Toggler/Control"]
+layout_mode = 2
+
+[node name="CheckButton6" type="CheckButton" parent="Toggler/Control"]
+layout_mode = 2
+
+[node name="BackSignalerButton" type="Button" parent="Toggler/Control"]
+visible = false
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Toggler/Control"]
+top_level = true
+position = Vector2(336, -16)
+scale = Vector2(0.09142859, 0.15333334)
+texture = ExtResource("4_bjfcy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Toggler"]
+
+[connection signal="pressed" from="Toggler/Control/ClearSignalerButton" to="." method="_on_clear_signaler_button_pressed"]
+[connection signal="toggled" from="Toggler/Control/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="Toggler/Control/CheckButton2" to="." method="_on_check_button_2_toggled"]
+[connection signal="toggled" from="Toggler/Control/CheckButton3" to="." method="_on_check_button_3_toggled"]
+[connection signal="toggled" from="Toggler/Control/CheckButton4" to="." method="_on_check_button_4_toggled"]
+[connection signal="toggled" from="Toggler/Control/CheckButton5" to="." method="_on_check_button_5_toggled"]
+[connection signal="toggled" from="Toggler/Control/CheckButton6" to="." method="_on_check_button_6_toggled"]
+[connection signal="pressed" from="Toggler/Control/BackSignalerButton" to="." method="_on_back_signaler_button_pressed"]

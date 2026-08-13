@@ -1,0 +1,134 @@
+[gd_scene load_steps=7 format=3 uid="uid://badqvsebv6jqr"]
+
+[ext_resource type="Script" uid="uid://dhh35m2d4j6k2" path="res://resources/HUD/scenes/coin_counter_text_.gd" id="1_jgxiw"]
+[ext_resource type="FontFile" uid="uid://cmb0cakpnob6w" path="res://resources/fonts/MetalMania-Regular.ttf" id="2_71ydn"]
+[ext_resource type="Texture2D" uid="uid://d06ueq0tmkn2p" path="res://resources/Hazards/Sprites/final design coin sheet-Sheet.png" id="3_xop2y"]
+
+[sub_resource type="Animation" id="Animation_71ydn"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/CoinCountTextControl/CoinCountTextLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/CoinCountTextControl/CoinCountTextLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_l60dg"]
+resource_name = "show_loss"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/CoinCountTextControl/CoinCountTextLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/CoinCountTextControl/CoinCountTextLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.1830108, 0.1830108),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hw687"]
+_data = {
+&"RESET": SubResource("Animation_71ydn"),
+&"show_count": SubResource("Animation_l60dg")
+}
+
+[node name="CoinCountText" type="Node2D"]
+script = ExtResource("1_jgxiw")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="CoinCountTextControl" type="Control" parent="Node2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CoinCountTextLabel" type="RichTextLabel" parent="Node2D/CoinCountTextControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.6000001
+anchor_top = -1.6
+anchor_right = 3.4
+anchor_bottom = 1.1750001
+offset_left = -104.0
+offset_top = -69.5
+offset_right = 112.0
+offset_bottom = 69.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/normal_font = ExtResource("2_71ydn")
+theme_override_font_sizes/normal_font_size = 50
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin" type="Sprite2D" parent="Node2D/CoinCountTextControl/CoinCountTextLabel"]
+visible = false
+position = Vector2(200, 125.5)
+texture = ExtResource("3_xop2y")
+hframes = 7
+
+[node name="CoinCountTextAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hw687")
+}

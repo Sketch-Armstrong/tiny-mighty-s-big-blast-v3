@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp8k0ka7xq167"]
+
+[ext_resource type="Script" uid="uid://bghaddibpt6f1" path="res://addons/crt/crt.gd" id="1_74quh"]
+
+[node name="CRTNode2D" type="Node2D"]
+
+[node name="CRT" type="CanvasLayer" parent="."]
+script = ExtResource("1_74quh")
+resolution = Vector2(1280, 800)
+scan_line_amount = 0.1
+warp_amount = 0.3
+interference_amount = 0.6
+vignette_amount = 0.7
+vignette_intensity = 0.3
+aberation_amount = 0.05
+metadata/_custom_type_script = "uid://bghaddibpt6f1"

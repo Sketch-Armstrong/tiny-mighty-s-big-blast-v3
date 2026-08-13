@@ -1,0 +1,123 @@
+[gd_scene load_steps=10 format=3 uid="uid://qbl3ytyr8x4x"]
+
+[ext_resource type="Material" uid="uid://cjwh072dhg4bd" path="res://Shaders/Tests/shader_test.tres" id="1_8j4ui"]
+[ext_resource type="Script" uid="uid://cerb62r8hmdyg" path="res://resources/HUD/scenes/miss_bomb.gd" id="1_yltiw"]
+[ext_resource type="Material" uid="uid://bgv8b7d7h3qy4" path="res://Shaders/Tests/shader_test copy for bonus label.tres" id="3_3kqni"]
+[ext_resource type="Texture2D" uid="uid://b8h1nec35lp2k" path="res://resources/HUD/miss bomb.png" id="3_8j4ui"]
+
+[sub_resource type="Animation" id="Animation_yltiw"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8j4ui"]
+resource_name = "bomb_blow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gnos1"]
+resource_name = "fade out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MissSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3kqni"]
+resource_name = "return_visible"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3kqni"]
+_data = {
+&"RESET": SubResource("Animation_yltiw"),
+&"bomb_blow": SubResource("Animation_8j4ui"),
+&"fade out": SubResource("Animation_gnos1"),
+&"return_visible": SubResource("Animation_3kqni")
+}
+
+[node name="BombSprite" type="Node2D"]
+material = ExtResource("1_8j4ui")
+script = ExtResource("1_yltiw")
+
+[node name="BombPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3kqni")
+}
+
+[node name="MissSprite" type="Sprite2D" parent="."]
+material = ExtResource("3_3kqni")
+texture = ExtResource("3_8j4ui")
