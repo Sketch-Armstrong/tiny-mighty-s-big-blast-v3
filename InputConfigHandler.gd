@@ -54,6 +54,9 @@ func _ready():
 		pass
 		#load_inputs()
 		#load_keyboard_inputs()
+	#testing by putting a change in to see if Github will recognize it
+
+
 
 func load_inputs() -> void:
 	InputMap.action_erase_events("tiny_move_up")
