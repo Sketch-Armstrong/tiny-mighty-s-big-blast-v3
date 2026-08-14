@@ -21,6 +21,12 @@ var controller_left_button = InputEventJoypadButton.new()
 var controller_right_button = InputEventJoypadButton.new()
 var controller_taunt_button = InputEventJoypadButton.new()
 
+var controller_up_axis = InputEventJoypadMotion.new()
+var controller_down_axis = InputEventJoypadMotion.new()
+var controller_left_axis = InputEventJoypadMotion.new()
+var controller_right_axis = InputEventJoypadMotion.new()
+var controller_taunt_axis = InputEventJoypadMotion.new()
+
 var keyboard_up = InputEventKey.new()
 var keyboard_down = InputEventKey.new()
 var keyboard_left = InputEventKey.new()
@@ -34,10 +40,12 @@ signal duplicate_detected
 
 var temp_int: int = 1
 var temp_float: float = 1.0
+var temp_true_bool: bool = true
+var temp_false_bool: bool = false
 
 var temp_testing_dictionary: Dictionary = {
-	"first value": "sex",
-	"second value": "dick",
+	"first value": "one",
+	"second value": "two",
 	"mock axis values": [temp_int, temp_float],
 	"mock sub-dictionary": {
 		"data_1": 1,
@@ -45,10 +53,17 @@ var temp_testing_dictionary: Dictionary = {
 	}
 }
 
+var temp_desired_dictionary: Dictionary = {
+	"tiny_move_up": {
+		"button_information": temp_int,
+		"axis_information": [temp_int, temp_float]
+	}
+}
+
+	## mock dictionary should have one button, one axis, examples
 
 
-
-var temp_testing_dictionary_reading
+#var temp_testing_dictionary_reading
 
 func _ready():
 	if !FileAccess.file_exists(INPUT_SETTINGS_FILE_PATH):
@@ -60,10 +75,18 @@ func _ready():
 		#load_keyboard_inputs()
 	
 	input_config.set_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING", temp_testing_dictionary)
-	temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING", temp_testing_dictionary)
-	print(temp_testing_dictionary_reading)
-	
-
+	#temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING", temp_testing_dictionary)
+	#print("temp dictionary value pulled: ", temp_testing_dictionary_reading)
+	var temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING")
+		## create a variable called temp_testing_dictionary_reading, set it equal to the input_config file's value 
+		## within "DICTIONARY_TESTING", the value labeled "SUB_HEADER_TESTING"
+	var data_2_value = temp_testing_dictionary_reading["mock sub-dictionary"]["data_2"]
+		## create a variable named data_2_value. Set it equal to the variable temp_testing_dictionary_reading (which is 
+		## equal to the input_config's DICTIONARY_TESTING's value of "SUB_HEADER_TESTING")'s data entry labeled 
+		## "mock sub-dictionary". Within "mock sub-dictionary" seek the data point labeled "data_2", and set the variable
+		## named data_2_value equal to the data point labeled "data_2"
+	print("data_2 value: ", data_2_value)
+		## print the string "data_2 value: ", and the previously defined data_2_value variable
 
 
 func load_inputs() -> void:
@@ -224,6 +247,9 @@ func reset_to_default_inputs() -> void:
 	
 	defaulted.emit()
 	return
+
+func sync_dictionary_var() -> void:
+	pass
 
 @warning_ignore("unused_parameter")
 func check_if_duplicates_keyboard(action_name: String, event: InputEvent) -> bool:
