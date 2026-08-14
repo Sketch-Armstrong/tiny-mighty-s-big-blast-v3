@@ -55,9 +55,39 @@ var temp_testing_dictionary: Dictionary = {
 
 var temp_desired_dictionary: Dictionary = {
 	"tiny_move_up": {
+		"button, axis, or keyboard?": [temp_true_bool, temp_false_bool, temp_false_bool],
 		"button_information": temp_int,
-		"axis_information": [temp_int, temp_float]
-	}
+		"axis_information": [temp_int, temp_float],
+		"keyboard_information": temp_int,
+	},
+	
+	"tiny_move_down": {
+		"button, axis, or keyboard?": [temp_true_bool, temp_false_bool, temp_false_bool],
+		"button_information": temp_int,
+		"axis_information": [temp_int, temp_float],
+		"keyboard_information": temp_int,
+	},
+	
+	"tiny_move_left": {
+		"button, axis, or keyboard?": [temp_true_bool, temp_false_bool, temp_false_bool],
+		"button_information": temp_int,
+		"axis_information": [temp_int, temp_float],
+		"keyboard_information": temp_int,
+	},
+	
+	"tiny_move_right": {
+		"button, axis, or keyboard?": [temp_true_bool, temp_false_bool, temp_false_bool],
+		"button_information": temp_int,
+		"axis_information": [temp_int, temp_float],
+		"keyboard_information": temp_int,
+	},
+	
+	"taunt": {
+		"button, axis, or keyboard?": [temp_true_bool, temp_false_bool, temp_false_bool],
+		"button_information": temp_int,
+		"axis_information": [temp_int, temp_float],
+		"keyboard_information": temp_int,
+	},
 }
 
 	## mock dictionary should have one button, one axis, examples
@@ -74,18 +104,18 @@ func _ready():
 		#load_inputs()
 		#load_keyboard_inputs()
 	
-	input_config.set_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING", temp_testing_dictionary)
+	input_config.set_value("DICTIONARY_TESTING_2", "SUB_HEADER_TESTING", temp_desired_dictionary)
 	#temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING", temp_testing_dictionary)
 	#print("temp dictionary value pulled: ", temp_testing_dictionary_reading)
-	var temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING")
+	#var temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING")
 		## create a variable called temp_testing_dictionary_reading, set it equal to the input_config file's value 
 		## within "DICTIONARY_TESTING", the value labeled "SUB_HEADER_TESTING"
-	var data_2_value = temp_testing_dictionary_reading["mock sub-dictionary"]["data_2"]
+	#var data_2_value = temp_testing_dictionary_reading["mock sub-dictionary"]["data_2"]
 		## create a variable named data_2_value. Set it equal to the variable temp_testing_dictionary_reading (which is 
 		## equal to the input_config's DICTIONARY_TESTING's value of "SUB_HEADER_TESTING")'s data entry labeled 
 		## "mock sub-dictionary". Within "mock sub-dictionary" seek the data point labeled "data_2", and set the variable
 		## named data_2_value equal to the data point labeled "data_2"
-	print("data_2 value: ", data_2_value)
+	#print("data_2 value: ", data_2_value)
 		## print the string "data_2 value: ", and the previously defined data_2_value variable
 
 
