@@ -21,21 +21,6 @@ var controller_left = InputEventJoypadButton.new()
 var controller_right = InputEventJoypadButton.new()
 var controller_taunt = InputEventJoypadButton.new()
 
-
-var ctr_trigger_right = InputEventJoypadMotion.new()
-var ctr_trigger_left = InputEventJoypadMotion.new()
-
-var ls_up = InputEventJoypadMotion.new()
-var ls_down = InputEventJoypadMotion.new()
-var ls_left = InputEventJoypadMotion.new()
-var ls_right = InputEventJoypadMotion.new()
-
-var rs_up = InputEventJoypadMotion.new()
-var rs_down = InputEventJoypadMotion.new()
-var rs_left = InputEventJoypadMotion.new()
-var rs_right = InputEventJoypadMotion.new()
-
-
 var keyboard_up = InputEventKey.new()
 var keyboard_down = InputEventKey.new()
 var keyboard_left = InputEventKey.new()
@@ -47,6 +32,21 @@ var duplicate_detection_keyword: String
 signal defaulted
 signal duplicate_detected
 
+var temp_int: int = 1
+var temp_float: float = 1.0
+
+var temp_testing_dictionary: Dictionary = {
+	"first value": "sex",
+	"second value": "dick",
+	"mock axis values": [temp_int, temp_float],
+	"mock sub-dictionary": {
+		"data_1": 1,
+		"data_2": 2,
+	}
+}
+
+var temp_testing_dictionary_reading
+
 func _ready():
 	if !FileAccess.file_exists(INPUT_SETTINGS_FILE_PATH):
 		create_inputs_file()
@@ -55,6 +55,11 @@ func _ready():
 		pass
 		#load_inputs()
 		#load_keyboard_inputs()
+	
+	input_config.set_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING", temp_testing_dictionary)
+	temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING", temp_testing_dictionary)
+	print(temp_testing_dictionary_reading)
+	
 
 
 
@@ -117,6 +122,8 @@ func load_inputs() -> void:
 	"taunt", "FAILSAFE NULL VALUE")
 	InputMap.action_add_event("taunt", controller_taunt)
 	
+	
+	input_config.set_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING", temp_testing_dictionary)
 	return
 
 

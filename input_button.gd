@@ -80,7 +80,7 @@ func _process(delta: float) -> void:
 	pass
 	
 	action_axis_value = Input.get_joy_axis(axis_reference_tester, JOY_AXIS_LEFT_X)
-	print(str(CONTROLLER_AXIS_LABELS["JoyAxis Left X"]) + str(action_axis_value))
+	#print(str(CONTROLLER_AXIS_LABELS["JoyAxis Left X"]) + str(action_axis_value))
 	#if action == "tiny_move_up":
 		#print("testing for filtering based on action string worked")
 
@@ -112,15 +112,15 @@ func reset_labels() -> void:
 
 func undo_duplicate_label() -> void:
 	if action == "tiny_move_up" && InputConfigHandler.duplicate_detection_keyword == "dupe_up":
-		text = "Duplicate binding detected.\nRestoring previous binding"
+		text = "Two inputs on one button.\nRestoring previous binding"
 	if action == "tiny_move_down" && InputConfigHandler.duplicate_detection_keyword == "dupe_down":
-		text = "Duplicate binding detected.\nRestoring previous binding"
+		text = "Two inputs on one button.\nRestoring previous binding"
 	if action == "tiny_move_left" && InputConfigHandler.duplicate_detection_keyword == "dupe_left":
-		text = "Duplicate binding detected.\nRestoring previous binding"
+		text = "Two inputs on one button.\nRestoring previous binding"
 	if action == "tiny_move_right" && InputConfigHandler.duplicate_detection_keyword == "dupe_right":
-		text = "Duplicate binding detected.\nRestoring previous binding"
+		text = "Two inputs on one button.\nRestoring previous binding"
 	if action == "taunt" && InputConfigHandler.duplicate_detection_keyword == "dupe_taunt":
-		text = "Duplicate binding detected.\nRestoring previous binding"
+		text = "Two inputs on one button.\nRestoring previous binding"
 
 
 
