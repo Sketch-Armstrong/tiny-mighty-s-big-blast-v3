@@ -15,11 +15,11 @@ var input_config_keyboard_keycode
 
 var loading_values_test: Key
 
-var controller_up = InputEventJoypadButton.new()
-var controller_down = InputEventJoypadButton.new()
-var controller_left = InputEventJoypadButton.new()
-var controller_right = InputEventJoypadButton.new()
-var controller_taunt = InputEventJoypadButton.new()
+var controller_up_button = InputEventJoypadButton.new()
+var controller_down_button = InputEventJoypadButton.new()
+var controller_left_button = InputEventJoypadButton.new()
+var controller_right_button = InputEventJoypadButton.new()
+var controller_taunt_button = InputEventJoypadButton.new()
 
 var keyboard_up = InputEventKey.new()
 var keyboard_down = InputEventKey.new()
@@ -44,6 +44,9 @@ var temp_testing_dictionary: Dictionary = {
 		"data_2": 2,
 	}
 }
+
+
+
 
 var temp_testing_dictionary_reading
 
@@ -70,9 +73,9 @@ func load_inputs() -> void:
 	keyboard_up.keycode = OS.find_keycode_from_string(keyboard_up_value)
 	InputMap.action_add_event("tiny_move_up", keyboard_up)
 	
-	controller_up.button_index = input_config.get_value("controller_bindings", 
+	controller_up_button.button_index = input_config.get_value("controller_bindings", 
 	"tiny_move_up", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_up", controller_up)
+	InputMap.action_add_event("tiny_move_up", controller_up_button)
 	
 	
 	
@@ -82,9 +85,9 @@ func load_inputs() -> void:
 	keyboard_down.keycode = OS.find_keycode_from_string(keyboard_down_value)
 	InputMap.action_add_event("tiny_move_down", keyboard_down)
 	
-	controller_down.button_index = input_config.get_value("controller_bindings", 
+	controller_down_button.button_index = input_config.get_value("controller_bindings", 
 	"tiny_move_down", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_down", controller_down)
+	InputMap.action_add_event("tiny_move_down", controller_down_button)
 	
 	
 	
@@ -94,9 +97,9 @@ func load_inputs() -> void:
 	keyboard_left.keycode = OS.find_keycode_from_string(keyboard_left_value)
 	InputMap.action_add_event("tiny_move_left", keyboard_left)
 	
-	controller_left.button_index = input_config.get_value("controller_bindings", 
+	controller_left_button.button_index = input_config.get_value("controller_bindings", 
 	"tiny_move_left", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_left", controller_left)
+	InputMap.action_add_event("tiny_move_left", controller_left_button)
 	
 	
 	
@@ -106,9 +109,9 @@ func load_inputs() -> void:
 	keyboard_right.keycode = OS.find_keycode_from_string(keyboard_right_value)
 	InputMap.action_add_event("tiny_move_right", keyboard_right)
 	
-	controller_right.button_index = input_config.get_value("controller_bindings", 
+	controller_right_button.button_index = input_config.get_value("controller_bindings", 
 	"tiny_move_right", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_right", controller_right)
+	InputMap.action_add_event("tiny_move_right", controller_right_button)
 	
 	
 	
@@ -118,9 +121,9 @@ func load_inputs() -> void:
 	keyboard_taunt.keycode = OS.find_keycode_from_string(keyboard_taunt_value)
 	InputMap.action_add_event("taunt", keyboard_taunt)
 	
-	controller_taunt.button_index = input_config.get_value("controller_bindings", 
+	controller_taunt_button.button_index = input_config.get_value("controller_bindings", 
 	"taunt", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("taunt", controller_taunt)
+	InputMap.action_add_event("taunt", controller_taunt_button)
 	
 	
 	input_config.set_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING", temp_testing_dictionary)
@@ -165,9 +168,9 @@ func reset_to_default_inputs() -> void:
 	keyboard_up.keycode = OS.find_keycode_from_string(keyboard_up_value)
 	InputMap.action_add_event("tiny_move_up", keyboard_up)
 	
-	controller_up.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
+	controller_up_button.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
 	"tiny_move_up", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_up", controller_up)
+	InputMap.action_add_event("tiny_move_up", controller_up_button)
 	
 	
 	
@@ -177,9 +180,9 @@ func reset_to_default_inputs() -> void:
 	keyboard_down.keycode = OS.find_keycode_from_string(keyboard_down_value)
 	InputMap.action_add_event("tiny_move_down", keyboard_down)
 	
-	controller_down.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
+	controller_down_button.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
 	"tiny_move_down", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_down", controller_down)
+	InputMap.action_add_event("tiny_move_down", controller_down_button)
 	
 	
 	
@@ -189,9 +192,9 @@ func reset_to_default_inputs() -> void:
 	keyboard_left.keycode = OS.find_keycode_from_string(keyboard_left_value)
 	InputMap.action_add_event("tiny_move_left", keyboard_left)
 	
-	controller_left.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
+	controller_left_button.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
 	"tiny_move_left", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_left", controller_left)
+	InputMap.action_add_event("tiny_move_left", controller_left_button)
 	
 	
 	
@@ -201,9 +204,9 @@ func reset_to_default_inputs() -> void:
 	keyboard_right.keycode = OS.find_keycode_from_string(keyboard_right_value)
 	InputMap.action_add_event("tiny_move_right", keyboard_right)
 	
-	controller_right.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
+	controller_right_button.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
 	"tiny_move_right", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_right", controller_right)
+	InputMap.action_add_event("tiny_move_right", controller_right_button)
 	
 	
 	
@@ -213,9 +216,9 @@ func reset_to_default_inputs() -> void:
 	keyboard_taunt.keycode = OS.find_keycode_from_string(keyboard_taunt_value)
 	InputMap.action_add_event("taunt", keyboard_taunt)
 	
-	controller_taunt.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
+	controller_taunt_button.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
 	"taunt", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("taunt", controller_taunt)
+	InputMap.action_add_event("taunt", controller_taunt_button)
 	
 	create_inputs_file()
 	
@@ -283,28 +286,28 @@ func check_if_duplicates_keyboard(action_name: String, event: InputEvent) -> boo
 @warning_ignore("unused_parameter")
 func check_if_duplicates_controller(action_name: String, event: InputEvent) -> bool:
 	pass
-	var check_controller_up = input_config.get_value("controller_bindings", "tiny_move_up")
-	var check_controller_down = input_config.get_value("controller_bindings", "tiny_move_down")
-	var check_controller_left = input_config.get_value("controller_bindings", "tiny_move_left")
-	var check_controller_right = input_config.get_value("controller_bindings", "tiny_move_right")
-	var check_controller_taunt = input_config.get_value("controller_bindings", "taunt")
-	#print(check_controller_up)
-	#print(check_controller_down)
-	#print(check_controller_left)
-	#print(check_controller_right)
-	#print(check_controller_taunt)
+	var check_controller_up_button = input_config.get_value("controller_bindings", "tiny_move_up")
+	var check_controller_down_button = input_config.get_value("controller_bindings", "tiny_move_down")
+	var check_controller_left_button = input_config.get_value("controller_bindings", "tiny_move_left")
+	var check_controller_right_button = input_config.get_value("controller_bindings", "tiny_move_right")
+	var check_controller_taunt_button = input_config.get_value("controller_bindings", "taunt")
+	#print(check_controller_up_button)
+	#print(check_controller_down_button)
+	#print(check_controller_left_button)
+	#print(check_controller_right_button)
+	#print(check_controller_taunt_button)
 	#print(input_config_controller_button_index)
 	
-	var all_but_up_array = [check_controller_down, 
-	check_controller_left, check_controller_right, check_controller_taunt]
-	var all_but_down_array = [check_controller_up, 
-	check_controller_left, check_controller_right, check_controller_taunt]
-	var all_but_left_array = [check_controller_up, check_controller_down, 
-	check_controller_right, check_controller_taunt]
-	var all_but_right_array = [check_controller_up, check_controller_down, 
-	check_controller_left, check_controller_taunt]
-	var all_but_taunt_array = [check_controller_up, check_controller_down, 
-	check_controller_left, check_controller_right]
+	var all_but_up_array = [check_controller_down_button, 
+	check_controller_left_button, check_controller_right_button, check_controller_taunt_button]
+	var all_but_down_array = [check_controller_up_button, 
+	check_controller_left_button, check_controller_right_button, check_controller_taunt_button]
+	var all_but_left_array = [check_controller_up_button, check_controller_down_button, 
+	check_controller_right_button, check_controller_taunt_button]
+	var all_but_right_array = [check_controller_up_button, check_controller_down_button, 
+	check_controller_left_button, check_controller_taunt_button]
+	var all_but_taunt_array = [check_controller_up_button, check_controller_down_button, 
+	check_controller_left_button, check_controller_right_button]
 	
 	if action_name == "tiny_move_up":
 		if input_config_controller_button_index in all_but_up_array:
