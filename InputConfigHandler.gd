@@ -10,7 +10,7 @@ const INPUT_SETTINGS_FILE_PATH = "user://input_settings.cfg"
 
 var input_config_controller_button_index
 var input_config_controller_axis_index
-var input_config_controller_axis_index_value
+var input_config_controller_axis_deadzone_value := 0.5
 var input_config_keyboard_keycode
 
 var loading_values_test: Key
@@ -100,7 +100,8 @@ func _ready():
 	
 	
 	#input_config.set_value("DICTIONARY_TESTING_2", "SUB_HEADER_TESTING", temp_desired_dictionary)
-	#temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING", temp_testing_dictionary)
+	#temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", 
+	#"SUB_HEADER_TESTING", temp_testing_dictionary)
 	#print("temp dictionary value pulled: ", temp_testing_dictionary_reading)
 	#var temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING")
 		## create a variable called temp_testing_dictionary_reading, set it equal to the input_config file's value 
@@ -431,6 +432,7 @@ func save_controller_input(action_name: String, event: InputEvent, action_events
 			input_config.save(INPUT_SETTINGS_FILE_PATH)
 		elif button_or_axis == "axis":
 			save_controller_input_axis(action_name, event, action_events_list)
+			input_config.save(INPUT_SETTINGS_FILE_PATH)
 	elif duplicate_return_value == true:
 		duplicate_detected.emit()
 		print("duplicate_detected emitted")
@@ -439,8 +441,10 @@ func save_controller_input(action_name: String, event: InputEvent, action_events
 @warning_ignore("unused_parameter")
 func save_controller_input_button(action_name: String, event: InputEvent, action_events_list: Array) -> void:
 	input_config.set_value("controller_bindings", action_name, input_config_controller_button_index)
-	print("button or axis filter proc'd save_controller_input_button")
-	
+	temp_desired_dictionary[action_name]["button, or axis?"] = "button"
+	temp_desired_dictionary[action_name]["button_information"] = str(input_config_controller_button_index)
+	input_config.set_value("data", "temp_desired_dictionary", temp_desired_dictionary)
+	#print("button or axis filter proc'd save_controller_input_button")
 	#print(temp_desired_dictionary)
 	#input_config.set_value("DICTIONARY_TESTING_2", "SUB_HEADER_TESTING", temp_desired_dictionary)
 	return
@@ -449,12 +453,14 @@ func save_controller_input_button(action_name: String, event: InputEvent, action
 func save_controller_input_axis(action_name: String, event: InputEvent, action_events_list: Array) -> void:
 	## I think this will require simply saving the entire dictionary at once
 	#temp_desired_dictionary["tiny_move_up"]["button, or axis?"] = "axis"
-	temp_desired_dictionary[action_name]["button, or axis?"] = str(event)
-	print("button or axis filter proc'd save_controller_input_axis")
-	print("action_name in the save_controller_input_axis() func was: ", action_name)
-	print("event in the save_controller_input_axis() func was: ", event)
-	input_config.set_value("data", "temp_desired_dictionary", temp_desired_dictionary)
+	#print("button or axis filter proc'd save_controller_input_axis")
+	#print("action_name in the save_controller_input_axis() func was: ", action_name)
+	#print("event in the save_controller_input_axis() func was: ", event)
 		## write value to dictionary
 		## save dictionary
+	temp_desired_dictionary[action_name]["button, or axis?"] = "axis"
+	temp_desired_dictionary[action_name]["axis_information"] = [input_config_controller_axis_index, 
+	input_config_controller_axis_deadzone_value]
+	input_config.set_value("data", "temp_desired_dictionary", temp_desired_dictionary)
 	
 	return
