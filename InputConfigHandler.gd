@@ -48,49 +48,50 @@ var controller_axis_strength: float = 1.0
 var temp_testing_dictionary: Dictionary = {
 	"first value": "one",
 	"second value": "two",
-	"mock axis values": [controller_input_identifier, controller_axis_strength],
+	"mock axis values": [1, 0.5],
 	"mock sub-dictionary": {
 		"data_1": 1,
 		"data_2": 2,
 	}
 }
 
-var temp_desired_dictionary: Dictionary = {
+var default_controller_inputs_dictionary: Dictionary = {
 	"tiny_move_up": {
-		"button, or axis?": " ",
-		"button_information": controller_input_identifier,
-		"axis_information": [controller_input_identifier, controller_axis_strength],
+		"button, or axis?": "button",
+		"button_information": 11,
+		"axis_information": [1, -0.5],
 	},
 	"tiny_move_down": {
-		"button, or axis?": " ",
-		"button_information": controller_input_identifier,
-		"axis_information": [controller_input_identifier, controller_axis_strength],
+		"button, or axis?": "button",
+		"button_information": 12,
+		"axis_information": [1, 0.5],
 	},
 	"tiny_move_left": {
-		"button, or axis?": " ",
-		"button_information": controller_input_identifier,
-		"axis_information": [controller_input_identifier, controller_axis_strength],
+		"button, or axis?": "button",
+		"button_information": 13,
+		"axis_information": [0, -0.5],
 	},
 	"tiny_move_right": {
-		"button, or axis?": " ",
-		"button_information": controller_input_identifier,
-		"axis_information": [controller_input_identifier, controller_axis_strength],
+		"button, or axis?": "button",
+		"button_information": 14,
+		"axis_information": [0 , 0.5],
 	},
 	"taunt": {
-		"button, or axis?": " ",
-		"button_information": controller_input_identifier,
-		"axis_information": [controller_input_identifier, controller_axis_strength],
+		"button, or axis?": "button",
+		"button_information": 0,
+		"axis_information": [5, 0.5],
 	},
 }
 
+var controller_inputs_dictionary: Dictionary 
 	## mock dictionary should have one button, one axis, examples
 
 
 #var temp_testing_dictionary_reading
 
 func _ready():
-	#temp_desired_dictionary["tiny_move_up"]["button, or axis?"] = "button"
-	#input_config.set_value("DICTIONARY_TESTING_2", "SUB_HEADER_TESTING", temp_desired_dictionary)
+	#controller_inputs_dictionary["tiny_move_up"]["button, or axis?"] = "button"
+	#input_config.set_value("DICTIONARY_TESTING_2", "SUB_HEADER_TESTING", controller_inputs_dictionary)
 	#temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", 
 	#"SUB_HEADER_TESTING", temp_testing_dictionary)
 	#print("temp dictionary value pulled: ", temp_testing_dictionary_reading)
@@ -111,8 +112,9 @@ func _ready():
 		pass
 		#load_inputs()
 		#load_keyboard_inputs()
-	#sync_dictionary_var()
-	#print(temp_desired_dictionary)
+	#sync_dictionary_to_config()
+	#print(controller_inputs_dictionary)
+	
 
 
 
@@ -176,7 +178,7 @@ func load_inputs() -> void:
 	InputMap.action_add_event("taunt", controller_taunt_button)
 	
 	
-	input_config.set_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING", temp_testing_dictionary)
+	input_config.set_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING", default_controller_inputs_dictionary)
 	return
 
 
@@ -207,6 +209,7 @@ func create_inputs_file() -> void:
 	input_config.set_value("DEFAULT_BINDINGS_CONTROLLER", "tiny_move_right", 14)
 	input_config.set_value("DEFAULT_BINDINGS_CONTROLLER", "taunt", 0)
 	
+	input_config.set_value("DEFAULT_DICTIONARY_CONTROLLER", "DEFAULT_BUTTON_AND_AXIS_VALUES", default_controller_inputs_dictionary)
 	
 	input_config.save(INPUT_SETTINGS_FILE_PATH)
 	return
@@ -275,8 +278,11 @@ func reset_to_default_inputs() -> void:
 	defaulted.emit()
 	return
 
-func sync_dictionary_var() -> void:
-	temp_desired_dictionary = input_config.get_value("data", "temp_desired_dictionary", {})
+func sync_dictionary_to_config() -> void:
+	controller_inputs_dictionary = input_config.get_value("DEFAULT_DICTIONARY_CONTROLLER", "DEFAULT_BUTTON_AND_AXIS_VALUES", {})
+
+func sync_config_to_dictionary() -> void:
+	input_config.set_value("DEFAULT_DICTIONARY_CONTROLLER", "DEFAULT_BUTTON_AND_AXIS_VALUES", controller_inputs_dictionary)
 
 @warning_ignore("unused_parameter")
 func check_if_duplicates_keyboard(action_name: String, event: InputEvent) -> bool:
@@ -339,7 +345,7 @@ func check_if_duplicates_keyboard(action_name: String, event: InputEvent) -> boo
 @warning_ignore("unused_parameter")
 func check_if_duplicates_controller(action_name: String, event: InputEvent) -> bool:
 	pass
-	sync_dictionary_var()
+	sync_dictionary_to_config()
 	var check_controller_up_button = input_config.get_value("controller_bindings", "tiny_move_up")
 	var check_controller_down_button = input_config.get_value("controller_bindings", "tiny_move_down")
 	var check_controller_left_button = input_config.get_value("controller_bindings", "tiny_move_left")
@@ -400,7 +406,7 @@ func check_if_duplicates_controller(action_name: String, event: InputEvent) -> b
 @warning_ignore("unused_parameter")
 func check_if_duplicates_controller_full_dictionary(action_name: String, event: InputEvent) -> bool:
 	pass
-	sync_dictionary_var()
+	sync_dictionary_to_config()
 	
 	var check_controller_up
 	var check_controller_down
@@ -408,20 +414,20 @@ func check_if_duplicates_controller_full_dictionary(action_name: String, event: 
 	var check_controller_right
 	var check_controller_taunt
 	
-	if temp_desired_dictionary["tiny_move_up"]["button, or axis?"] == "button":
-		check_controller_up = temp_desired_dictionary["tiny_move_up"]["button_information"]
-		check_controller_down = temp_desired_dictionary["tiny_move_down"]["button_information"]
-		check_controller_left = temp_desired_dictionary["tiny_move_left"]["button_information"]
-		check_controller_right = temp_desired_dictionary["tiny_move_right"]["button_information"]
-		check_controller_taunt = temp_desired_dictionary["taunt"]["button_information"]
-		print("check_controller_up (for button) was: ", str(temp_desired_dictionary["tiny_move_up"]["button, or axis?"]))
-	if temp_desired_dictionary["tiny_move_up"]["button, or axis?"] == "axis":
-		check_controller_up = temp_desired_dictionary["tiny_move_up"]["axis_information"]
-		check_controller_down = temp_desired_dictionary["tiny_move_down"]["axis_information"]
-		check_controller_left = temp_desired_dictionary["tiny_move_left"]["axis_information"]
-		check_controller_right = temp_desired_dictionary["tiny_move_right"]["axis_information"]
-		check_controller_taunt = temp_desired_dictionary["taunt"]["axis_information"]
-		print("check_controller_up (for axis) was: ", str(temp_desired_dictionary["tiny_move_up"]["button, or axis?"]))
+	if controller_inputs_dictionary["tiny_move_up"]["button, or axis?"] == "button":
+		check_controller_up = controller_inputs_dictionary["tiny_move_up"]["button_information"]
+		check_controller_down = controller_inputs_dictionary["tiny_move_down"]["button_information"]
+		check_controller_left = controller_inputs_dictionary["tiny_move_left"]["button_information"]
+		check_controller_right = controller_inputs_dictionary["tiny_move_right"]["button_information"]
+		check_controller_taunt = controller_inputs_dictionary["taunt"]["button_information"]
+		print("check_controller_up (for button) was: ", str(controller_inputs_dictionary["tiny_move_up"]["button, or axis?"]))
+	if controller_inputs_dictionary["tiny_move_up"]["button, or axis?"] == "axis":
+		check_controller_up = controller_inputs_dictionary["tiny_move_up"]["axis_information"]
+		check_controller_down = controller_inputs_dictionary["tiny_move_down"]["axis_information"]
+		check_controller_left = controller_inputs_dictionary["tiny_move_left"]["axis_information"]
+		check_controller_right = controller_inputs_dictionary["tiny_move_right"]["axis_information"]
+		check_controller_taunt = controller_inputs_dictionary["taunt"]["axis_information"]
+		print("check_controller_up (for axis) was: ", str(controller_inputs_dictionary["tiny_move_up"]["button, or axis?"]))
 	
 	var all_but_up_array = [check_controller_down, check_controller_left, check_controller_right, check_controller_taunt]
 	var all_but_down_array = [check_controller_up, check_controller_left, check_controller_right, check_controller_taunt]
@@ -511,26 +517,26 @@ func save_controller_input(action_name: String, event: InputEvent, action_events
 func save_controller_input_button(action_name: String, event: InputEvent, action_events_list: Array) -> void:
 	#input_config.set_value("controller_bindings", action_name, input_config_controller_button_index)
 	
-	temp_desired_dictionary[action_name]["button, or axis?"] = "button"
-	temp_desired_dictionary[action_name]["button_information"] = str(input_config_controller_button_index)
-	input_config.set_value("data", "temp_desired_dictionary", temp_desired_dictionary)
+	controller_inputs_dictionary[action_name]["button, or axis?"] = "button"
+	controller_inputs_dictionary[action_name]["button_information"] = str(input_config_controller_button_index)
+	input_config.set_value("data", "controller_inputs_dictionary", controller_inputs_dictionary)
 	#print("button or axis filter proc'd save_controller_input_button")
-	#print(temp_desired_dictionary)
-	#input_config.set_value("DICTIONARY_TESTING_2", "SUB_HEADER_TESTING", temp_desired_dictionary)
+	#print(controller_inputs_dictionary)
+	#input_config.set_value("DICTIONARY_TESTING_2", "SUB_HEADER_TESTING", controller_inputs_dictionary)
 	return
 
 @warning_ignore("unused_parameter")
 func save_controller_input_axis(action_name: String, event: InputEvent, action_events_list: Array) -> void:
 	## I think this will require simply saving the entire dictionary at once
-	#temp_desired_dictionary["tiny_move_up"]["button, or axis?"] = "axis"
+	#controller_inputs_dictionary["tiny_move_up"]["button, or axis?"] = "axis"
 	#print("button or axis filter proc'd save_controller_input_axis")
 	#print("action_name in the save_controller_input_axis() func was: ", action_name)
 	#print("event in the save_controller_input_axis() func was: ", event)
 		## write value to dictionary
 		## save dictionary
-	temp_desired_dictionary[action_name]["button, or axis?"] = "axis"
-	temp_desired_dictionary[action_name]["axis_information"] = [input_config_controller_axis_index, 
+	controller_inputs_dictionary[action_name]["button, or axis?"] = "axis"
+	controller_inputs_dictionary[action_name]["axis_information"] = [input_config_controller_axis_index, 
 	input_config_controller_axis_pos_or_neg + str(input_config_controller_axis_deadzone_value)]
-	input_config.set_value("data", "temp_desired_dictionary", temp_desired_dictionary)
+	input_config.set_value("data", "controller_inputs_dictionary", controller_inputs_dictionary)
 	
 	return
