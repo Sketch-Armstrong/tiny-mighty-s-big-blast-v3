@@ -228,6 +228,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event is InputEventJoypadMotion:
 			InputConfigHandler.button_or_axis = "axis"
 			InputConfigHandler.input_config_controller_axis_index = event.axis
+			if event.axis_value > 0:
+				InputConfigHandler.input_config_controller_axis_pos_or_neg = "+"
+			if event.axis_value < 0:
+				InputConfigHandler.input_config_controller_axis_pos_or_neg = "-"
 			InputConfigHandler.save_controller_input(action, event, action_events_list)
 			InputConfigHandler.load_inputs()
 			print("event was: ", event)

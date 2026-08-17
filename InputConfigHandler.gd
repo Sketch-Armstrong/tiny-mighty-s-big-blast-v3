@@ -11,6 +11,7 @@ const INPUT_SETTINGS_FILE_PATH = "user://input_settings.cfg"
 var input_config_controller_button_index
 var input_config_controller_axis_index
 var input_config_controller_axis_deadzone_value := 0.5
+var input_config_controller_axis_pos_or_neg := " "
 var input_config_keyboard_keycode
 
 var loading_values_test: Key
@@ -440,7 +441,8 @@ func save_controller_input(action_name: String, event: InputEvent, action_events
 
 @warning_ignore("unused_parameter")
 func save_controller_input_button(action_name: String, event: InputEvent, action_events_list: Array) -> void:
-	input_config.set_value("controller_bindings", action_name, input_config_controller_button_index)
+	#input_config.set_value("controller_bindings", action_name, input_config_controller_button_index)
+	
 	temp_desired_dictionary[action_name]["button, or axis?"] = "button"
 	temp_desired_dictionary[action_name]["button_information"] = str(input_config_controller_button_index)
 	input_config.set_value("data", "temp_desired_dictionary", temp_desired_dictionary)
@@ -460,7 +462,7 @@ func save_controller_input_axis(action_name: String, event: InputEvent, action_e
 		## save dictionary
 	temp_desired_dictionary[action_name]["button, or axis?"] = "axis"
 	temp_desired_dictionary[action_name]["axis_information"] = [input_config_controller_axis_index, 
-	input_config_controller_axis_deadzone_value]
+	input_config_controller_axis_pos_or_neg + str(input_config_controller_axis_deadzone_value)]
 	input_config.set_value("data", "temp_desired_dictionary", temp_desired_dictionary)
 	
 	return
