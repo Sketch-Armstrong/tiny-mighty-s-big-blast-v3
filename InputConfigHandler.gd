@@ -89,17 +89,7 @@ var temp_desired_dictionary: Dictionary = {
 #var temp_testing_dictionary_reading
 
 func _ready():
-	if !FileAccess.file_exists(INPUT_SETTINGS_FILE_PATH):
-		create_inputs_file()
-	
-	if err == OK:
-		pass
-		#load_inputs()
-		#load_keyboard_inputs()
-	
-	temp_desired_dictionary["tiny_move_up"]["button, or axis?"] = "button"
-	
-	
+	#temp_desired_dictionary["tiny_move_up"]["button, or axis?"] = "button"
 	#input_config.set_value("DICTIONARY_TESTING_2", "SUB_HEADER_TESTING", temp_desired_dictionary)
 	#temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", 
 	#"SUB_HEADER_TESTING", temp_testing_dictionary)
@@ -114,6 +104,15 @@ func _ready():
 		## named data_2_value equal to the data point labeled "data_2"
 	#print("data_2 value: ", data_2_value)
 		## print the string "data_2 value: ", and the previously defined data_2_value variable
+	if !FileAccess.file_exists(INPUT_SETTINGS_FILE_PATH):
+		create_inputs_file()
+	
+	if err == OK:
+		pass
+		#load_inputs()
+		#load_keyboard_inputs()
+	#sync_dictionary_var()
+	#print(temp_desired_dictionary)
 
 
 
@@ -277,7 +276,7 @@ func reset_to_default_inputs() -> void:
 	return
 
 func sync_dictionary_var() -> void:
-	pass
+	temp_desired_dictionary = input_config.get_value("data", "temp_desired_dictionary", {})
 
 @warning_ignore("unused_parameter")
 func check_if_duplicates_keyboard(action_name: String, event: InputEvent) -> bool:
@@ -340,28 +339,19 @@ func check_if_duplicates_keyboard(action_name: String, event: InputEvent) -> boo
 @warning_ignore("unused_parameter")
 func check_if_duplicates_controller(action_name: String, event: InputEvent) -> bool:
 	pass
+	sync_dictionary_var()
 	var check_controller_up_button = input_config.get_value("controller_bindings", "tiny_move_up")
 	var check_controller_down_button = input_config.get_value("controller_bindings", "tiny_move_down")
 	var check_controller_left_button = input_config.get_value("controller_bindings", "tiny_move_left")
 	var check_controller_right_button = input_config.get_value("controller_bindings", "tiny_move_right")
 	var check_controller_taunt_button = input_config.get_value("controller_bindings", "taunt")
-	#print(check_controller_up_button)
-	#print(check_controller_down_button)
-	#print(check_controller_left_button)
-	#print(check_controller_right_button)
-	#print(check_controller_taunt_button)
-	#print(input_config_controller_button_index)
+
 	
-	var all_but_up_array = [check_controller_down_button, 
-	check_controller_left_button, check_controller_right_button, check_controller_taunt_button]
-	var all_but_down_array = [check_controller_up_button, 
-	check_controller_left_button, check_controller_right_button, check_controller_taunt_button]
-	var all_but_left_array = [check_controller_up_button, check_controller_down_button, 
-	check_controller_right_button, check_controller_taunt_button]
-	var all_but_right_array = [check_controller_up_button, check_controller_down_button, 
-	check_controller_left_button, check_controller_taunt_button]
-	var all_but_taunt_array = [check_controller_up_button, check_controller_down_button, 
-	check_controller_left_button, check_controller_right_button]
+	var all_but_up_array = [check_controller_down_button, check_controller_left_button, check_controller_right_button, check_controller_taunt_button]
+	var all_but_down_array = [check_controller_up_button, check_controller_left_button, check_controller_right_button, check_controller_taunt_button]
+	var all_but_left_array = [check_controller_up_button, check_controller_down_button, check_controller_right_button, check_controller_taunt_button]
+	var all_but_right_array = [check_controller_up_button, check_controller_down_button, check_controller_left_button, check_controller_taunt_button]
+	var all_but_taunt_array = [check_controller_up_button, check_controller_down_button, check_controller_left_button, check_controller_right_button]
 	
 	if action_name == "tiny_move_up":
 		if input_config_controller_button_index in all_but_up_array:
@@ -408,6 +398,80 @@ func check_if_duplicates_controller(action_name: String, event: InputEvent) -> b
 
 
 @warning_ignore("unused_parameter")
+func check_if_duplicates_controller_full_dictionary(action_name: String, event: InputEvent) -> bool:
+	pass
+	sync_dictionary_var()
+	
+	var check_controller_up
+	var check_controller_down
+	var check_controller_left
+	var check_controller_right
+	var check_controller_taunt
+	
+	if event is InputEventJoypadButton:
+		#var check_controller_up_button = temp_desired_dictionary
+		#print("tiny_move_up is button")
+		check_controller_up = temp_desired_dictionary["tiny_move_up"]["button_information"]
+		check_controller_down = temp_desired_dictionary["tiny_move_down"]["button_information"]
+		check_controller_left = temp_desired_dictionary["tiny_move_left"]["button_information"]
+		check_controller_right = temp_desired_dictionary["tiny_move_right"]["button_information"]
+		check_controller_taunt = temp_desired_dictionary["taunt"]["button_information"]
+		print("check_controller_up (for button) was: ",check_controller_up)
+	if event is InputEventJoypadMotion:
+		print("tiny_move_up is axis")
+	
+	var all_but_up_array = [check_controller_down, check_controller_left, check_controller_right, check_controller_taunt]
+	var all_but_down_array = [check_controller_up, check_controller_left, check_controller_right, check_controller_taunt]
+	var all_but_left_array = [check_controller_up, check_controller_down, check_controller_right, check_controller_taunt]
+	var all_but_right_array = [check_controller_up, check_controller_down,check_controller_left, check_controller_taunt]
+	var all_but_taunt_array = [check_controller_up, check_controller_down, check_controller_left, check_controller_right]
+	
+	
+	
+	if action_name == "tiny_move_up":
+		if input_config_controller_button_index in all_but_up_array:
+			print("duplicate controller up input IN DICTIONARY found")
+			duplicate_detection_keyword = "dupe_up"
+			return true
+		else:
+			return false
+	
+	if action_name == "tiny_move_down":
+		if input_config_controller_button_index in all_but_down_array:
+			print("duplicate controller down input IN DICTIONARY found")
+			duplicate_detection_keyword = "dupe_down"
+			return true
+		else:
+			return false
+	
+	if action_name == "tiny_move_left":
+		if input_config_controller_button_index in all_but_left_array:
+			print("duplicate controller left input IN DICTIONARY found")
+			duplicate_detection_keyword = "dupe_left"
+			return true
+		else:
+			return false
+	
+	if action_name == "tiny_move_right":
+		if input_config_controller_button_index in all_but_right_array:
+			print("duplicate controller right input IN DICTIONARY found")
+			duplicate_detection_keyword = "dupe_right"
+			return true
+		else:
+			return false
+	
+	if action_name == "taunt":
+		if input_config_controller_button_index in all_but_taunt_array:
+			print("duplicate controller taunt input IN DICTIONARY found")
+			duplicate_detection_keyword = "dupe_taunt"
+			return true
+		else:
+			return false
+	
+	else:
+		return false
+
+@warning_ignore("unused_parameter")
 func save_keyboard_input(action_name: String, event: InputEvent, action_events_list: Array) -> void:
 	print("keyboard keycode that was passed is: ", input_config_keyboard_keycode)
 	
@@ -426,7 +490,8 @@ func save_keyboard_input(action_name: String, event: InputEvent, action_events_l
 func save_controller_input(action_name: String, event: InputEvent, action_events_list: Array) -> void:
 	var duplicate_return_value = check_if_duplicates_controller(action_name, event)
 	print(duplicate_return_value)
-	
+	var duplicates_return_value_full_dict = check_if_duplicates_controller_full_dictionary(action_name, event)
+	print(duplicates_return_value_full_dict)
 	if duplicate_return_value == false:
 		if button_or_axis == "button":
 			save_controller_input_button(action_name, event, action_events_list)
