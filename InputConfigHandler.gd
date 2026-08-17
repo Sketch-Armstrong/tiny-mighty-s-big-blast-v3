@@ -408,17 +408,20 @@ func check_if_duplicates_controller_full_dictionary(action_name: String, event: 
 	var check_controller_right
 	var check_controller_taunt
 	
-	if event is InputEventJoypadButton:
-		#var check_controller_up_button = temp_desired_dictionary
-		#print("tiny_move_up is button")
+	if temp_desired_dictionary["tiny_move_up"]["button, or axis?"] == "button":
 		check_controller_up = temp_desired_dictionary["tiny_move_up"]["button_information"]
 		check_controller_down = temp_desired_dictionary["tiny_move_down"]["button_information"]
 		check_controller_left = temp_desired_dictionary["tiny_move_left"]["button_information"]
 		check_controller_right = temp_desired_dictionary["tiny_move_right"]["button_information"]
 		check_controller_taunt = temp_desired_dictionary["taunt"]["button_information"]
-		print("check_controller_up (for button) was: ",check_controller_up)
-	if event is InputEventJoypadMotion:
-		print("tiny_move_up is axis")
+		print("check_controller_up (for button) was: ", str(temp_desired_dictionary["tiny_move_up"]["button, or axis?"]))
+	if temp_desired_dictionary["tiny_move_up"]["button, or axis?"] == "axis":
+		check_controller_up = temp_desired_dictionary["tiny_move_up"]["axis_information"]
+		check_controller_down = temp_desired_dictionary["tiny_move_down"]["axis_information"]
+		check_controller_left = temp_desired_dictionary["tiny_move_left"]["axis_information"]
+		check_controller_right = temp_desired_dictionary["tiny_move_right"]["axis_information"]
+		check_controller_taunt = temp_desired_dictionary["taunt"]["axis_information"]
+		print("check_controller_up (for axis) was: ", str(temp_desired_dictionary["tiny_move_up"]["button, or axis?"]))
 	
 	var all_but_up_array = [check_controller_down, check_controller_left, check_controller_right, check_controller_taunt]
 	var all_but_down_array = [check_controller_up, check_controller_left, check_controller_right, check_controller_taunt]
@@ -491,8 +494,8 @@ func save_controller_input(action_name: String, event: InputEvent, action_events
 	var duplicate_return_value = check_if_duplicates_controller(action_name, event)
 	print(duplicate_return_value)
 	var duplicates_return_value_full_dict = check_if_duplicates_controller_full_dictionary(action_name, event)
-	print(duplicates_return_value_full_dict)
-	if duplicate_return_value == false:
+	print("duplicate checking with full dict was: ",duplicates_return_value_full_dict)
+	if duplicates_return_value_full_dict == false:
 		if button_or_axis == "button":
 			save_controller_input_button(action_name, event, action_events_list)
 			input_config.save(INPUT_SETTINGS_FILE_PATH)
