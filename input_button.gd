@@ -202,8 +202,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if !InputMap.has_action(action) or !is_pressed():
 		return
 	
-
-	if event.is_pressed() and (event is InputEventKey or event is InputEventJoypadMotion or event is InputEventJoypadButton):
+	
+	if event.is_pressed() and (event is InputEventKey or event is InputEventJoypadButton or event is InputEventJoypadMotion):
 		var action_events_list = InputMap.action_get_events(action)
 		if action_event_index < action_events_list.size():
 			InputMap.action_erase_event(action, action_events_list[action_event_index])
@@ -211,37 +211,41 @@ func _unhandled_input(event: InputEvent) -> void:
 		InputMap.action_add_event(action, event)
 		action_event_index = InputMap.action_get_events(action).size()-1
 			## this is where inputs get changed
-			
+		
 		
 		button_pressed = false
 		release_focus()
-
+		
 		if event is InputEventJoypadButton:
 			InputConfigHandler.button_or_axis = "button"
-			print("global button or axis identifier was: ", InputConfigHandler.button_or_axis)
 			InputConfigHandler.input_config_controller_button_index = event.button_index
 			InputConfigHandler.save_controller_input(action, event, action_events_list)
 			InputConfigHandler.load_inputs()
+			print("event was: ", event)
+			#print("action_events_list was: ",action_events_list)
+			print("global button or axis identifier was: ", InputConfigHandler.button_or_axis)
+		
 		elif event is InputEventJoypadMotion:
 			InputConfigHandler.button_or_axis = "axis"
 			InputConfigHandler.input_config_controller_axis_index = event.axis
+			InputConfigHandler.save_controller_input(action, event, action_events_list)
+			InputConfigHandler.load_inputs()
+			print("event was: ", event)
+			#print("action_events_list was: ",action_events_list)
 			print("joypad motion for _unhandled_input() passed")
 			print("axis was: ", InputConfigHandler.input_config_controller_axis_index)
 			print("global button or axis identifier was: ", InputConfigHandler.button_or_axis)
-			InputConfigHandler.save_controller_input(action, event, action_events_list)
-			InputConfigHandler.load_inputs()
+		
 		elif event is InputEventKey:
 			InputConfigHandler.input_config_keyboard_keycode = OS.get_keycode_string(event.physical_keycode)
 			InputConfigHandler.save_keyboard_input(action, event, action_events_list)
 			InputConfigHandler.load_inputs()
+		
 		else:
 			InputConfigHandler.input_config_keyboard_keycode = OS.get_keycode_string(event.keycode)
 			InputConfigHandler.save_keyboard_input(action, event, action_events_list)
 			InputConfigHandler.load_inputs()
 		
-		
-		
-
 		done_remapping.emit()
 		return
 
