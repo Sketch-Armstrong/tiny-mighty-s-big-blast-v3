@@ -55,38 +55,33 @@ var temp_testing_dictionary: Dictionary = {
 
 var temp_desired_dictionary: Dictionary = {
 	"tiny_move_up": {
-		"button, axis, or keyboard?": [temp_true_bool, temp_false_bool, temp_false_bool],
+		"button, or axis?": [temp_true_bool, temp_false_bool],
 		"button_information": temp_int,
 		"axis_information": [temp_int, temp_float],
-		"keyboard_information": temp_int,
 	},
 	
 	"tiny_move_down": {
-		"button, axis, or keyboard?": [temp_true_bool, temp_false_bool, temp_false_bool],
+		"button, or axis?": [temp_true_bool, temp_false_bool],
 		"button_information": temp_int,
 		"axis_information": [temp_int, temp_float],
-		"keyboard_information": temp_int,
 	},
 	
 	"tiny_move_left": {
-		"button, axis, or keyboard?": [temp_true_bool, temp_false_bool, temp_false_bool],
+		"button, or axis?": [temp_true_bool, temp_false_bool],
 		"button_information": temp_int,
 		"axis_information": [temp_int, temp_float],
-		"keyboard_information": temp_int,
 	},
 	
 	"tiny_move_right": {
-		"button, axis, or keyboard?": [temp_true_bool, temp_false_bool, temp_false_bool],
+		"button, or axis?": [temp_true_bool, temp_false_bool],
 		"button_information": temp_int,
 		"axis_information": [temp_int, temp_float],
-		"keyboard_information": temp_int,
 	},
 	
 	"taunt": {
-		"button, axis, or keyboard?": [temp_true_bool, temp_false_bool, temp_false_bool],
+		"button, or axis?": [temp_true_bool, temp_false_bool],
 		"button_information": temp_int,
 		"axis_information": [temp_int, temp_float],
-		"keyboard_information": temp_int,
 	},
 }
 
