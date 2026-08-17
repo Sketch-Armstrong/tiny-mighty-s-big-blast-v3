@@ -38,15 +38,16 @@ var duplicate_detection_keyword: String
 signal defaulted
 signal duplicate_detected
 
-var temp_int: int = 1
-var temp_float: float = 1.0
-var temp_true_bool: bool = true
-var temp_false_bool: bool = false
+var button_or_axis := " "
+
+var controller_input_identifier: int = 1
+var controller_axis_strength: float = 1.0
+
 
 var temp_testing_dictionary: Dictionary = {
 	"first value": "one",
 	"second value": "two",
-	"mock axis values": [temp_int, temp_float],
+	"mock axis values": [controller_input_identifier, controller_axis_strength],
 	"mock sub-dictionary": {
 		"data_1": 1,
 		"data_2": 2,
@@ -55,33 +56,29 @@ var temp_testing_dictionary: Dictionary = {
 
 var temp_desired_dictionary: Dictionary = {
 	"tiny_move_up": {
-		"button, or axis?": [temp_true_bool, temp_false_bool],
-		"button_information": temp_int,
-		"axis_information": [temp_int, temp_float],
+		"button, or axis?": " ",
+		"button_information": controller_input_identifier,
+		"axis_information": [controller_input_identifier, controller_axis_strength],
 	},
-	
 	"tiny_move_down": {
-		"button, or axis?": [temp_true_bool, temp_false_bool],
-		"button_information": temp_int,
-		"axis_information": [temp_int, temp_float],
+		"button, or axis?": " ",
+		"button_information": controller_input_identifier,
+		"axis_information": [controller_input_identifier, controller_axis_strength],
 	},
-	
 	"tiny_move_left": {
-		"button, or axis?": [temp_true_bool, temp_false_bool],
-		"button_information": temp_int,
-		"axis_information": [temp_int, temp_float],
+		"button, or axis?": " ",
+		"button_information": controller_input_identifier,
+		"axis_information": [controller_input_identifier, controller_axis_strength],
 	},
-	
 	"tiny_move_right": {
-		"button, or axis?": [temp_true_bool, temp_false_bool],
-		"button_information": temp_int,
-		"axis_information": [temp_int, temp_float],
+		"button, or axis?": " ",
+		"button_information": controller_input_identifier,
+		"axis_information": [controller_input_identifier, controller_axis_strength],
 	},
-	
 	"taunt": {
-		"button, or axis?": [temp_true_bool, temp_false_bool],
-		"button_information": temp_int,
-		"axis_information": [temp_int, temp_float],
+		"button, or axis?": " ",
+		"button_information": controller_input_identifier,
+		"axis_information": [controller_input_identifier, controller_axis_strength],
 	},
 }
 
@@ -99,7 +96,10 @@ func _ready():
 		#load_inputs()
 		#load_keyboard_inputs()
 	
-	input_config.set_value("DICTIONARY_TESTING_2", "SUB_HEADER_TESTING", temp_desired_dictionary)
+	temp_desired_dictionary["tiny_move_up"]["button, or axis?"] = "button"
+	
+	
+	#input_config.set_value("DICTIONARY_TESTING_2", "SUB_HEADER_TESTING", temp_desired_dictionary)
 	#temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING", temp_testing_dictionary)
 	#print("temp dictionary value pulled: ", temp_testing_dictionary_reading)
 	#var temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING")
@@ -112,6 +112,7 @@ func _ready():
 		## named data_2_value equal to the data point labeled "data_2"
 	#print("data_2 value: ", data_2_value)
 		## print the string "data_2 value: ", and the previously defined data_2_value variable
+
 
 
 func load_inputs() -> void:
@@ -425,9 +426,26 @@ func save_controller_input(action_name: String, event: InputEvent, action_events
 	print(duplicate_return_value)
 	
 	if duplicate_return_value == false:
-		input_config.set_value("controller_bindings", action_name, input_config_controller_button_index)
-		input_config.save(INPUT_SETTINGS_FILE_PATH)
+		if button_or_axis == "button":
+			save_controller_input_buttons(action_name, event, action_events_list)
+			input_config.save(INPUT_SETTINGS_FILE_PATH)
+		elif button_or_axis == "axis":
+			save_controller_input_axis(action_name, event, action_events_list)
 	elif duplicate_return_value == true:
 		duplicate_detected.emit()
 		print("duplicate_detected emitted")
+	return
+
+@warning_ignore("unused_parameter")
+func save_controller_input_buttons(action_name: String, event: InputEvent, action_events_list: Array) -> void:
+	input_config.set_value("controller_bindings", action_name, input_config_controller_button_index)
+	#print(temp_desired_dictionary)
+	#input_config.set_value("DICTIONARY_TESTING_2", "SUB_HEADER_TESTING", temp_desired_dictionary)
+	return
+
+@warning_ignore("unused_parameter")
+func save_controller_input_axis(action_name: String, event: InputEvent, action_events_list: Array) -> void:
+	## I think this will require simply saving the entire dictionary at once
+	#temp_desired_dictionary["tiny_move_up"]["button, or axis?"] = "axis"
+	print("button or axis filter proc'd save_controller_input_axis")
 	return

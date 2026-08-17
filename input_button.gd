@@ -217,17 +217,23 @@ func _unhandled_input(event: InputEvent) -> void:
 		release_focus()
 
 		if event is InputEventJoypadButton:
+			InputConfigHandler.button_or_axis = "button"
+			print("global button or axis identifier was: ", InputConfigHandler.button_or_axis)
 			InputConfigHandler.input_config_controller_button_index = event.button_index
+			InputConfigHandler.save_controller_input(action, event, action_events_list)
+			InputConfigHandler.load_inputs()
+		elif event is InputEventJoypadMotion:
+			InputConfigHandler.button_or_axis = "axis"
+			InputConfigHandler.input_config_controller_axis_index = event.axis
+			print("joypad motion for _unhandled_input() passed")
+			print("axis was: ", InputConfigHandler.input_config_controller_axis_index)
+			print("global button or axis identifier was: ", InputConfigHandler.button_or_axis)
 			InputConfigHandler.save_controller_input(action, event, action_events_list)
 			InputConfigHandler.load_inputs()
 		elif event is InputEventKey:
 			InputConfigHandler.input_config_keyboard_keycode = OS.get_keycode_string(event.physical_keycode)
 			InputConfigHandler.save_keyboard_input(action, event, action_events_list)
 			InputConfigHandler.load_inputs()
-		elif event is InputEventJoypadMotion:
-			print("joypad motion for _unhandled_input() passed")
-			InputConfigHandler.input_config_controller_axis_index = event.axis
-			print("axis was: ", InputConfigHandler.input_config_controller_axis_index)
 		else:
 			InputConfigHandler.input_config_keyboard_keycode = OS.get_keycode_string(event.keycode)
 			InputConfigHandler.save_keyboard_input(action, event, action_events_list)
