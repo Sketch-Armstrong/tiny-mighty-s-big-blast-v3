@@ -181,31 +181,31 @@ func load_inputs() -> void:
 	keyboard_up.keycode = OS.find_keycode_from_string(keyboard_up_value)
 	InputMap.action_add_event("tiny_move_up", keyboard_up)
 	
-	controller_up_button.button_index = input_config.get_value("controller_bindings", 
-	"tiny_move_up", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_up", controller_up_button)
-	
-	var up_axis_info = controller_inputs_dictionary["tiny_move_up"]["axis_information"]
-	controller_up_axis.axis = up_axis_info[0]
-	controller_up_axis.axis_value = float(up_axis_info[1])
-	InputMap.action_add_event("tiny_move_up", controller_up_axis)
-	
+	if controller_inputs_dictionary["tiny_move_up"]["button, or axis?"] == "button":
+		controller_up_button.button_index = controller_inputs_dictionary["tiny_move_up"]["button_information"]
+		InputMap.action_add_event("tiny_move_up", controller_up_button)
+	elif controller_inputs_dictionary["tiny_move_up"]["button, or axis?"] == "axis":
+		var up_axis_info = controller_inputs_dictionary["tiny_move_up"]["axis_information"]
+		controller_up_axis.axis = up_axis_info[0]
+		controller_up_axis.axis_value = float(up_axis_info[1])
+		InputMap.action_add_event("tiny_move_up", controller_up_axis)
 	
 	
 	InputMap.action_erase_events("tiny_move_down")
-	
+		
 	var keyboard_down_value = input_config.get_value("keybindings", "tiny_move_down")
 	keyboard_down.keycode = OS.find_keycode_from_string(keyboard_down_value)
 	InputMap.action_add_event("tiny_move_down", keyboard_down)
 	
-	controller_down_button.button_index = input_config.get_value("controller_bindings", 
-	"tiny_move_down", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_down", controller_down_button)
+	if controller_inputs_dictionary["tiny_move_down"]["button, or axis?"] == "button":
+		controller_down_button.button_index = controller_inputs_dictionary["tiny_move_down"]["button_information"]
+		InputMap.action_add_event("tiny_move_down", controller_down_button)
 	
-	var down_axis_info = controller_inputs_dictionary["tiny_move_down"]["axis_information"]
-	controller_down_axis.axis = down_axis_info[0]
-	controller_down_axis.axis_value = float(down_axis_info[1])
-	InputMap.action_add_event("tiny_move_down", controller_down_axis)
+	elif controller_inputs_dictionary["tiny_move_down"]["button, or axis?"] == "axis":
+		var down_axis_info = controller_inputs_dictionary["tiny_move_down"]["axis_information"]
+		controller_down_axis.axis = down_axis_info[0]
+		controller_down_axis.axis_value = float(down_axis_info[1])
+		InputMap.action_add_event("tiny_move_down", controller_down_axis)
 	
 	
 	
@@ -216,14 +216,15 @@ func load_inputs() -> void:
 	InputMap.action_add_event("tiny_move_left", keyboard_left)
 	
 	
-	controller_left_button.button_index = input_config.get_value("controller_bindings", 
-	"tiny_move_left", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_left", controller_left_button)
+	if controller_inputs_dictionary["tiny_move_left"]["button, or axis?"] == "button":
+		controller_left_button.button_index = controller_inputs_dictionary["tiny_move_left"]["button_information"]
+		InputMap.action_add_event("tiny_move_left", controller_left_button)
 	
-	var left_axis_info = controller_inputs_dictionary["tiny_move_left"]["axis_information"]
-	controller_left_axis.axis = left_axis_info[0]
-	controller_left_axis.axis_value = float(left_axis_info[1])
-	InputMap.action_add_event("tiny_move_left", controller_left_axis)
+	elif controller_inputs_dictionary["tiny_move_left"]["button, or axis?"] == "axis":
+		var left_axis_info = controller_inputs_dictionary["tiny_move_left"]["axis_information"]
+		controller_left_axis.axis = left_axis_info[0]
+		controller_left_axis.axis_value = float(left_axis_info[1])
+		InputMap.action_add_event("tiny_move_left", controller_left_axis)
 	
 	
 	InputMap.action_erase_events("tiny_move_right")
@@ -233,14 +234,15 @@ func load_inputs() -> void:
 	InputMap.action_add_event("tiny_move_right", keyboard_right)
 	
 	
-	controller_right_button.button_index = input_config.get_value("controller_bindings", 
-	"tiny_move_right", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_right", controller_right_button)
+	if controller_inputs_dictionary["tiny_move_right"]["button, or axis?"] == "button":
+		controller_right_button.button_index = controller_inputs_dictionary["tiny_move_right"]["button_information"]
+		InputMap.action_add_event("tiny_move_right", controller_right_button)
 	
-	var right_axis_info = controller_inputs_dictionary["tiny_move_right"]["axis_information"]
-	controller_right_axis.axis = right_axis_info[0]
-	controller_right_axis.axis_value = float(right_axis_info[1])
-	InputMap.action_add_event("tiny_move_right", controller_right_axis)
+	elif controller_inputs_dictionary["tiny_move_right"]["button, or axis?"] == "axis":
+		var right_axis_info = controller_inputs_dictionary["tiny_move_right"]["axis_information"]
+		controller_right_axis.axis = right_axis_info[0]
+		controller_right_axis.axis_value = float(right_axis_info[1])
+		InputMap.action_add_event("tiny_move_right", controller_right_axis)
 	
 	
 	InputMap.action_erase_events("taunt")
@@ -249,15 +251,15 @@ func load_inputs() -> void:
 	keyboard_taunt.keycode = OS.find_keycode_from_string(keyboard_taunt_value)
 	InputMap.action_add_event("taunt", keyboard_taunt)
 	
+	if controller_inputs_dictionary["taunt"]["button, or axis?"] == "button":
+		controller_taunt_button.button_index = controller_inputs_dictionary["taunt"]["button_information"]
+		InputMap.action_add_event("taunt", controller_taunt_button)
 	
-	controller_taunt_button.button_index = input_config.get_value("controller_bindings", 
-	"taunt", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("taunt", controller_taunt_button)
-	
-	var taunt_axis_info = controller_inputs_dictionary["taunt"]["axis_information"]
-	controller_taunt_axis.axis = taunt_axis_info[0]
-	controller_taunt_axis.axis_value = float(taunt_axis_info[1])
-	InputMap.action_add_event("taunt", controller_taunt_axis)
+	elif controller_inputs_dictionary["taunt"]["button, or axis?"] == "button":
+		var taunt_axis_info = controller_inputs_dictionary["taunt"]["axis_information"]
+		controller_taunt_axis.axis = taunt_axis_info[0]
+		controller_taunt_axis.axis_value = float(taunt_axis_info[1])
+		InputMap.action_add_event("taunt", controller_taunt_axis)
 	#input_config.set_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING", default_controller_inputs_dictionary)
 	return
 
