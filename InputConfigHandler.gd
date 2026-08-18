@@ -118,7 +118,38 @@ func _ready():
 	##print(controller_inputs_dictionary)
 	
 
-
+func create_inputs_file() -> void:
+	#print("input config file not found, or inputs reset. Creating input bindings file")
+	
+	input_config.set_value("keybindings", "tiny_move_up", "Up")
+	input_config.set_value("keybindings", "tiny_move_down", "Down")
+	input_config.set_value("keybindings", "tiny_move_left", "Left")
+	input_config.set_value("keybindings", "tiny_move_right", "Right")
+	input_config.set_value("keybindings", "taunt", "Space")
+	
+	input_config.set_value("controller_bindings", "tiny_move_up", 11)
+	input_config.set_value("controller_bindings", "tiny_move_down", 12)
+	input_config.set_value("controller_bindings", "tiny_move_left", 13)
+	input_config.set_value("controller_bindings", "tiny_move_right", 14)
+	input_config.set_value("controller_bindings", "taunt", 0)
+	
+	input_config.set_value("DEFAULT_BINDINGS_KEYS", "tiny_move_up", "Up")
+	input_config.set_value("DEFAULT_BINDINGS_KEYS", "tiny_move_down", "Down")
+	input_config.set_value("DEFAULT_BINDINGS_KEYS", "tiny_move_left", "Left")
+	input_config.set_value("DEFAULT_BINDINGS_KEYS", "tiny_move_right", "Right")
+	input_config.set_value("DEFAULT_BINDINGS_KEYS", "taunt", "Space")
+	
+	input_config.set_value("DEFAULT_BINDINGS_CONTROLLER", "tiny_move_up", 11)
+	input_config.set_value("DEFAULT_BINDINGS_CONTROLLER", "tiny_move_down", 12)
+	input_config.set_value("DEFAULT_BINDINGS_CONTROLLER", "tiny_move_left", 13)
+	input_config.set_value("DEFAULT_BINDINGS_CONTROLLER", "tiny_move_right", 14)
+	input_config.set_value("DEFAULT_BINDINGS_CONTROLLER", "taunt", 0)
+	
+	input_config.set_value("CONTROLLER_DICTIONARY", "BUTTON_AND_AXIS_VALUES", default_controller_inputs_dictionary)
+	input_config.set_value("DEFAULT_DICTIONARY_CONTROLLER", "DEFAULT_BUTTON_AND_AXIS_VALUES", default_controller_inputs_dictionary)
+	
+	input_config.save(INPUT_SETTINGS_FILE_PATH)
+	return
 
 func load_inputs() -> void:
 	InputMap.action_erase_events("tiny_move_up")
@@ -127,7 +158,6 @@ func load_inputs() -> void:
 	keyboard_up.keycode = OS.find_keycode_from_string(keyboard_up_value)
 	InputMap.action_add_event("tiny_move_up", keyboard_up)
 	
-		
 	controller_up_button.button_index = input_config.get_value("controller_bindings", 
 	"tiny_move_up", "FAILSAFE NULL VALUE")
 	InputMap.action_add_event("tiny_move_up", controller_up_button)
@@ -162,14 +192,15 @@ func load_inputs() -> void:
 	keyboard_left.keycode = OS.find_keycode_from_string(keyboard_left_value)
 	InputMap.action_add_event("tiny_move_left", keyboard_left)
 	
-	var left_axis_info = controller_inputs_dictionary["tiny_move_left"]["axis_information"]
-	controller_left_axis.axis = left_axis_info[0]
-	controller_left_axis.axis_value = float(left_axis_info[1])
 	
 	controller_left_button.button_index = input_config.get_value("controller_bindings", 
 	"tiny_move_left", "FAILSAFE NULL VALUE")
 	InputMap.action_add_event("tiny_move_left", controller_left_button)
 	
+	var left_axis_info = controller_inputs_dictionary["tiny_move_left"]["axis_information"]
+	controller_left_axis.axis = left_axis_info[0]
+	controller_left_axis.axis_value = float(left_axis_info[1])
+	InputMap.action_add_event("tiny_move_left", controller_left_axis)
 	
 	
 	InputMap.action_erase_events("tiny_move_right")
@@ -178,14 +209,15 @@ func load_inputs() -> void:
 	keyboard_right.keycode = OS.find_keycode_from_string(keyboard_right_value)
 	InputMap.action_add_event("tiny_move_right", keyboard_right)
 	
-	var right_axis_info = controller_inputs_dictionary["tiny_move_right"]["axis_information"]
-	controller_right_axis.axis = right_axis_info[0]
-	controller_right_axis.axis_value = float(right_axis_info[1])
 	
 	controller_right_button.button_index = input_config.get_value("controller_bindings", 
 	"tiny_move_right", "FAILSAFE NULL VALUE")
 	InputMap.action_add_event("tiny_move_right", controller_right_button)
 	
+	var right_axis_info = controller_inputs_dictionary["tiny_move_right"]["axis_information"]
+	controller_right_axis.axis = right_axis_info[0]
+	controller_right_axis.axis_value = float(right_axis_info[1])
+	InputMap.action_add_event("tiny_move_right", controller_right_axis)
 	
 	
 	InputMap.action_erase_events("taunt")
@@ -194,51 +226,20 @@ func load_inputs() -> void:
 	keyboard_taunt.keycode = OS.find_keycode_from_string(keyboard_taunt_value)
 	InputMap.action_add_event("taunt", keyboard_taunt)
 	
-	var taunt_axis_info = controller_inputs_dictionary["taunt"]["axis_information"]
-	controller_taunt_axis.axis = taunt_axis_info[0]
-	controller_taunt_axis.axis_value = float(taunt_axis_info[1])
 	
 	controller_taunt_button.button_index = input_config.get_value("controller_bindings", 
 	"taunt", "FAILSAFE NULL VALUE")
 	InputMap.action_add_event("taunt", controller_taunt_button)
 	
-	
+	var taunt_axis_info = controller_inputs_dictionary["taunt"]["axis_information"]
+	controller_taunt_axis.axis = taunt_axis_info[0]
+	controller_taunt_axis.axis_value = float(taunt_axis_info[1])
+	InputMap.action_add_event("taunt", controller_taunt_axis)
 	#input_config.set_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING", default_controller_inputs_dictionary)
 	return
 
 
-func create_inputs_file() -> void:
-	#print("input config file not found, or inputs reset. Creating input bindings file")
-	
-	input_config.set_value("keybindings", "tiny_move_up", "Up")
-	input_config.set_value("keybindings", "tiny_move_down", "Down")
-	input_config.set_value("keybindings", "tiny_move_left", "Left")
-	input_config.set_value("keybindings", "tiny_move_right", "Right")
-	input_config.set_value("keybindings", "taunt", "Space")
-	
-	input_config.set_value("controller_bindings", "tiny_move_up", 11)
-	input_config.set_value("controller_bindings", "tiny_move_down", 12)
-	input_config.set_value("controller_bindings", "tiny_move_left", 13)
-	input_config.set_value("controller_bindings", "tiny_move_right", 14)
-	input_config.set_value("controller_bindings", "taunt", 0)
-	
-	input_config.set_value("DEFAULT_BINDINGS_KEYS", "tiny_move_up", "Up")
-	input_config.set_value("DEFAULT_BINDINGS_KEYS", "tiny_move_down", "Down")
-	input_config.set_value("DEFAULT_BINDINGS_KEYS", "tiny_move_left", "Left")
-	input_config.set_value("DEFAULT_BINDINGS_KEYS", "tiny_move_right", "Right")
-	input_config.set_value("DEFAULT_BINDINGS_KEYS", "taunt", "Space")
-	
-	input_config.set_value("DEFAULT_BINDINGS_CONTROLLER", "tiny_move_up", 11)
-	input_config.set_value("DEFAULT_BINDINGS_CONTROLLER", "tiny_move_down", 12)
-	input_config.set_value("DEFAULT_BINDINGS_CONTROLLER", "tiny_move_left", 13)
-	input_config.set_value("DEFAULT_BINDINGS_CONTROLLER", "tiny_move_right", 14)
-	input_config.set_value("DEFAULT_BINDINGS_CONTROLLER", "taunt", 0)
-	
-	input_config.set_value("CONTROLLER_DICTIONARY", "BUTTON_AND_AXIS_VALUES", default_controller_inputs_dictionary)
-	input_config.set_value("DEFAULT_DICTIONARY_CONTROLLER", "DEFAULT_BUTTON_AND_AXIS_VALUES", default_controller_inputs_dictionary)
-	
-	input_config.save(INPUT_SETTINGS_FILE_PATH)
-	return
+
 
 func reset_to_default_inputs() -> void:
 	set_dictionary_to_default()
@@ -270,6 +271,10 @@ func reset_to_default_inputs() -> void:
 	"tiny_move_down", "FAILSAFE NULL VALUE")
 	InputMap.action_add_event("tiny_move_down", controller_down_button)
 	
+	var down_axis_info = controller_inputs_dictionary["tiny_move_down"]["axis_information"]
+	controller_down_axis.axis = down_axis_info[0]
+	controller_down_axis.axis_value = float(down_axis_info[1])
+	InputMap.action_add_event("tiny_move_down", controller_down_axis)
 	
 	
 	InputMap.action_erase_events("tiny_move_left")
@@ -282,7 +287,10 @@ func reset_to_default_inputs() -> void:
 	"tiny_move_left", "FAILSAFE NULL VALUE")
 	InputMap.action_add_event("tiny_move_left", controller_left_button)
 	
-	
+	var left_axis_info = controller_inputs_dictionary["tiny_move_left"]["axis_information"]
+	controller_left_axis.axis = left_axis_info[0]
+	controller_left_axis.axis_value = float(left_axis_info[1])
+	InputMap.action_add_event("tiny_move_left", controller_left_axis)
 	
 	InputMap.action_erase_events("tiny_move_right")
 	
@@ -294,6 +302,10 @@ func reset_to_default_inputs() -> void:
 	"tiny_move_right", "FAILSAFE NULL VALUE")
 	InputMap.action_add_event("tiny_move_right", controller_right_button)
 	
+	var right_axis_info = controller_inputs_dictionary["tiny_move_right"]["axis_information"]
+	controller_right_axis.axis = right_axis_info[0]
+	controller_right_axis.axis_value = float(right_axis_info[1])
+	InputMap.action_add_event("tiny_move_right", controller_right_axis)
 	
 	
 	InputMap.action_erase_events("taunt")
@@ -305,6 +317,11 @@ func reset_to_default_inputs() -> void:
 	controller_taunt_button.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
 	"taunt", "FAILSAFE NULL VALUE")
 	InputMap.action_add_event("taunt", controller_taunt_button)
+	
+	var taunt_axis_info = controller_inputs_dictionary["taunt"]["axis_information"]
+	controller_taunt_axis.axis = taunt_axis_info[0]
+	controller_taunt_axis.axis_value = float(taunt_axis_info[1])
+	InputMap.action_add_event("taunt", controller_taunt_axis)
 	
 	create_inputs_file()
 	
@@ -387,6 +404,9 @@ func check_if_duplicates_keyboard(action_name: String, event: InputEvent) -> boo
 func check_if_duplicates_controller(action_name: String, event: InputEvent) -> bool:
 	pass
 	sync_dictionary_to_config()
+	var input_config_controller_axis_direction = input_config_controller_axis_pos_or_neg + str(input_config_controller_axis_deadzone_value)
+	var input_config_controller_axis_both: Array = [input_config_controller_axis_index, input_config_controller_axis_direction]
+	
 	
 	var check_controller_up_button
 	var check_controller_down_button
@@ -395,11 +415,19 @@ func check_if_duplicates_controller(action_name: String, event: InputEvent) -> b
 	var check_controller_taunt_button
 	
 	var check_controller_up_axis
-	var check_controller_down_axis
-	var check_controller_left_axis
-	var check_controller_right_axis
-	var check_controller_taunt_axis
+	var check_controller_up_axis_value
 	
+	var check_controller_down_axis
+	var check_controller_down_axis_value
+	
+	var check_controller_left_axis
+	var check_controller_left_axis_value
+	
+	var check_controller_right_axis
+	var check_controller_right_axis_value
+	
+	var check_controller_taunt_axis
+	var check_controller_taunt_axis_value
 	
 	check_controller_up_button = controller_inputs_dictionary["tiny_move_up"]["button_information"]
 	check_controller_down_button = controller_inputs_dictionary["tiny_move_down"]["button_information"]
@@ -407,13 +435,26 @@ func check_if_duplicates_controller(action_name: String, event: InputEvent) -> b
 	check_controller_right_button = controller_inputs_dictionary["tiny_move_right"]["button_information"]
 	check_controller_taunt_button = controller_inputs_dictionary["taunt"]["button_information"]
 	
-	check_controller_up_axis = controller_inputs_dictionary["tiny_move_up"]["axis_information"]
-	check_controller_down_axis = controller_inputs_dictionary["tiny_move_down"]["axis_information"]
-	check_controller_left_axis = controller_inputs_dictionary["tiny_move_left"]["axis_information"]
-	check_controller_right_axis = controller_inputs_dictionary["tiny_move_right"]["axis_information"]
+	check_controller_up_axis = controller_inputs_dictionary["tiny_move_up"]["axis_information"][0]
+	check_controller_up_axis_value = controller_inputs_dictionary["tiny_move_up"]["axis_information"][1]
+	
+	check_controller_down_axis = controller_inputs_dictionary["tiny_move_down"]["axis_information"][0]
+	check_controller_down_axis_value = controller_inputs_dictionary["tiny_move_down"]["axis_information"][1]
+	check_controller_left_axis = controller_inputs_dictionary["tiny_move_left"]["axis_information"][0]
+	check_controller_left_axis_value = controller_inputs_dictionary["tiny_move_left"]["axis_information"][1]
+	check_controller_right_axis = controller_inputs_dictionary["tiny_move_right"]["axis_information"][0]
+	check_controller_right_axis_value = controller_inputs_dictionary["tiny_move_right"]["axis_information"][1]
 	check_controller_taunt_axis = controller_inputs_dictionary["taunt"]["axis_information"][0]
+	check_controller_taunt_axis_value = controller_inputs_dictionary["taunt"]["axis_information"][1]
 	print("check controller taunt axis was: ",check_controller_taunt_axis)
+	print("check controller taunt axis value was: ",check_controller_taunt_axis_value)
 	#print("check_controller_up_button (for axis) was: ", str(controller_inputs_dictionary["tiny_move_up"]["button, or axis?"]))
+	var check_controller_right_axis_both: Array = [check_controller_right_axis, check_controller_right_axis_value]
+	var check_controller_left_axis_both: Array = [check_controller_left_axis, check_controller_left_axis_value]
+	var check_controller_down_axis_both: Array = [check_controller_down_axis, check_controller_down_axis_value]
+	var check_controller_up_axis_both: Array = [check_controller_up_axis, check_controller_up_axis_value]
+	
+	var check_controller_taunt_axis_both: Array = [check_controller_taunt_axis, check_controller_taunt_axis_value]
 	
 	var all_but_up_array = [check_controller_down_button, check_controller_left_button, check_controller_right_button, check_controller_taunt_button]
 	var all_but_down_array = [check_controller_up_button, check_controller_left_button, check_controller_right_button, check_controller_taunt_button]
@@ -422,11 +463,11 @@ func check_if_duplicates_controller(action_name: String, event: InputEvent) -> b
 	var all_but_taunt_array = [check_controller_up_button, check_controller_down_button, check_controller_left_button, check_controller_right_button]
 	
 	
-	var all_but_up_array_axis = [check_controller_down_axis, check_controller_left_axis, check_controller_right_axis, check_controller_taunt_axis]
-	var all_but_down_array_axis = [check_controller_up_axis, check_controller_left_axis, check_controller_right_axis, check_controller_taunt_axis]
-	var all_but_left_array_axis = [check_controller_up_axis, check_controller_down_axis, check_controller_right_axis, check_controller_taunt_axis]
-	var all_but_right_array_axis = [check_controller_up_axis, check_controller_down_axis,check_controller_left_axis, check_controller_taunt_axis]
-	var all_but_taunt_array_axis = [check_controller_up_axis, check_controller_down_axis, check_controller_left_axis, check_controller_right_axis]
+	var all_but_up_array_axis = [check_controller_down_axis_both, check_controller_left_axis_both, check_controller_right_axis_both, check_controller_taunt_axis_both]
+	var all_but_down_array_axis = [check_controller_up_axis_both, check_controller_left_axis_both, check_controller_right_axis_both, check_controller_taunt_axis_both]
+	var all_but_left_array_axis = [check_controller_up_axis_both, check_controller_down_axis_both, check_controller_right_axis_both, check_controller_taunt_axis_both]
+	var all_but_right_array_axis = [check_controller_up_axis_both, check_controller_down_axis_both, check_controller_left_axis_both, check_controller_taunt_axis_both]
+	var all_but_taunt_array_axis = [check_controller_up_axis_both, check_controller_down_axis_both, check_controller_left_axis_both, check_controller_right_axis_both]
 	
 	if event is InputEventJoypadButton:
 		if action_name == "tiny_move_up":
@@ -472,7 +513,7 @@ func check_if_duplicates_controller(action_name: String, event: InputEvent) -> b
 	
 	if event is InputEventJoypadMotion:
 		if action_name == "tiny_move_up":
-			if input_config_controller_axis_index in all_but_up_array_axis:
+			if input_config_controller_axis_both in all_but_up_array_axis:
 				#print("duplicate controller up input IN DICTIONARY found")
 				duplicate_detection_keyword = "dupe_up"
 				return true
@@ -480,7 +521,7 @@ func check_if_duplicates_controller(action_name: String, event: InputEvent) -> b
 				return false
 		
 		if action_name == "tiny_move_down":
-			if input_config_controller_axis_index in all_but_down_array_axis:
+			if input_config_controller_axis_both in all_but_down_array_axis:
 				#print("duplicate controller up input IN DICTIONARY found")
 				duplicate_detection_keyword = "dupe_down"
 				return true
@@ -488,7 +529,7 @@ func check_if_duplicates_controller(action_name: String, event: InputEvent) -> b
 				return false
 		
 		if action_name == "tiny_move_left":
-			if input_config_controller_axis_index in all_but_left_array_axis:
+			if input_config_controller_axis_both in all_but_left_array_axis:
 				#print("duplicate controller up input IN DICTIONARY found")
 				duplicate_detection_keyword = "dupe_left"
 				return true
@@ -496,7 +537,7 @@ func check_if_duplicates_controller(action_name: String, event: InputEvent) -> b
 				return false
 		
 		if action_name == "tiny_move_right":
-			if input_config_controller_axis_index in all_but_right_array_axis:
+			if input_config_controller_axis_both in all_but_right_array_axis:
 				#print("duplicate controller up input IN DICTIONARY found")
 				duplicate_detection_keyword = "dupe_right"
 				return true
@@ -504,9 +545,9 @@ func check_if_duplicates_controller(action_name: String, event: InputEvent) -> b
 				return false
 		
 		if action_name == "taunt":
-			if input_config_controller_axis_index in all_but_taunt_array_axis:
+			if input_config_controller_axis_both in all_but_taunt_array_axis:
 				#print("duplicate controller up input IN DICTIONARY found")
-				duplicate_detection_keyword = "dupe_up"
+				duplicate_detection_keyword = "dupe_taunt"
 				return true
 			else:
 				return false

@@ -3786,8 +3786,8 @@ _data = {
 radius = 17.0
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 17
-collision_mask = 199
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_n3u4o")
 
 [node name="Icon" type="Sprite2D" parent="."]
