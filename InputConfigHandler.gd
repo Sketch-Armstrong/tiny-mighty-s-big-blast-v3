@@ -34,6 +34,29 @@ var keyboard_left = InputEventKey.new()
 var keyboard_right = InputEventKey.new()
 var keyboard_taunt = InputEventKey.new()
 
+var keyboard_events := {
+	"tiny_move_up": keyboard_up,
+	"tiny_move_down": keyboard_down,
+	"tiny_move_left": keyboard_left,
+	"tiny_move_right": keyboard_right,
+	"taunt": keyboard_taunt,
+}
+var controller_button_events := {
+	"tiny_move_up": controller_up_button,
+	"tiny_move_down": controller_down_button,
+	"tiny_move_left": controller_left_button,
+	"tiny_move_right": controller_right_button,
+	"taunt": controller_taunt_button,
+}
+var controller_axis_events := {
+	"tiny_move_up": controller_up_axis,
+	"tiny_move_down": controller_down_axis,
+	"tiny_move_left": controller_left_axis,
+	"tiny_move_right": controller_right_axis,
+	"taunt": controller_taunt_axis,
+}
+
+
 var duplicate_detection_keyword: String
 
 signal defaulted
@@ -112,7 +135,7 @@ func _ready():
 	
 	if err == OK:
 		pass
-		#load_inputs()
+		load_inputs()
 		#load_keyboard_inputs()
 	#sync_dictionary_to_config()
 	##print(controller_inputs_dictionary)
@@ -561,18 +584,20 @@ func check_if_duplicates_controller(action_name: String, event: InputEvent) -> b
 
 
 @warning_ignore("unused_parameter")
+@warning_ignore("unused_parameter")
 func save_keyboard_input(action_name: String, event: InputEvent, action_events_list: Array) -> void:
-	#print("keyboard keycode that was passed is: ", input_config_keyboard_keycode)
-	
 	var duplicate_return_value = check_if_duplicates_keyboard(action_name, event)
-	#print(duplicate_return_value)
 	
 	if duplicate_return_value == false:
 		input_config.set_value("keybindings", action_name, input_config_keyboard_keycode)
 		input_config.save(INPUT_SETTINGS_FILE_PATH)
+		
+		var key_event: InputEventKey = keyboard_events[action_name]
+		InputMap.action_erase_event(action_name, key_event)
+		key_event.keycode = OS.find_keycode_from_string(input_config_keyboard_keycode)
+		InputMap.action_add_event(action_name, key_event)
 	elif duplicate_return_value == true:
 		duplicate_detected.emit()
-		#print("duplicate_detected emitted")
 	return
 
 @warning_ignore("unused_parameter")
@@ -593,10 +618,16 @@ func save_controller_input(action_name: String, event: InputEvent, action_events
 	return
 
 @warning_ignore("unused_parameter")
+@warning_ignore("unused_parameter")
 func save_controller_input_button(action_name: String, event: InputEvent, action_events_list: Array) -> void:
 	controller_inputs_dictionary[action_name]["button, or axis?"] = "button"
-	controller_inputs_dictionary[action_name]["button_information"] = str(input_config_controller_button_index)
+	controller_inputs_dictionary[action_name]["button_information"] = input_config_controller_button_index
 	input_config.set_value("CONTROLLER_DICTIONARY", "BUTTON_AND_AXIS_VALUES", controller_inputs_dictionary)
+	
+	var button_event: InputEventJoypadButton = controller_button_events[action_name]
+	InputMap.action_erase_event(action_name, button_event)
+	button_event.button_index = input_config_controller_button_index
+	InputMap.action_add_event(action_name, button_event)
 	return
 
 @warning_ignore("unused_parameter")
@@ -605,4 +636,10 @@ func save_controller_input_axis(action_name: String, event: InputEvent, action_e
 	controller_inputs_dictionary[action_name]["axis_information"] = [input_config_controller_axis_index, 
 	str(input_config_controller_axis_pos_or_neg + str(input_config_controller_axis_deadzone_value))]
 	input_config.set_value("CONTROLLER_DICTIONARY", "BUTTON_AND_AXIS_VALUES", controller_inputs_dictionary)
+	
+	var axis_event: InputEventJoypadMotion = controller_axis_events[action_name]
+	InputMap.action_erase_event(action_name, axis_event)
+	axis_event.axis = input_config_controller_axis_index
+	axis_event.axis_value = input_config_controller_axis_deadzone_value * (1.0 if input_config_controller_axis_pos_or_neg == "+" else -1.0)
+	InputMap.action_add_event(action_name, axis_event)
 	return
