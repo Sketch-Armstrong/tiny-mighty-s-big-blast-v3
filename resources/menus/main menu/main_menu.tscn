@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bkjyvdxuebm0n"]
+[gd_scene load_steps=49 format=3 uid="uid://bkjyvdxuebm0n"]
 
 [ext_resource type="Script" uid="uid://bmp62hod205fu" path="res://resources/menus/main menu/main_menu.gd" id="1_qhkso"]
 [ext_resource type="Script" uid="uid://c5n73aagba6gk" path="res://resources/menus/main menu/button_manager.gd" id="3_iw0os"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://btvsmhossifuw" path="res://resources/menus/main menu/sprites/Buttons/Quit/Quit 2.png" id="11_56eka"]
 [ext_resource type="Texture2D" uid="uid://b6e6cs58utkcc" path="res://resources/menus/main menu/sprites/Clouds 2.png" id="11_o5ce5"]
 [ext_resource type="Texture2D" uid="uid://b7ubnywmxn2y0" path="res://resources/menus/main menu/sprites/Buttons/Options/Options Focus Test.png" id="11_tflpo"]
+[ext_resource type="Texture2D" uid="uid://cjqaqgrj5nb7e" path="res://resources/temporary assets/Options Focus Test with a button.png" id="12_34pwb"]
 [ext_resource type="Texture2D" uid="uid://bdtc1a8uhwok1" path="res://resources/temporary assets/LEGAL.png" id="13_56eka"]
 [ext_resource type="Texture2D" uid="uid://dxjnsfcvya7jl" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 1.png" id="13_eujnn"]
 [ext_resource type="Texture2D" uid="uid://b5xgxqfnwknor" path="res://resources/menus/main menu/Tiny's Sprites/main menu tiny body sheet.png" id="13_w07cb"]
@@ -30,8 +31,19 @@
 [ext_resource type="Texture2D" uid="uid://p1t8ks2o7yad" path="res://resources/menus/main menu/Tiny's Sprites/star.png" id="15_x3ts8"]
 [ext_resource type="PackedScene" uid="uid://bh50a1p6nl5sx" path="res://resources/menus/high score menu/high scores bulletin board.tscn" id="19_56eka"]
 [ext_resource type="Texture2D" uid="uid://b78584c7kmkrl" path="res://resources/HUD/style meter white backing backing.png" id="20_k5bj2"]
+[ext_resource type="Texture2D" uid="uid://dk0yecertxb2d" path="res://resources/temporary assets/arrow test.png" id="21_byh02"]
 [ext_resource type="Texture2D" uid="uid://doy7xj5rusgmy" path="res://resources/menus/main menu/sprites/Title/logo.png" id="25_gvlbf"]
 [ext_resource type="PackedScene" uid="uid://cff8kn466e7eb" path="res://Singletons/highscore handler.tscn" id="26_gbyhc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5bj2"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.8627451)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="Animation" id="Animation_e8su1"]
 resource_name = "RESET"
@@ -434,6 +446,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
 mouse_filter = 1
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_sucl3")
 texture_pressed = ExtResource("3_sucl3")
 texture_hover = ExtResource("3_sucl3")
@@ -443,6 +456,7 @@ texture_focused = ExtResource("11_tflpo")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_j8vij")
 texture_pressed = ExtResource("4_bwclg")
 texture_hover = ExtResource("5_23658")
@@ -453,30 +467,37 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
 mouse_filter = 1
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_eujnn")
 texture_pressed = ExtResource("7_gvlbf")
 texture_hover = ExtResource("8_gbyhc")
-texture_focused = ExtResource("11_tflpo")
+texture_focused = ExtResource("12_34pwb")
 
 [node name="Quit" type="TextureButton" parent="CanvasLayer2/Node2D/ButtonManager"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
 mouse_filter = 1
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("9_8mio5")
 texture_pressed = ExtResource("10_sucl3")
 texture_hover = ExtResource("11_56eka")
-texture_focused = ExtResource("11_tflpo")
+texture_focused = ExtResource("21_byh02")
+stretch_mode = 3
 
 [node name="Legal" type="TextureButton" parent="CanvasLayer2/Node2D/ButtonManager"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
 mouse_filter = 1
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("13_56eka")
 texture_pressed = ExtResource("13_56eka")
 texture_hover = ExtResource("13_56eka")
-texture_focused = ExtResource("11_tflpo")
+texture_focused = ExtResource("21_byh02")
+
+[node name="FocusArrow" type="Sprite2D" parent="CanvasLayer2/Node2D/ButtonManager"]
+texture = ExtResource("21_byh02")
 
 [node name="Node2D2" type="Control" parent="CanvasLayer2"]
 layout_mode = 3
@@ -524,7 +545,10 @@ texture_focused = ExtResource("20_k5bj2")
 layout_mode = 0
 offset_right = 496.0
 offset_bottom = 338.0
-theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_k5bj2")
 text = "LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL "
 
 [node name="HighScores" type="Control" parent="CanvasLayer2"]
@@ -648,10 +672,15 @@ speed_scale = 1.5
 position = Vector2(384, 288)
 texture = ExtResource("25_gvlbf")
 
+[connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Scores" to="CanvasLayer2/Node2D/ButtonManager" method="_on_scores_focus_entered"]
 [connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Scores" to="." method="_on_scores_pressed"]
+[connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Start" to="CanvasLayer2/Node2D/ButtonManager" method="_on_start_focus_entered"]
 [connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Start" to="." method="_on_start_pressed"]
+[connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Options" to="CanvasLayer2/Node2D/ButtonManager" method="_on_options_focus_entered"]
 [connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Options" to="." method="_on_options_pressed"]
+[connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Quit" to="CanvasLayer2/Node2D/ButtonManager" method="_on_quit_focus_entered"]
 [connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Quit" to="." method="_on_quit_pressed"]
+[connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Legal" to="CanvasLayer2/Node2D/ButtonManager" method="_on_legal_focus_entered"]
 [connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Legal" to="." method="_on_legal_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Node2D2/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Legal/LegalBackButton" to="." method="_on_legal_back_button_pressed"]
