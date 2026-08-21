@@ -242,8 +242,15 @@ func _on_game_over_retry() -> void:
 	Bomb3.bomb_reset()
 	Bomb2.bomb_reset()
 	Bomb1.bomb_reset()
-
+	Player.reset_tiny()
+	$TimeLeft/GameTimer.start()
 
 func _on_round_meter_main_round_timer_timeout() -> void:
 	round_timer_stop.emit()
 	_on_hazard_a_hazard_a_miss()
+
+
+func _on_game_timer_timeout() -> void:
+	pass # Replace with function body.
+	game_over.emit()
+	game_over_screen.show()

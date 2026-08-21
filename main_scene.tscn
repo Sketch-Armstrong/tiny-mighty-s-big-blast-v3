@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://of1qt3olovgl"]
+[gd_scene load_steps=23 format=3 uid="uid://of1qt3olovgl"]
 
 [ext_resource type="Script" uid="uid://cionb2fw474m3" path="res://main_scene.gd" id="1_iwt3a"]
 [ext_resource type="PackedScene" uid="uid://xflhitgj8yn4" path="res://resources/menus/pause menu/pause_menu.tscn" id="2_42l1d"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bdl6km1k10wdd" path="res://Test Scenes/control node testing.tscn" id="12_671wp"]
 [ext_resource type="Script" uid="uid://bghaddibpt6f1" path="res://addons/crt/crt.gd" id="13_mo76n"]
 [ext_resource type="AudioStream" uid="uid://dyhkryjucwqjg" path="res://resources/audio/music/Fiery Greatsword DOVA-SYNDROME.mp3" id="14_6jybn"]
+[ext_resource type="Script" uid="uid://b7w2c46qbfn2w" path="res://time_left.gd" id="14_ak604"]
 [ext_resource type="AudioStream" uid="uid://ceb8xha5omsq3" path="res://resources/audio/temp/temp sfx/jackpot stock sound effect.wav" id="15_6jybn"]
 [ext_resource type="PackedScene" uid="uid://bw5b4c2gd4eod" path="res://resources/HUD/scenes/round_timer.tscn" id="17_u0ygc"]
 
@@ -121,6 +122,23 @@ z_index = 2
 position = Vector2(538, 734)
 
 [node name="MainBonusTimer" type="Timer" parent="."]
+
+[node name="TimeLeft" type="Label" parent="."]
+offset_left = 530.0
+offset_top = 35.0
+offset_right = 778.0
+offset_bottom = 161.0
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("6_84odl")
+theme_override_font_sizes/font_size = 101
+text = "test"
+horizontal_alignment = 1
+script = ExtResource("14_ak604")
+
+[node name="GameTimer" type="Timer" parent="TimeLeft"]
+wait_time = 300.0
+one_shot = true
+autostart = true
 
 [node name="Background" parent="." instance=ExtResource("9_7ycvg")]
 
@@ -236,6 +254,7 @@ scale = Vector2(1.16708, 1.18784)
 [connection signal="rank_c" from="StyleMeterRoot" to="Hazards" method="_on_style_meter_root_rank_c"]
 [connection signal="rank_d" from="StyleMeterRoot" to="Hazards" method="_on_style_meter_root_rank_d"]
 [connection signal="rank_s" from="StyleMeterRoot" to="Hazards" method="_on_style_meter_root_rank_s"]
+[connection signal="timeout" from="TimeLeft/GameTimer" to="." method="_on_game_timer_timeout"]
 
 [editable path="Player"]
 [editable path="RoundMeterMain"]
