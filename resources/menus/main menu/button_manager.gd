@@ -1,7 +1,7 @@
 extends VBoxContainer
 
 @onready var arrow_icon = $FocusArrow
-@onready var padding = 5
+@export var offset = Vector2(0, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,24 +18,25 @@ func _process(delta: float) -> void:
 
 func _on_scores_focus_entered() -> void:
 	arrow_icon.visible = true
-	arrow_icon.position = $Scores.position
+	arrow_icon.position = $Scores.position + offset
 
 
 func _on_start_focus_entered() -> void:
 	arrow_icon.visible = true
-	arrow_icon.position = $Start.position
+	arrow_icon.position = $Start.position + offset
+	
 
 
 func _on_options_focus_entered() -> void:
 	arrow_icon.visible = true
-	arrow_icon.position = $Options.position
+	arrow_icon.position = $Options.position + offset
 
 
 func _on_quit_focus_entered() -> void:
 	arrow_icon.visible = true
-	arrow_icon.position = $Quit.position
+	arrow_icon.position = $Quit.position + offset
 
 
 func _on_legal_focus_entered() -> void:
 	arrow_icon.visible = true
-	arrow_icon.position = $Legal.position
+	arrow_icon.position = $Legal.position + offset
