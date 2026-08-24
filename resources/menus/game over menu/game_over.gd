@@ -86,3 +86,7 @@ func _on_main_game_over() -> void:
 	g_over_player.play("papers_slide")
 	
 	
+
+
+func _on_game_over_player_animation_finished(anim_name: StringName) -> void:
+	$RetryButton.grab_focus()
