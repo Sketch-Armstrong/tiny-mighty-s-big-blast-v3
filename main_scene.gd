@@ -33,7 +33,7 @@ signal round_timer_stop
 signal round_timer_start
 signal style_on
 signal style_off
-#signal game_start
+signal game_start
 
 signal game_over
 ## extranneous signals, that I didn't need to use
@@ -59,6 +59,7 @@ func _ready() -> void:
 	game_over_screen.hide()
 	_round_timer_start()
 	_on_game_over_retry()
+	game_start.emit()
 
 func _round_timer_start() -> void:
 	#await get_tree().create_timer(0.0).timeout

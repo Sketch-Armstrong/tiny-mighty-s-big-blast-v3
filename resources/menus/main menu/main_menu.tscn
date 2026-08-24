@@ -530,6 +530,7 @@ offset_left = 568.0
 offset_top = 464.0
 offset_right = 889.0
 offset_bottom = 593.0
+focus_neighbor_left = NodePath("../RichTextLabel")
 mouse_filter = 1
 texture_normal = ExtResource("13_eujnn")
 texture_pressed = ExtResource("14_gvlbf")
@@ -540,6 +541,8 @@ texture_focused = ExtResource("20_k5bj2")
 layout_mode = 0
 offset_right = 496.0
 offset_bottom = 338.0
+focus_neighbor_right = NodePath("../LegalBackButton")
+focus_mode = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -555,7 +558,7 @@ offset_right = -56.0
 offset_bottom = -760.0
 
 [node name="HighScoreHandler" parent="CanvasLayer2/HighScores" instance=ExtResource("26_gbyhc")]
-position = Vector2(680, 80)
+position = Vector2(456, 176)
 
 [node name="ScoreBackButton" type="TextureButton" parent="CanvasLayer2/HighScores"]
 layout_mode = 0

@@ -21,10 +21,12 @@ func _pause() -> void:
 		visible = false
 		test_sound.play()
 		get_tree().paused = false
+		
 	else:
 		visible = true
 		test_sound.play()
 		get_tree().paused = true
+		$BackButton.grab_focus()
 
 func _on_button_pressed() -> void:
 	_pause()

@@ -1,14 +1,28 @@
-[gd_scene load_steps=10 format=3 uid="uid://xflhitgj8yn4"]
+[gd_scene load_steps=16 format=3 uid="uid://xflhitgj8yn4"]
 
 [ext_resource type="Script" uid="uid://dwxvahvj2q8my" path="res://resources/menus/pause menu/pause_menu.gd" id="1_kn6cp"]
 [ext_resource type="AudioStream" uid="uid://c63vs55hp8etx" path="res://resources/audio/394413__inspectorj__bamboo-swing-a11.wav" id="2_fp2on"]
 [ext_resource type="Texture2D" uid="uid://dxjnsfcvya7jl" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 1.png" id="2_pis1j"]
 [ext_resource type="Texture2D" uid="uid://bsu3c4lej74" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 3.png" id="3_6dwfa"]
 [ext_resource type="Texture2D" uid="uid://bevdnbcs3ac14" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 2.png" id="4_4ie8m"]
+[ext_resource type="Texture2D" uid="uid://c5p55loq75wxg" path="res://resources/temporary assets/select arrow test.png" id="5_1h1ss"]
 [ext_resource type="Texture2D" uid="uid://c0o7y7u504gyl" path="res://resources/menus/main menu/sprites/Buttons/Quit/Quit 1.png" id="5_wakxn"]
 [ext_resource type="Texture2D" uid="uid://08jjk4tj5jdi" path="res://resources/menus/main menu/sprites/Buttons/Quit/Quit 3.png" id="6_1h1ss"]
 [ext_resource type="Texture2D" uid="uid://btvsmhossifuw" path="res://resources/menus/main menu/sprites/Buttons/Quit/Quit 2.png" id="7_24p51"]
-[ext_resource type="PackedScene" uid="uid://drb12hb6ul2cr" path="res://resources/menus/options/options.tscn" id="9_wakxn"]
+[ext_resource type="Script" uid="uid://d1v53fcgqch8j" path="res://resources/menus/options/options.gd" id="10_ekb2b"]
+[ext_resource type="Texture2D" uid="uid://kxlgtobkkp6g" path="res://resources/menus/input settings/input settings backing texture.png" id="11_l2sfy"]
+[ext_resource type="Script" uid="uid://do6jlh7g8f433" path="res://input_button.gd" id="12_e0tkh"]
+[ext_resource type="FontFile" uid="uid://dnav6lhamfw13" path="res://resources/fonts/Bangers-Regular.ttf" id="13_jpecc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vh1wk"]
+texture = ExtResource("11_l2sfy")
+texture_margin_left = 25.0
+texture_margin_top = 30.0
+texture_margin_right = 35.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vh1wk"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -35,9 +49,14 @@ offset_right = 530.0
 offset_bottom = 368.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../Options/InputSettings/UpRemapButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
 texture_normal = ExtResource("2_pis1j")
 texture_pressed = ExtResource("3_6dwfa")
 texture_hover = ExtResource("4_4ie8m")
+texture_focused = ExtResource("5_1h1ss")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
@@ -50,9 +69,14 @@ offset_left = 209.0
 offset_top = 492.0
 offset_right = 530.0
 offset_bottom = 621.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../BackButton")
+focus_neighbor_right = NodePath("../Options/InputSettings/ResetButton")
+focus_neighbor_bottom = NodePath(".")
 texture_normal = ExtResource("5_wakxn")
 texture_pressed = ExtResource("6_1h1ss")
 texture_hover = ExtResource("7_24p51")
+texture_focused = ExtResource("5_1h1ss")
 
 [node name="OptionsButton" type="Button" parent="."]
 visible = false
@@ -74,8 +98,228 @@ stream = ExtResource("2_fp2on")
 
 [node name="InGameOptionsParentNode" type="Node" parent="."]
 
-[node name="Options" parent="." instance=ExtResource("9_wakxn")]
+[node name="Options" type="Node2D" parent="."]
+script = ExtResource("10_ekb2b")
+
+[node name="Control" type="Control" parent="Options"]
+z_index = 2
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_mode = 2
+focus_behavior_recursive = 2
+
+[node name="InputSettings" type="Control" parent="Options"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 653.0
+offset_top = 427.0
+offset_right = 653.0
+offset_bottom = 427.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+focus_behavior_recursive = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Options/InputSettings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -256.0
+offset_right = 368.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vh1wk")
+
+[node name="ActionList" type="VBoxContainer" parent="Options/InputSettings/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UpRemapButton" type="Button" parent="Options/InputSettings"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = -311.0
+offset_right = 333.0
+offset_bottom = -303.0
+focus_neighbor_left = NodePath("../../../BackButton")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../DownRemapButton")
+script = ExtResource("12_e0tkh")
+action = "tiny_move_up"
+action_event_index = 11
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="Label" type="Label" parent="Options/InputSettings/UpRemapButton"]
+layout_mode = 0
+offset_left = -111.0
+offset_right = -71.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "up"
+
+[node name="DownRemapButton" type="Button" parent="Options/InputSettings"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = -226.0
+offset_right = 333.0
+offset_bottom = -218.0
+focus_neighbor_left = NodePath("../../../BackButton")
+focus_neighbor_top = NodePath("../UpRemapButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../LeftRemapButton")
+script = ExtResource("12_e0tkh")
+action = "tiny_move_down"
+action_event_index = 12
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="Label" type="Label" parent="Options/InputSettings/DownRemapButton"]
+layout_mode = 0
+offset_left = -111.0
+offset_right = -68.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "down"
+
+[node name="LeftRemapButton" type="Button" parent="Options/InputSettings"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = -143.0
+offset_right = 333.0
+offset_bottom = -135.0
+focus_neighbor_left = NodePath("../../../BackButton")
+focus_neighbor_top = NodePath("../DownRemapButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../RightRemapButton")
+script = ExtResource("12_e0tkh")
+action = "tiny_move_left"
+action_event_index = 13
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="Label" type="Label" parent="Options/InputSettings/LeftRemapButton"]
+layout_mode = 0
+offset_left = -111.0
+offset_right = -71.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "left
+"
+
+[node name="RightRemapButton" type="Button" parent="Options/InputSettings"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = -67.0
+offset_right = 333.0
+offset_bottom = -59.0
+focus_neighbor_left = NodePath("../../../BackButton")
+focus_neighbor_top = NodePath("../LeftRemapButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../TauntRemapButton")
+script = ExtResource("12_e0tkh")
+action = "tiny_move_right"
+action_event_index = 14
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="Label" type="Label" parent="Options/InputSettings/RightRemapButton"]
+layout_mode = 0
+offset_left = -111.0
+offset_right = -71.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "right"
+
+[node name="TauntRemapButton" type="Button" parent="Options/InputSettings"]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 333.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../../BackButton")
+focus_neighbor_top = NodePath("../RightRemapButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../ResetButton")
+script = ExtResource("12_e0tkh")
+action = "taunt"
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="Label" type="Label" parent="Options/InputSettings/TauntRemapButton"]
+layout_mode = 0
+offset_left = -111.0
+offset_right = -68.0
+offset_bottom = 23.0
+text = "taunt"
+
+[node name="StartRemapButton" type="Button" parent="Options/InputSettings"]
+visible = false
+layout_mode = 0
+offset_left = -293.0
+offset_top = 56.0
+offset_right = 15.0
+offset_bottom = 64.0
+script = ExtResource("12_e0tkh")
+action = "start"
+action_event_index = 6
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="Label" type="Label" parent="Options/InputSettings/StartRemapButton"]
+layout_mode = 0
+offset_left = -111.0
+offset_right = -71.0
+offset_bottom = 23.0
+text = "start"
+
+[node name="MarginContainer" type="MarginContainer" parent="Options/InputSettings"]
+visible = false
+layout_mode = 0
+offset_left = 25.0
+offset_top = -154.0
+offset_right = 333.0
+offset_bottom = 56.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ResetButton" type="Button" parent="Options/InputSettings"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 60.0
+offset_right = 333.0
+offset_bottom = 93.0
+focus_neighbor_left = NodePath("../../../BackButton")
+focus_neighbor_top = NodePath("../TauntRemapButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+theme_override_fonts/font = ExtResource("13_jpecc")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vh1wk")
+text = "Reset to default"
+
+[node name="Button" type="Button" parent="Options/InputSettings"]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 25.0
+offset_top = 97.0
+offset_right = 333.0
+offset_bottom = 128.0
+focus_neighbor_left = NodePath("../PanelContainer/ActionList")
+theme_override_colors/font_focus_color = Color(0.9490196, 0, 0.9490196, 1)
+text = "back placeholder"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="done_remapping" from="Options/InputSettings/UpRemapButton" to="Options" method="_on_up_remap_button_done_remapping"]
+[connection signal="done_remapping" from="Options/InputSettings/DownRemapButton" to="Options" method="_on_down_remap_button_done_remapping"]
+[connection signal="done_remapping" from="Options/InputSettings/LeftRemapButton" to="Options" method="_on_left_remap_button_done_remapping"]
+[connection signal="done_remapping" from="Options/InputSettings/RightRemapButton" to="Options" method="_on_right_remap_button_done_remapping"]
+[connection signal="done_remapping" from="Options/InputSettings/TauntRemapButton" to="Options" method="_on_taunt_remap_button_done_remapping"]
+[connection signal="pressed" from="Options/InputSettings/ResetButton" to="Options" method="_on_reset_button_pressed"]

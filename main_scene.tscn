@@ -124,21 +124,20 @@ position = Vector2(538, 734)
 [node name="MainBonusTimer" type="Timer" parent="."]
 
 [node name="TimeLeft" type="Label" parent="."]
-offset_left = 530.0
-offset_top = 35.0
-offset_right = 778.0
-offset_bottom = 161.0
+offset_left = 448.0
+offset_top = 40.0
+offset_right = 696.0
+offset_bottom = 166.0
 theme_override_constants/outline_size = 13
 theme_override_fonts/font = ExtResource("6_84odl")
 theme_override_font_sizes/font_size = 101
-text = "test"
-horizontal_alignment = 1
+text = "5:00"
+horizontal_alignment = 2
 script = ExtResource("14_ak604")
 
 [node name="GameTimer" type="Timer" parent="TimeLeft"]
 wait_time = 300.0
 one_shot = true
-autostart = true
 
 [node name="Background" parent="." instance=ExtResource("9_7ycvg")]
 
@@ -222,6 +221,7 @@ scale = Vector2(1.16708, 1.18784)
 [connection signal="game_over" from="." to="Player" method="_on_main_game_over"]
 [connection signal="game_over" from="." to="Hazards" method="_on_main_game_over"]
 [connection signal="game_over" from="." to="RoundMeterMain" method="_on_main_game_over"]
+[connection signal="game_start" from="." to="TimeLeft" method="_on_main_game_start"]
 [connection signal="round_timer_start" from="." to="RoundMeterMain" method="_on_main_round_timer_start"]
 [connection signal="round_timer_stop" from="." to="RoundMeterMain" method="_on_main_round_timer_stop"]
 [connection signal="style_off" from="." to="StyleMeterRoot" method="_on_main_style_off"]

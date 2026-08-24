@@ -1,10 +1,127 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh50a1p6nl5sx"]
+[gd_scene load_steps=64 format=3 uid="uid://bh50a1p6nl5sx"]
 
 [ext_resource type="Texture2D" uid="uid://c1hkqpvhyo5ev" path="res://resources/menus/high score menu/sprites/bulletin board test layout single sprite.png" id="1_3o8vp"]
 [ext_resource type="Script" uid="uid://brqiklbnnt7r4" path="res://resources/menus/high score menu/high_scores_bulletin_board.gd" id="1_8kha8"]
 [ext_resource type="Texture2D" uid="uid://etsc781bsk52" path="res://resources/menus/game over menu/bonuses sprites-Sheet (complete).png" id="3_j17mc"]
-[ext_resource type="Texture2D" uid="uid://lbu4l660k43o" path="res://resources/character/sprites/corrected grid rotate white.png" id="4_bjfcy"]
 [ext_resource type="Texture2D" uid="uid://2wvdkfmyhssv" path="res://resources/temporary assets/Screenshot from 2026-07-06 23-22-30.png" id="4_wll3b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bjfcy"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bjfcy"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wll3b"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_j17mc"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y1amr"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wtrb0"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cbxak"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_p1wil"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_oeny2"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7i7h2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vsxa7"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4oi1v"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_anjvt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qou4u"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8ayo5"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_b4y6o"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kis4k"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_i22f4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4pfkg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4c3l6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dbafd"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_07j2d"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_skccg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_epb4o"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_772nn"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_boio6"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pqyp0"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2k8d3"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_thrrx"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pem3l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wll3b"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_f2i0l"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qohdx"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mgsju"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yufdu"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ehvny"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_a6ip3"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gcwlc"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rjf76"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wx4oa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wnadn"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_p1xfp"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gda71"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_05k73"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0d28v"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_isycf"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5ysc2"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4d3jd"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tttui"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rrl3b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j17mc"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rc23b"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tddbq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wvx63"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_glsob"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wphg6"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_iogt7"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_u77hx"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dpmr2"]
 
 [node name="BulletinBoard" type="Node2D"]
 script = ExtResource("1_8kha8")
@@ -111,32 +228,85 @@ layout_mode = 2
 
 [node name="CheckButton" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bjfcy")
+theme_override_icons/checked = SubResource("CanvasTexture_bjfcy")
+theme_override_icons/unchecked = SubResource("CanvasTexture_wll3b")
+theme_override_icons/checked_disabled = SubResource("CanvasTexture_j17mc")
+theme_override_icons/unchecked_disabled = SubResource("CanvasTexture_y1amr")
+theme_override_icons/checked_mirrored = SubResource("CanvasTexture_wtrb0")
+theme_override_icons/unchecked_mirrored = SubResource("CanvasTexture_cbxak")
+theme_override_icons/checked_disabled_mirrored = SubResource("CanvasTexture_p1wil")
+theme_override_icons/unchecked_disabled_mirrored = SubResource("CanvasTexture_oeny2")
 
 [node name="CheckButton2" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
+theme_override_icons/icon = SubResource("CanvasTexture_7i7h2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vsxa7")
+theme_override_icons/checked = SubResource("CanvasTexture_4oi1v")
+theme_override_icons/unchecked = SubResource("CanvasTexture_anjvt")
+theme_override_icons/checked_disabled = SubResource("CanvasTexture_qou4u")
+theme_override_icons/unchecked_disabled = SubResource("CanvasTexture_8ayo5")
+theme_override_icons/checked_mirrored = SubResource("CanvasTexture_b4y6o")
+theme_override_icons/unchecked_mirrored = SubResource("CanvasTexture_kis4k")
+theme_override_icons/checked_disabled_mirrored = SubResource("CanvasTexture_i22f4")
+theme_override_icons/unchecked_disabled_mirrored = SubResource("CanvasTexture_4pfkg")
 
 [node name="CheckButton3" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
+theme_override_icons/icon = SubResource("CanvasTexture_4c3l6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dbafd")
+theme_override_icons/checked = SubResource("CanvasTexture_07j2d")
+theme_override_icons/unchecked = SubResource("CanvasTexture_skccg")
+theme_override_icons/checked_disabled = SubResource("CanvasTexture_epb4o")
+theme_override_icons/unchecked_disabled = SubResource("CanvasTexture_772nn")
+theme_override_icons/checked_mirrored = SubResource("CanvasTexture_boio6")
+theme_override_icons/unchecked_mirrored = SubResource("CanvasTexture_pqyp0")
+theme_override_icons/checked_disabled_mirrored = SubResource("CanvasTexture_2k8d3")
+theme_override_icons/unchecked_disabled_mirrored = SubResource("CanvasTexture_thrrx")
 
 [node name="CheckButton4" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
+theme_override_icons/icon = SubResource("CanvasTexture_pem3l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wll3b")
+theme_override_icons/checked = SubResource("CanvasTexture_f2i0l")
+theme_override_icons/unchecked = SubResource("CanvasTexture_qohdx")
+theme_override_icons/checked_disabled = SubResource("CanvasTexture_mgsju")
+theme_override_icons/unchecked_disabled = SubResource("CanvasTexture_yufdu")
+theme_override_icons/checked_mirrored = SubResource("CanvasTexture_ehvny")
+theme_override_icons/unchecked_mirrored = SubResource("CanvasTexture_a6ip3")
+theme_override_icons/checked_disabled_mirrored = SubResource("CanvasTexture_gcwlc")
+theme_override_icons/unchecked_disabled_mirrored = SubResource("CanvasTexture_rjf76")
 
 [node name="CheckButton5" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
+theme_override_icons/icon = SubResource("CanvasTexture_wx4oa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wnadn")
+theme_override_icons/checked = SubResource("CanvasTexture_p1xfp")
+theme_override_icons/unchecked = SubResource("CanvasTexture_gda71")
+theme_override_icons/checked_disabled = SubResource("CanvasTexture_05k73")
+theme_override_icons/unchecked_disabled = SubResource("CanvasTexture_0d28v")
+theme_override_icons/checked_mirrored = SubResource("CanvasTexture_isycf")
+theme_override_icons/unchecked_mirrored = SubResource("CanvasTexture_5ysc2")
+theme_override_icons/checked_disabled_mirrored = SubResource("CanvasTexture_4d3jd")
+theme_override_icons/unchecked_disabled_mirrored = SubResource("CanvasTexture_tttui")
 
 [node name="CheckButton6" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
+theme_override_icons/icon = SubResource("CanvasTexture_rrl3b")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j17mc")
+theme_override_icons/checked = SubResource("CanvasTexture_rc23b")
+theme_override_icons/unchecked = SubResource("CanvasTexture_tddbq")
+theme_override_icons/checked_disabled = SubResource("CanvasTexture_wvx63")
+theme_override_icons/unchecked_disabled = SubResource("CanvasTexture_glsob")
+theme_override_icons/checked_mirrored = SubResource("CanvasTexture_wphg6")
+theme_override_icons/unchecked_mirrored = SubResource("CanvasTexture_iogt7")
+theme_override_icons/checked_disabled_mirrored = SubResource("CanvasTexture_u77hx")
+theme_override_icons/unchecked_disabled_mirrored = SubResource("CanvasTexture_dpmr2")
 
 [node name="BackSignalerButton" type="Button" parent="Toggler/Control"]
 visible = false
 layout_mode = 2
 mouse_filter = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="Toggler/Control"]
-top_level = true
-position = Vector2(336, -16)
-scale = Vector2(0.09142859, 0.15333334)
-texture = ExtResource("4_bjfcy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Toggler"]
 
