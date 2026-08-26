@@ -29,6 +29,7 @@ func test_global_function() -> void:
 
 func _ready() -> void:
 	load_game()
+	print("the global highscores array was: ", str(global_highscores_array))
 
 func check_highscore() -> void:
 	#print("check_highscore activated")

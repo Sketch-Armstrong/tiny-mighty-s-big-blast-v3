@@ -176,6 +176,7 @@ vframes = 6
 frame = 8
 
 [node name="Big" type="Node2D" parent="."]
+visible = false
 
 [node name="ElGrande" type="Sprite2D" parent="Big"]
 texture = ExtResource("3_j17mc")
@@ -218,12 +219,11 @@ position = Vector2(560, 32)
 
 [node name="Control" type="VBoxContainer" parent="Toggler"]
 offset_left = -244.0
-offset_top = -128.0
+offset_top = -312.0
 offset_right = -200.0
-offset_bottom = 36.0
+offset_bottom = -148.0
 
 [node name="ClearSignalerButton" type="Button" parent="Toggler/Control"]
-visible = false
 layout_mode = 2
 
 [node name="CheckButton" type="CheckButton" parent="Toggler/Control"]

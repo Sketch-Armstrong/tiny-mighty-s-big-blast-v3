@@ -23,6 +23,10 @@ extends Node2D
 @onready var Toggle6 := $Toggler/Control/CheckButton6
 @onready var BulletinBack := $Toggler/Control/BackSignalerButton
 
+@onready var stop_score_check_cycle_saver := false
+
+
+
 signal BulletinClearPressed
 signal BulletinClearFocused
 
@@ -50,6 +54,10 @@ func _ready() -> void:
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
+	#SmallSallyNo.hide()
+	#SmallSallyPh.hide()
+
+
 	
 	if BulletinClear.has_focus():
 		BulletinClearFocused.emit()
@@ -98,6 +106,113 @@ func _process(delta: float) -> void:
 	## Max
 	## Claire
 	## Grande
+
+## default scores is var default_highscores_array: Array[int] = [5000, 4000, 3000, 2000, 1000]
+
+func _check_scores() -> void:
+	pass
+	## put in condition for flawless A+ here
+	
+	if GlobalHighscoreHandler.global_highscores_array[0] != 5000:
+		#stop_score_check_cycle_saver = true
+		hide_sally_photo()
+		show_sally_note()
+		show_papi()
+		show_max()
+		show_claire()
+		show_grande()
+		return
+	
+	if GlobalHighscoreHandler.global_highscores_array[1] != 4000:
+		hide_sally_photo()
+		hide_sally_note()
+		show_papi()
+		show_max()
+		show_claire()
+		show_grande()
+		return
+	
+	if GlobalHighscoreHandler.global_highscores_array[2] != 3000:
+		hide_sally_photo()
+		hide_sally_note()
+		hide_papi()
+		show_max()
+		show_claire()
+		show_grande()
+		return
+	
+	if GlobalHighscoreHandler.global_highscores_array[3] != 2000:
+		hide_sally_photo()
+		hide_sally_note()
+		hide_papi()
+		hide_max()
+		show_claire()
+		show_grande()
+		return
+	
+	if GlobalHighscoreHandler.global_highscores_array[4] != 1000:
+		hide_sally_photo()
+		hide_sally_note()
+		hide_papi()
+		hide_max()
+		hide_claire()
+		show_grande()
+		return
+	
+	else:
+		hide_sally_photo()
+		hide_sally_note()
+		hide_papi()
+		hide_max()
+		hide_claire()
+		hide_grande()
+
+
+
+func hide_sally_photo() -> void:
+	Toggle1.hide()
+	BigSallyPh.hide()
+	SmallSallyPh.hide()
+func hide_sally_note() -> void:
+	Toggle2.hide()
+	BigSallyNo.hide()
+	SmallSallyNo.hide()
+func hide_papi() -> void:
+	Toggle3.hide()
+	BigPapi.hide()
+	SmallPapi.hide()
+func hide_max() -> void:
+	Toggle4.hide()
+	BigMax.hide()
+	SmallMax.hide()
+func hide_claire() -> void:
+	Toggle5.hide()
+	BigClaire.hide()
+	SmallClaire.hide()
+func hide_grande() -> void:
+	Toggle6.hide()
+	BigGrande.hide()
+	SmallGrande.hide()
+
+func show_sally_photo() -> void: 
+	Toggle1.show()
+	SmallSallyPh.show()
+func show_sally_note() -> void:
+	Toggle2.show()
+	SmallSallyNo.show()
+func show_papi() -> void:
+	Toggle3.show()
+	SmallPapi.show()
+func show_max() -> void:
+	Toggle4.show()
+	SmallMax.show()
+func show_claire() -> void:
+	Toggle5.show()
+	SmallClaire.show()
+func show_grande() -> void:
+	Toggle6.show()
+	SmallGrande.show()
+
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	if toggled_on == false:
@@ -154,6 +269,9 @@ func _on_check_button_6_toggled(toggled_on: bool) -> void:
 func _on_clear_signaler_button_pressed() -> void:
 	pass # Replace with function body.
 	BulletinClearPressed.emit()
+	stop_score_check_cycle_saver = false
+	await get_tree().create_timer(2.3).timeout
+	_check_scores()
 
 func _on_back_signaler_button_pressed() -> void:
 	pass # Replace with function body.

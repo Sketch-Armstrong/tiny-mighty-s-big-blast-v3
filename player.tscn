@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://badqvsebv6jqr" path="res://resources/HUD/scenes/coin_counter_text .tscn" id="22_7ahtn"]
 [ext_resource type="AudioStream" uid="uid://cvjv005swifvu" path="res://resources/audio/temp/temp sfx/833566__bassimat__metallic-slam-bang-from-closing-gate.wav" id="23_dx0e4"]
 [ext_resource type="AudioStream" uid="uid://cxb077wjfblpp" path="res://resources/audio/temp/temp sfx/465807__paceheart__big-stone-door-suddenly-slamming-shut.wav" id="24_jm5j8"]
-[ext_resource type="AudioStream" uid="uid://bgqdmtopqg750" path="res://resources/temporary assets/temp audio/oh yeah 1 distorted.mp3" id="25_jm5j8"]
+[ext_resource type="AudioStream" uid="uid://2rsberxpvbkt" path="res://resources/temporary assets/temp audio/oh yeah 1 distorted pitched up.mp3" id="25_jm5j8"]
 
 [sub_resource type="Animation" id="Animation_s3bdl"]
 resource_name = "RESET"

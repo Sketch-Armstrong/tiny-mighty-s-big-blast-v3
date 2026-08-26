@@ -588,6 +588,7 @@ offset_right = -56.0
 offset_bottom = -760.0
 
 [node name="HighScoreHandler" parent="CanvasLayer2/HighScores" instance=ExtResource("26_gbyhc")]
+visible = false
 position = Vector2(456, 176)
 
 [node name="ScoreBackButton" type="TextureButton" parent="CanvasLayer2/HighScores"]
@@ -700,20 +701,21 @@ speed_scale = 1.5
 position = Vector2(384, 288)
 texture = ExtResource("25_gvlbf")
 
-[connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Scores" to="CanvasLayer2/Node2D/ButtonManager" method="_on_scores_focus_entered"]
 [connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Scores" to="FocusArrow" method="_on_scores_focus_entered"]
+[connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Scores" to="CanvasLayer2/Node2D/ButtonManager" method="_on_scores_focus_entered"]
 [connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Scores" to="." method="_on_scores_pressed"]
-[connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Start" to="CanvasLayer2/Node2D/ButtonManager" method="_on_start_focus_entered"]
+[connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Scores" to="CanvasLayer2/HighScores/BulletinBoard" method="_check_scores"]
 [connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Start" to="FocusArrow" method="_on_start_focus_entered"]
+[connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Start" to="CanvasLayer2/Node2D/ButtonManager" method="_on_start_focus_entered"]
 [connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Start" to="." method="_on_start_pressed"]
-[connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Options" to="CanvasLayer2/Node2D/ButtonManager" method="_on_options_focus_entered"]
 [connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Options" to="FocusArrow" method="_on_options_focus_entered"]
+[connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Options" to="CanvasLayer2/Node2D/ButtonManager" method="_on_options_focus_entered"]
 [connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Options" to="." method="_on_options_pressed"]
-[connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Quit" to="CanvasLayer2/Node2D/ButtonManager" method="_on_quit_focus_entered"]
 [connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Quit" to="FocusArrow" method="_on_quit_focus_entered"]
+[connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Quit" to="CanvasLayer2/Node2D/ButtonManager" method="_on_quit_focus_entered"]
 [connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Quit" to="." method="_on_quit_pressed"]
-[connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Legal" to="CanvasLayer2/Node2D/ButtonManager" method="_on_legal_focus_entered"]
 [connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Legal" to="FocusArrow" method="_on_legal_focus_entered"]
+[connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Legal" to="CanvasLayer2/Node2D/ButtonManager" method="_on_legal_focus_entered"]
 [connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Legal" to="." method="_on_legal_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Node2D2/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Legal/LegalBackButton" to="." method="_on_legal_back_button_pressed"]
