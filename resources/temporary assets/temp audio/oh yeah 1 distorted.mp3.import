@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgqdmtopqg750"
+path="res://.godot/imported/oh yeah 1 distorted.mp3-fd103f41554b6152b3ffd2d5ced4ce2c.mp3str"
+
+[deps]
+
+source_file="res://resources/temporary assets/temp audio/oh yeah 1 distorted.mp3"
+dest_files=["res://.godot/imported/oh yeah 1 distorted.mp3-fd103f41554b6152b3ffd2d5ced4ce2c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

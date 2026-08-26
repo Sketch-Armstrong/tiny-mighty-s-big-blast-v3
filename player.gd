@@ -252,6 +252,8 @@ func _nova_blast() -> void:
 	tiny_collision.disabled = true
 	can_move = false
 	main_scene.update_bonus_label()
+	#$NovaBlastPlayer.play()
+		## add a diceroll later for if this or the others, or any at all, play
 	player_animation_player.play("Explosion")
 	await player_animation_player.animation_finished
 	self.global_position = spawn_point

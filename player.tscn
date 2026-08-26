@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://csbs8n2714pdv"]
+[gd_scene load_steps=50 format=3 uid="uid://csbs8n2714pdv"]
 
 [ext_resource type="Script" uid="uid://b5jxq4x0sh2uf" path="res://player.gd" id="1_n3u4o"]
 [ext_resource type="Script" uid="uid://c8pcdqbwxg1ib" path="res://move_timer.gd" id="3_x6gf6"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://badqvsebv6jqr" path="res://resources/HUD/scenes/coin_counter_text .tscn" id="22_7ahtn"]
 [ext_resource type="AudioStream" uid="uid://cvjv005swifvu" path="res://resources/audio/temp/temp sfx/833566__bassimat__metallic-slam-bang-from-closing-gate.wav" id="23_dx0e4"]
 [ext_resource type="AudioStream" uid="uid://cxb077wjfblpp" path="res://resources/audio/temp/temp sfx/465807__paceheart__big-stone-door-suddenly-slamming-shut.wav" id="24_jm5j8"]
+[ext_resource type="AudioStream" uid="uid://bgqdmtopqg750" path="res://resources/temporary assets/temp audio/oh yeah 1 distorted.mp3" id="25_jm5j8"]
 
 [sub_resource type="Animation" id="Animation_s3bdl"]
 resource_name = "RESET"
@@ -3994,6 +3995,10 @@ stream = ExtResource("23_dx0e4")
 [node name="DeathSound2" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("24_jm5j8")
 volume_db = -5.0
+
+[node name="NovaBlastPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_jm5j8")
+volume_db = -3.25
 
 [connection signal="BRUTE_FORCE_TAUNT_PRESSED" from="." to="." method="_on_brute_force_taunt_pressed"]
 [connection signal="BRUTE_FORCE_TAUNT_PRESSED" from="." to="TauntTimer" method="_on_player_brute_force_taunt_pressed"]
