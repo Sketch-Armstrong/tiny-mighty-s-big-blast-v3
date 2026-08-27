@@ -60,19 +60,18 @@ func select_char() -> void:
 	return
 
 func initials_string_combine() -> void:
-	if GlobalHighscoreHandler.global_highscores_array_position == 0:
-		return
-	else:
-		GlobalHighscoreHandler.global_initials_combined = initials_combined
-		GlobalHighscoreHandler.update_highscore(GlobalHighscoreHandler.global_highscores_array_position)
-		GlobalHighscoreHandler.save_game()
-		GlobalHighscoreHandler.global_initials_can_input = false
-		GlobalHighscoreHandler.global_initials_combined = ""
-		initials_combined = ""
-		progress_counter = 0
-		char_number = 65
-		self.hide()
-		GlobalVariables.can_retry = true
-		GlobalVariables.can_quit = true
-		
-		return
+
+	GlobalHighscoreHandler.global_initials_combined = initials_combined
+	GlobalHighscoreHandler.update_highscore(GlobalHighscoreHandler.global_highscores_array_position)
+	GlobalHighscoreHandler.save_game()
+	GlobalHighscoreHandler.global_initials_can_input = false
+	GlobalHighscoreHandler.global_initials_combined = ""
+	initials_combined = ""
+	progress_counter = 0
+	char_number = 65
+	self.hide()
+	GlobalVariables.can_retry = true
+	GlobalVariables.can_quit = true
+	
+	return 
+	
