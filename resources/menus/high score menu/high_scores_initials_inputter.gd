@@ -20,6 +20,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var can_select = GlobalHighscoreHandler.global_initials_can_input
 	if can_select == true: 
+		
 		GlobalVariables.can_retry = false
 		GlobalVariables.can_quit = false
 		

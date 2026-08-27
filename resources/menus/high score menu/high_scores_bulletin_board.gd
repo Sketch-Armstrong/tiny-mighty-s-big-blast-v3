@@ -270,7 +270,7 @@ func _on_clear_signaler_button_pressed() -> void:
 	pass # Replace with function body.
 	BulletinClearPressed.emit()
 	stop_score_check_cycle_saver = false
-	await get_tree().create_timer(2.3).timeout
+	#await get_tree().create_timer(2.3).timeout
 	_check_scores()
 
 func _on_back_signaler_button_pressed() -> void:

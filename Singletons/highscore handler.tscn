@@ -77,9 +77,10 @@ func _on_load_button_pressed() -> void:
 
 
 func _on_clear_button_pressed() -> void:
+	$\"../ScoreBackButton\".grab_focus()
 	GlobalHighscoreHandler.clear_highscores()
 	print(\"Clearing...\")
-	await get_tree().create_timer(2.0).timeout
+	#await get_tree().create_timer(2.0).timeout
 	
 		## you need to add a waiting animation for this. Might want to add failsafe buffer
 		## animations to the other save/load areas, too

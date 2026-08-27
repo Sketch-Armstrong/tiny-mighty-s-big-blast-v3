@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cbmyj2nvqrgf6"]
+[gd_scene load_steps=20 format=3 uid="uid://cbmyj2nvqrgf6"]
 
 [ext_resource type="Script" uid="uid://vie4dqnbdiv6" path="res://resources/menus/game over menu/game_over.gd" id="1_dec6c"]
 [ext_resource type="AudioStream" uid="uid://c63vs55hp8etx" path="res://resources/audio/394413__inspectorj__bamboo-swing-a11.wav" id="2_6r6k6"]
@@ -8,10 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://dkac0nm4jfox1" path="res://resources/menus/game over menu/quit 2.png" id="3_igg2g"]
 [ext_resource type="Texture2D" uid="uid://dr76njcyt43u" path="res://resources/menus/game over menu/try again 1.png" id="4_172wu"]
 [ext_resource type="Texture2D" uid="uid://cvod2t4xxawwh" path="res://resources/menus/game over menu/quit 1.png" id="4_lgbbr"]
-[ext_resource type="Texture2D" uid="uid://cefpuydayxnjd" path="res://resources/HUD/style meter outline.png" id="5_172wu"]
 [ext_resource type="Texture2D" uid="uid://bmwpiwx6h3vvf" path="res://resources/menus/game over menu/papers sprite 6 (complete).png" id="9_d047s"]
 [ext_resource type="Texture2D" uid="uid://di0kpexv4l7dw" path="res://resources/menus/game over menu/rankings sheet (sig adjusted).png" id="10_d047s"]
 [ext_resource type="PackedScene" uid="uid://cff8kn466e7eb" path="res://Singletons/highscore handler.tscn" id="11_0bugr"]
+[ext_resource type="Texture2D" uid="uid://dk0yecertxb2d" path="res://resources/temporary assets/arrow test.png" id="13_cwdcb"]
+[ext_resource type="Script" uid="uid://bav2fa5en0t72" path="res://resources/menus/game over menu/sprite_2d.gd" id="14_7g46l"]
 
 [sub_resource type="Animation" id="Animation_6r6k6"]
 resource_name = "RESET"
@@ -122,6 +123,18 @@ _data = {
 &"papers_slide": SubResource("Animation_wbq12")
 }
 
+[sub_resource type="Animation" id="Animation_33qy4"]
+resource_name = "new_animation"
+
+[sub_resource type="Animation" id="Animation_cwdcb"]
+resource_name = "RESET"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7g46l"]
+_data = {
+&"ArrowIdle": SubResource("Animation_33qy4"),
+&"RESET": SubResource("Animation_cwdcb")
+}
+
 [node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -150,7 +163,6 @@ grow_vertical = 2
 texture_normal = ExtResource("2_d047s")
 texture_pressed = ExtResource("3_0bugr")
 texture_hover = ExtResource("4_172wu")
-texture_focused = ExtResource("5_172wu")
 
 [node name="QuitButton" type="TextureButton" parent="."]
 layout_mode = 1
@@ -166,7 +178,6 @@ grow_vertical = 2
 texture_normal = ExtResource("2_xqyb0")
 texture_pressed = ExtResource("3_igg2g")
 texture_hover = ExtResource("4_lgbbr")
-texture_focused = ExtResource("5_172wu")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_6r6k6")
@@ -202,7 +213,19 @@ libraries = {
 
 [node name="HighScoreHandler" parent="." instance=ExtResource("11_0bugr")]
 
+[node name="GameOverArrow" type="Sprite2D" parent="."]
+position = Vector2(290, 625)
+texture = ExtResource("13_cwdcb")
+script = ExtResource("14_7g46l")
+
+[node name="ArrowPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7g46l")
+}
+
 [connection signal="game_over_score_check" from="." to="HighScoreHandler" method="_on_game_over_game_over_score_check"]
+[connection signal="focus_entered" from="RetryButton" to="." method="_on_retry_button_focus_entered"]
 [connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="focus_entered" from="QuitButton" to="." method="_on_quit_button_focus_entered"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="animation_finished" from="GameOverPlayer" to="." method="_on_game_over_player_animation_finished"]
