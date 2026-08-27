@@ -199,7 +199,7 @@ func _miss() -> void:
 	coin_bonus = 0
 	#print("global coin snap on line 181 was", GlobalVariables.coin_snapshot)
 	if miss == 1:
-		if score < 1000:
+		if score < 5000:
 			GlobalVariables.a_plus_tripwire = false
 		Bomb3.bomb_blow()
 	if miss == 2:

@@ -74,25 +74,25 @@ func _on_main_game_over() -> void:
 	
 	@warning_ignore("integer_division")
 	results_label.text = str(GlobalVariables.results_snapshot)
-	if GlobalVariables.results_snapshot < 200:
+	if GlobalVariables.results_snapshot < 1000:
 		## E Rank
 		rank_sprites.set_frame(0)
-	if GlobalVariables.results_snapshot >= 200 and GlobalVariables.results_snapshot < 400:
+	if GlobalVariables.results_snapshot >= 1000 and GlobalVariables.results_snapshot < 2000:
 		## D Rank
 		rank_sprites.set_frame(1)
-	if GlobalVariables.results_snapshot >= 400 and GlobalVariables.results_snapshot < 600:
+	if GlobalVariables.results_snapshot >= 2000 and GlobalVariables.results_snapshot < 3000:
 		## C Rank
 		rank_sprites.set_frame(2)
-	if GlobalVariables.results_snapshot >= 600 and GlobalVariables.results_snapshot < 800:
+	if GlobalVariables.results_snapshot >= 3000 and GlobalVariables.results_snapshot < 4000:
 		## B Rank
 		rank_sprites.set_frame(3)
-	if GlobalVariables.results_snapshot >= 800 and GlobalVariables.results_snapshot < 1000:
+	if GlobalVariables.results_snapshot >= 4000 and GlobalVariables.results_snapshot < 5000:
 		## A Rank
 		rank_sprites.set_frame(4)
-	if GlobalVariables.results_snapshot >= 1000 and GlobalVariables.a_plus_tripwire == false:
+	if GlobalVariables.results_snapshot >= 5000 and GlobalVariables.a_plus_tripwire == false:
 		## A Rank
 		rank_sprites.set_frame(4)
-	if GlobalVariables.results_snapshot >= 1000 and GlobalVariables.a_plus_tripwire == true:
+	if GlobalVariables.results_snapshot >= 5000 and GlobalVariables.a_plus_tripwire == true:
 		## A PLUS Rank
 		rank_sprites.set_frame(5)
 	g_over_player.play("papers_slide")

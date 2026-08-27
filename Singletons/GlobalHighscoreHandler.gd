@@ -10,6 +10,7 @@ var default_highscores_names_array: Array[String] = ["SMW", "P.R", "MVS", "ECM",
 
 var global_highscores_array: Array[int] = [5000, 4000, 3000, 2000, 1000]
 var global_highscores_names_array: Array[String] = ["SMW", "P.R", "MVS", "ECM", "BIG"]
+var global_highscore_is_perfect: bool = false
 var global_highscores_array_position: int = 0
 var global_minimum_highscore := 1000
 var initials_input_1: String = "replace"
@@ -39,8 +40,15 @@ func check_highscore() -> void:
 	
 	GlobalHighscoreHandler.global_initials_can_input = true
 	
+	if GlobalVariables.results_snapshot > 5000 && GlobalVariables.a_plus_tripwire == true:
+		global_highscore_is_perfect = true
+	
+	elif GlobalVariables.results_snapshot > 5000 && GlobalVariables.a_plus_tripwire == false:
+		global_highscore_is_perfect = false
+	
 	if GlobalVariables.results_snapshot > global_highscores_array[0]:
 		global_highscores_array_position = 0
+		#global_highscore_is_perfect = GlobalVariables.a_plus_tripwire
 		update_highscore(global_highscores_array_position)
 		return
 	
@@ -80,6 +88,7 @@ func save_game():
 	var new_save_game:SaveGame = SaveGame.new()
 	new_save_game.high_score_array_save = global_highscores_array
 	new_save_game.high_score_name_array_save = global_highscores_names_array
+	new_save_game.high_score_perfect_boolean = global_highscore_is_perfect
 	var error = ResourceSaver.save(new_save_game,save_path)
 	if error == OK:
 		print("Saved :)")
@@ -94,6 +103,7 @@ func load_game():
 		if loaded_data:
 			global_highscores_array = loaded_data.high_score_array_save
 			global_highscores_names_array = loaded_data.high_score_name_array_save
+			global_highscore_is_perfect = loaded_data.high_score_perfect_boolean
 			print("Save loaded :)")
 		else:
 			print("no data loaded")
@@ -106,6 +116,6 @@ func clear_highscores():
 	print("CLEARING")
 	global_highscores_array = [5000, 4000, 3000, 2000, 1000]
 	global_highscores_names_array = ["SMW", "P.R", "MVS", "ECM", "BIG"]
+	global_highscore_is_perfect = false
 	save_game()
 	print("Cleared!")
-	pass

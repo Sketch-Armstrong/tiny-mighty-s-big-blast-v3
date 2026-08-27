@@ -113,7 +113,17 @@ func _check_scores() -> void:
 	pass
 	## put in condition for flawless A+ here
 	
-	if GlobalHighscoreHandler.global_highscores_array[0] != 5000:
+	if GlobalHighscoreHandler.global_highscores_array[0] != 5000 && GlobalHighscoreHandler.global_highscore_is_perfect == true:
+		#stop_score_check_cycle_saver = true
+		show_sally_photo()
+		show_sally_note()
+		show_papi()
+		show_max()
+		show_claire()
+		show_grande()
+		return
+	
+	if GlobalHighscoreHandler.global_highscores_array[0] != 5000 == GlobalHighscoreHandler.global_highscore_is_perfect == false:
 		#stop_score_check_cycle_saver = true
 		hide_sally_photo()
 		show_sally_note()
