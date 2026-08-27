@@ -1,7 +1,7 @@
 [gd_scene load_steps=68 format=3 uid="uid://bh50a1p6nl5sx"]
 
-[ext_resource type="Texture2D" uid="uid://c1hkqpvhyo5ev" path="res://resources/menus/high score menu/sprites/bulletin board test layout single sprite.png" id="1_3o8vp"]
 [ext_resource type="Script" uid="uid://brqiklbnnt7r4" path="res://resources/menus/high score menu/high_scores_bulletin_board.gd" id="1_8kha8"]
+[ext_resource type="Texture2D" uid="uid://b8n4i2fwv6t16" path="res://resources/menus/high score menu/sprites/Bulletin Board Sprite.png" id="2_y1amr"]
 [ext_resource type="Texture2D" uid="uid://etsc781bsk52" path="res://resources/menus/game over menu/bonuses sprites-Sheet (complete).png" id="3_j17mc"]
 [ext_resource type="Texture2D" uid="uid://2wvdkfmyhssv" path="res://resources/temporary assets/Screenshot from 2026-07-06 23-22-30.png" id="4_wll3b"]
 [ext_resource type="Script" uid="uid://hsfwa45hn42q" path="res://resources/menus/high score menu/high_scores_text.gd" id="5_wtrb0"]
@@ -132,7 +132,7 @@
 script = ExtResource("1_8kha8")
 
 [node name="BulletinBoardSprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_3o8vp")
+texture = ExtResource("2_y1amr")
 
 [node name="reminder" type="Sprite2D" parent="BulletinBoardSprite"]
 position = Vector2(-344, -320)
@@ -147,7 +147,7 @@ hframes = 4
 vframes = 6
 
 [node name="SallyPhoto" type="Sprite2D" parent="Small"]
-position = Vector2(-208, -176)
+position = Vector2(-193, -181)
 texture = ExtResource("3_j17mc")
 hframes = 4
 vframes = 6
@@ -160,7 +160,7 @@ hframes = 4
 vframes = 6
 
 [node name="Papi" type="Sprite2D" parent="Small"]
-position = Vector2(-208, -64)
+position = Vector2(-214, -63)
 texture = ExtResource("3_j17mc")
 hframes = 4
 vframes = 6
