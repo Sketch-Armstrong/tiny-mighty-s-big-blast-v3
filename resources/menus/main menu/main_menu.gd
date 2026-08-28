@@ -34,16 +34,20 @@ func _on_start_pressed():
 
 func _on_options_pressed() -> void:
 	$FocusArrow.hide()
-	$CanvasLayer2/Node2D2/BackButton.grab_focus()
+	$CanvasLayer2/Node2D/ButtonManager/Options.release_focus()
 	menu_player.play("main_buttons_exit")
 	await menu_player.animation_finished
 	menu_player.play("options_menu_enter")
+	await menu_player.animation_finished
+	$CanvasLayer2/Node2D2/BackButton.grab_focus()
 
 func _on_back_button_pressed() -> void:
-	$CanvasLayer2/Node2D/ButtonManager/Options.grab_focus()
+	$CanvasLayer2/Node2D2/BackButton.release_focus()
 	menu_player.play("options_menu_exit")
 	await menu_player.animation_finished
 	menu_player.play("main_buttons_enter")
+	await menu_player.animation_finished
+	$CanvasLayer2/Node2D/ButtonManager/Options.grab_focus()
 	$FocusArrow.show()
 
 func _on_quit_pressed() -> void:
@@ -53,32 +57,44 @@ func _on_quit_pressed() -> void:
 
 
 func _on_scores_pressed() -> void:
-	$CanvasLayer2/HighScores/ScoreBackButton.grab_focus()
 	$FocusArrow.hide()
+	$CanvasLayer2/Node2D/ButtonManager/Scores.release_focus()
 	highscore_handler._equalize_labels()
 	menu_player.play("main_buttons_exit")
 	await menu_player.animation_finished
 	highscore_control.show()
 	menu_player.play("scores_enter")
+	await menu_player.animation_finished
+	$CanvasLayer2/HighScores/ScoreBackButton.grab_focus()
 
 func _on_score_back_button_pressed() -> void:
-	$CanvasLayer2/Node2D/ButtonManager/Scores.grab_focus()
+	$CanvasLayer2/HighScores/ScoreBackButton.release_focus()
 	menu_player.play("scores_exit")
 	await menu_player.animation_finished
 	highscore_control.hide()
 	menu_player.play("main_buttons_enter")
+	await menu_player.animation_finished
 	$FocusArrow.show()
+	$CanvasLayer2/Node2D/ButtonManager/Scores.grab_focus()
 
 func _on_legal_pressed() -> void:
 	$FocusArrow.hide()
-	$CanvasLayer2/Legal/LegalBackButton.grab_focus()
+	$CanvasLayer2/Node2D/ButtonManager/Legal.release_focus()
 	menu_player.play("main_buttons_exit")
 	await menu_player.animation_finished
 	menu_player.play("legal_enter")
+	await menu_player.animation_finished
+	$CanvasLayer2/Legal/LegalBackButton.grab_focus()
 
 func _on_legal_back_button_pressed() -> void:
-	$CanvasLayer2/Node2D/ButtonManager/Legal.grab_focus()
+	$CanvasLayer2/Legal/LegalBackButton.release_focus()
 	menu_player.play("legal_exit")
 	await menu_player.animation_finished
 	menu_player.play("main_buttons_enter")
+	await menu_player.animation_finished
+	$CanvasLayer2/Node2D/ButtonManager/Legal.grab_focus()
 	$FocusArrow.show()
+
+
+
+	
