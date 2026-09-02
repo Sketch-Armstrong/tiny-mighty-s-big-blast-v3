@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://bh50a1p6nl5sx"]
+[gd_scene load_steps=19 format=3 uid="uid://bh50a1p6nl5sx"]
 
 [ext_resource type="Script" uid="uid://brqiklbnnt7r4" path="res://resources/menus/high score menu/high_scores_bulletin_board.gd" id="1_8kha8"]
 [ext_resource type="Texture2D" uid="uid://b8n4i2fwv6t16" path="res://resources/menus/high score menu/sprites/Bulletin Board Sprite.png" id="2_y1amr"]
@@ -7,124 +7,29 @@
 [ext_resource type="Script" uid="uid://hsfwa45hn42q" path="res://resources/menus/high score menu/high_scores_text.gd" id="5_wtrb0"]
 [ext_resource type="FontFile" uid="uid://bob38lm8684j4" path="res://resources/fonts/BitcountPropDouble-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="5_y1amr"]
 [ext_resource type="FontFile" uid="uid://cmb0cakpnob6w" path="res://resources/fonts/MetalMania-Regular.ttf" id="6_wtrb0"]
+[ext_resource type="Texture2D" uid="uid://l7q2ddmblhbs" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton arrow.png" id="7_p1wil"]
+[ext_resource type="Texture2D" uid="uid://bpbk4454v5wfb" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton 2 expanded.png" id="8_7i7h2"]
+[ext_resource type="Texture2D" uid="uid://van1epy0wbd6" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton 1 expanded.png" id="9_vsxa7"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bjfcy"]
+[sub_resource type="ImageTexture" id="ImageTexture_oeny2"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_bjfcy"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p1wil"]
+texture = ExtResource("7_p1wil")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_wll3b"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7i7h2"]
+texture = ExtResource("7_p1wil")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_j17mc"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vsxa7"]
+texture = ExtResource("7_p1wil")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_y1amr"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_anjvt"]
+texture = ExtResource("7_p1wil")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_wtrb0"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4oi1v"]
+texture = ExtResource("7_p1wil")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_cbxak"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_p1wil"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_oeny2"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_7i7h2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vsxa7"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_4oi1v"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_anjvt"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_qou4u"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_8ayo5"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_b4y6o"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_kis4k"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_i22f4"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_4pfkg"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_4c3l6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dbafd"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_07j2d"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_skccg"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_epb4o"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_772nn"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_boio6"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_pqyp0"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_2k8d3"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_thrrx"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_pem3l"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wll3b"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_f2i0l"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_qohdx"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_mgsju"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_yufdu"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_ehvny"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_a6ip3"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_gcwlc"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_rjf76"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_wx4oa"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wnadn"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_p1xfp"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_gda71"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_05k73"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_0d28v"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_isycf"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_5ysc2"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_4d3jd"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_tttui"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_rrl3b"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j17mc"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_rc23b"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_tddbq"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_wvx63"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_glsob"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_wphg6"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_iogt7"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_u77hx"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_dpmr2"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oeny2"]
+texture = ExtResource("7_p1wil")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1wil"]
 
@@ -220,93 +125,54 @@ vframes = 6
 frame = 10
 
 [node name="Toggler" type="Node2D" parent="."]
-position = Vector2(560, 32)
+position = Vector2(582.00006, -12.000008)
+rotation = -0.10471976
 
 [node name="Control" type="VBoxContainer" parent="Toggler"]
-offset_left = -244.0
-offset_top = -312.0
-offset_right = -200.0
-offset_bottom = -148.0
+offset_left = -137.48917
+offset_top = -241.69557
+offset_right = -80.48917
+offset_bottom = -65.69557
 
 [node name="ClearSignalerButton" type="Button" parent="Toggler/Control"]
 layout_mode = 2
 
 [node name="CheckButton" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_bjfcy")
-theme_override_icons/checked = SubResource("CanvasTexture_bjfcy")
-theme_override_icons/unchecked = SubResource("CanvasTexture_wll3b")
-theme_override_icons/checked_disabled = SubResource("CanvasTexture_j17mc")
-theme_override_icons/unchecked_disabled = SubResource("CanvasTexture_y1amr")
-theme_override_icons/checked_mirrored = SubResource("CanvasTexture_wtrb0")
-theme_override_icons/unchecked_mirrored = SubResource("CanvasTexture_cbxak")
-theme_override_icons/checked_disabled_mirrored = SubResource("CanvasTexture_p1wil")
-theme_override_icons/unchecked_disabled_mirrored = SubResource("CanvasTexture_oeny2")
+theme_override_icons/icon = SubResource("ImageTexture_oeny2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_p1wil")
+theme_override_icons/checked = ExtResource("8_7i7h2")
+theme_override_icons/unchecked = ExtResource("9_vsxa7")
 
 [node name="CheckButton2" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
-theme_override_icons/icon = SubResource("CanvasTexture_7i7h2")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_vsxa7")
-theme_override_icons/checked = SubResource("CanvasTexture_4oi1v")
-theme_override_icons/unchecked = SubResource("CanvasTexture_anjvt")
-theme_override_icons/checked_disabled = SubResource("CanvasTexture_qou4u")
-theme_override_icons/unchecked_disabled = SubResource("CanvasTexture_8ayo5")
-theme_override_icons/checked_mirrored = SubResource("CanvasTexture_b4y6o")
-theme_override_icons/unchecked_mirrored = SubResource("CanvasTexture_kis4k")
-theme_override_icons/checked_disabled_mirrored = SubResource("CanvasTexture_i22f4")
-theme_override_icons/unchecked_disabled_mirrored = SubResource("CanvasTexture_4pfkg")
+theme_override_styles/focus = SubResource("StyleBoxTexture_7i7h2")
+theme_override_icons/checked = ExtResource("8_7i7h2")
+theme_override_icons/unchecked = ExtResource("9_vsxa7")
 
 [node name="CheckButton3" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
-theme_override_icons/icon = SubResource("CanvasTexture_4c3l6")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_dbafd")
-theme_override_icons/checked = SubResource("CanvasTexture_07j2d")
-theme_override_icons/unchecked = SubResource("CanvasTexture_skccg")
-theme_override_icons/checked_disabled = SubResource("CanvasTexture_epb4o")
-theme_override_icons/unchecked_disabled = SubResource("CanvasTexture_772nn")
-theme_override_icons/checked_mirrored = SubResource("CanvasTexture_boio6")
-theme_override_icons/unchecked_mirrored = SubResource("CanvasTexture_pqyp0")
-theme_override_icons/checked_disabled_mirrored = SubResource("CanvasTexture_2k8d3")
-theme_override_icons/unchecked_disabled_mirrored = SubResource("CanvasTexture_thrrx")
+theme_override_styles/focus = SubResource("StyleBoxTexture_vsxa7")
+theme_override_icons/checked = ExtResource("8_7i7h2")
+theme_override_icons/unchecked = ExtResource("9_vsxa7")
 
 [node name="CheckButton4" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
-theme_override_icons/icon = SubResource("CanvasTexture_pem3l")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_wll3b")
-theme_override_icons/checked = SubResource("CanvasTexture_f2i0l")
-theme_override_icons/unchecked = SubResource("CanvasTexture_qohdx")
-theme_override_icons/checked_disabled = SubResource("CanvasTexture_mgsju")
-theme_override_icons/unchecked_disabled = SubResource("CanvasTexture_yufdu")
-theme_override_icons/checked_mirrored = SubResource("CanvasTexture_ehvny")
-theme_override_icons/unchecked_mirrored = SubResource("CanvasTexture_a6ip3")
-theme_override_icons/checked_disabled_mirrored = SubResource("CanvasTexture_gcwlc")
-theme_override_icons/unchecked_disabled_mirrored = SubResource("CanvasTexture_rjf76")
+theme_override_styles/focus = SubResource("StyleBoxTexture_anjvt")
+theme_override_icons/checked = ExtResource("8_7i7h2")
+theme_override_icons/unchecked = ExtResource("9_vsxa7")
 
 [node name="CheckButton5" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
-theme_override_icons/icon = SubResource("CanvasTexture_wx4oa")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_wnadn")
-theme_override_icons/checked = SubResource("CanvasTexture_p1xfp")
-theme_override_icons/unchecked = SubResource("CanvasTexture_gda71")
-theme_override_icons/checked_disabled = SubResource("CanvasTexture_05k73")
-theme_override_icons/unchecked_disabled = SubResource("CanvasTexture_0d28v")
-theme_override_icons/checked_mirrored = SubResource("CanvasTexture_isycf")
-theme_override_icons/unchecked_mirrored = SubResource("CanvasTexture_5ysc2")
-theme_override_icons/checked_disabled_mirrored = SubResource("CanvasTexture_4d3jd")
-theme_override_icons/unchecked_disabled_mirrored = SubResource("CanvasTexture_tttui")
+theme_override_styles/focus = SubResource("StyleBoxTexture_4oi1v")
+theme_override_icons/checked = ExtResource("8_7i7h2")
+theme_override_icons/unchecked = ExtResource("9_vsxa7")
 
 [node name="CheckButton6" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
-theme_override_icons/icon = SubResource("CanvasTexture_rrl3b")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_j17mc")
-theme_override_icons/checked = SubResource("CanvasTexture_rc23b")
-theme_override_icons/unchecked = SubResource("CanvasTexture_tddbq")
-theme_override_icons/checked_disabled = SubResource("CanvasTexture_wvx63")
-theme_override_icons/unchecked_disabled = SubResource("CanvasTexture_glsob")
-theme_override_icons/checked_mirrored = SubResource("CanvasTexture_wphg6")
-theme_override_icons/unchecked_mirrored = SubResource("CanvasTexture_iogt7")
-theme_override_icons/checked_disabled_mirrored = SubResource("CanvasTexture_u77hx")
-theme_override_icons/unchecked_disabled_mirrored = SubResource("CanvasTexture_dpmr2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_oeny2")
+theme_override_icons/checked = ExtResource("8_7i7h2")
+theme_override_icons/unchecked = ExtResource("9_vsxa7")
 
 [node name="BackSignalerButton" type="Button" parent="Toggler/Control"]
 visible = false

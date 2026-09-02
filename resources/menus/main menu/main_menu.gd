@@ -10,6 +10,7 @@ signal main_menu
 
 
 func _ready() -> void:
+	_make_control_click_through($CanvasLayer2/CRT)
 	#highscore_control.hide()
 	#GlobalFocusBooleans.main_menu_focus = true
 	$CanvasLayer2/Node2D/ButtonManager/Start.grab_focus()
@@ -21,6 +22,12 @@ func _ready() -> void:
 	tiny_player.play("tiny_idle")
 	pass
 	#$ColorRect/AnimationPlayer.play("fade_in")
+
+func _make_control_click_through(node: Node) -> void:
+	for child in node.get_children():
+		if child is Control:
+			child.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_make_control_click_through(child)
 
 func _on_start_pressed():
 	$Control.show()
@@ -46,9 +53,9 @@ func _on_back_button_pressed() -> void:
 	menu_player.play("options_menu_exit")
 	await menu_player.animation_finished
 	menu_player.play("main_buttons_enter")
+	$FocusArrow.show()
 	await menu_player.animation_finished
 	$CanvasLayer2/Node2D/ButtonManager/Options.grab_focus()
-	$FocusArrow.show()
 
 func _on_quit_pressed() -> void:
 	tiny_player.play("frown")
@@ -73,8 +80,8 @@ func _on_score_back_button_pressed() -> void:
 	await menu_player.animation_finished
 	highscore_control.hide()
 	menu_player.play("main_buttons_enter")
-	await menu_player.animation_finished
 	$FocusArrow.show()
+	await menu_player.animation_finished
 	$CanvasLayer2/Node2D/ButtonManager/Scores.grab_focus()
 
 func _on_legal_pressed() -> void:
@@ -91,9 +98,9 @@ func _on_legal_back_button_pressed() -> void:
 	menu_player.play("legal_exit")
 	await menu_player.animation_finished
 	menu_player.play("main_buttons_enter")
+	$FocusArrow.show()
 	await menu_player.animation_finished
 	$CanvasLayer2/Node2D/ButtonManager/Legal.grab_focus()
-	$FocusArrow.show()
 
 
 

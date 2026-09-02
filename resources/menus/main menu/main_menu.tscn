@@ -1,20 +1,22 @@
-[gd_scene load_steps=49 format=3 uid="uid://bkjyvdxuebm0n"]
+[gd_scene load_steps=53 format=3 uid="uid://bkjyvdxuebm0n"]
 
 [ext_resource type="Script" uid="uid://bmp62hod205fu" path="res://resources/menus/main menu/main_menu.gd" id="1_qhkso"]
 [ext_resource type="Script" uid="uid://dkun673nnkv2u" path="res://resources/menus/main menu/focus_arrow.gd" id="3_34pwb"]
 [ext_resource type="Script" uid="uid://c5n73aagba6gk" path="res://resources/menus/main menu/button_manager.gd" id="3_iw0os"]
 [ext_resource type="Texture2D" uid="uid://deh5ulsgj4yhq" path="res://resources/menus/main menu/sprites/Buttons/Start/Start 1.png" id="3_j8vij"]
-[ext_resource type="Texture2D" uid="uid://effdkkfoxux5" path="res://resources/temporary assets/SCORES.png" id="3_sucl3"]
 [ext_resource type="Texture2D" uid="uid://upfc8rbwaltl" path="res://resources/menus/main menu/sprites/Buttons/Start/Start 3.png" id="4_bwclg"]
 [ext_resource type="Texture2D" uid="uid://bgpfn6hhns603" path="res://resources/menus/main menu/sprites/Buttons/Start/Start 2.png" id="5_23658"]
 [ext_resource type="PackedScene" uid="uid://byg3h2cdfnfn" path="res://resources/menus/transitions/transition attempt 2.tscn" id="5_btbi6"]
 [ext_resource type="PackedScene" uid="uid://drb12hb6ul2cr" path="res://resources/menus/options/options.tscn" id="6_e8su1"]
 [ext_resource type="Texture2D" uid="uid://dpie7q5dni8sy" path="res://resources/menus/main menu/sprites/Buttons/Options/Options 1.png" id="6_eujnn"]
 [ext_resource type="PackedScene" uid="uid://bdl6km1k10wdd" path="res://Test Scenes/control node testing.tscn" id="6_j88g7"]
+[ext_resource type="Texture2D" uid="uid://ceanrn1kpiqna" path="res://resources/menus/main menu/sprites/Buttons/Scores/Scores normal.png" id="6_q17nu"]
 [ext_resource type="Script" uid="uid://bghaddibpt6f1" path="res://addons/crt/crt.gd" id="7_a52uf"]
 [ext_resource type="Texture2D" uid="uid://08t1mqsw326i" path="res://resources/menus/main menu/sprites/Buttons/Options/Options 3.png" id="7_gvlbf"]
+[ext_resource type="Texture2D" uid="uid://besth30o32a1x" path="res://resources/menus/main menu/sprites/Buttons/Scores/scores click.png" id="7_j7q13"]
 [ext_resource type="Texture2D" uid="uid://n6u88is4p0qe" path="res://resources/menus/main menu/sprites/Buttons/Options/Options 2.png" id="8_gbyhc"]
 [ext_resource type="Texture2D" uid="uid://b8qp8q5v5biuk" path="res://resources/menus/main menu/cityscape bg.png" id="8_j55om"]
+[ext_resource type="Texture2D" uid="uid://cqibacqnxbxqn" path="res://resources/menus/main menu/sprites/Buttons/Scores/scores hover.png" id="8_sl6gj"]
 [ext_resource type="Texture2D" uid="uid://c0o7y7u504gyl" path="res://resources/menus/main menu/sprites/Buttons/Quit/Quit 1.png" id="9_8mio5"]
 [ext_resource type="Texture2D" uid="uid://dcmeg7kyg7r1j" path="res://resources/menus/main menu/sprites/Excalibur.png" id="9_b1wwd"]
 [ext_resource type="Texture2D" uid="uid://rw3vjpsiu71x" path="res://resources/menus/main menu/sprites/Clouds 1.png" id="10_kv0xo"]
@@ -22,14 +24,16 @@
 [ext_resource type="Texture2D" uid="uid://btvsmhossifuw" path="res://resources/menus/main menu/sprites/Buttons/Quit/Quit 2.png" id="11_56eka"]
 [ext_resource type="Texture2D" uid="uid://b6e6cs58utkcc" path="res://resources/menus/main menu/sprites/Clouds 2.png" id="11_o5ce5"]
 [ext_resource type="Texture2D" uid="uid://b7ubnywmxn2y0" path="res://resources/menus/main menu/sprites/Buttons/Options/Options Focus Test.png" id="11_tflpo"]
-[ext_resource type="Texture2D" uid="uid://bdtc1a8uhwok1" path="res://resources/temporary assets/LEGAL.png" id="13_56eka"]
 [ext_resource type="Texture2D" uid="uid://dxjnsfcvya7jl" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 1.png" id="13_eujnn"]
 [ext_resource type="Texture2D" uid="uid://b5xgxqfnwknor" path="res://resources/menus/main menu/Tiny's Sprites/main menu tiny body sheet.png" id="13_w07cb"]
 [ext_resource type="Texture2D" uid="uid://dhyogygxv7lmw" path="res://resources/menus/main menu/Tiny's Sprites/hands default.png" id="14_1mfvg"]
 [ext_resource type="Texture2D" uid="uid://bsu3c4lej74" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 3.png" id="14_gvlbf"]
 [ext_resource type="Texture2D" uid="uid://bevdnbcs3ac14" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 2.png" id="15_gbyhc"]
 [ext_resource type="Texture2D" uid="uid://p1t8ks2o7yad" path="res://resources/menus/main menu/Tiny's Sprites/star.png" id="15_x3ts8"]
+[ext_resource type="Texture2D" uid="uid://dlhtal0hjjax4" path="res://resources/menus/main menu/sprites/Buttons/Legal/legal normal.png" id="18_rvsea"]
 [ext_resource type="PackedScene" uid="uid://bh50a1p6nl5sx" path="res://resources/menus/high score menu/high scores bulletin board.tscn" id="19_56eka"]
+[ext_resource type="Texture2D" uid="uid://b6keaipq7lewk" path="res://resources/menus/main menu/sprites/Buttons/Legal/legal click.png" id="19_mq70l"]
+[ext_resource type="Texture2D" uid="uid://c72mpeb65avg2" path="res://resources/menus/main menu/sprites/Buttons/Legal/legal hover.png" id="20_7pexp"]
 [ext_resource type="Texture2D" uid="uid://b78584c7kmkrl" path="res://resources/HUD/style meter white backing backing.png" id="20_k5bj2"]
 [ext_resource type="Texture2D" uid="uid://dk0yecertxb2d" path="res://resources/temporary assets/arrow test.png" id="21_byh02"]
 [ext_resource type="Texture2D" uid="uid://doy7xj5rusgmy" path="res://resources/menus/main menu/sprites/Title/logo.png" id="25_gvlbf"]
@@ -225,10 +229,10 @@ tracks/0/path = NodePath("CanvasLayer2/Node2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.4, 1),
-"transitions": PackedFloat32Array(1, 2, 0.5, 0.19614597),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.928172, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(15, 0), Vector2(-50, 0), Vector2(1400, 0)]
+"values": [Vector2(0, 0), Vector2(1400, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_b1wwd"]
@@ -241,7 +245,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.079660274, 1),
+"transitions": PackedFloat32Array(0.23325846, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-1240, 0)]
 }
@@ -255,10 +259,10 @@ tracks/0/path = NodePath("CanvasLayer2/Node2D2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.4, 1),
-"transitions": PackedFloat32Array(1, 2, 0.5, 0.19614597),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.19614626, 1),
 "update": 0,
-"values": [Vector2(-1240, 0), Vector2(-1225, 0), Vector2(-1280, 0), Vector2(640, 0)]
+"values": [Vector2(-1240, 0), Vector2(640, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_iw0os"]
@@ -418,7 +422,7 @@ BF_legal_position = Vector2(700, 620)
 layer = 2
 
 [node name="CRT" type="CanvasLayer" parent="CanvasLayer2"]
-layer = 2
+layer = 3
 script = ExtResource("7_a52uf")
 resolution = Vector2(1280, 800)
 scan_line_amount = 0.1
@@ -464,9 +468,9 @@ focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../Start")
 mouse_filter = 1
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("3_sucl3")
-texture_pressed = ExtResource("3_sucl3")
-texture_hover = ExtResource("3_sucl3")
+texture_normal = ExtResource("6_q17nu")
+texture_pressed = ExtResource("7_j7q13")
+texture_hover = ExtResource("8_sl6gj")
 
 [node name="Start" type="TextureButton" parent="CanvasLayer2/Node2D/ButtonManager"]
 layout_mode = 2
@@ -520,9 +524,9 @@ focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 mouse_filter = 1
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("13_56eka")
-texture_pressed = ExtResource("13_56eka")
-texture_hover = ExtResource("13_56eka")
+texture_normal = ExtResource("18_rvsea")
+texture_pressed = ExtResource("19_mq70l")
+texture_hover = ExtResource("20_7pexp")
 
 [node name="Node2D2" type="Control" parent="CanvasLayer2"]
 layout_mode = 3
@@ -686,15 +690,11 @@ position = Vector2(-160, -304)
 texture = ExtResource("15_x3ts8")
 
 [node name="MenusAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_o5ce5")
-}
-speed_scale = 3.0
+libraries/ = SubResource("AnimationLibrary_o5ce5")
+speed_scale = 4.0
 
 [node name="TinyAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_o5ce5")
-}
+libraries/ = SubResource("AnimationLibrary_o5ce5")
 speed_scale = 1.5
 
 [node name="Title" type="Sprite2D" parent="."]
