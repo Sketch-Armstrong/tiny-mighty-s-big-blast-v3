@@ -33,6 +33,9 @@ signal BulletinClearFocused
 signal BulletinBackPressed
 signal BulletinBackFocused
 
+struct test2:
+	var x: intgfewt
+	var y: int = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
