@@ -15,6 +15,7 @@ extends Node2D
 @onready var BigGrande := $Big/ElGrande
 
 @onready var BulletinClear := $Toggler/Control/ClearSignalerButton
+@onready var ClearTimer := $Toggler/Control/ClearTimer
 @onready var Toggle1 := $Toggler/Control/CheckButton
 @onready var Toggle2 := $Toggler/Control/CheckButton2
 @onready var Toggle3 := $Toggler/Control/CheckButton3
@@ -33,9 +34,7 @@ signal BulletinClearFocused
 signal BulletinBackPressed
 signal BulletinBackFocused
 
-struct test2:
-	var x: intgfewt
-	var y: int = 5
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -279,13 +278,27 @@ func _on_check_button_6_toggled(toggled_on: bool) -> void:
 		BigGrande.show()
 
 
-func _on_clear_signaler_button_pressed() -> void:
+func clear_scores() -> void:
 	pass # Replace with function body.
 	BulletinClearPressed.emit()
 	stop_score_check_cycle_saver = false
 	#await get_tree().create_timer(2.3).timeout
 	_check_scores()
 
+func _clear_button_down() -> void:
+	pass
+	ClearTimer.start()
+
+func _clear_button_up() -> void:
+	ClearTimer.stop()
+
+
+
 func _on_back_signaler_button_pressed() -> void:
 	pass # Replace with function body.
 	BulletinBackPressed.emit()
+
+
+func _on_clear_timer_timeout() -> void:
+	print("clearing scores should go here")
+	clear_scores()

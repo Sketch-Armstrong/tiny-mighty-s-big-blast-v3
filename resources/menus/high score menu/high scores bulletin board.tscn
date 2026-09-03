@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://bh50a1p6nl5sx"]
+[gd_scene load_steps=20 format=3 uid="uid://bh50a1p6nl5sx"]
 
 [ext_resource type="Script" uid="uid://brqiklbnnt7r4" path="res://resources/menus/high score menu/high_scores_bulletin_board.gd" id="1_8kha8"]
 [ext_resource type="Texture2D" uid="uid://b8n4i2fwv6t16" path="res://resources/menus/high score menu/sprites/Bulletin Board Sprite.png" id="2_y1amr"]
 [ext_resource type="Texture2D" uid="uid://etsc781bsk52" path="res://resources/menus/game over menu/bonuses sprites-Sheet (complete).png" id="3_j17mc"]
 [ext_resource type="Texture2D" uid="uid://2wvdkfmyhssv" path="res://resources/temporary assets/Screenshot from 2026-07-06 23-22-30.png" id="4_wll3b"]
+[ext_resource type="Script" uid="uid://dxfb4sqm6oeyk" path="res://resources/menus/high score menu/clear_timer_label.gd" id="5_oeny2"]
 [ext_resource type="Script" uid="uid://hsfwa45hn42q" path="res://resources/menus/high score menu/high_scores_text.gd" id="5_wtrb0"]
 [ext_resource type="FontFile" uid="uid://bob38lm8684j4" path="res://resources/fonts/BitcountPropDouble-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="5_y1amr"]
 [ext_resource type="FontFile" uid="uid://cmb0cakpnob6w" path="res://resources/fonts/MetalMania-Regular.ttf" id="6_wtrb0"]
@@ -128,6 +129,18 @@ frame = 10
 position = Vector2(582.00006, -12.000008)
 rotation = -0.10471976
 
+[node name="ClearLabelNode2D" type="Node2D" parent="Toggler"]
+
+[node name="ClearTimerLabel" type="RichTextLabel" parent="Toggler/ClearLabelNode2D"]
+offset_left = -265.15112
+offset_top = -297.68735
+offset_right = -90.42151
+offset_bottom = -257.68735
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+text = "test"
+horizontal_alignment = 1
+script = ExtResource("5_oeny2")
+
 [node name="Control" type="VBoxContainer" parent="Toggler"]
 offset_left = -137.48917
 offset_top = -241.69557
@@ -136,6 +149,10 @@ offset_bottom = -65.69557
 
 [node name="ClearSignalerButton" type="Button" parent="Toggler/Control"]
 layout_mode = 2
+
+[node name="ClearTimer" type="Timer" parent="Toggler/Control"]
+wait_time = 10.0
+one_shot = true
 
 [node name="CheckButton" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
@@ -347,7 +364,11 @@ theme_override_font_sizes/normal_font_size = 56
 text = "Label 5"
 fit_content = true
 
-[connection signal="pressed" from="Toggler/Control/ClearSignalerButton" to="." method="_on_clear_signaler_button_pressed"]
+[connection signal="button_down" from="Toggler/Control/ClearSignalerButton" to="." method="_clear_button_down"]
+[connection signal="button_down" from="Toggler/Control/ClearSignalerButton" to="Toggler/ClearLabelNode2D/ClearTimerLabel" method="_on_clear_signaler_button_button_down"]
+[connection signal="button_up" from="Toggler/Control/ClearSignalerButton" to="." method="_clear_button_up"]
+[connection signal="button_up" from="Toggler/Control/ClearSignalerButton" to="Toggler/ClearLabelNode2D/ClearTimerLabel" method="_on_clear_signaler_button_button_up"]
+[connection signal="timeout" from="Toggler/Control/ClearTimer" to="." method="_on_clear_timer_timeout"]
 [connection signal="toggled" from="Toggler/Control/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="toggled" from="Toggler/Control/CheckButton2" to="." method="_on_check_button_2_toggled"]
 [connection signal="toggled" from="Toggler/Control/CheckButton3" to="." method="_on_check_button_3_toggled"]
