@@ -37,12 +37,12 @@ const CONTROLLER_BUTTON_LABELS: Dictionary = {
 }
 const CONTROLLER_AXIS_LABELS: Dictionary = {
 	"JoyAxis Left X": [JoyAxis.JOY_AXIS_LEFT_X],
-	#JoyAxis.JOY_AXIS_LEFT_X: "left stick X",
-	#JoyAxis.JOY_AXIS_LEFT_Y: "left stick Y",
-	#JoyAxis.JOY_AXIS_RIGHT_X: "right stick X",
-	#JoyAxis.JOY_AXIS_RIGHT_Y: "right stick Y",
-	#JoyAxis.JOY_AXIS_TRIGGER_LEFT: "LT",
-	#JoyAxis.JOY_AXIS_TRIGGER_RIGHT: "RT",
+	JoyAxis.JOY_AXIS_LEFT_X: {-1: "left stick ←", 1: "left stick →"},
+	JoyAxis.JOY_AXIS_LEFT_Y: {-1: "left stick ↑", 1: "left stick ↓"},
+	JoyAxis.JOY_AXIS_RIGHT_X: {-1: "right stick ←", 1: "right stick →"},
+	JoyAxis.JOY_AXIS_RIGHT_Y: {-1: "right stick ↑", 1: "right stick ↓"},
+	JoyAxis.JOY_AXIS_TRIGGER_LEFT: {1: "LT"},
+	JoyAxis.JOY_AXIS_TRIGGER_RIGHT: {1: "RT"},
 	
 }
 #
@@ -61,7 +61,7 @@ const CONTROLLER_AXIS_LABELS: Dictionary = {
 var axis_reference_tester := 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(CONTROLLER_AXIS_LABELS["JoyAxis Left X"])
+	print("joyaxis printing was: ", CONTROLLER_AXIS_LABELS["JoyAxis Left X"])
 	InputConfigHandler.defaulted.connect(reset_labels)
 	InputConfigHandler.duplicate_detected.connect(undo_duplicate_label)
 	toggle_mode = true
@@ -73,12 +73,7 @@ func _ready() -> void:
 		#print("testing for filtering based on action string worked")
 		## both this, and the preceding 2 lines, worked
 
-func print_joypad_button_test_function(check_action: StringName) -> void:
-	print("Action checking on line 145 was: ", check_action)
-	for event in InputMap.action_get_events(check_action):
-		#print("  - ", str(event))
-		if event is InputEventJoypadButton:
-			print("Action '%s' is mapped to joypad button_index: %d" % [check_action, event.button_index])
+
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
@@ -94,23 +89,23 @@ func reset_labels() -> void:
 	if action == "tiny_move_up":
 		text_left = "↑"
 		text_right = "Up"
-		text = text_left + text_right
+		text = text_left + " " + text_right
 	if action == "tiny_move_down":
 		text_left = "↓"
 		text_right = "Down"
-		text = text_left + text_right
+		text = text_left + " " + text_right
 	if action == "tiny_move_left":
 		text_left = "←"
 		text_right = "Left"
-		text = text_left + text_right
+		text = text_left + " " + text_right
 	if action == "tiny_move_right":
 		text_left = "→"
 		text_right = "Right"
-		text = text_left + text_right
+		text = text_left + " " + text_right
 	if action == "taunt":
 		text_left = "A"
 		text_right = "Space"
-		text = text_left + text_right
+		text = text_left + " " + text_right
 	
 	else:
 		return 
@@ -146,30 +141,91 @@ func _toggled(toggled_on: bool) -> void:
 			# "action" (which was deriveed from using action_get_events to determine which 
 			# event you were referring to in InputMap
 		if action == "tiny_move_up":
-			#text = "testing for up"
 			for event in InputMap.action_get_events(action):
 				if event is InputEventJoypadButton:
-					#text = str("Action '%s' is mapped to joypad button_index: %d" % [action, event.button_index])
-					var test_text_left: String = str(CONTROLLER_BUTTON_LABELS.get(event.button_index))
-					print(test_text_left)
-					text = test_text_left
+					text_left = str(CONTROLLER_BUTTON_LABELS.get(event.button_index))
+					
+				
+				if event is InputEventJoypadMotion:
+					print("axis event was: ",str(event))
+				
+				if event is InputEventKey:
+					if event.physical_keycode != 0:
+						text_right = OS.get_keycode_string(event.physical_keycode)
+						
+					else:
+						text_right = OS.get_keycode_string(event.keycode)
+						
+			text = text_left + " " + text_right
 			return
 		if action == "tiny_move_down":
-			text = "testing for down"
+			for event in InputMap.action_get_events(action):
+				if event is InputEventJoypadButton:
+					text_left = str(CONTROLLER_BUTTON_LABELS.get(event.button_index))
+					
+					
+				if event is InputEventKey:
+					if event.physical_keycode != 0:
+						text_right = OS.get_keycode_string(event.physical_keycode)
+						
+					else:
+						text_right = OS.get_keycode_string(event.keycode)
+						
+			text = text_left + " " + text_right
 			return
 		if action == "tiny_move_left":
-			text = "testing for left"
+			for event in InputMap.action_get_events(action):
+				if event is InputEventJoypadButton:
+					text_left = str(CONTROLLER_BUTTON_LABELS.get(event.button_index))
+					
+					
+				if event is InputEventKey:
+					if event.physical_keycode != 0:
+						text_right = OS.get_keycode_string(event.physical_keycode)
+						
+					else:
+						text_right = OS.get_keycode_string(event.keycode)
+						
+			text = text_left + " " + text_right
 			return
 		if action == "tiny_move_right":
-			text = "testing for right"
+			for event in InputMap.action_get_events(action):
+				if event is InputEventJoypadButton:
+					text_left = str(CONTROLLER_BUTTON_LABELS.get(event.button_index))
+					
+					
+				if event is InputEventKey:
+					if event.physical_keycode != 0:
+						text_right = OS.get_keycode_string(event.physical_keycode)
+						
+					else:
+						text_right = OS.get_keycode_string(event.keycode)
+						
+			text = text_left + " " + text_right
 			return
 		else:
 			text = "Unassigned"
 		return
 	
 	if action_event_index == 0:
-		if action == "taunt":
-			text = "testing for taunt"
+			for event in InputMap.action_get_events(action):
+				if event is InputEventJoypadButton:
+					text_left = str(CONTROLLER_BUTTON_LABELS.get(event.button_index))
+					
+				
+				if event is InputEventJoypadMotion:
+					text_left = get_axis_label(event.axis, event.axis_value)
+					if text_left != "":
+						print(text_left)
+				
+				if event is InputEventKey:
+					if event.physical_keycode != 0:
+						text_right = OS.get_keycode_string(event.physical_keycode)
+						
+					else:
+						text_right = OS.get_keycode_string(event.keycode)
+						
+			text = text_left + " " + text_right
 			return
 
 	
@@ -187,27 +243,46 @@ func _toggled(toggled_on: bool) -> void:
 		
 		if CONTROLLER_BUTTON_LABELS.has(input.button_index):
 			text_left = CONTROLLER_BUTTON_LABELS.get(input.button_index)
-			text = text_left + text_right
+			text = text_left + " " + text_right
 		else:
 			text_left = "Button " + str(input.button_index)
-			text = text_left + text_right
+			text = text_left + " " + text_right
 
 	
 	elif input is InputEventKey:
 		if input.physical_keycode != 0:
 			text_right = OS.get_keycode_string(input.physical_keycode)
-			text = text_left + text_right
+			text = text_left + " " + text_right
 		else:
 			text_right = OS.get_keycode_string(input.keycode)
-			text = text_left + text_right
+			text = text_left + " " + text_right
 				# both of these are just pulling a reference to the input, and setting the 
 				# text of the input button, to the new input
 	
 	elif input is InputEventJoypadMotion:
-		print("joypad motion printing")
+		text_left = get_axis_label(input.axis, input.axis_value)
+		text = text_left + " " + text_right
 	
 	else:
 		pass
+
+
+func get_axis_label(axis: JoyAxis, value: float, deadzone: float = 0.2) -> String:
+	if not CONTROLLER_AXIS_LABELS.has(axis):
+		return "unknown axis"
+	if absf(value) < deadzone:
+		return "input did not breach deadzone. Try again."
+	var sign_key := 1 if value > 0 else -1
+	#explanation:
+	#var sign_key: int
+	#if value > 0:
+		#sign_key = 1
+	#if value < 0:
+		#sign_key = -1
+	return CONTROLLER_AXIS_LABELS[axis].get(sign_key, "Unknown direction")
+
+
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if !InputMap.has_action(action) or !is_pressed():
