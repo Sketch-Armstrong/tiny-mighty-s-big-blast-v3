@@ -89,23 +89,23 @@ func reset_labels() -> void:
 	if action == "tiny_move_up":
 		text_left = "↑"
 		text_right = "Up"
-		text = text_left + " " + text_right
+		text = text_left + "    " + text_right
 	if action == "tiny_move_down":
 		text_left = "↓"
 		text_right = "Down"
-		text = text_left + " " + text_right
+		text = text_left + "    " + text_right
 	if action == "tiny_move_left":
 		text_left = "←"
 		text_right = "Left"
-		text = text_left + " " + text_right
+		text = text_left + "    " + text_right
 	if action == "tiny_move_right":
 		text_left = "→"
 		text_right = "Right"
-		text = text_left + " " + text_right
+		text = text_left + "    " + text_right
 	if action == "taunt":
 		text_left = "A"
 		text_right = "Space"
-		text = text_left + " " + text_right
+		text = text_left + "    " + text_right
 	
 	else:
 		return 
@@ -147,7 +147,9 @@ func _toggled(toggled_on: bool) -> void:
 					
 				
 				if event is InputEventJoypadMotion:
-					print("axis event was: ",str(event))
+					text_left = get_axis_label(event.axis, event.axis_value)
+					if text_left != "":
+						print(text_left)
 				
 				if event is InputEventKey:
 					if event.physical_keycode != 0:
@@ -156,13 +158,17 @@ func _toggled(toggled_on: bool) -> void:
 					else:
 						text_right = OS.get_keycode_string(event.keycode)
 						
-			text = text_left + " " + text_right
+			text = text_left + "    " + text_right
 			return
 		if action == "tiny_move_down":
 			for event in InputMap.action_get_events(action):
 				if event is InputEventJoypadButton:
 					text_left = str(CONTROLLER_BUTTON_LABELS.get(event.button_index))
 					
+				if event is InputEventJoypadMotion:
+					text_left = get_axis_label(event.axis, event.axis_value)
+					if text_left != "":
+						print(text_left)
 					
 				if event is InputEventKey:
 					if event.physical_keycode != 0:
@@ -171,13 +177,17 @@ func _toggled(toggled_on: bool) -> void:
 					else:
 						text_right = OS.get_keycode_string(event.keycode)
 						
-			text = text_left + " " + text_right
+			text = text_left + "    " + text_right
 			return
 		if action == "tiny_move_left":
 			for event in InputMap.action_get_events(action):
 				if event is InputEventJoypadButton:
 					text_left = str(CONTROLLER_BUTTON_LABELS.get(event.button_index))
 					
+				if event is InputEventJoypadMotion:
+					text_left = get_axis_label(event.axis, event.axis_value)
+					if text_left != "":
+						print(text_left)
 					
 				if event is InputEventKey:
 					if event.physical_keycode != 0:
@@ -186,13 +196,17 @@ func _toggled(toggled_on: bool) -> void:
 					else:
 						text_right = OS.get_keycode_string(event.keycode)
 						
-			text = text_left + " " + text_right
+			text = text_left + "    " + text_right
 			return
 		if action == "tiny_move_right":
 			for event in InputMap.action_get_events(action):
 				if event is InputEventJoypadButton:
 					text_left = str(CONTROLLER_BUTTON_LABELS.get(event.button_index))
 					
+				if event is InputEventJoypadMotion:
+					text_left = get_axis_label(event.axis, event.axis_value)
+					if text_left != "":
+						print(text_left)
 					
 				if event is InputEventKey:
 					if event.physical_keycode != 0:
@@ -201,13 +215,14 @@ func _toggled(toggled_on: bool) -> void:
 					else:
 						text_right = OS.get_keycode_string(event.keycode)
 						
-			text = text_left + " " + text_right
+			text = text_left + "    " + text_right
 			return
 		else:
 			text = "Unassigned"
 		return
 	
 	if action_event_index == 0:
+		if action == "taunt":
 			for event in InputMap.action_get_events(action):
 				if event is InputEventJoypadButton:
 					text_left = str(CONTROLLER_BUTTON_LABELS.get(event.button_index))
@@ -225,7 +240,7 @@ func _toggled(toggled_on: bool) -> void:
 					else:
 						text_right = OS.get_keycode_string(event.keycode)
 						
-			text = text_left + " " + text_right
+			text = text_left + "    " + text_right
 			return
 
 	
@@ -243,25 +258,25 @@ func _toggled(toggled_on: bool) -> void:
 		
 		if CONTROLLER_BUTTON_LABELS.has(input.button_index):
 			text_left = CONTROLLER_BUTTON_LABELS.get(input.button_index)
-			text = text_left + " " + text_right
+			text = text_left + "    " + text_right
 		else:
 			text_left = "Button " + str(input.button_index)
-			text = text_left + " " + text_right
+			text = text_left + "    " + text_right
 
 	
 	elif input is InputEventKey:
 		if input.physical_keycode != 0:
 			text_right = OS.get_keycode_string(input.physical_keycode)
-			text = text_left + " " + text_right
+			text = text_left + "    " + text_right
 		else:
 			text_right = OS.get_keycode_string(input.keycode)
-			text = text_left + " " + text_right
+			text = text_left + "    " + text_right
 				# both of these are just pulling a reference to the input, and setting the 
 				# text of the input button, to the new input
 	
 	elif input is InputEventJoypadMotion:
 		text_left = get_axis_label(input.axis, input.axis_value)
-		text = text_left + " " + text_right
+		text = text_left + "    " + text_right
 	
 	else:
 		pass

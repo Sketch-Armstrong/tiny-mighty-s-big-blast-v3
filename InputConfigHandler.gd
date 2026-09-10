@@ -255,7 +255,7 @@ func load_inputs() -> void:
 		controller_taunt_button.button_index = controller_inputs_dictionary["taunt"]["button_information"]
 		InputMap.action_add_event("taunt", controller_taunt_button)
 	
-	elif controller_inputs_dictionary["taunt"]["button, or axis?"] == "button":
+	elif controller_inputs_dictionary["taunt"]["button, or axis?"] == "axis":
 		var taunt_axis_info = controller_inputs_dictionary["taunt"]["axis_information"]
 		controller_taunt_axis.axis = taunt_axis_info[0]
 		controller_taunt_axis.axis_value = float(taunt_axis_info[1])
@@ -350,7 +350,7 @@ func reset_to_default_inputs() -> void:
 	
 	create_inputs_file()
 	
-	print("synced to config dictionary was: ", controller_inputs_dictionary)
+	#print("synced to config dictionary was: ", controller_inputs_dictionary)
 	
 	defaulted.emit()
 	return
