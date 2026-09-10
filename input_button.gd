@@ -72,8 +72,13 @@ func _ready() -> void:
 	#if action == "tiny_move_up":
 		#print("testing for filtering based on action string worked")
 		## both this, and the preceding 2 lines, worked
-	
 
+func print_joypad_button_test_function(check_action: StringName) -> void:
+	print("Action checking on line 145 was: ", check_action)
+	for event in InputMap.action_get_events(check_action):
+		#print("  - ", str(event))
+		if event is InputEventJoypadButton:
+			print("Action '%s' is mapped to joypad button_index: %d" % [check_action, event.button_index])
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
@@ -141,7 +146,13 @@ func _toggled(toggled_on: bool) -> void:
 			# "action" (which was deriveed from using action_get_events to determine which 
 			# event you were referring to in InputMap
 		if action == "tiny_move_up":
-			text = "testing for up"
+			#text = "testing for up"
+			for event in InputMap.action_get_events(action):
+				if event is InputEventJoypadButton:
+					#text = str("Action '%s' is mapped to joypad button_index: %d" % [action, event.button_index])
+					var test_text_left: String = str(CONTROLLER_BUTTON_LABELS.get(event.button_index))
+					print(test_text_left)
+					text = test_text_left
 			return
 		if action == "tiny_move_down":
 			text = "testing for down"
