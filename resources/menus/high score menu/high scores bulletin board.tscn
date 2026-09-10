@@ -149,6 +149,7 @@ offset_bottom = -65.69557
 
 [node name="ClearSignalerButton" type="Button" parent="Toggler/Control"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 
 [node name="ClearTimer" type="Timer" parent="Toggler/Control"]
 wait_time = 10.0
@@ -156,6 +157,7 @@ one_shot = true
 
 [node name="CheckButton" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_icons/icon = SubResource("ImageTexture_oeny2")
 theme_override_styles/focus = SubResource("StyleBoxTexture_p1wil")
 theme_override_icons/checked = ExtResource("8_7i7h2")
@@ -163,30 +165,35 @@ theme_override_icons/unchecked = ExtResource("9_vsxa7")
 
 [node name="CheckButton2" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/focus = SubResource("StyleBoxTexture_7i7h2")
 theme_override_icons/checked = ExtResource("8_7i7h2")
 theme_override_icons/unchecked = ExtResource("9_vsxa7")
 
 [node name="CheckButton3" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/focus = SubResource("StyleBoxTexture_vsxa7")
 theme_override_icons/checked = ExtResource("8_7i7h2")
 theme_override_icons/unchecked = ExtResource("9_vsxa7")
 
 [node name="CheckButton4" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/focus = SubResource("StyleBoxTexture_anjvt")
 theme_override_icons/checked = ExtResource("8_7i7h2")
 theme_override_icons/unchecked = ExtResource("9_vsxa7")
 
 [node name="CheckButton5" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/focus = SubResource("StyleBoxTexture_4oi1v")
 theme_override_icons/checked = ExtResource("8_7i7h2")
 theme_override_icons/unchecked = ExtResource("9_vsxa7")
 
 [node name="CheckButton6" type="CheckButton" parent="Toggler/Control"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/focus = SubResource("StyleBoxTexture_oeny2")
 theme_override_icons/checked = ExtResource("8_7i7h2")
 theme_override_icons/unchecked = ExtResource("9_vsxa7")
