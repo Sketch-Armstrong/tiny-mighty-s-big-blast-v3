@@ -1,9 +1,10 @@
 extends Node2D
 
-
-
-
-
+@onready var up_remap_button := $InputSettings/PanelContainer/OptionsList/UpRemapButton
+@onready var down_remap_button := $InputSettings/PanelContainer/OptionsList/DownRemapButton
+@onready var left_remap_button := $InputSettings/PanelContainer/OptionsList/LeftRemapButton
+@onready var right_remap_button := $InputSettings/PanelContainer/OptionsList/RightRemapButton
+@onready var taunt_remap_button := $InputSettings/PanelContainer/OptionsList/TauntRemapButton
 
 func _ready() -> void:
 	#$InputSettings/UpRemapButton.brute_force_input_label_controller_up = "testing text rewrite on option ready"
@@ -26,24 +27,24 @@ func _on_reset_button_pressed() -> void:
 
 
 func _on_up_remap_button_done_remapping() -> void:
-	$InputSettings/UpRemapButton.grab_focus()
+	up_remap_button.grab_focus()
 
 
 func _on_down_remap_button_done_remapping() -> void:
 	pass # Replace with function body.
-	$InputSettings/DownRemapButton.grab_focus()
+	down_remap_button.grab_focus()
 
 
 func _on_left_remap_button_done_remapping() -> void:
 	pass # Replace with function body.
-	$InputSettings/LeftRemapButton.grab_focus()
+	left_remap_button.grab_focus()
 
 
 func _on_right_remap_button_done_remapping() -> void:
 	pass # Replace with function body.
-	$InputSettings/RightRemapButton.grab_focus()
+	right_remap_button.grab_focus()
 
 
 func _on_taunt_remap_button_done_remapping() -> void:
 	pass # Replace with function body.
-	$InputSettings/TauntRemapButton.grab_focus()
+	taunt_remap_button.grab_focus()

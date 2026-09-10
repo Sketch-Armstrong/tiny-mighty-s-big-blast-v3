@@ -84,6 +84,7 @@ stream = ExtResource("2_fp2on")
 [node name="InGameOptionsParentNode" type="Node" parent="."]
 
 [node name="Options" parent="." instance=ExtResource("10_1h1ss")]
+position = Vector2(40, 143)
 
 [connection signal="pressed" from="BackButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

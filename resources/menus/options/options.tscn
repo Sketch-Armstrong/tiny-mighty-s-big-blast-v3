@@ -18,16 +18,6 @@ bg_color = Color(0, 0, 0, 1)
 [node name="Options" type="Node2D"]
 script = ExtResource("1_1ssaa")
 
-[node name="Control" type="Control" parent="."]
-z_index = 2
-z_as_relative = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-focus_mode = 2
-focus_behavior_recursive = 2
-
 [node name="InputSettings" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -39,7 +29,6 @@ offset_right = 653.0
 offset_bottom = 427.0
 grow_horizontal = 2
 grow_vertical = 2
-focus_mode = 2
 focus_behavior_recursive = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="InputSettings"]
@@ -49,24 +38,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -256.0
+offset_top = -387.0
 offset_right = 368.0
-offset_bottom = 256.0
+offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vh1wk")
 
-[node name="ActionList" type="VBoxContainer" parent="InputSettings/PanelContainer"]
+[node name="OptionsList" type="VBoxContainer" parent="InputSettings/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="UpRemapButton" type="Button" parent="InputSettings"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = -311.0
-offset_right = 333.0
-offset_bottom = -303.0
-focus_neighbor_left = NodePath(".")
+[node name="UpRemapButton" type="Button" parent="InputSettings/PanelContainer/OptionsList"]
+layout_mode = 2
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath(".")
 script = ExtResource("3_qsv3m")
@@ -74,7 +58,7 @@ action = "tiny_move_up"
 action_event_index = 11
 metadata/_custom_type_script = "uid://do6jlh7g8f433"
 
-[node name="Label" type="Label" parent="InputSettings/UpRemapButton"]
+[node name="Label" type="Label" parent="InputSettings/PanelContainer/OptionsList/UpRemapButton"]
 layout_mode = 0
 offset_left = -111.0
 offset_right = -71.0
@@ -82,20 +66,17 @@ offset_bottom = 23.0
 theme_override_colors/font_color = Color(1, 0, 1, 1)
 text = "up"
 
-[node name="DownRemapButton" type="Button" parent="InputSettings"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = -226.0
-offset_right = 333.0
-offset_bottom = -218.0
-focus_neighbor_left = NodePath(".")
+[node name="DownRemapButton" type="Button" parent="InputSettings/PanelContainer/OptionsList"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../UpRemapButton")
 focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../LeftRemapButton")
 script = ExtResource("3_qsv3m")
 action = "tiny_move_down"
 action_event_index = 12
 metadata/_custom_type_script = "uid://do6jlh7g8f433"
 
-[node name="Label" type="Label" parent="InputSettings/DownRemapButton"]
+[node name="Label" type="Label" parent="InputSettings/PanelContainer/OptionsList/DownRemapButton"]
 layout_mode = 0
 offset_left = -111.0
 offset_right = -68.0
@@ -103,20 +84,17 @@ offset_bottom = 23.0
 theme_override_colors/font_color = Color(1, 0, 1, 1)
 text = "down"
 
-[node name="LeftRemapButton" type="Button" parent="InputSettings"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = -143.0
-offset_right = 333.0
-offset_bottom = -135.0
-focus_neighbor_left = NodePath(".")
+[node name="LeftRemapButton" type="Button" parent="InputSettings/PanelContainer/OptionsList"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../DownRemapButton")
 focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../RightRemapButton")
 script = ExtResource("3_qsv3m")
 action = "tiny_move_left"
 action_event_index = 13
 metadata/_custom_type_script = "uid://do6jlh7g8f433"
 
-[node name="Label" type="Label" parent="InputSettings/LeftRemapButton"]
+[node name="Label" type="Label" parent="InputSettings/PanelContainer/OptionsList/LeftRemapButton"]
 layout_mode = 0
 offset_left = -111.0
 offset_right = -71.0
@@ -125,20 +103,17 @@ theme_override_colors/font_color = Color(1, 0, 1, 1)
 text = "left
 "
 
-[node name="RightRemapButton" type="Button" parent="InputSettings"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = -67.0
-offset_right = 333.0
-offset_bottom = -59.0
-focus_neighbor_left = NodePath(".")
+[node name="RightRemapButton" type="Button" parent="InputSettings/PanelContainer/OptionsList"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../LeftRemapButton")
 focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../TauntRemapButton")
 script = ExtResource("3_qsv3m")
 action = "tiny_move_right"
 action_event_index = 14
 metadata/_custom_type_script = "uid://do6jlh7g8f433"
 
-[node name="Label" type="Label" parent="InputSettings/RightRemapButton"]
+[node name="Label" type="Label" parent="InputSettings/PanelContainer/OptionsList/RightRemapButton"]
 layout_mode = 0
 offset_left = -111.0
 offset_right = -71.0
@@ -146,42 +121,52 @@ offset_bottom = 23.0
 theme_override_colors/font_color = Color(1, 0, 1, 1)
 text = "right"
 
-[node name="TauntRemapButton" type="Button" parent="InputSettings"]
-layout_mode = 0
-offset_left = 25.0
-offset_right = 333.0
-offset_bottom = 8.0
-focus_neighbor_left = NodePath(".")
+[node name="TauntRemapButton" type="Button" parent="InputSettings/PanelContainer/OptionsList"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../RightRemapButton")
 focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../HSlider")
 script = ExtResource("3_qsv3m")
 action = "taunt"
 metadata/_custom_type_script = "uid://do6jlh7g8f433"
 
-[node name="Label" type="Label" parent="InputSettings/TauntRemapButton"]
+[node name="Label" type="Label" parent="InputSettings/PanelContainer/OptionsList/TauntRemapButton"]
 layout_mode = 0
 offset_left = -111.0
 offset_right = -68.0
 offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
 text = "taunt"
 
-[node name="StartRemapButton" type="Button" parent="InputSettings"]
-visible = false
-layout_mode = 0
-offset_left = -293.0
-offset_top = 56.0
-offset_right = 15.0
-offset_bottom = 64.0
-script = ExtResource("3_qsv3m")
-action = "start"
-action_event_index = 6
-metadata/_custom_type_script = "uid://do6jlh7g8f433"
+[node name="HSlider" type="HSlider" parent="InputSettings/PanelContainer/OptionsList"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../TauntRemapButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../HSlider2")
 
-[node name="Label" type="Label" parent="InputSettings/StartRemapButton"]
+[node name="Label" type="Label" parent="InputSettings/PanelContainer/OptionsList/HSlider"]
 layout_mode = 0
 offset_left = -111.0
 offset_right = -71.0
 offset_bottom = 23.0
-text = "start"
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "music volume"
+
+[node name="HSlider2" type="HSlider" parent="InputSettings/PanelContainer/OptionsList"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../HSlider")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../../ResetButton")
+
+[node name="Label" type="Label" parent="InputSettings/PanelContainer/OptionsList/HSlider2"]
+layout_mode = 0
+offset_left = -111.0
+offset_right = -22.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "SFX volume"
 
 [node name="MarginContainer" type="MarginContainer" parent="InputSettings"]
 visible = false
@@ -201,7 +186,7 @@ offset_left = 25.0
 offset_top = 60.0
 offset_right = 333.0
 offset_bottom = 93.0
-focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../PanelContainer/OptionsList/HSlider2")
 focus_neighbor_right = NodePath(".")
 theme_override_fonts/font = ExtResource("4_g2gsc")
 theme_override_font_sizes/font_size = 30
@@ -216,13 +201,13 @@ offset_left = 25.0
 offset_top = 97.0
 offset_right = 333.0
 offset_bottom = 128.0
-focus_neighbor_left = NodePath("../PanelContainer/ActionList")
+focus_neighbor_left = NodePath("../PanelContainer/OptionsList")
 theme_override_colors/font_focus_color = Color(0.9490196, 0, 0.9490196, 1)
 text = "back placeholder"
 
-[connection signal="done_remapping" from="InputSettings/UpRemapButton" to="." method="_on_up_remap_button_done_remapping"]
-[connection signal="done_remapping" from="InputSettings/DownRemapButton" to="." method="_on_down_remap_button_done_remapping"]
-[connection signal="done_remapping" from="InputSettings/LeftRemapButton" to="." method="_on_left_remap_button_done_remapping"]
-[connection signal="done_remapping" from="InputSettings/RightRemapButton" to="." method="_on_right_remap_button_done_remapping"]
-[connection signal="done_remapping" from="InputSettings/TauntRemapButton" to="." method="_on_taunt_remap_button_done_remapping"]
+[connection signal="done_remapping" from="InputSettings/PanelContainer/OptionsList/UpRemapButton" to="." method="_on_up_remap_button_done_remapping"]
+[connection signal="done_remapping" from="InputSettings/PanelContainer/OptionsList/DownRemapButton" to="." method="_on_down_remap_button_done_remapping"]
+[connection signal="done_remapping" from="InputSettings/PanelContainer/OptionsList/LeftRemapButton" to="." method="_on_left_remap_button_done_remapping"]
+[connection signal="done_remapping" from="InputSettings/PanelContainer/OptionsList/RightRemapButton" to="." method="_on_right_remap_button_done_remapping"]
+[connection signal="done_remapping" from="InputSettings/PanelContainer/OptionsList/TauntRemapButton" to="." method="_on_taunt_remap_button_done_remapping"]
 [connection signal="pressed" from="InputSettings/ResetButton" to="." method="_on_reset_button_pressed"]
