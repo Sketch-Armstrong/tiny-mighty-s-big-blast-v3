@@ -26,7 +26,12 @@ extends Node2D
 
 @onready var stop_score_check_cycle_saver := false
 
-
+@onready var Button1 := $HiddenButtons/Button1
+@onready var Button2 := $HiddenButtons/Button2
+@onready var Button3 := $HiddenButtons/Button3
+@onready var Button4 := $HiddenButtons/Button4
+@onready var Button5 := $HiddenButtons/Button5
+@onready var Button6 := $HiddenButtons/Button6
 
 signal BulletinClearPressed
 signal BulletinClearFocused
@@ -35,9 +40,15 @@ signal BulletinBackPressed
 signal BulletinBackFocused
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Button1.pressed.connect(_on_Button1_pressed)
+	Button2.pressed.connect(_on_Button2_pressed)
+	Button3.pressed.connect(_on_Button3_pressed)
+	Button4.pressed.connect(_on_Button4_pressed)
+	Button5.pressed.connect(_on_Button5_pressed)
+	Button6.pressed.connect(_on_Button6_pressed)
+	
 	pass # Replace with function body.
 	#Toggle1.grab_focus()
 	#$Small/ElGrande/Button.grab_focus()
@@ -51,6 +62,30 @@ func _ready() -> void:
 	$Big/Max.hide()
 	$Big/Claire.hide()
 	$Big/ElGrande.hide()
+
+func _on_Button1_pressed() -> void:
+	Toggle1.grab_focus()
+	Toggle1.button_pressed = !Toggle1.button_pressed
+
+func _on_Button2_pressed() -> void:
+	Toggle2.grab_focus()
+	Toggle2.button_pressed = !Toggle2.button_pressed
+
+func _on_Button3_pressed() -> void:
+	Toggle3.grab_focus()
+	Toggle3.button_pressed = !Toggle3.button_pressed
+
+func _on_Button4_pressed() -> void:
+	Toggle4.grab_focus()
+	Toggle4.button_pressed = !Toggle4.button_pressed
+
+func _on_Button5_pressed() -> void:
+	Toggle5.grab_focus()
+	Toggle5.button_pressed = !Toggle5.button_pressed
+
+func _on_Button6_pressed() -> void:
+	Toggle6.grab_focus()
+	Toggle6.button_pressed = !Toggle6.button_pressed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")

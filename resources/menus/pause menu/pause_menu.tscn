@@ -31,9 +31,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 209.0
-offset_top = 239.0
+offset_top = 252.0
 offset_right = 530.0
-offset_bottom = 368.0
+offset_bottom = 381.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_neighbor_left = NodePath(".")
@@ -52,9 +52,9 @@ offset_bottom = 40.0
 [node name="QuitButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 209.0
-offset_top = 492.0
+offset_top = 468.0
 offset_right = 530.0
-offset_bottom = 621.0
+offset_bottom = 597.0
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../BackButton")
 focus_neighbor_bottom = NodePath(".")
@@ -84,7 +84,7 @@ stream = ExtResource("2_fp2on")
 [node name="InGameOptionsParentNode" type="Node" parent="."]
 
 [node name="Options" parent="." instance=ExtResource("10_1h1ss")]
-position = Vector2(40, 143)
+position = Vector2(-129, 19)
 
 [connection signal="pressed" from="BackButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
