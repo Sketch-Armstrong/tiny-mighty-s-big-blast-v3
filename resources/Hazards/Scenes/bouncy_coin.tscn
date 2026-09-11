@@ -98,10 +98,9 @@ hframes = 7
 shape = SubResource("CircleShape2D_gq71i")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_uafof")
-}
+libraries/ = SubResource("AnimationLibrary_uafof")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_hptx7")
 volume_db = -12.0
+bus = &"SFX"

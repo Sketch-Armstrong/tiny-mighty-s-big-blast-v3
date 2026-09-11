@@ -3987,7 +3987,6 @@ stream = ExtResource("15_6jybn")
 bus = &"SFX"
 
 [node name="MissSound" type="AudioStreamPlayer" parent="."]
-volume_db = -16.805
 bus = &"SFX"
 
 [node name="SPACER-NODE-IGNORE-BELOW" type="Node" parent="."]

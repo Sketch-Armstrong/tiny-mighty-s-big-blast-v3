@@ -3984,14 +3984,17 @@ position = Vector2(2, 0)
 
 [node name="DeathSound1" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("23_dx0e4")
+bus = &"SFX"
 
 [node name="DeathSound2" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("24_jm5j8")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="NovaBlastPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_jm5j8")
 volume_db = -3.25
+bus = &"SFX"
 
 [connection signal="BRUTE_FORCE_TAUNT_PRESSED" from="." to="." method="_on_brute_force_taunt_pressed"]
 [connection signal="BRUTE_FORCE_TAUNT_PRESSED" from="." to="TauntTimer" method="_on_player_brute_force_taunt_pressed"]
