@@ -3979,13 +3979,16 @@ process_mode = 3
 stream = ExtResource("14_6jybn")
 volume_db = -10.0
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [node name="JackpotTester" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_6jybn")
+bus = &"SFX"
 
 [node name="MissSound" type="AudioStreamPlayer" parent="."]
 volume_db = -16.805
+bus = &"SFX"
 
 [node name="SPACER-NODE-IGNORE-BELOW" type="Node" parent="."]
 

@@ -3787,8 +3787,8 @@ _data = {
 radius = 17.0
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 17
+collision_mask = 199
 script = ExtResource("1_n3u4o")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -3831,9 +3831,7 @@ texture = ExtResource("6_n7ghd")
 hframes = 5
 
 [node name="ExplosionAnimationPlayer" type="AnimationPlayer" parent="Explosion"]
-libraries = {
-&"": SubResource("AnimationLibrary_k34xg")
-}
+libraries/ = SubResource("AnimationLibrary_k34xg")
 
 [node name="TinyMightySprites" type="Sprite2D" parent="."]
 visible = false
@@ -3850,9 +3848,7 @@ hframes = 2
 vframes = 4
 
 [node name="DashAnimationPlayer" type="AnimationPlayer" parent="DashSpriteA"]
-libraries = {
-&"": SubResource("AnimationLibrary_sj0h2")
-}
+libraries/ = SubResource("AnimationLibrary_sj0h2")
 
 [node name="PositionGrid" type="Sprite2D" parent="."]
 visible = false
@@ -3877,9 +3873,7 @@ hframes = 2
 vframes = 2
 
 [node name="IdleAnimationPlayer" type="AnimationPlayer" parent="IdleSprites"]
-libraries = {
-&"": SubResource("AnimationLibrary_u1c27")
-}
+libraries/ = SubResource("AnimationLibrary_u1c27")
 speed_scale = 5.0
 
 [node name="MissSprites" type="Sprite2D" parent="."]
@@ -3907,9 +3901,7 @@ texture = ExtResource("17_op7ga")
 offset = Vector2(150, 0)
 
 [node name="EverythingAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_q13i1")
-}
+libraries/ = SubResource("AnimationLibrary_q13i1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 100
@@ -3980,6 +3972,7 @@ script = ExtResource("16_op7ga")
 
 [node name="SoundEffectTester" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_pylmc")
+bus = &"SFX"
 
 [node name="RoundBonusText" parent="." instance=ExtResource("20_pbfsw")]
 

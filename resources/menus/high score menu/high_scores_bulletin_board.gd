@@ -26,12 +26,12 @@ extends Node2D
 
 @onready var stop_score_check_cycle_saver := false
 
-@onready var Button1 := $HiddenButtons/Button1
-@onready var Button2 := $HiddenButtons/Button2
-@onready var Button3 := $HiddenButtons/Button3
-@onready var Button4 := $HiddenButtons/Button4
-@onready var Button5 := $HiddenButtons/Button5
-@onready var Button6 := $HiddenButtons/Button6
+@onready var Button1 := $Small/SallyPhoto/Button1
+@onready var Button2 := $Small/SallyNote/Button2
+@onready var Button3 := $Small/Papi/Button3
+@onready var Button4 := $Small/Max/Button4
+@onready var Button5 := $Small/Claire/Button5
+@onready var Button6 := $Small/ElGrande/Button6
 
 signal BulletinClearPressed
 signal BulletinClearFocused
