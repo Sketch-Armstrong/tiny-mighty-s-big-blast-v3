@@ -114,7 +114,7 @@ var controller_inputs_dictionary: Dictionary
 
 func _ready():
 	#create_inputs_file()
-	sync_dictionary_to_config()
+	
 	#controller_inputs_dictionary["tiny_move_up"]["button, or axis?"] = "button"
 	#input_config.set_value("DICTIONARY_TESTING_2", "SUB_HEADER_TESTING", controller_inputs_dictionary)
 	#temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", 
@@ -134,7 +134,7 @@ func _ready():
 		create_inputs_file()
 	
 	if err == OK:
-		pass
+		sync_dictionary_to_config()
 		load_inputs()
 		#load_keyboard_inputs()
 	#sync_dictionary_to_config()

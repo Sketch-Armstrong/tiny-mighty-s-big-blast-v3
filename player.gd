@@ -67,6 +67,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
 	if GlobalVariables.tiny_visible == false:
 		self.hide()
 	if GlobalVariables.tiny_visible == true:
