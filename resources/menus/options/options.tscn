@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://drb12hb6ul2cr"]
+[gd_scene load_steps=13 format=3 uid="uid://drb12hb6ul2cr"]
 
 [ext_resource type="Script" uid="uid://d1v53fcgqch8j" path="res://resources/menus/options/options.gd" id="1_1ssaa"]
+[ext_resource type="FontFile" uid="uid://cmb0cakpnob6w" path="res://resources/fonts/MetalMania-Regular.ttf" id="3_g2gsc"]
 [ext_resource type="Script" uid="uid://do6jlh7g8f433" path="res://input_button.gd" id="3_qsv3m"]
 [ext_resource type="Texture2D" uid="uid://kxlgtobkkp6g" path="res://resources/menus/input settings/input settings backing texture.png" id="3_rt4v4"]
 [ext_resource type="FontFile" uid="uid://dnav6lhamfw13" path="res://resources/fonts/Bangers-Regular.ttf" id="4_g2gsc"]
 [ext_resource type="PackedScene" uid="uid://dwbuxcde3f5uy" path="res://resources/audio/volume_slider.tscn" id="4_rt4v4"]
+[ext_resource type="Texture2D" uid="uid://dxjnsfcvya7jl" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 1.png" id="7_jcj0d"]
+[ext_resource type="Texture2D" uid="uid://bsu3c4lej74" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 3.png" id="8_8bxk8"]
+[ext_resource type="Texture2D" uid="uid://bevdnbcs3ac14" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 2.png" id="9_y6is1"]
+[ext_resource type="Texture2D" uid="uid://b78584c7kmkrl" path="res://resources/HUD/style meter white backing backing.png" id="10_hwbdq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vh1wk"]
 texture = ExtResource("3_rt4v4")
@@ -39,114 +44,188 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -387.0
-offset_right = 368.0
-offset_bottom = 125.0
+offset_left = -182.0
+offset_top = -464.0
+offset_right = 255.0
+offset_bottom = 157.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vh1wk")
 
-[node name="OptionsList" type="VBoxContainer" parent="InputSettings/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="InputSettings/PanelContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 22
 
-[node name="Label" type="Label" parent="InputSettings/PanelContainer/OptionsList"]
+[node name="OptionsList" type="VBoxContainer" parent="InputSettings/PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 1, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
+layout_direction = 2
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 48
 text = "up"
 
-[node name="UpRemapButton" type="Button" parent="InputSettings/PanelContainer/OptionsList"]
+[node name="UpRemapButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 10
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath(".")
+theme_override_fonts/font = ExtResource("4_g2gsc")
+theme_override_font_sizes/font_size = 30
 script = ExtResource("3_qsv3m")
 action = "tiny_move_up"
 action_event_index = 11
 metadata/_custom_type_script = "uid://do6jlh7g8f433"
 
-[node name="Label2" type="Label" parent="InputSettings/PanelContainer/OptionsList"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 1, 1)
+
+[node name="Label2" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 46
 text = "down"
 
-[node name="DownRemapButton" type="Button" parent="InputSettings/PanelContainer/OptionsList"]
+[node name="DownRemapButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-focus_neighbor_top = NodePath("../UpRemapButton")
+size_flags_horizontal = 10
+focus_neighbor_top = NodePath("../../HBoxContainer/UpRemapButton")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../LeftRemapButton")
+focus_neighbor_bottom = NodePath("../../HBoxContainer3/LeftRemapButton")
+theme_override_fonts/font = ExtResource("4_g2gsc")
+theme_override_font_sizes/font_size = 30
 script = ExtResource("3_qsv3m")
 action = "tiny_move_down"
 action_event_index = 12
 metadata/_custom_type_script = "uid://do6jlh7g8f433"
 
-[node name="Label3" type="Label" parent="InputSettings/PanelContainer/OptionsList"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 1, 1)
+
+[node name="Label3" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 46
 text = "left"
 
-[node name="LeftRemapButton" type="Button" parent="InputSettings/PanelContainer/OptionsList"]
+[node name="LeftRemapButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-focus_neighbor_top = NodePath("../DownRemapButton")
+size_flags_horizontal = 10
+focus_neighbor_top = NodePath("../../HBoxContainer2/DownRemapButton")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../RightRemapButton")
+focus_neighbor_bottom = NodePath("../../HBoxContainer4/RightRemapButton")
+theme_override_fonts/font = ExtResource("4_g2gsc")
+theme_override_font_sizes/font_size = 30
 script = ExtResource("3_qsv3m")
 action = "tiny_move_left"
 action_event_index = 13
 metadata/_custom_type_script = "uid://do6jlh7g8f433"
 
-[node name="Label4" type="Label" parent="InputSettings/PanelContainer/OptionsList"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 1, 1)
+
+[node name="Label4" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 46
 text = "right"
 
-[node name="RightRemapButton" type="Button" parent="InputSettings/PanelContainer/OptionsList"]
+[node name="RightRemapButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer4"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-focus_neighbor_top = NodePath("../LeftRemapButton")
+size_flags_horizontal = 10
+focus_neighbor_top = NodePath("../../HBoxContainer3/LeftRemapButton")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../TauntRemapButton")
+focus_neighbor_bottom = NodePath("../../HBoxContainer5/TauntRemapButton")
+theme_override_fonts/font = ExtResource("4_g2gsc")
+theme_override_font_sizes/font_size = 30
 script = ExtResource("3_qsv3m")
 action = "tiny_move_right"
 action_event_index = 14
 metadata/_custom_type_script = "uid://do6jlh7g8f433"
 
-[node name="Label5" type="Label" parent="InputSettings/PanelContainer/OptionsList"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 1, 1)
+
+[node name="Label5" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 46
 text = "taunt"
 
-[node name="TauntRemapButton" type="Button" parent="InputSettings/PanelContainer/OptionsList"]
+[node name="TauntRemapButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer5"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-focus_neighbor_top = NodePath("../RightRemapButton")
+size_flags_horizontal = 10
+focus_neighbor_top = NodePath("../../HBoxContainer4/RightRemapButton")
 focus_neighbor_right = NodePath(".")
+theme_override_fonts/font = ExtResource("4_g2gsc")
+theme_override_font_sizes/font_size = 30
 script = ExtResource("3_qsv3m")
 action = "taunt"
 metadata/_custom_type_script = "uid://do6jlh7g8f433"
 
-[node name="Label6" type="Label" parent="InputSettings/PanelContainer/OptionsList"]
+[node name="Label6" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 1, 1)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 46
 text = "master volume"
 
-[node name="MasterSlider" parent="InputSettings/PanelContainer/OptionsList" instance=ExtResource("4_rt4v4")]
+[node name="MasterSlider" parent="InputSettings/PanelContainer/MarginContainer/OptionsList" instance=ExtResource("4_rt4v4")]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 bus_name = "Master"
 
-[node name="Label7" type="Label" parent="InputSettings/PanelContainer/OptionsList"]
+[node name="Label7" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 1, 1)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 46
 text = "Music volume"
 
-[node name="MusicSlider" parent="InputSettings/PanelContainer/OptionsList" instance=ExtResource("4_rt4v4")]
+[node name="MusicSlider" parent="InputSettings/PanelContainer/MarginContainer/OptionsList" instance=ExtResource("4_rt4v4")]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 bus_name = "Music"
 
-[node name="Label8" type="Label" parent="InputSettings/PanelContainer/OptionsList"]
+[node name="Label8" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 1, 1)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 46
 text = "SFX volume"
 
-[node name="SFXSlider" parent="InputSettings/PanelContainer/OptionsList" instance=ExtResource("4_rt4v4")]
+[node name="SFXSlider" parent="InputSettings/PanelContainer/MarginContainer/OptionsList" instance=ExtResource("4_rt4v4")]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 bus_name = "SFX"
 
 [node name="MarginContainer" type="MarginContainer" parent="InputSettings"]
@@ -163,15 +242,15 @@ theme_override_constants/margin_bottom = 10
 
 [node name="ResetButton" type="Button" parent="InputSettings"]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 144.0
-offset_right = 333.0
-offset_bottom = 177.0
+offset_left = -164.0
+offset_top = 183.0
+offset_right = 75.0
+offset_bottom = 235.0
 focus_neighbor_right = NodePath(".")
 theme_override_fonts/font = ExtResource("4_g2gsc")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_vh1wk")
-text = "Reset controls"
+text = "Reset inputs"
 
 [node name="Button" type="Button" parent="InputSettings"]
 visible = false
@@ -181,13 +260,25 @@ offset_left = 25.0
 offset_top = 97.0
 offset_right = 333.0
 offset_bottom = 128.0
-focus_neighbor_left = NodePath("../PanelContainer/OptionsList")
+focus_neighbor_left = NodePath("../PanelContainer/MarginContainer/OptionsList")
 theme_override_colors/font_focus_color = Color(0.9490196, 0, 0.9490196, 1)
 text = "back placeholder"
 
-[connection signal="done_remapping" from="InputSettings/PanelContainer/OptionsList/UpRemapButton" to="." method="_on_up_remap_button_done_remapping"]
-[connection signal="done_remapping" from="InputSettings/PanelContainer/OptionsList/DownRemapButton" to="." method="_on_down_remap_button_done_remapping"]
-[connection signal="done_remapping" from="InputSettings/PanelContainer/OptionsList/LeftRemapButton" to="." method="_on_left_remap_button_done_remapping"]
-[connection signal="done_remapping" from="InputSettings/PanelContainer/OptionsList/RightRemapButton" to="." method="_on_right_remap_button_done_remapping"]
-[connection signal="done_remapping" from="InputSettings/PanelContainer/OptionsList/TauntRemapButton" to="." method="_on_taunt_remap_button_done_remapping"]
+[node name="BackButton" type="TextureButton" parent="."]
+offset_left = 916.0
+offset_top = 659.0
+offset_right = 1237.0
+offset_bottom = 788.0
+mouse_filter = 1
+texture_normal = ExtResource("7_jcj0d")
+texture_pressed = ExtResource("8_8bxk8")
+texture_hover = ExtResource("9_y6is1")
+texture_focused = ExtResource("10_hwbdq")
+
+[connection signal="done_remapping" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer/UpRemapButton" to="." method="_on_up_remap_button_done_remapping"]
+[connection signal="done_remapping" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer2/DownRemapButton" to="." method="_on_down_remap_button_done_remapping"]
+[connection signal="done_remapping" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer3/LeftRemapButton" to="." method="_on_left_remap_button_done_remapping"]
+[connection signal="done_remapping" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer4/RightRemapButton" to="." method="_on_right_remap_button_done_remapping"]
+[connection signal="done_remapping" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer5/TauntRemapButton" to="." method="_on_taunt_remap_button_done_remapping"]
 [connection signal="pressed" from="InputSettings/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_options_back_button_pressed"]

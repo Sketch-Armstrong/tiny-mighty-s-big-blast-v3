@@ -1,10 +1,12 @@
 extends Node2D
 
-@onready var up_remap_button := $InputSettings/PanelContainer/OptionsList/UpRemapButton
-@onready var down_remap_button := $InputSettings/PanelContainer/OptionsList/DownRemapButton
-@onready var left_remap_button := $InputSettings/PanelContainer/OptionsList/LeftRemapButton
-@onready var right_remap_button := $InputSettings/PanelContainer/OptionsList/RightRemapButton
-@onready var taunt_remap_button := $InputSettings/PanelContainer/OptionsList/TauntRemapButton
+@onready var up_remap_button := $InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer/UpRemapButton
+@onready var down_remap_button := $InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer2/DownRemapButton
+@onready var left_remap_button := $InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer3/LeftRemapButton
+@onready var right_remap_button := $InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer4/RightRemapButton
+@onready var taunt_remap_button := $InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer5/TauntRemapButton
+
+signal options_back_button
 
 func _ready() -> void:
 	#$InputSettings/UpRemapButton.brute_force_input_label_controller_up = "testing text rewrite on option ready"
@@ -48,3 +50,6 @@ func _on_right_remap_button_done_remapping() -> void:
 func _on_taunt_remap_button_done_remapping() -> void:
 	pass # Replace with function body.
 	taunt_remap_button.grab_focus()
+
+func _on_options_back_button_pressed() -> void:
+	options_back_button.emit()
