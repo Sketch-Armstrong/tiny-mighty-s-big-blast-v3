@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bh50a1p6nl5sx"]
+[gd_scene load_steps=24 format=3 uid="uid://bh50a1p6nl5sx"]
 
 [ext_resource type="Script" uid="uid://brqiklbnnt7r4" path="res://resources/menus/high score menu/high_scores_bulletin_board.gd" id="1_8kha8"]
 [ext_resource type="Texture2D" uid="uid://b8n4i2fwv6t16" path="res://resources/menus/high score menu/sprites/Bulletin Board Sprite.png" id="2_y1amr"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://l7q2ddmblhbs" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton arrow.png" id="7_p1wil"]
 [ext_resource type="Texture2D" uid="uid://bpbk4454v5wfb" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton 2 expanded.png" id="8_7i7h2"]
 [ext_resource type="Texture2D" uid="uid://van1epy0wbd6" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton 1 expanded.png" id="9_vsxa7"]
+[ext_resource type="Texture2D" uid="uid://b5wlv2f7fguj7" path="res://resources/menus/high score menu/sprites/highscores bar masking sprite.png" id="12_7i7h2"]
+[ext_resource type="Script" uid="uid://4f2ds3xm8d40" path="res://resources/menus/high score menu/reset_bar.gd" id="12_vsxa7"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_oeny2"]
 
@@ -33,6 +35,12 @@ texture = ExtResource("7_p1wil")
 texture = ExtResource("7_p1wil")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1wil"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsxa7"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4oi1v"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="BulletinBoard" type="Node2D"]
 script = ExtResource("1_8kha8")
@@ -237,6 +245,7 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 
 [node name="Toggler" type="Node2D" parent="."]
+z_index = 1
 position = Vector2(582.00006, -12.000008)
 rotation = -0.10471976
 
@@ -481,6 +490,38 @@ theme_override_fonts/normal_font = ExtResource("6_wtrb0")
 theme_override_font_sizes/normal_font_size = 56
 text = "Label 5"
 fit_content = true
+
+[node name="ResetBar" type="Node2D" parent="."]
+position = Vector2(56, -376)
+script = ExtResource("12_vsxa7")
+
+[node name="Sprite2D" type="Sprite2D" parent="ResetBar"]
+clip_children = 2
+texture = ExtResource("12_7i7h2")
+centered = false
+
+[node name="Control" type="Control" parent="ResetBar/Sprite2D"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+
+[node name="ClearProgressBar" type="ProgressBar" parent="ResetBar/Sprite2D/Control"]
+visible = false
+layout_mode = 0
+offset_left = 135.0
+offset_top = 68.0
+offset_right = 457.0
+offset_bottom = 358.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vsxa7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4oi1v")
+max_value = 10.0
+fill_mode = 1
+show_percentage = false
 
 [connection signal="pressed" from="Big/ElGrande/Button6" to="." method="_on_Button6_pressed"]
 [connection signal="pressed" from="Big/SallyPhoto/Button1" to="." method="_on_Button1_pressed"]

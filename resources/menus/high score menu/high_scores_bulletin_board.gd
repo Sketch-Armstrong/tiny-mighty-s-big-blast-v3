@@ -322,9 +322,11 @@ func clear_scores() -> void:
 
 func _clear_button_down() -> void:
 	pass
+	$ResetBar/Sprite2D/Control/ClearProgressBar.show()
 	ClearTimer.start()
 
 func _clear_button_up() -> void:
+	$ResetBar/Sprite2D/Control/ClearProgressBar.hide()
 	ClearTimer.stop()
 
 
