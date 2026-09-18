@@ -8,4 +8,4 @@ extends Node2D
 
 func _process(delta: float) -> void:
 	var rounded_timer_value = clear_timer.get_time_left()
-	clear_progress_bar.value = rounded_timer_value
+	clear_progress_bar.value = rounded_timer_value * 2

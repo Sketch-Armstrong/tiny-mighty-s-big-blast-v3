@@ -272,7 +272,7 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 
 [node name="ClearTimer" type="Timer" parent="Toggler/Control"]
-wait_time = 10.0
+wait_time = 5.0
 one_shot = true
 
 [node name="CheckButton" type="CheckButton" parent="Toggler/Control"]
