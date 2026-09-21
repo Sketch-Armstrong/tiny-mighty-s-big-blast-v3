@@ -266,94 +266,12 @@ func load_inputs() -> void:
 
 
 
+
 func reset_to_default_inputs() -> void:
+	create_inputs_file()          # rewrites keybindings + dictionary sections to defaults
 	set_dictionary_to_default()
-	InputMap.action_erase_events("tiny_move_up")
-	
-	var keyboard_up_value = input_config.get_value("DEFAULT_BINDINGS_KEYS", "tiny_move_up")
-	keyboard_up.keycode = OS.find_keycode_from_string(keyboard_up_value)
-	InputMap.action_add_event("tiny_move_up", keyboard_up)
-	
-	controller_up_button.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
-	"tiny_move_up", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_up", controller_up_button)
-	
-	var up_axis_info = controller_inputs_dictionary["tiny_move_up"]["axis_information"]
-	controller_up_axis.axis = up_axis_info[0]
-	controller_up_axis.axis_value = float(up_axis_info[1])
-	InputMap.action_add_event("tiny_move_up", controller_up_axis)
-	
-	
-	
-	
-	InputMap.action_erase_events("tiny_move_down")
-	
-	var keyboard_down_value = input_config.get_value("DEFAULT_BINDINGS_KEYS", "tiny_move_down")
-	keyboard_down.keycode = OS.find_keycode_from_string(keyboard_down_value)
-	InputMap.action_add_event("tiny_move_down", keyboard_down)
-	
-	controller_down_button.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
-	"tiny_move_down", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_down", controller_down_button)
-	
-	var down_axis_info = controller_inputs_dictionary["tiny_move_down"]["axis_information"]
-	controller_down_axis.axis = down_axis_info[0]
-	controller_down_axis.axis_value = float(down_axis_info[1])
-	InputMap.action_add_event("tiny_move_down", controller_down_axis)
-	
-	
-	InputMap.action_erase_events("tiny_move_left")
-	
-	var keyboard_left_value = input_config.get_value("DEFAULT_BINDINGS_KEYS", "tiny_move_left")
-	keyboard_left.keycode = OS.find_keycode_from_string(keyboard_left_value)
-	InputMap.action_add_event("tiny_move_left", keyboard_left)
-	
-	controller_left_button.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
-	"tiny_move_left", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_left", controller_left_button)
-	
-	var left_axis_info = controller_inputs_dictionary["tiny_move_left"]["axis_information"]
-	controller_left_axis.axis = left_axis_info[0]
-	controller_left_axis.axis_value = float(left_axis_info[1])
-	InputMap.action_add_event("tiny_move_left", controller_left_axis)
-	
-	InputMap.action_erase_events("tiny_move_right")
-	
-	var keyboard_right_value = input_config.get_value("DEFAULT_BINDINGS_KEYS", "tiny_move_right")
-	keyboard_right.keycode = OS.find_keycode_from_string(keyboard_right_value)
-	InputMap.action_add_event("tiny_move_right", keyboard_right)
-	
-	controller_right_button.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
-	"tiny_move_right", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("tiny_move_right", controller_right_button)
-	
-	var right_axis_info = controller_inputs_dictionary["tiny_move_right"]["axis_information"]
-	controller_right_axis.axis = right_axis_info[0]
-	controller_right_axis.axis_value = float(right_axis_info[1])
-	InputMap.action_add_event("tiny_move_right", controller_right_axis)
-	
-	
-	InputMap.action_erase_events("taunt")
-	
-	var keyboard_taunt_value = input_config.get_value("DEFAULT_BINDINGS_KEYS", "taunt")
-	keyboard_taunt.keycode = OS.find_keycode_from_string(keyboard_taunt_value)
-	InputMap.action_add_event("taunt", keyboard_taunt)
-	
-	controller_taunt_button.button_index = input_config.get_value("DEFAULT_BINDINGS_CONTROLLER", 
-	"taunt", "FAILSAFE NULL VALUE")
-	InputMap.action_add_event("taunt", controller_taunt_button)
-	
-	var taunt_axis_info = controller_inputs_dictionary["taunt"]["axis_information"]
-	controller_taunt_axis.axis = taunt_axis_info[0]
-	controller_taunt_axis.axis_value = float(taunt_axis_info[1])
-	InputMap.action_add_event("taunt", controller_taunt_axis)
-	
-	create_inputs_file()
-	
-	#print("synced to config dictionary was: ", controller_inputs_dictionary)
-	
+	load_inputs()                 # one code path builds the InputMap
 	defaulted.emit()
-	return
 
 func sync_dictionary_to_config() -> void:
 	controller_inputs_dictionary = input_config.get_value("CONTROLLER_DICTIONARY", "BUTTON_AND_AXIS_VALUES").duplicate(true)
@@ -590,39 +508,24 @@ func check_if_duplicates_controller(action_name: String, event: InputEvent) -> b
 
 
 
-@warning_ignore("unused_parameter")
-@warning_ignore("unused_parameter")
-func save_keyboard_input(action_name: String, event: InputEvent, action_events_list: Array) -> void:
-	var duplicate_return_value = check_if_duplicates_keyboard(action_name, event)
-	
-	if duplicate_return_value == false:
-		input_config.set_value("keybindings", action_name, input_config_keyboard_keycode)
-		input_config.save(INPUT_SETTINGS_FILE_PATH)
-		
-		var key_event: InputEventKey = keyboard_events[action_name]
-		InputMap.action_erase_event(action_name, key_event)
-		key_event.keycode = OS.find_keycode_from_string(input_config_keyboard_keycode)
-		InputMap.action_add_event(action_name, key_event)
-	elif duplicate_return_value == true:
+func save_keyboard_input(action_name: String, event: InputEvent, action_events_list: Array) -> bool:
+	if check_if_duplicates_keyboard(action_name, event):
 		duplicate_detected.emit()
-	return
+		return false
+	input_config.set_value("keybindings", action_name, input_config_keyboard_keycode)
+	input_config.save(INPUT_SETTINGS_FILE_PATH)
+	return true   # load_inputs() applies it to the InputMap
 
-@warning_ignore("unused_parameter")
-func save_controller_input(action_name: String, event: InputEvent, action_events_list: Array) -> void:
-	var duplicate_return_value = check_if_duplicates_controller(action_name, event)
-	
-	
-	if duplicate_return_value == false:
-		if event is InputEventJoypadButton:
-			save_controller_input_button(action_name, event, action_events_list)
-			input_config.save(INPUT_SETTINGS_FILE_PATH)
-		elif event is InputEventJoypadMotion:
-			save_controller_input_axis(action_name, event, action_events_list)
-			input_config.save(INPUT_SETTINGS_FILE_PATH)
-	elif duplicate_return_value == true:
+func save_controller_input(action_name: String, event: InputEvent, action_events_list: Array) -> bool:
+	if check_if_duplicates_controller(action_name, event):
 		duplicate_detected.emit()
-
-	return
+		return false
+	if event is InputEventJoypadButton:
+		save_controller_input_button(action_name, event, action_events_list)
+	elif event is InputEventJoypadMotion:
+		save_controller_input_axis(action_name, event, action_events_list)
+	input_config.save(INPUT_SETTINGS_FILE_PATH)
+	return true
 
 @warning_ignore("unused_parameter")
 @warning_ignore("unused_parameter")

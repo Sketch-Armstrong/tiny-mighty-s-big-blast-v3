@@ -85,7 +85,6 @@ theme_override_fonts/font = ExtResource("4_g2gsc")
 theme_override_font_sizes/font_size = 30
 script = ExtResource("3_qsv3m")
 action = "tiny_move_up"
-action_event_index = 11
 metadata/_custom_type_script = "uid://do6jlh7g8f433"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
@@ -110,7 +109,6 @@ theme_override_fonts/font = ExtResource("4_g2gsc")
 theme_override_font_sizes/font_size = 30
 script = ExtResource("3_qsv3m")
 action = "tiny_move_down"
-action_event_index = 12
 metadata/_custom_type_script = "uid://do6jlh7g8f433"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
@@ -135,7 +133,6 @@ theme_override_fonts/font = ExtResource("4_g2gsc")
 theme_override_font_sizes/font_size = 30
 script = ExtResource("3_qsv3m")
 action = "tiny_move_left"
-action_event_index = 13
 metadata/_custom_type_script = "uid://do6jlh7g8f433"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
@@ -160,7 +157,6 @@ theme_override_fonts/font = ExtResource("4_g2gsc")
 theme_override_font_sizes/font_size = 30
 script = ExtResource("3_qsv3m")
 action = "tiny_move_right"
-action_event_index = 14
 metadata/_custom_type_script = "uid://do6jlh7g8f433"
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
