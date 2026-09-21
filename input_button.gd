@@ -112,15 +112,15 @@ func reset_labels() -> void:
 
 func undo_duplicate_label() -> void:
 	if action == "tiny_move_up" && InputConfigHandler.duplicate_detection_keyword == "dupe_up":
-		text = "Two inputs on one button.\nRestoring previous binding"
+		text = "Duplicate input\nnot saved"
 	if action == "tiny_move_down" && InputConfigHandler.duplicate_detection_keyword == "dupe_down":
-		text = "Two inputs on one button.\nRestoring previous binding"
+		text = "Duplicate input\nnot saved"
 	if action == "tiny_move_left" && InputConfigHandler.duplicate_detection_keyword == "dupe_left":
-		text = "Two inputs on one button.\nRestoring previous binding"
+		text = "Duplicate input\nnot saved"
 	if action == "tiny_move_right" && InputConfigHandler.duplicate_detection_keyword == "dupe_right":
-		text = "Two inputs on one button.\nRestoring previous binding"
+		text = "Duplicate input\nnot saved"
 	if action == "taunt" && InputConfigHandler.duplicate_detection_keyword == "dupe_taunt":
-		text = "Two inputs on one button.\nRestoring previous binding"
+		text = "Duplicate input\nnot saved"
 
 
 
