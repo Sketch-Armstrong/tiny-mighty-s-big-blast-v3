@@ -23,6 +23,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func options_focus() -> void:
+	pass
 
 func _on_reset_button_pressed() -> void:
 	InputConfigHandler.reset_to_default_inputs()
@@ -53,3 +55,8 @@ func _on_taunt_remap_button_done_remapping() -> void:
 
 func _on_options_back_button_pressed() -> void:
 	options_back_button.emit()
+
+
+func _on_main_menu_options_focus() -> void:
+	pass # Replace with function body.
+	$BackButton.grab_focus()

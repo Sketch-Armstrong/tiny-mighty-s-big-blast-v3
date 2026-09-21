@@ -277,12 +277,12 @@ mouse_filter = 2
 mouse_behavior_recursive = 2
 
 [node name="ClearProgressBar" type="ProgressBar" parent="ResetBar/Sprite2D/Control"]
-visible = false
 layout_mode = 0
-offset_left = 135.0
-offset_top = 68.0
-offset_right = 457.0
-offset_bottom = 358.0
+offset_left = 131.88672
+offset_top = 70.49374
+offset_right = 431.52283
+offset_bottom = 401.12988
+rotation = -0.10471976
 theme_override_styles/background = SubResource("StyleBoxFlat_vsxa7")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4oi1v")
 max_value = 10.0

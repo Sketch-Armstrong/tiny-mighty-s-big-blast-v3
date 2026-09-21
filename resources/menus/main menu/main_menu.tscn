@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bkjyvdxuebm0n"]
+[gd_scene load_steps=54 format=3 uid="uid://bkjyvdxuebm0n"]
 
 [ext_resource type="Script" uid="uid://bmp62hod205fu" path="res://resources/menus/main menu/main_menu.gd" id="1_qhkso"]
 [ext_resource type="Script" uid="uid://dkun673nnkv2u" path="res://resources/menus/main menu/focus_arrow.gd" id="3_34pwb"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://dk0yecertxb2d" path="res://resources/temporary assets/arrow test.png" id="21_byh02"]
 [ext_resource type="Texture2D" uid="uid://doy7xj5rusgmy" path="res://resources/menus/main menu/sprites/Title/logo.png" id="25_gvlbf"]
 [ext_resource type="PackedScene" uid="uid://cff8kn466e7eb" path="res://Singletons/highscore handler.tscn" id="26_gbyhc"]
+[ext_resource type="Script" uid="uid://bj1e2r7y57ycc" path="res://resources/menus/main menu/focus_arrow_legal_back.gd" id="26_j7q13"]
 [ext_resource type="Script" uid="uid://dsjtbg8dbop2h" path="res://resources/menus/main menu/score_back_button.gd" id="28_j7q13"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5bj2"]
@@ -568,7 +569,12 @@ mouse_filter = 1
 texture_normal = ExtResource("13_eujnn")
 texture_pressed = ExtResource("14_gvlbf")
 texture_hover = ExtResource("15_gbyhc")
-texture_focused = ExtResource("20_k5bj2")
+
+[node name="FocusArrowLegalBack" type="Sprite2D" parent="CanvasLayer2/Legal/LegalBackButton"]
+texture = ExtResource("21_byh02")
+centered = false
+offset = Vector2(-148.16, 30.445)
+script = ExtResource("26_j7q13")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Legal"]
 layout_mode = 0
@@ -712,6 +718,7 @@ speed_scale = 1.5
 position = Vector2(384, 288)
 texture = ExtResource("25_gvlbf")
 
+[connection signal="options_focus" from="." to="CanvasLayer2/Node2D2/Options" method="_on_main_menu_options_focus"]
 [connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Scores" to="FocusArrow" method="_on_scores_focus_entered"]
 [connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Scores" to="CanvasLayer2/Node2D/ButtonManager" method="_on_scores_focus_entered"]
 [connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Scores" to="." method="_on_scores_pressed"]
@@ -730,6 +737,8 @@ texture = ExtResource("25_gvlbf")
 [connection signal="pressed" from="CanvasLayer2/Node2D/ButtonManager/Legal" to="." method="_on_legal_pressed"]
 [connection signal="options_back_button" from="CanvasLayer2/Node2D2/Options" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Node2D2/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="focus_entered" from="CanvasLayer2/Legal/LegalBackButton" to="CanvasLayer2/Legal/LegalBackButton/FocusArrowLegalBack" method="_on_legal_back_button_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer2/Legal/LegalBackButton" to="CanvasLayer2/Legal/LegalBackButton/FocusArrowLegalBack" method="_on_legal_back_button_focus_exited"]
 [connection signal="pressed" from="CanvasLayer2/Legal/LegalBackButton" to="." method="_on_legal_back_button_pressed"]
 [connection signal="focus_entered" from="CanvasLayer2/HighScores/ScoreBackButton" to="CanvasLayer2/HighScores/ScoreBackButton" method="_on_focus_entered"]
 [connection signal="focus_exited" from="CanvasLayer2/HighScores/ScoreBackButton" to="CanvasLayer2/HighScores/ScoreBackButton" method="_on_focus_exited"]

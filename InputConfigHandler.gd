@@ -377,23 +377,42 @@ func check_if_duplicates_controller(action_name: String, event: InputEvent) -> b
 	var check_controller_taunt_axis
 	var check_controller_taunt_axis_value
 	
-	check_controller_up_button = controller_inputs_dictionary["tiny_move_up"]["button_information"]
-	check_controller_down_button = controller_inputs_dictionary["tiny_move_down"]["button_information"]
-	check_controller_left_button = controller_inputs_dictionary["tiny_move_left"]["button_information"]
-	check_controller_right_button = controller_inputs_dictionary["tiny_move_right"]["button_information"]
-	check_controller_taunt_button = controller_inputs_dictionary["taunt"]["button_information"]
-	
-	check_controller_up_axis = controller_inputs_dictionary["tiny_move_up"]["axis_information"][0]
-	check_controller_up_axis_value = controller_inputs_dictionary["tiny_move_up"]["axis_information"][1]
-	
-	check_controller_down_axis = controller_inputs_dictionary["tiny_move_down"]["axis_information"][0]
-	check_controller_down_axis_value = controller_inputs_dictionary["tiny_move_down"]["axis_information"][1]
-	check_controller_left_axis = controller_inputs_dictionary["tiny_move_left"]["axis_information"][0]
-	check_controller_left_axis_value = controller_inputs_dictionary["tiny_move_left"]["axis_information"][1]
-	check_controller_right_axis = controller_inputs_dictionary["tiny_move_right"]["axis_information"][0]
-	check_controller_right_axis_value = controller_inputs_dictionary["tiny_move_right"]["axis_information"][1]
-	check_controller_taunt_axis = controller_inputs_dictionary["taunt"]["axis_information"][0]
-	check_controller_taunt_axis_value = controller_inputs_dictionary["taunt"]["axis_information"][1]
+	check_controller_up_button = controller_inputs_dictionary["tiny_move_up"]["button_information"] \
+		if controller_inputs_dictionary["tiny_move_up"]["button, or axis?"] == "button" else null
+	check_controller_down_button = controller_inputs_dictionary["tiny_move_down"]["button_information"] \
+		if controller_inputs_dictionary["tiny_move_down"]["button, or axis?"] == "button" else null
+	check_controller_left_button = controller_inputs_dictionary["tiny_move_left"]["button_information"] \
+		if controller_inputs_dictionary["tiny_move_left"]["button, or axis?"] == "button" else null
+	check_controller_right_button = controller_inputs_dictionary["tiny_move_right"]["button_information"] \
+		if controller_inputs_dictionary["tiny_move_right"]["button, or axis?"] == "button" else null
+	check_controller_taunt_button = controller_inputs_dictionary["taunt"]["button_information"] \
+		if controller_inputs_dictionary["taunt"]["button, or axis?"] == "button" else null
+
+	check_controller_up_axis = controller_inputs_dictionary["tiny_move_up"]["axis_information"][0] \
+		if controller_inputs_dictionary["tiny_move_up"]["button, or axis?"] == "axis" else null
+	check_controller_up_axis_value = controller_inputs_dictionary["tiny_move_up"]["axis_information"][1] \
+		if controller_inputs_dictionary["tiny_move_up"]["button, or axis?"] == "axis" else null
+
+	check_controller_down_axis = controller_inputs_dictionary["tiny_move_down"]["axis_information"][0] \
+		if controller_inputs_dictionary["tiny_move_down"]["button, or axis?"] == "axis" else null
+	check_controller_down_axis_value = controller_inputs_dictionary["tiny_move_down"]["axis_information"][1] \
+		if controller_inputs_dictionary["tiny_move_down"]["button, or axis?"] == "axis" else null
+
+	check_controller_left_axis = controller_inputs_dictionary["tiny_move_left"]["axis_information"][0] \
+		if controller_inputs_dictionary["tiny_move_left"]["button, or axis?"] == "axis" else null
+	check_controller_left_axis_value = controller_inputs_dictionary["tiny_move_left"]["axis_information"][1] \
+		if controller_inputs_dictionary["tiny_move_left"]["button, or axis?"] == "axis" else null
+
+	check_controller_right_axis = controller_inputs_dictionary["tiny_move_right"]["axis_information"][0] \
+		if controller_inputs_dictionary["tiny_move_right"]["button, or axis?"] == "axis" else null
+	check_controller_right_axis_value = controller_inputs_dictionary["tiny_move_right"]["axis_information"][1] \
+		if controller_inputs_dictionary["tiny_move_right"]["button, or axis?"] == "axis" else null
+
+	check_controller_taunt_axis = controller_inputs_dictionary["taunt"]["axis_information"][0] \
+		if controller_inputs_dictionary["taunt"]["button, or axis?"] == "axis" else null
+	check_controller_taunt_axis_value = controller_inputs_dictionary["taunt"]["axis_information"][1] \
+		if controller_inputs_dictionary["taunt"]["button, or axis?"] == "axis" else null
+
 	print("check controller taunt axis was: ",check_controller_taunt_axis)
 	print("check controller taunt axis value was: ",check_controller_taunt_axis_value)
 	#print("check_controller_up_button (for axis) was: ", str(controller_inputs_dictionary["tiny_move_up"]["button, or axis?"]))

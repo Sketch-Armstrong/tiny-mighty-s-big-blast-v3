@@ -8,6 +8,7 @@ signal main_menu
 @onready var highscore_handler := $CanvasLayer2/HighScores/HighScoreHandler
 @onready var highscore_control := $CanvasLayer2/HighScores
 
+signal options_focus
 
 func _ready() -> void:
 	_make_control_click_through($CanvasLayer2/CRT)
@@ -46,7 +47,8 @@ func _on_options_pressed() -> void:
 	await menu_player.animation_finished
 	menu_player.play("options_menu_enter")
 	await menu_player.animation_finished
-	$CanvasLayer2/Node2D2/BackButton.grab_focus()
+	options_focus.emit()
+	#$CanvasLayer2/Node2D2/BackButton.grab_focus()
 
 func _on_back_button_pressed() -> void:
 	$CanvasLayer2/Node2D2/BackButton.release_focus()
