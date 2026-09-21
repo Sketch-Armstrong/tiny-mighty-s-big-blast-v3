@@ -390,6 +390,7 @@ func check_if_duplicates_keyboard(action_name: String, event: InputEvent) -> boo
 	if action_name == "tiny_move_up":
 		if input_config_keyboard_keycode in all_but_up_array:
 			#print("duplicate keyboard up input found")
+			duplicate_detection_keyword = "dupe_up"
 			return true
 		else:
 			return false
@@ -397,6 +398,7 @@ func check_if_duplicates_keyboard(action_name: String, event: InputEvent) -> boo
 	if action_name == "tiny_move_down":
 		if input_config_keyboard_keycode in all_but_down_array:
 			#print("duplicate keyboard down input found")
+			duplicate_detection_keyword = "dupe_right"
 			return true
 		else:
 			return false
@@ -404,6 +406,7 @@ func check_if_duplicates_keyboard(action_name: String, event: InputEvent) -> boo
 	if action_name == "tiny_move_left":
 		if input_config_keyboard_keycode in all_but_left_array:
 			#print("duplicate keyboard left input found")
+			duplicate_detection_keyword = "dupe_left"
 			return true
 		else:
 			return false
@@ -418,6 +421,7 @@ func check_if_duplicates_keyboard(action_name: String, event: InputEvent) -> boo
 	if action_name == "taunt":
 		if input_config_keyboard_keycode in all_but_taunt_array:
 			#print("duplicate keyboard taunt input found")
+			duplicate_detection_keyword = "dupe_taunt"
 			return true
 		else:
 			return false

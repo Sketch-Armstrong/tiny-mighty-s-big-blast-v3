@@ -4,6 +4,7 @@ extends Sprite2D
 @export var BF_options_position: Vector2 = Vector2(100, 400)
 @export var BF_quit_position: Vector2 = Vector2(100, 500)
 @export var BF_legal_position: Vector2 = Vector2(100, 600)
+		## I genuinely don't remember why I named this "BF_(information)"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

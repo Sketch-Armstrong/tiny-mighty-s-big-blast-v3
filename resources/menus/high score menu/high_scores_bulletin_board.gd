@@ -14,7 +14,7 @@ extends Node2D
 @onready var BigClaire := $Big/Claire
 @onready var BigGrande := $Big/ElGrande
 
-@onready var BulletinClear := $Toggler/Control/ClearSignalerButton
+@onready var BulletinClear := $Toggler/ClearLabelNode2D/ClearSignalerButton
 @onready var ClearTimer := $Toggler/Control/ClearTimer
 @onready var Toggle1 := $Toggler/Control/CheckButton
 @onready var Toggle2 := $Toggler/Control/CheckButton2
