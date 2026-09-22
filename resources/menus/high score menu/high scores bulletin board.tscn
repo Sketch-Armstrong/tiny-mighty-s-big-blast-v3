@@ -277,6 +277,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 2
 
 [node name="ClearProgressBar" type="ProgressBar" parent="ResetBar/Sprite2D/Control"]
+visible = false
 layout_mode = 0
 offset_left = 131.88672
 offset_top = 70.49374

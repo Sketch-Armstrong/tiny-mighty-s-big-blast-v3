@@ -6,6 +6,7 @@ extends Node2D
 @onready var right_remap_button := $InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer4/RightRemapButton
 @onready var taunt_remap_button := $InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer5/TauntRemapButton
 
+
 signal options_back_button
 
 func _ready() -> void:
