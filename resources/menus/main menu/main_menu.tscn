@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bkjyvdxuebm0n"]
+[gd_scene load_steps=55 format=3 uid="uid://bkjyvdxuebm0n"]
 
 [ext_resource type="Script" uid="uid://bmp62hod205fu" path="res://resources/menus/main menu/main_menu.gd" id="1_qhkso"]
 [ext_resource type="Script" uid="uid://dkun673nnkv2u" path="res://resources/menus/main menu/focus_arrow.gd" id="3_34pwb"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://cff8kn466e7eb" path="res://Singletons/highscore handler.tscn" id="26_gbyhc"]
 [ext_resource type="Script" uid="uid://bj1e2r7y57ycc" path="res://resources/menus/main menu/focus_arrow_legal_back.gd" id="26_j7q13"]
 [ext_resource type="Script" uid="uid://dsjtbg8dbop2h" path="res://resources/menus/main menu/score_back_button.gd" id="28_j7q13"]
+[ext_resource type="Texture2D" uid="uid://ccm2bjgyfwaer" path="res://resources/HUD/repeatable chains.png" id="40_sl6gj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5bj2"]
 content_margin_left = 10.0
@@ -634,7 +635,7 @@ y_sort_enabled = true
 
 [node name="Control" parent="." instance=ExtResource("6_j88g7")]
 visible = false
-z_index = 5
+z_index = 6
 z_as_relative = false
 custom_minimum_size = Vector2(1200, 800)
 offset_right = 1200.0
@@ -690,7 +691,7 @@ autoscroll = Vector2(25, 0)
 texture = ExtResource("10_kv0xo")
 
 [node name="Tiny" type="CanvasGroup" parent="."]
-position = Vector2(360, 744)
+position = Vector2(408, 744)
 
 [node name="Body" type="Sprite2D" parent="Tiny"]
 texture = ExtResource("13_w07cb")
@@ -715,8 +716,29 @@ libraries/ = SubResource("AnimationLibrary_o5ce5")
 speed_scale = 1.5
 
 [node name="Title" type="Sprite2D" parent="."]
-position = Vector2(384, 288)
+position = Vector2(441, 307)
 texture = ExtResource("25_gvlbf")
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(288, 624)
+rotation = -1.5707964
+
+[node name="Parallax2D" type="Parallax2D" parent="Node2D2"]
+scroll_offset = Vector2(-32.000004, 40)
+repeat_size = Vector2(2071, 0)
+autoscroll = Vector2(50, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2/Parallax2D"]
+z_index = 5
+position = Vector2(632, 708)
+texture = ExtResource("40_sl6gj")
+
+[node name="ColorRect" type="ColorRect" parent="Node2D2"]
+offset_left = -456.00003
+offset_top = 744.0
+offset_right = 1032.0
+offset_bottom = 1752.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="options_focus" from="." to="CanvasLayer2/Node2D2/Options" method="_on_main_menu_options_focus"]
 [connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Scores" to="FocusArrow" method="_on_scores_focus_entered"]

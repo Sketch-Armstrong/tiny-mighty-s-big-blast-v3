@@ -1000,9 +1000,7 @@ vframes = 4
 
 [node name="ChainAnimationPlayer" type="AnimationPlayer" parent="Background1"]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_11ef2")
-}
+libraries/ = SubResource("AnimationLibrary_11ef2")
 speed_scale = 3.0
 
 [node name="Sconce" type="Sprite2D" parent="Background1"]
@@ -1014,9 +1012,7 @@ vframes = 3
 
 [node name="SconceAnimationPlayer" type="AnimationPlayer" parent="Background1"]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_yqfl3")
-}
+libraries/ = SubResource("AnimationLibrary_yqfl3")
 
 [node name="Black" type="Sprite2D" parent="Background1"]
 visible = false
@@ -1064,9 +1060,7 @@ texture = ExtResource("11_v74fn")
 
 [node name="BGAssetPlayer" type="AnimationPlayer" parent="Background1"]
 root_node = NodePath("../../JunkPile")
-libraries = {
-&"": SubResource("AnimationLibrary_sapea")
-}
+libraries/ = SubResource("AnimationLibrary_sapea")
 
 [node name="Background2" type="CanvasLayer" parent="."]
 layer = -3
@@ -1176,9 +1170,7 @@ position = Vector2(3303, 311)
 texture = ExtResource("16_gas1a")
 
 [node name="BarrelsPlayer" type="AnimationPlayer" parent="Background2"]
-libraries = {
-&"": SubResource("AnimationLibrary_oodof")
-}
+libraries/ = SubResource("AnimationLibrary_oodof")
 speed_scale = 2.0
 
 [node name="Background3" type="Node2D" parent="."]
@@ -1219,9 +1211,7 @@ texture = ExtResource("16_gas1a")
 position = Vector2(99, -42)
 
 [node name="JunkPlayer2" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_jpabw")
-}
+libraries/ = SubResource("AnimationLibrary_jpabw")
 speed_scale = 1.5
 
 [node name="LevelTransitionRootNode" type="Node2D" parent="."]
@@ -1234,9 +1224,7 @@ z_index = 2
 texture = ExtResource("23_8uari")
 
 [node name="LevelChangePlayer" type="AnimationPlayer" parent="LevelTransitionRootNode"]
-libraries = {
-&"": SubResource("AnimationLibrary_h8ytr")
-}
+libraries/ = SubResource("AnimationLibrary_h8ytr")
 
 [node name="Black" type="Sprite2D" parent="."]
 z_index = 5
