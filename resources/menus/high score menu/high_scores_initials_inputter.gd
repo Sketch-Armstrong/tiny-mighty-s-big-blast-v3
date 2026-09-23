@@ -14,6 +14,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	clamp(char_number, 33, 126)   
+	$InitialLabel1/Timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
@@ -60,13 +61,14 @@ func select_char() -> void:
 	print("select_char progress counter was ",progress_counter)
 	return
 
+# high_scores_initials_inputter.gd
 func initials_string_combine() -> void:
-
 	GlobalHighscoreHandler.global_initials_combined = initials_combined
 	GlobalHighscoreHandler.update_highscore(GlobalHighscoreHandler.global_highscores_array_position)
 	GlobalHighscoreHandler.save_game()
 	GlobalHighscoreHandler.global_initials_can_input = false
 	GlobalHighscoreHandler.global_initials_combined = ""
+	
 	initials_combined = ""
 	progress_counter = 0
 	char_number = 65

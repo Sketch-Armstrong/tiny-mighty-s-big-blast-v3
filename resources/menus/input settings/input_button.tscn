@@ -17,6 +17,7 @@ anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 focus_mode = 0
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_jv3fb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2c7ub")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2c7ub")

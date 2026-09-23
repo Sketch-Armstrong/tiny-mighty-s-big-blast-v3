@@ -8,6 +8,9 @@ var default_highscores_names_array: Array[String] = ["SMW", "P.R", "MVS", "ECM",
 			## read-only errors.
 
 
+
+var global_pending_score: int = 0   # captured once, not re-read later
+
 var global_highscores_array: Array[int] = [5000, 4000, 3000, 2000, 1000]
 var global_highscores_names_array: Array[String] = ["SMW", "P.R", "MVS", "ECM", "BIG"]
 var global_highscore_is_perfect: bool = false
@@ -32,52 +35,41 @@ func _ready() -> void:
 	load_game()
 	print("the global highscores array was: ", str(global_highscores_array))
 
+# GlobalHighscoreHandler.gd
+
+
 func check_highscore() -> void:
-	#print("check_highscore activated")
-	
 	if GlobalVariables.results_snapshot <= global_minimum_highscore:
 		return
-	
-	GlobalHighscoreHandler.global_initials_can_input = true
-	
-	if GlobalVariables.results_snapshot > 5000 && GlobalVariables.a_plus_tripwire == true:
-		global_highscore_is_perfect = true
-	
-	elif GlobalVariables.results_snapshot > 5000 && GlobalVariables.a_plus_tripwire == false:
-		global_highscore_is_perfect = false
-	
-	if GlobalVariables.results_snapshot > global_highscores_array[0]:
-		global_highscores_array_position = 0
-		#global_highscore_is_perfect = GlobalVariables.a_plus_tripwire
-		update_highscore(global_highscores_array_position)
-		return
-	
-	if GlobalVariables.results_snapshot > global_highscores_array[1]:
-		global_highscores_array_position = 1
-		update_highscore(global_highscores_array_position)
-		return
-	
-	if GlobalVariables.results_snapshot > global_highscores_array[2]:
-		global_highscores_array_position = 2
-		update_highscore(global_highscores_array_position)
-		return
-	
-	if GlobalVariables.results_snapshot > global_highscores_array[3]:
-		global_highscores_array_position = 3
-		update_highscore(global_highscores_array_position)
-		return
-	
-	if GlobalVariables.results_snapshot > global_highscores_array[4]:
-		global_highscores_array_position = 4
-		update_highscore(global_highscores_array_position)
-		return
-	
-	return
 
-func update_highscore(array_position) -> void:
-	global_highscores_array[array_position] = GlobalVariables.results_snapshot
-	global_highscores_names_array[array_position] = GlobalHighscoreHandler.global_initials_combined
-	return 
+	# Guard against re-entrancy: don't let a second score event
+	# clobber a submission that's still waiting on initials.
+	if global_initials_can_input:
+		return
+
+	global_pending_score = GlobalVariables.results_snapshot
+	global_initials_can_input = true
+
+	if global_pending_score > 5000 and GlobalVariables.a_plus_tripwire:
+		global_highscore_is_perfect = true
+	elif global_pending_score > 5000:
+		global_highscore_is_perfect = false
+
+	for i in global_highscores_array.size():
+		if global_pending_score > global_highscores_array[i]:
+			global_highscores_array_position = i
+			return   # position is now staged; DON'T write yet
+
+	# didn't beat anything — shouldn't happen given the minimum check above
+	global_initials_can_input = false
+
+func update_highscore(array_position: int) -> void:
+	# Insert with shift: push lower entries down, drop the last one.
+	global_highscores_array.insert(array_position, global_pending_score)
+	global_highscores_array.remove_at(global_highscores_array.size() - 1)
+
+	global_highscores_names_array.insert(array_position, global_initials_combined)
+	global_highscores_names_array.remove_at(global_highscores_names_array.size() - 1)
 
 func initials_input_complete() -> void:
 	print("initials_input_complete() was called")

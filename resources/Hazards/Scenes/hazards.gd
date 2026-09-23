@@ -56,8 +56,9 @@ func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
-	var hazards_count := GlobalVariables.hazard_count
+	#var hazards_count := GlobalVariables.hazard_count
 	#print(hazards_count)
 	if main_root_scene.can_collide_master == true: 
 		can_collide_parent = true
