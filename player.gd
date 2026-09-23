@@ -214,6 +214,7 @@ func _short_hop() -> void:
 	hop.emit()
 	var input_vector := Input.get_vector("tiny_move_left", "tiny_move_right", "tiny_move_up", "tiny_move_down")
 	player_animation_player.play("Short_Hop")
+	
 	await player_animation_player.animation_finished
 	can_move = true
 	player_animation_player.play("Idle")
