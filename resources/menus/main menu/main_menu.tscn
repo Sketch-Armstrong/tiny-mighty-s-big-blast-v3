@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bkjyvdxuebm0n"]
+[gd_scene load_steps=60 format=3 uid="uid://bkjyvdxuebm0n"]
 
 [ext_resource type="Script" uid="uid://bmp62hod205fu" path="res://resources/menus/main menu/main_menu.gd" id="1_qhkso"]
 [ext_resource type="Script" uid="uid://dkun673nnkv2u" path="res://resources/menus/main menu/focus_arrow.gd" id="3_34pwb"]
@@ -38,7 +38,10 @@
 [ext_resource type="Texture2D" uid="uid://doy7xj5rusgmy" path="res://resources/menus/main menu/sprites/Title/logo.png" id="25_gvlbf"]
 [ext_resource type="PackedScene" uid="uid://cff8kn466e7eb" path="res://Singletons/highscore handler.tscn" id="26_gbyhc"]
 [ext_resource type="Script" uid="uid://bj1e2r7y57ycc" path="res://resources/menus/main menu/focus_arrow_legal_back.gd" id="26_j7q13"]
+[ext_resource type="Script" uid="uid://bkadg64sbjfh0" path="res://resources/menus/main menu/rich_text_label.gd" id="27_rvsea"]
 [ext_resource type="Script" uid="uid://dsjtbg8dbop2h" path="res://resources/menus/main menu/score_back_button.gd" id="28_j7q13"]
+[ext_resource type="Texture2D" uid="uid://dwbmayjybtbwm" path="res://resources/menus/main menu/sprites/Buttons/How To Play/Screenshot from 2026-09-24 17-04-46.png" id="31_mq70l"]
+[ext_resource type="Texture2D" uid="uid://cp4ofstf5p2ig" path="res://resources/menus/main menu/sprites/Buttons/How To Play/Screenshot from 2026-09-24 17-09-08.png" id="32_7pexp"]
 [ext_resource type="Texture2D" uid="uid://ccm2bjgyfwaer" path="res://resources/HUD/repeatable chains.png" id="40_sl6gj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5bj2"]
@@ -161,6 +164,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(376, 880)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer2/HowToPlay/HowToPlay:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer2/HowToPlay/HowToPlayButton:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(83, 620)]
+}
 
 [sub_resource type="Animation" id="Animation_x3ts8"]
 resource_name = "frown"
@@ -175,6 +202,36 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_itvd4"]
+resource_name = "how_to_play_enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/HowToPlay/HowToPlay:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1200, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tmic1"]
+resource_name = "how_to_play_exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/HowToPlay/HowToPlay:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1200, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_sucl3"]
@@ -221,6 +278,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(720, 0), Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer2/HowToPlay/HowToPlayButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.12, 1),
+"update": 0,
+"values": [Vector2(-500, 620), Vector2(83, 620)]
+}
 
 [sub_resource type="Animation" id="Animation_o5ce5"]
 resource_name = "main_buttons_exit"
@@ -235,6 +304,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(2.928172, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(1400, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer2/HowToPlay/HowToPlayButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.92, 1),
+"update": 0,
+"values": [Vector2(83, 620), Vector2(-500, 620)]
 }
 
 [sub_resource type="Animation" id="Animation_b1wwd"]
@@ -394,6 +475,8 @@ tracks/2/keys = {
 _data = {
 &"RESET": SubResource("Animation_e8su1"),
 &"frown": SubResource("Animation_x3ts8"),
+&"how_to_play_enter": SubResource("Animation_itvd4"),
+&"how_to_play_exit": SubResource("Animation_tmic1"),
 &"legal_enter": SubResource("Animation_sucl3"),
 &"legal_exit": SubResource("Animation_56eka"),
 &"main_buttons_enter": SubResource("Animation_kv0xo"),
@@ -465,7 +548,7 @@ offset = Vector2(540, 150)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
-focus_neighbor_left = NodePath(".")
+focus_neighbor_left = NodePath("../../../HowToPlay/HowToPlayButton")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../Start")
@@ -479,7 +562,7 @@ texture_hover = ExtResource("8_sl6gj")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
-focus_neighbor_left = NodePath(".")
+focus_neighbor_left = NodePath("../../../HowToPlay/HowToPlayButton")
 focus_neighbor_top = NodePath("../Scores")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../Options")
@@ -492,7 +575,7 @@ texture_hover = ExtResource("5_23658")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
-focus_neighbor_left = NodePath(".")
+focus_neighbor_left = NodePath("../../../HowToPlay/HowToPlayButton")
 focus_neighbor_top = NodePath("../Start")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../Quit")
@@ -506,7 +589,7 @@ texture_hover = ExtResource("8_gbyhc")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
-focus_neighbor_left = NodePath(".")
+focus_neighbor_left = NodePath("../../../HowToPlay/HowToPlayButton")
 focus_neighbor_top = NodePath("../Options")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../Legal")
@@ -521,7 +604,7 @@ stretch_mode = 3
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
-focus_neighbor_left = NodePath(".")
+focus_neighbor_left = NodePath("../../../HowToPlay/HowToPlayButton")
 focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
@@ -583,7 +666,10 @@ offset_left = -240.0
 offset_top = -24.0
 offset_right = 704.0
 offset_bottom = 456.0
+focus_neighbor_left = NodePath("../LegalBackButton")
+focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../LegalBackButton")
+focus_neighbor_bottom = NodePath(".")
 focus_mode = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -595,6 +681,7 @@ theme_override_font_sizes/italics_font_size = 30
 theme_override_font_sizes/mono_font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_k5bj2")
 text = "LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL LEGAL "
+script = ExtResource("27_rvsea")
 
 [node name="HighScores" type="Control" parent="CanvasLayer2"]
 layout_mode = 3
@@ -628,6 +715,54 @@ texture = ExtResource("21_byh02")
 [node name="BulletinBoard" parent="CanvasLayer2/HighScores" instance=ExtResource("19_56eka")]
 z_index = -1
 position = Vector2(731, 408)
+
+[node name="HowToPlay" type="Control" parent="CanvasLayer2"]
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -133.0
+offset_top = -119.0
+offset_right = -133.0
+offset_bottom = -119.0
+
+[node name="HowToPlayButton" type="TextureButton" parent="CanvasLayer2/HowToPlay"]
+z_as_relative = false
+layout_mode = 0
+offset_left = 83.0
+offset_top = 620.0
+offset_right = 491.0
+offset_bottom = 861.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../Node2D/ButtonManager/Scores")
+focus_neighbor_right = NodePath("../../Node2D/ButtonManager/Legal")
+focus_neighbor_bottom = NodePath(".")
+texture_normal = ExtResource("31_mq70l")
+
+[node name="HowToPlay" type="Node2D" parent="CanvasLayer2/HowToPlay"]
+
+[node name="TempHowToPlayImage" type="Sprite2D" parent="CanvasLayer2/HowToPlay/HowToPlay"]
+position = Vector2(-555, 511.00006)
+scale = Vector2(3.9715724, 6.4036694)
+texture = ExtResource("32_7pexp")
+
+[node name="HowToPlayBackButton" type="TextureButton" parent="CanvasLayer2/HowToPlay/HowToPlay"]
+offset_left = -203.0
+offset_top = 799.0
+offset_right = 118.0
+offset_bottom = 928.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("13_eujnn")
+texture_pressed = ExtResource("14_gvlbf")
+texture_hover = ExtResource("15_gbyhc")
+
+[node name="FocusArrowHowToPlayBack" type="Sprite2D" parent="CanvasLayer2/HowToPlay/HowToPlay/HowToPlayBackButton"]
+position = Vector2(96, 80)
+texture = ExtResource("21_byh02")
 
 [node name="Node2D" parent="." instance=ExtResource("5_btbi6")]
 visible = false
@@ -691,7 +826,7 @@ autoscroll = Vector2(25, 0)
 texture = ExtResource("10_kv0xo")
 
 [node name="Tiny" type="CanvasGroup" parent="."]
-position = Vector2(408, 744)
+position = Vector2(510, 745)
 
 [node name="Body" type="Sprite2D" parent="Tiny"]
 texture = ExtResource("13_w07cb")
@@ -716,7 +851,7 @@ libraries/ = SubResource("AnimationLibrary_o5ce5")
 speed_scale = 1.5
 
 [node name="Title" type="Sprite2D" parent="."]
-position = Vector2(441, 307)
+position = Vector2(446, 314)
 texture = ExtResource("25_gvlbf")
 
 [node name="Node2D2" type="Node2D" parent="."]
@@ -767,3 +902,7 @@ color = Color(0, 0, 0, 1)
 [connection signal="pressed" from="CanvasLayer2/HighScores/ScoreBackButton" to="." method="_on_score_back_button_pressed"]
 [connection signal="BulletinBackPressed" from="CanvasLayer2/HighScores/BulletinBoard" to="." method="_on_score_back_button_pressed"]
 [connection signal="BulletinClearPressed" from="CanvasLayer2/HighScores/BulletinBoard" to="CanvasLayer2/HighScores/HighScoreHandler" method="_on_clear_button_pressed"]
+[connection signal="focus_entered" from="CanvasLayer2/HowToPlay/HowToPlayButton" to="FocusArrow" method="_on_how_to_play_button_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer2/HowToPlay/HowToPlayButton" to="FocusArrow" method="_on_how_to_play_button_focus_exited"]
+[connection signal="pressed" from="CanvasLayer2/HowToPlay/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/HowToPlay/HowToPlay/HowToPlayBackButton" to="." method="_on_how_to_play_back_button_pressed"]

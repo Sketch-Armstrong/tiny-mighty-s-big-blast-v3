@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Tiny Mighty's Big Blast 1 point 3"
 config/tags=PackedStringArray("real_one")
-run/main_scene="uid://of1qt3olovgl"
+run/main_scene="uid://bkjyvdxuebm0n"
 config/features=PackedStringArray("26.3", "Forward Plus", "Redot")
 boot_splash/use_filter=false
 boot_splash/image="uid://5d1umrmt1uei"

@@ -107,3 +107,25 @@ func _on_legal_back_button_pressed() -> void:
 
 
 	
+
+
+func _on_how_to_play_button_pressed() -> void:
+	pass # Replace with function body.
+	$FocusArrow.hide()
+	$CanvasLayer2/HowToPlay/HowToPlayButton.release_focus()
+	menu_player.play("main_buttons_exit")
+	await menu_player.animation_finished
+	menu_player.play("how_to_play_enter")
+	await menu_player.animation_finished
+	$CanvasLayer2/HowToPlay/HowToPlay/HowToPlayBackButton.grab_focus()
+
+
+func _on_how_to_play_back_button_pressed() -> void:
+	pass # Replace with function body.
+	$CanvasLayer2/HowToPlay/HowToPlayButton.release_focus()
+	menu_player.play("how_to_play_exit")
+	await menu_player.animation_finished
+	menu_player.play("main_buttons_enter")
+	$FocusArrow.show()
+	await menu_player.animation_finished
+	$CanvasLayer2/HowToPlay/HowToPlayButton.grab_focus()

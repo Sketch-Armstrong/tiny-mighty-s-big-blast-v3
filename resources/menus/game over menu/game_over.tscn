@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dkac0nm4jfox1" path="res://resources/menus/game over menu/quit 2.png" id="3_igg2g"]
 [ext_resource type="Texture2D" uid="uid://dr76njcyt43u" path="res://resources/menus/game over menu/try again 1.png" id="4_172wu"]
 [ext_resource type="Texture2D" uid="uid://cvod2t4xxawwh" path="res://resources/menus/game over menu/quit 1.png" id="4_lgbbr"]
-[ext_resource type="Texture2D" uid="uid://bmwpiwx6h3vvf" path="res://resources/menus/game over menu/papers sprite 6 (complete).png" id="9_d047s"]
+[ext_resource type="Texture2D" uid="uid://bgaar8qcllf0q" path="res://resources/menus/game over menu/papers sprite 7 (complete).png" id="9_33qy4"]
 [ext_resource type="Texture2D" uid="uid://di0kpexv4l7dw" path="res://resources/menus/game over menu/rankings sheet (sig adjusted).png" id="10_d047s"]
 [ext_resource type="PackedScene" uid="uid://cff8kn466e7eb" path="res://Singletons/highscore handler.tscn" id="11_0bugr"]
 [ext_resource type="Texture2D" uid="uid://dk0yecertxb2d" path="res://resources/temporary assets/arrow test.png" id="13_cwdcb"]
@@ -139,6 +139,8 @@ _data = {
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_dec6c")
+arrow_position_GO = Vector2(310, 220)
+arrow_position_RETRY = Vector2(214, 551)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -154,10 +156,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 177.0
-offset_top = 588.0
-offset_right = 387.0
-offset_bottom = 708.0
+offset_left = 99.0
+offset_top = 526.0
+offset_right = 309.0
+offset_bottom = 646.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("2_d047s")
@@ -169,10 +171,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 285.0
-offset_top = 233.0
-offset_right = 385.0
-offset_bottom = 333.0
+offset_left = 203.0
+offset_top = 166.0
+offset_right = 303.0
+offset_bottom = 266.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("2_xqyb0")
@@ -184,44 +186,42 @@ stream = ExtResource("2_6r6k6")
 
 [node name="ResultsLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 816.0
-offset_top = 273.0
-offset_right = 944.0
-offset_bottom = 296.0
+offset_left = 806.0
+offset_top = 159.0
+offset_right = 934.0
+offset_bottom = 243.0
 localize_numeral_system = false
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 1, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 61
 text = "100"
 horizontal_alignment = 2
 
 [node name="Papers" type="Sprite2D" parent="."]
 z_index = -1
 z_as_relative = false
-position = Vector2(608, 376)
-texture = ExtResource("9_d047s")
+position = Vector2(524, 308)
+texture = ExtResource("9_33qy4")
 
 [node name="RankingsSprites" type="Sprite2D" parent="."]
-position = Vector2(712, -304)
+position = Vector2(677, -312)
 texture = ExtResource("10_d047s")
 vframes = 6
+frame = 5
 
 [node name="GameOverPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_37gxc")
-}
+libraries/ = SubResource("AnimationLibrary_37gxc")
 
 [node name="HighScoreHandler" parent="." instance=ExtResource("11_0bugr")]
 
 [node name="GameOverArrow" type="Sprite2D" parent="."]
-position = Vector2(290, 625)
+position = Vector2(214, 551)
 texture = ExtResource("13_cwdcb")
 script = ExtResource("14_7g46l")
 
 [node name="ArrowPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_7g46l")
-}
+libraries/ = SubResource("AnimationLibrary_7g46l")
 
 [connection signal="game_over_score_check" from="." to="HighScoreHandler" method="_on_game_over_game_over_score_check"]
 [connection signal="focus_entered" from="RetryButton" to="." method="_on_retry_button_focus_entered"]
