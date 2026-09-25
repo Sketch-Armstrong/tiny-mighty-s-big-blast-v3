@@ -8,6 +8,7 @@ signal coin_grabbed_batonpass_2
 @export var hazard_Coin_scene = preload("res://resources/Hazards/Scenes/bouncy_coin_shell.tscn")
 #@export var hazard_Coin_scene = preload("res://resources/Hazards/Scenes/hazard_coin.tscn")
 
+@onready var end_zone_spawn_RNG_chance := 25
 
 @export var hazard_A_gravity := 1.0
 @export var hazard_B_gravity := 1.0
@@ -182,15 +183,11 @@ func _spawn() -> void:
 
 		if spawn_number == 2:
 			if last_spawn_number != 2:
-				if randi_range(0, 100) < 75:
-					inst(hazard_two_spawn)
-					last_spawn_number = 2
-				else:
-					inst(hazard_two_spawn)
-					#inst_coin(hazard_two_spawn)
-					last_spawn_number = 2
+				#if randi_range(0, 100) < 75:
+				inst(hazard_two_spawn)
+				last_spawn_number = 2
 			elif last_spawn_number == 2:
-				if randi_range(1, 2) == 1:
+				if randi_range(0, 100) <= end_zone_spawn_RNG_chance:
 					inst(hazard_one_spawn)
 					last_spawn_number = 1
 				else:
@@ -211,15 +208,10 @@ func _spawn() -> void:
 		
 		if spawn_number == 4:
 			if last_spawn_number != 4:
-				if randi_range(0, 100) < 75:
-					inst(hazard_four_spawn)
-					last_spawn_number = 4
-				else:
-					inst(hazard_two_spawn)
-					#inst_coin(hazard_four_spawn)
-					last_spawn_number = 4
+				inst(hazard_four_spawn)
+				last_spawn_number = 4
 			elif last_spawn_number == 4:
-				if randi_range(1, 2) == 1:
+				if randi_range(0, 100) > end_zone_spawn_RNG_chance:
 					inst(hazard_three_spawn)
 					last_spawn_number = 3
 				else:
