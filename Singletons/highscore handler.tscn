@@ -60,7 +60,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_fonts/normal_font = ExtResource("2_iwmtd")
 theme_override_font_sizes/normal_font_size = 56
-text = "Label 1"
+text = "0000"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -69,7 +69,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_fonts/normal_font = ExtResource("2_iwmtd")
 theme_override_font_sizes/normal_font_size = 56
-text = "Label 2"
+text = "0000"
 fit_content = true
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -78,7 +78,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_fonts/normal_font = ExtResource("2_iwmtd")
 theme_override_font_sizes/normal_font_size = 56
-text = "Label 3"
+text = "0000"
 fit_content = true
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -87,7 +87,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_fonts/normal_font = ExtResource("2_iwmtd")
 theme_override_font_sizes/normal_font_size = 56
-text = "Label 4"
+text = "0000"
 fit_content = true
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -96,7 +96,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_fonts/normal_font = ExtResource("2_iwmtd")
 theme_override_font_sizes/normal_font_size = 56
-text = "Label 5"
+text = "0000"
 fit_content = true
 
 [node name="PanelContainer2" type="PanelContainer" parent="HighScoresPanel/Control"]
@@ -128,7 +128,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_fonts/normal_font = ExtResource("2_pvkmt")
 theme_override_font_sizes/normal_font_size = 56
-text = "Label 1"
+text = "AAA"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer"]
@@ -137,7 +137,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_fonts/normal_font = ExtResource("2_pvkmt")
 theme_override_font_sizes/normal_font_size = 56
-text = "Label 2"
+text = "AAA"
 fit_content = true
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer"]
@@ -146,7 +146,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_fonts/normal_font = ExtResource("2_pvkmt")
 theme_override_font_sizes/normal_font_size = 56
-text = "Label 3"
+text = "AAA"
 fit_content = true
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer"]
@@ -155,7 +155,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_fonts/normal_font = ExtResource("2_pvkmt")
 theme_override_font_sizes/normal_font_size = 56
-text = "Label 4"
+text = "AAA"
 fit_content = true
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer"]
@@ -164,7 +164,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_fonts/normal_font = ExtResource("2_pvkmt")
 theme_override_font_sizes/normal_font_size = 56
-text = "Label 5"
+text = "AAA"
 fit_content = true
 
 [node name="BonusesPanel" type="Control" parent="HighScoresPanel"]
