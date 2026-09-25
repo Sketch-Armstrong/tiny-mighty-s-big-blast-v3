@@ -33,6 +33,7 @@ func _make_control_click_through(node: Node) -> void:
 func _on_start_pressed():
 	$Control.show()
 	$CanvasLayer2/Node2D/ButtonManager.hide()
+	$CanvasLayer2/HowToPlay/HowToPlayButton.hide()
 	$FocusArrow.hide()
 	$Control/ColorRect/AnimationPlayer.play("fade_in")
 	#$Node2D/AnimationPlayer.play("test")

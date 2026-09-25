@@ -186,10 +186,10 @@ stream = ExtResource("2_6r6k6")
 
 [node name="ResultsLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 806.0
-offset_top = 159.0
-offset_right = 934.0
-offset_bottom = 243.0
+offset_left = 794.0
+offset_top = 155.0
+offset_right = 922.0
+offset_bottom = 239.0
 localize_numeral_system = false
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 1, 0, 1)

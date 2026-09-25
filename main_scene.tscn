@@ -48,6 +48,7 @@ metadata/_custom_type_script = "uid://bghaddibpt6f1"
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_42l1d")]
 visible = false
+z_index = 1
 mouse_filter = 1
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("3_2jcla")]

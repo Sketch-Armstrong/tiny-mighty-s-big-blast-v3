@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cff8kn466e7eb"]
+[gd_scene load_steps=15 format=3 uid="uid://cff8kn466e7eb"]
 
 [ext_resource type="Script" uid="uid://crwiqxgd52bpf" path="res://Singletons/highscore_handler.gd" id="1_yeg6h"]
 [ext_resource type="Script" uid="uid://cla7tx5fm8wnn" path="res://resources/menus/high score menu/high_scores_panel.gd" id="2_056gn"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://crmdf45m45frc" path="res://resources/temporary assets/highscores gutter 2 idea.png" id="4_pvkmt"]
 [ext_resource type="Script" uid="uid://by5exe7x8250u" path="res://Singletons/bonuses_panel.gd" id="4_rsr31"]
 [ext_resource type="PackedScene" uid="uid://c8xdrejwy7770" path="res://resources/menus/high score menu/high_scores_initials_inputter.tscn" id="6_2uy8k"]
+[ext_resource type="Texture2D" uid="uid://d06ueq0tmkn2p" path="res://resources/Hazards/Sprites/final design coin sheet-Sheet.png" id="6_idmtf"]
+[ext_resource type="Texture2D" uid="uid://ipejk1shr1s7" path="res://resources/HUD/clock sprite.png" id="7_5rntb"]
+[ext_resource type="Texture2D" uid="uid://bmson1xtp777s" path="res://resources/HUD/clock x coins.png" id="8_5rntb"]
+[ext_resource type="Texture2D" uid="uid://dhj8ql4qxwtke" path="res://resources/HUD/garbage pile bonus sprite.png" id="9_yh864"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2uy8k"]
 
@@ -167,52 +171,71 @@ theme_override_font_sizes/normal_font_size = 56
 text = "AAA"
 fit_content = true
 
-[node name="BonusesPanel" type="Control" parent="HighScoresPanel"]
+[node name="Control2" type="Control" parent="HighScoresPanel"]
 anchors_preset = 0
-offset_left = 1008.0
-offset_top = 568.0
-offset_right = 1008.0
-offset_bottom = 568.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BonusesPanel" type="VBoxContainer" parent="HighScoresPanel/Control2"]
+layout_mode = 0
+offset_left = 1023.0
+offset_top = 491.0
+offset_right = 1195.0
+offset_bottom = 773.0
+theme_override_constants/separation = 18
 script = ExtResource("4_rsr31")
 
-[node name="CoinsLabel" type="RichTextLabel" parent="HighScoresPanel/BonusesPanel"]
-layout_mode = 0
-offset_left = -8.0
-offset_top = -72.0
-offset_right = 144.0
-offset_bottom = 8.0
+[node name="CoinsLabel" type="RichTextLabel" parent="HighScoresPanel/Control2/BonusesPanel"]
+layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_iwmtd")
 theme_override_font_sizes/normal_font_size = 50
 text = "test"
+fit_content = true
+horizontal_alignment = 2
 
-[node name="TimerLabel" type="RichTextLabel" parent="HighScoresPanel/BonusesPanel"]
-layout_mode = 0
-offset_left = -8.0
-offset_right = 152.0
-offset_bottom = 64.0
+[node name="TimerLabel" type="RichTextLabel" parent="HighScoresPanel/Control2/BonusesPanel"]
+layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_iwmtd")
 theme_override_font_sizes/normal_font_size = 50
 text = "test"
+fit_content = true
+horizontal_alignment = 2
 
-[node name="CoinTimerLabel" type="RichTextLabel" parent="HighScoresPanel/BonusesPanel"]
-layout_mode = 0
-offset_left = -8.0
-offset_top = 72.0
-offset_right = 152.0
-offset_bottom = 136.0
+[node name="CoinTimerLabel" type="RichTextLabel" parent="HighScoresPanel/Control2/BonusesPanel"]
+layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_iwmtd")
 theme_override_font_sizes/normal_font_size = 50
 text = "test"
+fit_content = true
+horizontal_alignment = 2
 
-[node name="RoundsLabel" type="RichTextLabel" parent="HighScoresPanel/BonusesPanel"]
-layout_mode = 0
-offset_left = -8.0
-offset_top = 144.0
-offset_right = 168.0
-offset_bottom = 208.0
+[node name="RoundsLabel" type="RichTextLabel" parent="HighScoresPanel/Control2/BonusesPanel"]
+layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_iwmtd")
 theme_override_font_sizes/normal_font_size = 50
 text = "test"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="BonusIndicators" type="Node2D" parent="HighScoresPanel/Control2"]
+position = Vector2(-77, 1)
+
+[node name="Coin" type="Sprite2D" parent="HighScoresPanel/Control2/BonusIndicators"]
+position = Vector2(1055, 517)
+texture = ExtResource("6_idmtf")
+hframes = 7
+
+[node name="Clock" type="Sprite2D" parent="HighScoresPanel/Control2/BonusIndicators"]
+position = Vector2(1058, 589)
+texture = ExtResource("7_5rntb")
+
+[node name="CoinsXClock" type="Sprite2D" parent="HighScoresPanel/Control2/BonusIndicators"]
+position = Vector2(1062, 664)
+texture = ExtResource("8_5rntb")
+
+[node name="Garbage" type="Sprite2D" parent="HighScoresPanel/Control2/BonusIndicators"]
+position = Vector2(1080, 743)
+texture = ExtResource("9_yh864")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -222,7 +245,7 @@ texture = ExtResource("3_rt4oo")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(1416, 440)
+position = Vector2(1397, 440)
 rotation = -0.034906585
 texture = ExtResource("4_pvkmt")
 

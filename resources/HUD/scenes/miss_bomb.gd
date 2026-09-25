@@ -12,4 +12,4 @@ func bomb_blow() -> void:
 
 
 func bomb_reset() -> void:
-	bomb_player.play("return_visible")
+	bomb_player.play("RESET")
