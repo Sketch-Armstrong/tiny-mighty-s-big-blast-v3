@@ -113,32 +113,15 @@ var controller_inputs_dictionary: Dictionary
 #var temp_testing_dictionary_reading
 
 func _ready():
-	#create_inputs_file()
-	
-	#controller_inputs_dictionary["tiny_move_up"]["button, or axis?"] = "button"
-	#input_config.set_value("DICTIONARY_TESTING_2", "SUB_HEADER_TESTING", controller_inputs_dictionary)
-	#temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", 
-	#"SUB_HEADER_TESTING", temp_testing_dictionary)
-	##print("temp dictionary value pulled: ", temp_testing_dictionary_reading)
-	#var temp_testing_dictionary_reading = input_config.get_value("DICTIONARY_TESTING", "SUB_HEADER_TESTING")
-		## create a variable called temp_testing_dictionary_reading, set it equal to the input_config file's value 
-		## within "DICTIONARY_TESTING", the value labeled "SUB_HEADER_TESTING"
-	#var data_2_value = temp_testing_dictionary_reading["mock sub-dictionary"]["data_2"]
-		## create a variable named data_2_value. Set it equal to the variable temp_testing_dictionary_reading (which is 
-		## equal to the input_config's DICTIONARY_TESTING's value of "SUB_HEADER_TESTING")'s data entry labeled 
-		## "mock sub-dictionary". Within "mock sub-dictionary" seek the data point labeled "data_2", and set the variable
-		## named data_2_value equal to the data point labeled "data_2"
-	##print("data_2 value: ", data_2_value)
-		## print the string "data_2 value: ", and the previously defined data_2_value variable
+
 	if !FileAccess.file_exists(INPUT_SETTINGS_FILE_PATH):
 		create_inputs_file()
 	
-	if err == OK:
-		sync_dictionary_to_config()
-		load_inputs()
-		#load_keyboard_inputs()
-	#sync_dictionary_to_config()
-	##print(controller_inputs_dictionary)
+	else:
+		err = input_config.load(INPUT_SETTINGS_FILE_PATH)
+	
+	sync_dictionary_to_config()
+	load_inputs()
 	
 
 func create_inputs_file() -> void:
