@@ -61,6 +61,7 @@ var duplicate_detection_keyword: String
 
 signal defaulted
 signal duplicate_detected
+signal controller_type_changed
 
 var button_or_axis := " "
 

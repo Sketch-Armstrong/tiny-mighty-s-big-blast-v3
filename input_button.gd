@@ -7,7 +7,7 @@ const INPUT_SETTINGS_FILE_PATH = "user://input_settings.cfg"
 #@export var action_event_index: int = 0
 @export var action_axis_value: float = 0.0
 
-@export var brute_force_input_label_controller_up: String
+static var controller_identity := ""
 
 var text_left: String
 var text_right: String
@@ -15,7 +15,14 @@ var text_right: String
 signal remapping
 signal done_remapping
 
-const CONTROLLER_BUTTON_LABELS: Dictionary = {
+const VENDOR_HEX_MICROSOFT := 0x045E
+const VENDOR_HEX_SONY := 0x054C
+const VENDOR_HEX_NINTENDO := 0x057E
+const VENDOR_8BITDO := 0x2DC8
+
+
+
+const CONTROLLER_BUTTON_LABELS_XBOX: Dictionary = {
 	JoyButton.JOY_BUTTON_A: "A",
 		## key: value
 			## experimenting a bit, JoyButton.JOY_BUTTON_A is just 0
@@ -35,7 +42,50 @@ const CONTROLLER_BUTTON_LABELS: Dictionary = {
 	JoyButton.JOY_BUTTON_START: "Start",
 	JoyButton.JOY_BUTTON_GUIDE: "Select",
 }
-const CONTROLLER_AXIS_LABELS: Dictionary = {
+
+const CONTROLLER_BUTTON_LABELS_SONY: Dictionary = {
+	JoyButton.JOY_BUTTON_A: "⤫",
+		## key: value
+			## experimenting a bit, JoyButton.JOY_BUTTON_A is just 0
+			## these are enums, meaning they're just numbers, followed
+			## by a corresponding string
+	JoyButton.JOY_BUTTON_B: "◯",
+	JoyButton.JOY_BUTTON_X: "◻",
+	JoyButton.JOY_BUTTON_Y: "△",
+	JoyButton.JOY_BUTTON_LEFT_SHOULDER: "L2",
+	JoyButton.JOY_BUTTON_RIGHT_SHOULDER: "R2",
+	JoyButton.JOY_BUTTON_LEFT_STICK: "L3",
+	JoyButton.JOY_BUTTON_RIGHT_STICK: "R3",
+	JoyButton.JOY_BUTTON_DPAD_UP: "D-Pad ↑",
+	JoyButton.JOY_BUTTON_DPAD_DOWN: "D-Pad ↓",
+	JoyButton.JOY_BUTTON_DPAD_LEFT: "D-Pad ←",
+	JoyButton.JOY_BUTTON_DPAD_RIGHT: "D-Pad →",
+	JoyButton.JOY_BUTTON_START: "Start",
+	JoyButton.JOY_BUTTON_GUIDE: "Select",
+}
+
+const CONTROLLER_BUTTON_LABELS_NINTENDO: Dictionary = {
+	JoyButton.JOY_BUTTON_A: "B",
+		## key: value
+			## experimenting a bit, JoyButton.JOY_BUTTON_A is just 0
+			## these are enums, meaning they're just numbers, followed
+			## by a corresponding string
+	JoyButton.JOY_BUTTON_B: "A",
+	JoyButton.JOY_BUTTON_X: "Y",
+	JoyButton.JOY_BUTTON_Y: "X",
+	JoyButton.JOY_BUTTON_LEFT_SHOULDER: "L",
+	JoyButton.JOY_BUTTON_RIGHT_SHOULDER: "R",
+	JoyButton.JOY_BUTTON_LEFT_STICK: "L3",
+	JoyButton.JOY_BUTTON_RIGHT_STICK: "R3",
+	JoyButton.JOY_BUTTON_DPAD_UP: "D-Pad ↑",
+	JoyButton.JOY_BUTTON_DPAD_DOWN: "D-Pad ↓",
+	JoyButton.JOY_BUTTON_DPAD_LEFT: "D-Pad ←",
+	JoyButton.JOY_BUTTON_DPAD_RIGHT: "D-Pad →",
+	JoyButton.JOY_BUTTON_START: "Start",
+	JoyButton.JOY_BUTTON_GUIDE: "Select",
+}
+
+const CONTROLLER_AXIS_LABELS_XBOX: Dictionary = {
 	"JoyAxis Left X": [JoyAxis.JOY_AXIS_LEFT_X],
 	JoyAxis.JOY_AXIS_LEFT_X: {-1: "Left Stick ←", 1: "Left Stick →"},
 	JoyAxis.JOY_AXIS_LEFT_Y: {-1: "Left Stick ↑", 1: "Left Stick ↓"},
@@ -45,6 +95,30 @@ const CONTROLLER_AXIS_LABELS: Dictionary = {
 	JoyAxis.JOY_AXIS_TRIGGER_RIGHT: {1: "RT"},
 	
 }
+
+const CONTROLLER_AXIS_LABELS_SONY: Dictionary = {
+	"JoyAxis Left X": [JoyAxis.JOY_AXIS_LEFT_X],
+	JoyAxis.JOY_AXIS_LEFT_X: {-1: "Left Stick ←", 1: "Left Stick →"},
+	JoyAxis.JOY_AXIS_LEFT_Y: {-1: "Left Stick ↑", 1: "Left Stick ↓"},
+	JoyAxis.JOY_AXIS_RIGHT_X: {-1: "Right Stick ←", 1: "Right Stick →"},
+	JoyAxis.JOY_AXIS_RIGHT_Y: {-1: "Right Stick ↑", 1: "Right Stick ↓"},
+	JoyAxis.JOY_AXIS_TRIGGER_LEFT: {1: "L2"},
+	JoyAxis.JOY_AXIS_TRIGGER_RIGHT: {1: "R2"},
+	
+}
+
+const CONTROLLER_AXIS_LABELS_NINTENDO: Dictionary = {
+	"JoyAxis Left X": [JoyAxis.JOY_AXIS_LEFT_X],
+	JoyAxis.JOY_AXIS_LEFT_X: {-1: "Left Stick ←", 1: "Left Stick →"},
+	JoyAxis.JOY_AXIS_LEFT_Y: {-1: "Left Stick ↑", 1: "Left Stick ↓"},
+	JoyAxis.JOY_AXIS_RIGHT_X: {-1: "Right Stick ←", 1: "Right Stick →"},
+	JoyAxis.JOY_AXIS_RIGHT_Y: {-1: "Right Stick ↑", 1: "Right Stick ↓"},
+	JoyAxis.JOY_AXIS_TRIGGER_LEFT: {1: "ZL"},
+	JoyAxis.JOY_AXIS_TRIGGER_RIGHT: {1: "ZR"},
+	
+}
+
+
 #
 #● JOY_AXIS_LEFT_X = 
 #Game controller left joystick x-axis.
@@ -58,32 +132,50 @@ const CONTROLLER_AXIS_LABELS: Dictionary = {
 #Game controller left trigger axis.
 #● JOY_AXIS_TRIGGER_RIGHT = 5
 
-var axis_reference_tester := 0
+#var axis_reference_tester := 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("joyaxis printing was: ", CONTROLLER_AXIS_LABELS["JoyAxis Left X"])
+	var total_connected_controllers := Input.get_connected_joypads()
+	if total_connected_controllers.size() > 0:
+		identify_controller_type(total_connected_controllers[0])
+	print("joyaxis printing was: ", CONTROLLER_AXIS_LABELS_XBOX["JoyAxis Left X"])
 	InputConfigHandler.defaulted.connect(refresh_label)
 	InputConfigHandler.duplicate_detected.connect(undo_duplicate_label)
+	InputConfigHandler.controller_type_changed.connect(refresh_label)
+	
+	Input.joy_connection_changed.connect(_on_controller_connection_changed)
 	toggle_mode = true
 	_toggled(false)
 	#reset_labels()
 	#var check_controller_taunt = InputConfigHandler.input_config.get_value("controller_bindings", "taunt")
-	#print(CONTROLLER_BUTTON_LABELS[check_controller_taunt])
+	#print(CONTROLLER_BUTTON_LABELS_XBOX[check_controller_taunt])
 	#if action == "tiny_move_up":
 		#print("testing for filtering based on action string worked")
 		## both this, and the preceding 2 lines, worked
 
 
+func _on_controller_connection_changed(device: int, connected: bool) -> void:
+	if connected:
+		identify_controller_type(device)
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
 	
-	action_axis_value = Input.get_joy_axis(axis_reference_tester, JOY_AXIS_LEFT_X)
-	#print(str(CONTROLLER_AXIS_LABELS["JoyAxis Left X"]) + str(action_axis_value))
+	#action_axis_value = Input.get_joy_axis(axis_reference_tester, JOY_AXIS_LEFT_X)
+	#print(str(CONTROLLER_AXIS_LABELS_XBOX["JoyAxis Left X"]) + str(action_axis_value))
 	#if action == "tiny_move_up":
 		#print("testing for filtering based on action string worked")
 
+
+func get_button_labels(button_index: int) -> String:
+	var labels := CONTROLLER_BUTTON_LABELS_XBOX
+	match controller_identity:
+		"sony":
+			labels = CONTROLLER_BUTTON_LABELS_SONY
+		"nintendo":
+			labels = CONTROLLER_BUTTON_LABELS_NINTENDO
+	return labels.get(button_index, "Button " + str(button_index))
 
 
 func refresh_label() -> void:
@@ -93,7 +185,7 @@ func refresh_label() -> void:
 	var right := "Unassigned"
 	for event in InputMap.action_get_events(action):
 		if event is InputEventJoypadButton:
-			left = CONTROLLER_BUTTON_LABELS.get(event.button_index, "Button " + str(event.button_index))
+			left = get_button_labels(event.button_index)
 		elif event is InputEventJoypadMotion:
 			left = get_axis_label(event.axis, event.axis_value)
 		elif event is InputEventKey:
@@ -132,21 +224,43 @@ func _toggled(toggled_on: bool) -> void:
 
 
 func get_axis_label(axis: JoyAxis, value: float, deadzone: float = 0.2) -> String:
-	if not CONTROLLER_AXIS_LABELS.has(axis):
+	var labels := CONTROLLER_AXIS_LABELS_XBOX
+	match controller_identity:
+		"sony":
+			labels = CONTROLLER_AXIS_LABELS_SONY
+		"nintendo":
+			labels = CONTROLLER_AXIS_LABELS_NINTENDO
+	if not labels.has(axis):
 		return "unknown axis"
 	if absf(value) < deadzone:
 		return "input did not breach deadzone. Try again."
 	var sign_key := 1 if value > 0 else -1
-	#explanation:
-	#var sign_key: int
-	#if value > 0:
-		#sign_key = 1
-	#if value < 0:
-		#sign_key = -1
-	return CONTROLLER_AXIS_LABELS[axis].get(sign_key, "Unknown direction")
+	return labels[axis].get(sign_key, "Unknown direction")
 
+func identify_controller_type(device: int) -> void:
+	var previous_controller_identity := controller_identity
+	var controller_name := Input.get_joy_name(device).to_lower()
+	var info := Input.get_joy_info(device)
+	var vendor := int(info.get("vendor_id", 0))
+	print("name: ", controller_name, " | vendor: ", vendor, " | info: ", info)
 
-
+	if vendor == VENDOR_HEX_SONY \
+	or "ps5" in controller_name or "ps4" in controller_name or "ps3" in controller_name \
+	or "dualsense" in controller_name or "dualshock" in controller_name:
+		controller_identity = "sony"
+	elif vendor == VENDOR_HEX_NINTENDO \
+	or "switch" in controller_name or "nintendo" in controller_name \
+	or "pro controller" in controller_name:
+		controller_identity = "nintendo"
+	elif vendor == VENDOR_HEX_MICROSOFT \
+	or "xbox" in controller_name or "xinput" in controller_name:
+		controller_identity = "xbox"
+	else:
+		controller_identity = "generic"
+	
+	if controller_identity != previous_controller_identity:
+		InputConfigHandler.controller_type_changed.emit()
+	print(controller_identity)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if !InputMap.has_action(action) or !is_pressed():
@@ -161,6 +275,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	button_pressed = false
 	release_focus()
+	
+	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
+		identify_controller_type(event.device)
+	
 
 	if event is InputEventJoypadButton:
 		InputConfigHandler.button_or_axis = "button"
