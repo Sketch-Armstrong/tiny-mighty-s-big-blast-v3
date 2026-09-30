@@ -736,6 +736,7 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../Node2D/ButtonManager/Scores")
 focus_neighbor_right = NodePath("../../Node2D/ButtonManager/Legal")
 focus_neighbor_bottom = NodePath(".")
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("31_mq70l")
 
 [node name="HowToPlay" type="Node2D" parent="CanvasLayer2/HowToPlay"]
@@ -826,7 +827,7 @@ autoscroll = Vector2(25, 0)
 texture = ExtResource("10_kv0xo")
 
 [node name="Tiny" type="CanvasGroup" parent="."]
-position = Vector2(510, 745)
+position = Vector2(458, 745)
 
 [node name="Body" type="Sprite2D" parent="Tiny"]
 texture = ExtResource("13_w07cb")
@@ -851,7 +852,7 @@ libraries/ = SubResource("AnimationLibrary_o5ce5")
 speed_scale = 1.5
 
 [node name="Title" type="Sprite2D" parent="."]
-position = Vector2(446, 314)
+position = Vector2(464, 324)
 texture = ExtResource("25_gvlbf")
 
 [node name="Node2D2" type="Node2D" parent="."]

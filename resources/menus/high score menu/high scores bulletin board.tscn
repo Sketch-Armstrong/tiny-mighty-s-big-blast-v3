@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://dxfb4sqm6oeyk" path="res://resources/menus/high score menu/clear_timer_label.gd" id="5_oeny2"]
 [ext_resource type="Script" uid="uid://hsfwa45hn42q" path="res://resources/menus/high score menu/high_scores_text.gd" id="5_wtrb0"]
 [ext_resource type="FontFile" uid="uid://bob38lm8684j4" path="res://resources/fonts/BitcountPropDouble-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="5_y1amr"]
-[ext_resource type="FontFile" uid="uid://cmb0cakpnob6w" path="res://resources/fonts/MetalMania-Regular.ttf" id="6_wtrb0"]
 [ext_resource type="Texture2D" uid="uid://l7q2ddmblhbs" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton arrow.png" id="7_p1wil"]
 [ext_resource type="Script" uid="uid://uc51apmt12e7" path="res://resources/menus/high score menu/clear_signaler_button.gd" id="8_4oi1v"]
 [ext_resource type="Texture2D" uid="uid://bpbk4454v5wfb" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton 2 expanded.png" id="8_7i7h2"]
@@ -15,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://van1epy0wbd6" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton 1 expanded.png" id="9_vsxa7"]
 [ext_resource type="Texture2D" uid="uid://b5wlv2f7fguj7" path="res://resources/menus/high score menu/sprites/highscores bar masking sprite.png" id="12_7i7h2"]
 [ext_resource type="Script" uid="uid://4f2ds3xm8d40" path="res://resources/menus/high score menu/reset_bar.gd" id="12_vsxa7"]
+[ext_resource type="FontFile" uid="uid://cmb0cakpnob6w" path="res://resources/fonts/MetalMania-Regular.ttf" id="15_anjvt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsxa7"]
 bg_color = Color(0, 0, 0, 1)
@@ -505,14 +505,14 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 mouse_filter = 2
 mouse_behavior_recursive = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 14
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HighScoresText/Control/HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("6_wtrb0")
+theme_override_fonts/normal_font = ExtResource("15_anjvt")
 theme_override_font_sizes/normal_font_size = 56
 text = "Label 1"
 fit_content = true
@@ -522,7 +522,7 @@ layout_mode = 2
 mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("6_wtrb0")
+theme_override_fonts/normal_font = ExtResource("15_anjvt")
 theme_override_font_sizes/normal_font_size = 56
 text = "Label 2"
 fit_content = true
@@ -532,7 +532,7 @@ layout_mode = 2
 mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("6_wtrb0")
+theme_override_fonts/normal_font = ExtResource("15_anjvt")
 theme_override_font_sizes/normal_font_size = 56
 text = "Label 3"
 fit_content = true
@@ -542,7 +542,7 @@ layout_mode = 2
 mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("6_wtrb0")
+theme_override_fonts/normal_font = ExtResource("15_anjvt")
 theme_override_font_sizes/normal_font_size = 56
 text = "Label 4"
 fit_content = true
@@ -552,7 +552,7 @@ layout_mode = 2
 mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("6_wtrb0")
+theme_override_fonts/normal_font = ExtResource("15_anjvt")
 theme_override_font_sizes/normal_font_size = 56
 text = "Label 5"
 fit_content = true
