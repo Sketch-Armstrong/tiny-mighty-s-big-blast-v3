@@ -21,11 +21,12 @@ boot_splash/stretch_mode=0
 
 [autoload]
 
-ConfigFileHandler="res://Singletons/ConfigFileHandler.gd"
+ConfigFileHandler="*res://Singletons/ConfigFileHandler.gd"
 GlobalVariables="*res://global_variables.gd"
 GlobalHighscoreHandler="*res://Singletons/GlobalHighscoreHandler.gd"
 GlobalFocusBooleans="*res://GlobalFocusBooleans.gd"
 InputConfigHandler="*res://InputConfigHandler.gd"
+GlobalMiscOptionsSave="*res://Singletons/GlobalMiscOptionsSave.gd"
 
 [display]
 

@@ -983,7 +983,6 @@ level_transition_timer = 3.0
 
 [node name="Background1" type="CanvasLayer" parent="."]
 layer = -1
-visible = false
 
 [node name="ChainLeft" type="Sprite2D" parent="Background1"]
 visible = false
@@ -1031,7 +1030,6 @@ texture = ExtResource("5_fglli")
 
 [node name="BackgroundAssets" type="CanvasLayer" parent="Background1"]
 layer = -2
-visible = false
 
 [node name="SallyPortrait" type="Sprite2D" parent="Background1/BackgroundAssets"]
 z_index = -2
@@ -1066,7 +1064,6 @@ libraries/ = SubResource("AnimationLibrary_sapea")
 
 [node name="Background2" type="CanvasLayer" parent="."]
 layer = -3
-visible = false
 
 [node name="BackgroundAssets2" type="Node2D" parent="Background2"]
 position = Vector2(-137, -289)

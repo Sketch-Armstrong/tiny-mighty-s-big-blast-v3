@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://drb12hb6ul2cr"]
+[gd_scene load_steps=29 format=3 uid="uid://drb12hb6ul2cr"]
 
 [ext_resource type="Script" uid="uid://d1v53fcgqch8j" path="res://resources/menus/options/options.gd" id="1_1ssaa"]
 [ext_resource type="Texture2D" uid="uid://dk0yecertxb2d" path="res://resources/temporary assets/arrow test.png" id="2_8bxk8"]
@@ -21,6 +21,9 @@
 [ext_resource type="Script" uid="uid://cb0dpu4v40qdy" path="res://resources/menus/options/focus_arrow_taunt.gd" id="12_3pmhh"]
 [ext_resource type="Script" uid="uid://b2sxfak5cf5nm" path="res://resources/menus/options/focus_arrow_back.gd" id="12_y6is1"]
 [ext_resource type="Script" uid="uid://8vwplvl1mmkq" path="res://resources/menus/options/focus_arrow_master_slider.gd" id="14_nitmg"]
+[ext_resource type="Texture2D" uid="uid://mlu01lp5k7no" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton 2.png" id="17_8m6oc"]
+[ext_resource type="Script" uid="uid://daojgvn32nij" path="res://resources/menus/options/full_screen_check_button.gd" id="17_ov61f"]
+[ext_resource type="Texture2D" uid="uid://shasqx28byx4" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton 1.png" id="18_3pmhh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vh1wk"]
 texture = ExtResource("3_rt4v4")
@@ -28,6 +31,8 @@ texture_margin_left = 25.0
 texture_margin_top = 30.0
 texture_margin_right = 35.0
 texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8m6oc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwbdq"]
 bg_color = Color(0, 0, 0, 1)
@@ -299,6 +304,35 @@ position = Vector2(88, 6)
 texture = ExtResource("2_8bxk8")
 script = ExtResource("10_axiic")
 
+[node name="HBoxContainer6" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../SFXSlider")
+focus_neighbor_right = NodePath("../../../../../../BackButton")
+focus_neighbor_bottom = NodePath("../../../../../../BackButton")
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8m6oc")
+theme_override_icons/checked = ExtResource("17_8m6oc")
+theme_override_icons/unchecked = ExtResource("18_3pmhh")
+script = ExtResource("17_ov61f")
+
+[node name="Sprite2D" type="Sprite2D" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton"]
+visible = false
+position = Vector2(110, 30.5)
+texture = ExtResource("2_8bxk8")
+
+[node name="Label" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 48
+text = "Fullscreen"
+
 [node name="MarginContainer" type="MarginContainer" parent="InputSettings"]
 visible = false
 layout_mode = 0
@@ -349,7 +383,7 @@ offset_top = 659.0
 offset_right = 1237.0
 offset_bottom = 788.0
 focus_neighbor_left = NodePath("../InputSettings/ResetButton")
-focus_neighbor_top = NodePath("../InputSettings/PanelContainer/MarginContainer/OptionsList/SFXSlider")
+focus_neighbor_top = NodePath("../InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton")
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("7_jcj0d")
@@ -383,6 +417,9 @@ script = ExtResource("12_y6is1")
 [connection signal="focus_exited" from="InputSettings/PanelContainer/MarginContainer/OptionsList/MusicSlider" to="InputSettings/PanelContainer/MarginContainer/OptionsList/MusicSlider/FocusArrowMusicSlider" method="_on_music_slider_focus_exited"]
 [connection signal="focus_entered" from="InputSettings/PanelContainer/MarginContainer/OptionsList/SFXSlider" to="InputSettings/PanelContainer/MarginContainer/OptionsList/SFXSlider/FocusArrowSFXSlider" method="_on_sfx_slider_focus_entered"]
 [connection signal="focus_exited" from="InputSettings/PanelContainer/MarginContainer/OptionsList/SFXSlider" to="InputSettings/PanelContainer/MarginContainer/OptionsList/SFXSlider/FocusArrowSFXSlider" method="_on_sfx_slider_focus_exited"]
+[connection signal="focus_entered" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton" method="_on_focus_exited"]
+[connection signal="toggled" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton" method="_on_toggled"]
 [connection signal="focus_entered" from="InputSettings/ResetButton" to="InputSettings/ResetButton/FocusArrowReset" method="_on_reset_button_focus_entered"]
 [connection signal="focus_exited" from="InputSettings/ResetButton" to="InputSettings/ResetButton/FocusArrowReset" method="_on_reset_button_focus_exited"]
 [connection signal="pressed" from="InputSettings/ResetButton" to="." method="_on_reset_button_pressed"]
