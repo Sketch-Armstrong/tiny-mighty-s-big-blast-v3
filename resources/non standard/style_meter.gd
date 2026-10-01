@@ -41,6 +41,7 @@ signal rank_d
 ##======
 
 func _ready() -> void:
+	style_timer.stop()
 	#style_bar.is_percentage_shown(true)
 	style_bar.set_show_percentage(true)
 	clamp(style_value, 0, 105)
@@ -242,3 +243,7 @@ func _on_main_style_on() -> void:
 
 func _on_main_style_off() -> void:
 	can_count = false
+
+
+func _on_main_game_start() -> void:
+	style_timer.start()

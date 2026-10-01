@@ -35,9 +35,9 @@ func _on_start_pressed():
 	$CanvasLayer2/Node2D/ButtonManager.hide()
 	$CanvasLayer2/HowToPlay/HowToPlayButton.hide()
 	$FocusArrow.hide()
-	$Control/ColorRect/AnimationPlayer.play("fade_in")
+	$Control/Control/ColorRect/AnimationPlayer.play("fade_in")
 	#$Node2D/AnimationPlayer.play("test")
-	await $Control/ColorRect/AnimationPlayer.animation_finished
+	await $Control/Control/ColorRect/AnimationPlayer.animation_finished
 	get_tree().change_scene_to_file("res://resources/Intro Comic/Scenes/intro_comic.tscn")
 	pass
 

@@ -53,13 +53,14 @@ func _ready() -> void:
 	$CanvasLayer/PauseMenu.visible = false
 	randomize()
 	get_tree().paused = false
-	$Control/ColorRect/AnimationPlayer.play("fade_out")
-	await $Control/ColorRect/AnimationPlayer.animation_finished
+	$Control/Control/ColorRect/AnimationPlayer.play("main_scene_color_rect")
+	
+	await $Control/Control/ColorRect/AnimationPlayer.animation_finished
+	game_start.emit()
 	$Control.hide()
 	game_over_screen.hide()
 	_round_timer_start()
-	_on_game_over_retry()
-	game_start.emit()
+	_on_main_game_start()
 
 func _round_timer_start() -> void:
 	#await get_tree().create_timer(0.0).timeout
@@ -244,6 +245,19 @@ func _on_game_over_retry() -> void:
 	Bomb2.bomb_reset()
 	Bomb1.bomb_reset()
 	Player.reset_tiny()
+	$TimeLeft/GameTimer.start()
+
+func _on_main_game_start() -> void:
+	GlobalVariables.a_plus_tripwire = true
+	game_over_screen.hide()
+	miss = 0
+	four_times_bonus_counter = 0
+	score = 0
+	round_timer_start.emit()
+	Bomb3.bomb_reset()
+	Bomb2.bomb_reset()
+	Bomb1.bomb_reset()
+	#Player.reset_tiny()
 	$TimeLeft/GameTimer.start()
 
 func _on_round_meter_main_round_timer_timeout() -> void:

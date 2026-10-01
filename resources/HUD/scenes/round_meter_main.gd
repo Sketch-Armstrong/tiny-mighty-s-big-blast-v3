@@ -11,6 +11,7 @@ extends Node2D
 signal round_timer_timeout
 
 func _ready() -> void:
+	
 	pass # Replace with function body.
 	#$ProgressBar.value = 75
 

@@ -62,7 +62,7 @@ func _ready() -> void:
 	player_animation_player.play("Idle")
 	taunt_timer.stop()
 	ULTIMATE_CAN_MOVE = false
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2).timeout
 	ULTIMATE_CAN_MOVE = true
 
 
@@ -73,10 +73,10 @@ func _physics_process(delta: float) -> void:
 	if GlobalVariables.tiny_visible == true:
 		self.show()
 
-	var input_vector := Input.get_vector("tiny_move_left", "tiny_move_right", "tiny_move_up", "tiny_move_down")
+	
 	
 	if ULTIMATE_CAN_MOVE == true:
-		_parent_move_state(input_vector)
+		_parent_move_state()
 
 		if player_animation_player.current_animation == "Dash" or "Dash_Flip" or "Half_Dash" or "Half_Dash_Flip" or "Short_Hop" and player_animation_player.is_playing():
 			if near_miss_collision.is_colliding() == true:
@@ -123,12 +123,12 @@ func _physics_process(delta: float) -> void:
 
 
 
-func _parent_move_state(input_vector: Vector2) -> void:
+func _parent_move_state() -> void:
 	
-	_idle(input_vector)
+	_idle()
 
 
-func _idle(input_vector: Vector2) -> void:
+func _idle() -> void:
 	
 
 	if player_animation_player.is_playing() == false:
@@ -139,12 +139,12 @@ func _idle(input_vector: Vector2) -> void:
 	elif Input.is_action_just_released("taunt"):
 		return
 	elif Input.is_action_just_pressed("tiny_move_right") and can_move == true:
-		_move_right(input_vector)
+		_move_right()
 	elif Input.is_action_just_pressed("tiny_move_left") and can_move == true:
-		_move_left(input_vector)
+		_move_left()
 
 
-func _move_right(input_vector: Vector2) -> void:
+func _move_right() -> void:
 	if Input.is_action_just_pressed("tiny_move_right") and self.can_move == true and position_counter == 3:
 		_nova_blast()
 	else:
@@ -158,9 +158,9 @@ func _move_right(input_vector: Vector2) -> void:
 		await player_animation_player.animation_finished
 		can_move = true
 		await get_tree().process_frame
-		_idle(input_vector)
+		_idle()
 
-func _move_left(input_vector: Vector2) -> void:
+func _move_left() -> void:
 	if position_counter <= 1:
 		player_animation_player.queue("Idle")
 		return
@@ -174,11 +174,11 @@ func _move_left(input_vector: Vector2) -> void:
 		await player_animation_player.animation_finished
 		can_move = true
 		await get_tree().process_frame
-		_idle(input_vector)
+		_idle()
 
 
 func _taunt() -> void:
-	var input_vector := Input.get_vector("tiny_move_left", "tiny_move_right", "tiny_move_up", "tiny_move_down")
+	
 	if Input.is_action_pressed("taunt") and can_move == true:
 		
 		
@@ -202,17 +202,17 @@ func _on_brute_force_taunt_pressed() -> void:
 	taunt_timer.start()
 
 func _on_brute_force_taunt_release() -> void:
-	var input_vector := Input.get_vector("tiny_move_left", "tiny_move_right", "tiny_move_up", "tiny_move_down")
+	
 	taunt_timer.stop()
 	if player_animation_player.current_animation == "Pullback":
 		player_animation_player.stop()
-		_idle(input_vector)
+		_idle()
 
 
 func _short_hop() -> void:
 	can_move = false
 	hop.emit()
-	var input_vector := Input.get_vector("tiny_move_left", "tiny_move_right", "tiny_move_up", "tiny_move_down")
+	
 	player_animation_player.play("Short_Hop")
 	
 	await player_animation_player.animation_finished
@@ -222,7 +222,7 @@ func _short_hop() -> void:
 func _down_taunt() -> void:
 	can_move = false
 	down_spin.emit()
-	var input_vector := Input.get_vector("tiny_move_left", "tiny_move_right", "tiny_move_up", "tiny_move_down")
+	
 	player_animation_player.play("Down_Taunt")
 	await player_animation_player.animation_finished
 	can_move = true 
@@ -233,7 +233,7 @@ func _down_taunt() -> void:
 func _half_dash() -> void:
 	can_move = false
 	half_right.emit()
-	var input_vector := Input.get_vector("tiny_move_left", "tiny_move_right", "tiny_move_up", "tiny_move_down")
+	
 	player_animation_player.play("Half_Dash")
 	await player_animation_player.animation_finished
 	can_move = true
@@ -242,7 +242,7 @@ func _half_dash() -> void:
 func _half_dash_flip() -> void:
 	can_move = false
 	half_left.emit()
-	var input_vector := Input.get_vector("tiny_move_left", "tiny_move_right", "tiny_move_up", "tiny_move_down")
+	
 	player_animation_player.play("Half_Dash_Flip")
 	await player_animation_player.animation_finished
 	can_move = true
@@ -282,7 +282,7 @@ func miss_function() -> void:
 	player_animation_player.call_deferred("stop")
 	player_animation_player.call_deferred("play", "miss")
 	await player_animation_player.animation_finished
-	var input_vector := Input.get_vector("tiny_move_left", "tiny_move_right", "tiny_move_up", "tiny_move_down")
+	
 	#self.global_position = spawn_point
 	reset_tiny()
 	#tiny_collision.set_deferred("disabled", false)
@@ -295,13 +295,13 @@ func reset_tiny() -> void:
 		tiny_collision.set_deferred("disabled", true)
 	# # # print("tiny reset")
 	self.global_position = spawn_point
-	var input_vector := Input.get_vector("tiny_move_left", "tiny_move_right", "tiny_move_up", "tiny_move_down")
+	
 	position_counter = 0
 	can_move = true
 	player_animation_player.play("RESET")
 	player_reset.emit()
 	GlobalVariables.music_player_boolean = false
-	_idle(input_vector)
+	_idle()
 	## ============
 	## include the timers giga reset here
 	## ============

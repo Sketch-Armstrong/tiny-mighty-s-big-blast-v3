@@ -48,10 +48,10 @@ tracks/1/path = NodePath("IntroComicAnimationPlayer:speed_scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 12.2401),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1.0, 3.0]
+"values": [10.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1144,9 +1144,7 @@ aberation_amount = 0.05
 metadata/_custom_type_script = "uid://bghaddibpt6f1"
 
 [node name="IntroComicAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_bjslu")
-}
+libraries/ = SubResource("AnimationLibrary_bjslu")
 
 [node name="SpriteOfIntroComic" type="Node2D" parent="."]
 

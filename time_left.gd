@@ -5,6 +5,8 @@ var start_boolean: bool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start_boolean = false
+	$AnimationPlayer.play("align_text")
+	await get_tree().process_frame
 	pass
 	
 
@@ -12,10 +14,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
-	if start_boolean == false:
-		$".".text = "Get ready"
-	else:
-		set_time()
+	set_time()
 
 func set_time() -> void: 
 	game_timer = round($GameTimer.time_left)

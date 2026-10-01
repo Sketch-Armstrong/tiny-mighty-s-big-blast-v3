@@ -165,9 +165,7 @@ script = ExtResource("1_cwd3f")
 caution_rotation = -0.1
 
 [node name="CautionAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_0u0s2")
-}
+libraries/ = SubResource("AnimationLibrary_0u0s2")
 
 [node name="CautionTape2D2" type="Node2D" parent="."]
 editor_description = "Top"

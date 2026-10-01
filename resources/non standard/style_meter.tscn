@@ -278,9 +278,7 @@ vframes = 5
 
 [node name="RankingsAnimationPlayer" type="AnimationPlayer" parent="StyleRankings"]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_bd4jl")
-}
+libraries/ = SubResource("AnimationLibrary_bd4jl")
 
 [node name="StyleMeterButton" type="Button" parent="."]
 process_mode = 3
