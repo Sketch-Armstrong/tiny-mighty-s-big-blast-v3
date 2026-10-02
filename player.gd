@@ -59,7 +59,7 @@ func _ready() -> void:
 	self.global_position = spawn_point
 	move_timer.start()
 	near_miss_collision.enabled = true
-	player_animation_player.play("Idle")
+	player_animation_player.play("Intro_Bounce")
 	taunt_timer.stop()
 	ULTIMATE_CAN_MOVE = false
 	await get_tree().create_timer(2).timeout
