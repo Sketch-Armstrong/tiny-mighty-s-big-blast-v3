@@ -160,7 +160,7 @@ horizontal_alignment = 2
 
 [node name="BonusText" parent="." instance=ExtResource("7_84odl")]
 z_index = 6
-position = Vector2(926, 260)
+position = Vector2(792, 260)
 
 [node name="RoundBonusText" parent="." instance=ExtResource("8_ak604")]
 position = Vector2(216, 138)
