@@ -11,78 +11,78 @@ resource_name = "RESET"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/BonusTextControl/TimerBonusTextLabel:visible")
+tracks/0/path = NodePath("Node2D2/Node2D:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/BonusTextControl/TimerBonusTextLabel:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0.0]
 }
-
-[sub_resource type="Animation" id="Animation_l60dg"]
-resource_name = "show_bonus"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/BonusTextControl/TimerBonusTextLabel:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.26666668, 1.2333333, 1.4666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/BonusTextControl/TimerBonusTextLabel:visible")
+tracks/1/path = NodePath("Node2D2/Node2D/BonusTextControl:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.4666667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D:position:y")
+tracks/2/path = NodePath("Node2D2/Node2D/BonusTextControl:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.43333334, 1, 1.5),
-"transitions": PackedFloat32Array(0.1830108, 3.8637443, 3.8637443, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l60dg"]
+resource_name = "show_bonus"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D2/Node2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 2.4666667, 2.9666667),
+"transitions": PackedFloat32Array(0.2332583, 3.8637443, 4.43, 1),
 "update": 0,
 "values": [200.0, 0.0, 0.0, -200.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D2/Node2D/BonusTextControl:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 2.4666667, 2.9666667),
+"transitions": PackedFloat32Array(0.233, 1, 4.4328003, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D2/Node2D/BonusTextControl:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -98,6 +98,20 @@ tracks/3/keys = {
 "method": &"update_text"
 }]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"randomize_rotation"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hw687"]
 _data = {
@@ -108,52 +122,57 @@ _data = {
 [node name="BonusText" type="Node2D"]
 script = ExtResource("1_etoky")
 
-[node name="Node2D" type="Control" parent="."]
+[node name="BonusTextAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries/ = SubResource("AnimationLibrary_hw687")
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(-213, -78)
+
+[node name="Node2D" type="Control" parent="Node2D2"]
 layout_mode = 3
 anchors_preset = 0
+pivot_offset = Vector2(213, 0)
 
-[node name="BonusTextControl" type="HBoxContainer" parent="Node2D"]
+[node name="BonusTextControl" type="HBoxContainer" parent="Node2D2/Node2D"]
+visible = false
 layout_mode = 0
-offset_right = 390.0
-offset_bottom = 100.0
+offset_right = 425.0
+offset_bottom = 147.0
+pivot_offset = Vector2(213, 78)
 
-[node name="TextureButton" type="TextureButton" parent="Node2D/BonusTextControl"]
+[node name="TextureButton" type="TextureButton" parent="Node2D2/Node2D/BonusTextControl"]
 layout_mode = 2
 texture_normal = ExtResource("4_fo1dp")
 stretch_mode = 3
 
-[node name="TimerBonusTextLabel" type="Label" parent="Node2D/BonusTextControl"]
-visible = false
+[node name="TimerBonusTextLabel" type="Label" parent="Node2D2/Node2D/BonusTextControl"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
+theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("3_fo1dp")
 theme_override_font_sizes/font_size = 96
 text = "99"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureButton3" type="TextureButton" parent="Node2D/BonusTextControl"]
+[node name="TextureButton3" type="TextureButton" parent="Node2D2/Node2D/BonusTextControl"]
 layout_mode = 2
 texture_normal = ExtResource("3_l60dg")
 stretch_mode = 3
 
-[node name="CoinBonusTextLabel2" type="Label" parent="Node2D/BonusTextControl"]
+[node name="CoinBonusTextLabel2" type="Label" parent="Node2D2/Node2D/BonusTextControl"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
+theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("3_fo1dp")
 theme_override_font_sizes/font_size = 96
 text = "99"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureButton2" type="TextureButton" parent="Node2D/BonusTextControl"]
+[node name="TextureButton2" type="TextureButton" parent="Node2D2/Node2D/BonusTextControl"]
 layout_mode = 2
 texture_normal = ExtResource("4_hw687")
 stretch_mode = 3
-
-[node name="BonusTextAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries/ = SubResource("AnimationLibrary_hw687")

@@ -178,7 +178,7 @@ tracks/2/path = NodePath("../../Node2D/ProgressBar:value")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [100.0, 0.0]
@@ -190,7 +190,7 @@ tracks/3/path = NodePath("../../Node2D:scale:y")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.16666667, 1.8333333, 1.9, 2),
+"times": PackedFloat32Array(0, 0.1, 0.16666667, 1.5333333, 1.6, 1.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 2.0, 1.0, 1.0, 2.0, 0.0]

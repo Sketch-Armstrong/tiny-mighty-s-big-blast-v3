@@ -26,8 +26,10 @@ extends Node2D
 
 @onready var main_style_value = 0
 
+@onready var stop_oneup_spam := false
+@onready var lives := 0
 
-
+@onready var multiple_of_500_previous := 0
 
 signal round_timer_stop
 signal round_timer_start
@@ -107,8 +109,33 @@ func _process(delta: float) -> void:
 	main_style_value = $StyleMeterRoot.style_value
 	
 	#print("global results snapshot was ", GlobalVariables.results_snapshot)
-	
+	check_lives_count()
 	pass
+
+func check_lives_count():
+	pass
+	var multiple_of_500_current: int = maxi(snappedi(score - 250, 500), 0)
+	#print("snapping of score result: ", multiple_of_500_current)
+	#print("lives count,", lives)
+	
+	if multiple_of_500_current < multiple_of_500_previous:
+		multiple_of_500_previous = multiple_of_500_current
+		return
+	
+	if multiple_of_500_current == multiple_of_500_previous:
+		return
+	
+	var extra_lives := roundi((multiple_of_500_current - multiple_of_500_previous) / 500.0)
+	multiple_of_500_previous = multiple_of_500_current
+	
+	for i in extra_lives:
+		lives += 1
+		if lives == 3:
+			$Miss/BombSprite2.bomb_reset()
+			$Miss/BombSprite3.bomb_reset()
+		elif lives == 2:
+			$Miss/BombSprite2.bomb_reset()
+
 
 
 func update_bonus_label():
@@ -169,28 +196,32 @@ func _on_player_nova_blast() -> void:
 	can_collide_master = true
 
 func _on_hazard_a_hazard_a_miss() -> void:
+	print("miss death count was: ", miss)
 	GlobalVariables.results_snapshot = score
 	round_timer_stop.emit()
-	miss += 1
+	
 	_miss()
 	## print("returned from _miss() function to A miss")
 	can_collide_master = false
 	Player.miss_function()
 	await get_tree().create_timer(1.8).timeout
 	can_collide_master = true
-	if miss < 3:
+	if lives > 0:
 		_round_timer_start()
 
 
 func _on_hazard_b_hazard_b_miss() -> void:
 	## this one is vestigial. Left in to not break overlooked scripting
-	miss += 1
+	lives -= 1
 	_miss()
 	Player.miss_function()
 
 
 func _miss() -> void:
 	#print("Oh no! Player lost ", coin_bonus, " coins!")
+	lives -= 1
+	if score < 5000:
+		GlobalVariables.a_plus_tripwire = false
 	GlobalVariables.music_player_boolean = true
 	GlobalVariables.results_snapshot = score
 	GlobalVariables.coin_snapshot = coin_bonus + 1
@@ -199,13 +230,11 @@ func _miss() -> void:
 	#print("global coin snap on line 179 was", GlobalVariables.coin_snapshot)
 	coin_bonus = 0
 	#print("global coin snap on line 181 was", GlobalVariables.coin_snapshot)
-	if miss == 1:
-		if score < 5000:
-			GlobalVariables.a_plus_tripwire = false
+	if lives == 2:
 		Bomb3.bomb_blow()
-	if miss == 2:
+	if lives == 1:
 		Bomb2.bomb_blow()
-	if miss == 3:
+	if lives == 0:
 		Bomb1.bomb_blow()
 		game_over_screen.show()
 		game_over.emit()
@@ -237,7 +266,7 @@ func _on_game_over_quit() -> void:
 func _on_game_over_retry() -> void:
 	GlobalVariables.a_plus_tripwire = true
 	game_over_screen.hide()
-	miss = 0
+	lives = 3
 	four_times_bonus_counter = 0
 	score = 0
 	round_timer_start.emit()
@@ -250,7 +279,7 @@ func _on_game_over_retry() -> void:
 func _on_main_game_start() -> void:
 	GlobalVariables.a_plus_tripwire = true
 	game_over_screen.hide()
-	miss = 0
+	lives = 3
 	four_times_bonus_counter = 0
 	score = 0
 	round_timer_start.emit()

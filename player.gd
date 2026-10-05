@@ -62,7 +62,7 @@ func _ready() -> void:
 	player_animation_player.play("Intro_Bounce")
 	taunt_timer.stop()
 	ULTIMATE_CAN_MOVE = false
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1,7).timeout
 	ULTIMATE_CAN_MOVE = true
 
 

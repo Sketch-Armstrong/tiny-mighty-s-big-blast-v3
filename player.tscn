@@ -2112,7 +2112,7 @@ tracks/15/keys = {
 
 [sub_resource type="Animation" id="Animation_2wuci"]
 resource_name = "Intro_Bounce"
-length = 2.0
+length = 1.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2120,10 +2120,10 @@ tracks/0/path = NodePath("NovaBlast:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.4, 0.76666665, 1.2333333, 1.6333333, 2, 2.1, 2.2333333),
-"transitions": PackedFloat32Array(1, 1, 0.31864014, 1.624505, 0.3922923, 2.297397, 0.59460354, 1.5157168, 0.6372803),
+"times": PackedFloat32Array(0, 0.1, 0.43333334, 0.76666665, 1.1, 1.4333333, 1.7),
+"transitions": PackedFloat32Array(1, 1, 0.31864014, 1.624505, 0.3922923, 2.297397, 0.6372803),
 "update": 0,
-"values": [Vector2(0, -600), Vector2(0, -600), Vector2(0, 0), Vector2(0, -300), Vector2(0, 0), Vector2(0, -150), Vector2(0, 0), Vector2(0, -100), Vector2(0, 0)]
+"values": [Vector2(0, -600), Vector2(0, -600), Vector2(0, 0), Vector2(0, -300), Vector2(0, 0), Vector2(0, -150), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -2144,10 +2144,10 @@ tracks/2/path = NodePath("NovaBlast:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.26666665, 0.4, 0.53333336, 0.6666667, 0.8, 0.93333334, 1.0666667, 1.2, 1.3333334, 1.4666667, 1.6, 1.7333333, 1.8666666, 1.9667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.43333334, 0.53333336, 0.6666667, 0.8, 0.93333334, 1.0666667, 1.2, 1.3333334, 1.4666667, 1.6, 1.7333333, 1.8666666, 1.9667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [12, 13, 12, 14, 12, 13, 12, 14, 12, 13, 12, 14, 12, 13, 12, 14]
+"values": [22, 14, 12, 13, 12, 14, 12, 13, 12, 14, 12, 13, 12, 14]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -2156,10 +2156,10 @@ tracks/3/path = NodePath("NovaBlast:flip_h")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.26666668, 0.4, 0.8, 0.93333334, 1.3333334, 1.4666667, 1.8666667, 1.9999999),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.4, 0.8, 0.93333334, 1.3333334, 1.4666667, 1.8666667, 1.9999999),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false, true, false, true, false, true, false, true, false]
+"values": [false, false, true, false, true, false, true, false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
