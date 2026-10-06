@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://of1qt3olovgl"]
+[gd_scene load_steps=30 format=3 uid="uid://of1qt3olovgl"]
 
 [ext_resource type="Script" uid="uid://cionb2fw474m3" path="res://main_scene.gd" id="1_iwt3a"]
 [ext_resource type="PackedScene" uid="uid://xflhitgj8yn4" path="res://resources/menus/pause menu/pause_menu.tscn" id="2_42l1d"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://dyhkryjucwqjg" path="res://resources/audio/music/Fiery Greatsword DOVA-SYNDROME.mp3" id="14_6jybn"]
 [ext_resource type="Script" uid="uid://b7w2c46qbfn2w" path="res://time_left.gd" id="14_ak604"]
 [ext_resource type="AudioStream" uid="uid://ceb8xha5omsq3" path="res://resources/audio/temp/temp sfx/jackpot stock sound effect.wav" id="15_6jybn"]
+[ext_resource type="PackedScene" uid="uid://cggafeqh1tirw" path="res://resources/HUD/scenes/1up_text.tscn" id="16_5smuj"]
 [ext_resource type="FontFile" uid="uid://drivmg7j5cy1e" path="res://resources/fonts/FontdinerSwanky-Regular.ttf" id="16_fv2he"]
 [ext_resource type="PackedScene" uid="uid://bw5b4c2gd4eod" path="res://resources/HUD/scenes/round_timer.tscn" id="17_u0ygc"]
 
@@ -216,7 +217,7 @@ position = Vector2(126, 721)
 
 [node name="BombSprite" parent="Miss" instance=ExtResource("6_7ycvg")]
 z_index = 1
-position = Vector2(-16, -3)
+position = Vector2(-23, -3)
 
 [node name="BombSprite2" parent="Miss" instance=ExtResource("6_7ycvg")]
 z_index = 1
@@ -224,7 +225,24 @@ position = Vector2(90, -3)
 
 [node name="BombSprite3" parent="Miss" instance=ExtResource("6_7ycvg")]
 z_index = 1
-position = Vector2(194, -3)
+position = Vector2(205, -3)
+
+[node name="LivesLabel" type="Label" parent="Miss"]
+z_index = 2
+offset_left = 163.0
+offset_top = -39.0
+offset_right = 244.0
+offset_bottom = 159.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("16_fv2he")
+theme_override_font_sizes/font_size = 58
+text = "1"
+horizontal_alignment = 1
+
+[node name="1upBonusText" parent="Miss" instance=ExtResource("16_5smuj")]
+position = Vector2(88, 1)
 
 [node name="StyleMeterRoot" parent="." instance=ExtResource("7_nfk4m")]
 z_index = 5
@@ -265,6 +283,7 @@ parameters/looping = true
 
 [node name="JackpotTester" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_6jybn")
+volume_db = -6.82
 bus = &"SFX"
 
 [node name="MissSound" type="AudioStreamPlayer" parent="."]
@@ -335,6 +354,8 @@ scale = Vector2(1.16708, 1.18784)
 [connection signal="round_timer_stop" from="." to="RoundMeterMain" method="_on_main_round_timer_stop"]
 [connection signal="style_off" from="." to="StyleMeterRoot" method="_on_main_style_off"]
 [connection signal="style_on" from="." to="StyleMeterRoot" method="_on_main_style_on"]
+[connection signal="main_theme_pause" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_main_theme_pause"]
+[connection signal="main_theme_resume" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_main_theme_resume"]
 [connection signal="quit" from="CanvasLayer/GameOver" to="." method="_on_game_over_quit"]
 [connection signal="retry" from="CanvasLayer/GameOver" to="." method="_on_game_over_retry"]
 [connection signal="retry" from="CanvasLayer/GameOver" to="Player" method="_on_game_over_retry"]
@@ -356,6 +377,7 @@ scale = Vector2(1.16708, 1.18784)
 [connection signal="right" from="Player" to="StyleMeterRoot" method="_right_style_cooldown"]
 [connection signal="style_test" from="Player" to="StyleMeterRoot" method="_on_player_style_test"]
 [connection signal="taunt" from="Player" to="StyleMeterRoot" method="_taunt_style_cooldown"]
+[connection signal="taunt_release" from="Player" to="StyleMeterRoot" method="_on_player_taunt_release"]
 [connection signal="round_timer_timeout" from="RoundMeterMain" to="." method="_on_round_meter_main_round_timer_timeout"]
 [connection signal="rank_a" from="StyleMeterRoot" to="Hazards" method="_on_style_meter_root_rank_a"]
 [connection signal="rank_b" from="StyleMeterRoot" to="Hazards" method="_on_style_meter_root_rank_b"]

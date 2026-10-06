@@ -22,6 +22,7 @@ extends Node
 @onready var h_l_timer := $HalfLeftTimer
 @onready var hop_timer := $HopTimer
 @onready var taunt_timer := $TauntTimer
+
 @onready var down_timer := $DownTimer
 @onready var near_miss_timer := $NearMissTimer
 
@@ -50,6 +51,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	style_bar.value = style_value
+	GlobalVariables.global_style_meter_value = style_value
 	
 	if style_value >= 80: 
 		style_label.text = "Seismic"
@@ -88,6 +90,9 @@ func _process(delta: float) -> void:
 
 func _style_up(bonus_penalty: int) -> void:
 	style_value += (10 - bonus_penalty)
+
+func _taunt_style_up(bonus_penalty: int) -> void:
+	style_value += (5 - bonus_penalty)
 
 func _right_style_cooldown() -> void:
 	right_timer.start()
@@ -154,19 +159,35 @@ func _on_hop_timer_timeout() -> void:
 	else:
 		pass
 
-func _taunt_style_cooldown() -> void:
-	taunt_timer.start()
-	taunt_penalty += 1
-	if taunt_penalty > 5:
-		taunt_penalty = 5
-	else:
-		_style_up(taunt_penalty)
 
+	## the general idea behind this whole block, for the next four functions, was to make it so
+	## the player could get points for just holding the taunt button. But I ran into numerous problems
+	## with that, due to my gaps in knowledge when designing everything, and trying to solve it.
+	## for one, it's the only one relying on being actively held, which leads to numerous problems
+	## when the player does things like continues to hold the button during a Nova Blast.
+	## I had also spent so long testing it without the taunt timer functioning, that I fine tuned
+	## the timings entirely around NOT having the taunt timer. In the end I just left it wired up
+	## but not doing anything, so as to avoid breaking any of my other scripts
+
+func _taunt_style_cooldown() -> void:
+	#taunt_timer.start()
+	pass
+func _on_player_taunt_release() -> void:
+	#taunt_timer.stop()
+	#$TauntTimer/TauntTimerMetaTimer.start()
+	pass
+func _on_meta_taunt_timer_timeout() -> void:
+	#taunt_penalty = -1
+	pass
 func _on_taunt_timer_timeout() -> void:
-	if taunt_penalty > 1: 
-		taunt_penalty -= 1
-	else:
-		pass
+	#print("actual intended taunt timer timed out")
+	#taunt_penalty += 1
+	#if taunt_penalty > 5:
+		#taunt_penalty = 5
+		#_taunt_style_up(taunt_penalty)
+	#else:
+		#_taunt_style_up(taunt_penalty)
+	pass
 
 func _down_style_cooldown() -> void:
 	## # print("donw spin signal recieved")
@@ -208,7 +229,6 @@ func timers_reset() -> void:
 	h_r_timer.start()
 	h_l_timer.start()
 	hop_timer.start()
-	taunt_timer.start()
 	down_timer.start()
 	near_miss_timer.start()
 

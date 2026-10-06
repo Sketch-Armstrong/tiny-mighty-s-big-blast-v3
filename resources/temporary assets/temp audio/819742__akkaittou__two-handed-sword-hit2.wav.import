@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://x3phi53g5t5a"
+path="res://.godot/imported/819742__akkaittou__two-handed-sword-hit2.wav-6a7a6efc1def2ea3c3fdf37c8f6ad884.sample"
+
+[deps]
+
+source_file="res://resources/temporary assets/temp audio/819742__akkaittou__two-handed-sword-hit2.wav"
+dest_files=["res://.godot/imported/819742__akkaittou__two-handed-sword-hit2.wav-6a7a6efc1def2ea3c3fdf37c8f6ad884.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

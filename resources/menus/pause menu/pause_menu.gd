@@ -2,6 +2,9 @@ extends Control
 
 @onready var test_sound := $AudioStreamPlayer
 
+signal main_theme_pause
+signal main_theme_resume
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#visible = false
@@ -18,11 +21,12 @@ func _input(event: InputEvent) -> void:
 
 func _pause() -> void:
 	if get_tree().paused:
+		main_theme_resume.emit()
 		visible = false
 		test_sound.play()
 		get_tree().paused = false
-		
 	else:
+		main_theme_pause.emit()
 		visible = true
 		test_sound.play()
 		get_tree().paused = true

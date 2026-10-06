@@ -324,6 +324,9 @@ autostart = true
 [node name="DownTimer" type="Timer" parent="."]
 
 [node name="TauntTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="TauntTimerMetaTimer" type="Timer" parent="TauntTimer"]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_right = 40.0
@@ -338,3 +341,4 @@ offset_bottom = 40.0
 [connection signal="timeout" from="HopTimer" to="." method="_on_hop_timer_timeout"]
 [connection signal="timeout" from="DownTimer" to="." method="_on_down_timer_timeout"]
 [connection signal="timeout" from="TauntTimer" to="." method="_on_taunt_timer_timeout"]
+[connection signal="timeout" from="TauntTimer/TauntTimerMetaTimer" to="." method="_on_meta_taunt_timer_timeout"]

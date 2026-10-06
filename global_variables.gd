@@ -30,3 +30,5 @@ var tiny_visible := true
 
 var can_retry := true
 var can_quit := true
+
+var global_style_meter_value := 0

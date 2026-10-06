@@ -46,6 +46,7 @@ signal left
 signal half_right
 signal half_left
 signal taunt
+signal taunt_release
 signal hop
 signal down_spin
 signal BRUTE_FORCE_TAUNT_PRESSED
@@ -199,10 +200,12 @@ func _taunt() -> void:
 
 
 func _on_brute_force_taunt_pressed() -> void:
+	taunt.emit()
 	taunt_timer.start()
 
 func _on_brute_force_taunt_release() -> void:
-	
+	print("taunt button regular released")
+	taunt_release.emit()
 	taunt_timer.stop()
 	if player_animation_player.current_animation == "Pullback":
 		player_animation_player.stop()
@@ -346,3 +349,8 @@ func _on_game_over_retry() -> void:
 
 func show_coin_count() -> void:
 	$CollisionShape2D/CoinCountText.show_coin_counter()
+
+
+func _on_near_miss() -> void:
+	print("near missed")
+	$NearMissSoundPlayer.play()

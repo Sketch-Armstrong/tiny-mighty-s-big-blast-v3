@@ -27,7 +27,7 @@ extends Node2D
 @onready var main_style_value = 0
 
 @onready var stop_oneup_spam := false
-@onready var lives := 0
+@onready var lives := 3
 
 @onready var multiple_of_500_previous := 0
 
@@ -82,13 +82,13 @@ func _process(delta: float) -> void:
 		$MusicTester.volume_db = -10.0
 
 	
-	if GlobalVariables.hazard_count > 15:
+	if GlobalVariables.global_style_meter_value >= 80:
 		if $JackpotTester.playing:
 			pass
 		else:
 			$JackpotTester.play()
 	
-	if GlobalVariables.hazard_count < 15:
+	if GlobalVariables.global_style_meter_value < 80:
 		if $JackpotTester.playing:
 			$JackpotTester.stop()
 	
@@ -110,10 +110,20 @@ func _process(delta: float) -> void:
 	
 	#print("global results snapshot was ", GlobalVariables.results_snapshot)
 	check_lives_count()
+	show_or_hide_lives_label()
 	pass
+
+func show_or_hide_lives_label():
+	if lives > 3:
+		$Miss/LivesLabel.show()
+	else:
+		$Miss/LivesLabel.hide()
+
 
 func check_lives_count():
 	pass
+	$Miss/LivesLabel.text = str(lives)
+	
 	var multiple_of_500_current: int = maxi(snappedi(score - 250, 500), 0)
 	#print("snapping of score result: ", multiple_of_500_current)
 	#print("lives count,", lives)
@@ -130,6 +140,7 @@ func check_lives_count():
 	
 	for i in extra_lives:
 		lives += 1
+		$"Miss/1upBonusText".play_1up_animation()
 		if lives == 3:
 			$Miss/BombSprite2.bomb_reset()
 			$Miss/BombSprite3.bomb_reset()
@@ -238,6 +249,7 @@ func _miss() -> void:
 		Bomb1.bomb_blow()
 		game_over_screen.show()
 		game_over.emit()
+		$MusicTester.stop()
 	return
 
 func _on_hazard_coin_score() -> void:
@@ -264,6 +276,7 @@ func _on_game_over_quit() -> void:
 
 
 func _on_game_over_retry() -> void:
+	$MusicTester.play()
 	GlobalVariables.a_plus_tripwire = true
 	game_over_screen.hide()
 	lives = 3
@@ -277,6 +290,7 @@ func _on_game_over_retry() -> void:
 	$TimeLeft/GameTimer.start()
 
 func _on_main_game_start() -> void:
+
 	GlobalVariables.a_plus_tripwire = true
 	game_over_screen.hide()
 	lives = 3
@@ -296,5 +310,16 @@ func _on_round_meter_main_round_timer_timeout() -> void:
 
 func _on_game_timer_timeout() -> void:
 	pass # Replace with function body.
+	$MusicTester.stop()
 	game_over.emit()
 	game_over_screen.show()
+
+
+func _on_pause_menu_main_theme_pause() -> void:
+	$MusicTester.stream_paused = true
+
+
+
+
+func _on_pause_menu_main_theme_resume() -> void:
+	$MusicTester.stream_paused = false

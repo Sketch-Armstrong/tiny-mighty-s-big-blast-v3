@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cxv6jio1sg4a5"
+path="res://.godot/imported/869883__xkeril__sfx-small-gain-like-a-coin-04.wav-f7a6fe8d7b4b68f8e97782e08b943a69.sample"
+
+[deps]
+
+source_file="res://resources/temporary assets/temp audio/869883__xkeril__sfx-small-gain-like-a-coin-04.wav"
+dest_files=["res://.godot/imported/869883__xkeril__sfx-small-gain-like-a-coin-04.wav-f7a6fe8d7b4b68f8e97782e08b943a69.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
