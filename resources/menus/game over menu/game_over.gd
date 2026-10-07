@@ -18,7 +18,7 @@ func _ready() -> void:
 	#highscores.check_highscore()
 	highscore_handler.show_end_highscores_panel()
 	highscore_handler.hide_title_scores_panels()
-	g_over_player.play("papers_slide")
+	#g_over_player.play("papers_slide")
 	pass
 	
 
@@ -65,6 +65,7 @@ func _on_quit_button_pressed() -> void:
 	# print("quit signal emitted")
 
 func _on_main_game_over() -> void:
+	#await get_tree().create_timer(5).timeout
 	game_over_score_check.emit()
 	#print("global bonuses tracking was ",GlobalVariables.end_coin_bonus_total," ",
 	#GlobalVariables.end_four_round_complete_bonus_total," ",GlobalVariables.end_timer_bonus_total)

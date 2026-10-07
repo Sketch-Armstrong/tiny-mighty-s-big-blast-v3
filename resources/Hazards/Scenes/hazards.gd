@@ -230,7 +230,7 @@ func _spawn() -> void:
 		pass
 
 func _coin_chance() -> int:
-	var result = randi_range(0, 1)
+	var result = randi_range(0, 100)
 	return result
 
 func _on_coin_timer_timeout() -> void:
@@ -238,9 +238,9 @@ func _on_coin_timer_timeout() -> void:
 		var coin_flip_chance
 		coin_flip_chance = _coin_chance()
 
-		if coin_flip_chance == 0:
+		if coin_flip_chance >= 50:
 			inst_coin(hazard_two_spawn)
-		elif coin_flip_chance == 1:
+		elif coin_flip_chance < 50:
 			inst_coin(hazard_four_spawn)
 		
 		

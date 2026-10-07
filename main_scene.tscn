@@ -141,7 +141,6 @@ z_index = 12
 mouse_filter = 1
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("3_2jcla")]
-visible = false
 z_index = 10
 mouse_filter = 1
 
@@ -277,9 +276,7 @@ libraries/ = SubResource("AnimationLibrary_fv2he")
 process_mode = 3
 stream = ExtResource("14_6jybn")
 volume_db = -10.0
-autoplay = true
 bus = &"Music"
-parameters/looping = true
 
 [node name="JackpotTester" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_6jybn")
@@ -368,10 +365,12 @@ scale = Vector2(1.16708, 1.18784)
 [connection signal="left" from="Player" to="StyleMeterRoot" method="_left_style_cooldown"]
 [connection signal="near_miss" from="Player" to="StyleMeterRoot" method="_near_miss_style_cooldown"]
 [connection signal="player_miss" from="Player" to="StyleMeterRoot" method="_on_main_style_off"]
+[connection signal="player_nova_blast" from="Player" to="." method="_on_player_player_nova_blast"]
 [connection signal="player_nova_blast" from="Player" to="Hazards" method="_on_player_player_nova_blast"]
 [connection signal="player_nova_blast" from="Player" to="RoundMeterMain" method="_on_player_player_nova_blast"]
 [connection signal="player_nova_blast" from="Player" to="StyleMeterRoot" method="_on_main_style_off"]
 [connection signal="player_nova_blast" from="Player" to="Background" method="_on_player_player_nova_blast"]
+[connection signal="player_nova_blast_finished" from="Player" to="." method="_on_player_player_nova_blast_finished"]
 [connection signal="player_reset" from="Player" to="RoundMeterMain" method="_on_player_player_reset"]
 [connection signal="player_reset" from="Player" to="StyleMeterRoot" method="_on_main_style_on"]
 [connection signal="right" from="Player" to="StyleMeterRoot" method="_right_style_cooldown"]

@@ -30,7 +30,7 @@ var position_counter := 0
 @onready var miss_sprites := $MissSprites
 @onready var down_taunt_boolean := false
 @onready var sound_fx_test := $SoundEffectTester
-
+@onready var lives_player := 0
 
 @onready var ULTIMATE_CAN_MOVE := true
 
@@ -39,6 +39,7 @@ signal style_test
 
 signal player_reset
 signal player_nova_blast
+signal player_nova_blast_finished
 signal player_miss
 
 signal right
@@ -63,11 +64,13 @@ func _ready() -> void:
 	player_animation_player.play("Intro_Bounce")
 	taunt_timer.stop()
 	ULTIMATE_CAN_MOVE = false
-	await get_tree().create_timer(1,7).timeout
+	await get_tree().create_timer(1.7).timeout
 	ULTIMATE_CAN_MOVE = true
 
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
+	
 	
 	if GlobalVariables.tiny_visible == false:
 		self.hide()
@@ -252,6 +255,7 @@ func _half_dash_flip() -> void:
 	player_animation_player.play("Idle")
 
 func _nova_blast() -> void:
+	
 	main_scene.can_collide_master_off()
 	player_nova_blast.emit()
 	tiny_collision.disabled = true
@@ -265,6 +269,7 @@ func _nova_blast() -> void:
 	reset_tiny()
 	main_scene._on_player_nova_blast()
 	main_scene.increment_score()
+	player_nova_blast_finished.emit()
 
 func _increment_counter() -> void:
 	position_counter += 1
@@ -274,17 +279,35 @@ func _deincrement_counter() -> void:
 	position_counter -= 1
 	## # # print(position_counter)
 
+func play_game_over_sound() -> void:
+	$Audio/DeathSound4/GOVER_player.play("game_over_sound")
+	return
+		## was going to originally dummy this out, but I left it in on the off chance I wanted to
+		## do extra stuff on a game over
 
 func miss_function() -> void:
 	can_move = false
 	player_miss.emit()
-	tiny_collision.set_deferred("disabled", true)
-	tiny_collision_pos = $CollisionShape2D.global_position
-	miss_sprites.global_position = tiny_collision_pos
-	$Coinsplosion.global_position = tiny_collision_pos
-	player_animation_player.call_deferred("stop")
-	player_animation_player.call_deferred("play", "miss")
-	await player_animation_player.animation_finished
+
+	if GlobalVariables.lives_global == 1:
+		play_game_over_sound()
+		if GlobalVariables.lives_global == 1:
+			tiny_collision.set_deferred("disabled", true)
+			tiny_collision_pos = $CollisionShape2D.global_position
+			miss_sprites.global_position = tiny_collision_pos
+			$Coinsplosion.global_position = tiny_collision_pos
+			player_animation_player.call_deferred("stop")
+			player_animation_player.call_deferred("play", "miss_game_over")
+			await player_animation_player.animation_finished
+	
+	if GlobalVariables.lives_global > 1:
+		tiny_collision.set_deferred("disabled", true)
+		tiny_collision_pos = $CollisionShape2D.global_position
+		miss_sprites.global_position = tiny_collision_pos
+		$Coinsplosion.global_position = tiny_collision_pos
+		player_animation_player.call_deferred("stop")
+		player_animation_player.call_deferred("play", "miss")
+		await player_animation_player.animation_finished
 	
 	#self.global_position = spawn_point
 	reset_tiny()
@@ -354,3 +377,4 @@ func show_coin_count() -> void:
 func _on_near_miss() -> void:
 	print("near missed")
 	$NearMissSoundPlayer.play()
+	main_scene.near_miss()

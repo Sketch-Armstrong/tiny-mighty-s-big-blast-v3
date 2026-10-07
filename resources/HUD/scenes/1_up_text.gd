@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var extra_life_text = $"Node2D/1upBonusTextControl/1upBonusTextLabel"
+@onready var extra_life_text = $"Node2D/1upBonusTextControl"
 @onready var extra_life_player = $"1upBonusTextAnimationPlayer"
 
 

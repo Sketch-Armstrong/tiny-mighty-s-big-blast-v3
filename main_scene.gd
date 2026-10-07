@@ -31,6 +31,9 @@ extends Node2D
 
 @onready var multiple_of_500_previous := 0
 
+@onready var player_still_blasting := false
+signal player_truly_done_with_game
+
 signal round_timer_stop
 signal round_timer_start
 signal style_on
@@ -45,6 +48,7 @@ signal game_over
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$MusicTester.play()
 	#GlobalVariables.hazard_count = 0
 	#GlobalHighscoreHandler.global_highscore_snapper = GlobalVariables.results_snapshot
 	GlobalVariables.room_number_global = 1
@@ -75,6 +79,8 @@ func _process(delta: float) -> void:
 		##change me later to be "Quit" button 
 		get_tree().quit()
 	score_label.text = str(score)
+	
+	GlobalVariables.lives_global = lives
 	
 	if GlobalVariables.music_player_boolean == true:
 		$MusicTester.volume_db = -20.0
@@ -194,7 +200,7 @@ func taunt_bonus() -> void:
 	score += 10
 
 func near_miss() -> void:
-	score += 20
+	score += 5
 
 #func _on_hazards_miss() -> void:
 	#miss += 1
@@ -248,7 +254,7 @@ func _miss() -> void:
 	if lives == 0:
 		Bomb1.bomb_blow()
 		game_over_screen.show()
-		game_over.emit()
+		_on_main_game_game_over()
 		$MusicTester.stop()
 	return
 
@@ -301,6 +307,7 @@ func _on_main_game_start() -> void:
 	Bomb2.bomb_reset()
 	Bomb1.bomb_reset()
 	#Player.reset_tiny()
+
 	$TimeLeft/GameTimer.start()
 
 func _on_round_meter_main_round_timer_timeout() -> void:
@@ -309,10 +316,20 @@ func _on_round_meter_main_round_timer_timeout() -> void:
 
 
 func _on_game_timer_timeout() -> void:
-	pass # Replace with function body.
+	_on_main_game_game_over()
+
+func _on_main_game_game_over():
+	$TimeLeft/GameTimer.stop()
 	$MusicTester.stop()
+	if player_still_blasting == true:
+		await player_truly_done_with_game
+	print("game over time extension working")
+	await get_tree().create_timer(2).timeout
+	print("2 second time extension")
 	game_over.emit()
-	game_over_screen.show()
+	
+	#game_over_screen.show()
+
 
 
 func _on_pause_menu_main_theme_pause() -> void:
@@ -323,3 +340,13 @@ func _on_pause_menu_main_theme_pause() -> void:
 
 func _on_pause_menu_main_theme_resume() -> void:
 	$MusicTester.stream_paused = false
+
+
+func _on_player_player_nova_blast() -> void:
+	player_still_blasting = true
+	print("player still blasting")
+
+func _on_player_player_nova_blast_finished() -> void:
+	player_still_blasting = false
+	player_truly_done_with_game.emit()
+	print("player done blasting")

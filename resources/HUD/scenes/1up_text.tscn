@@ -103,7 +103,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(0.43527523, 1),
 "update": 0,
-"values": [0.0, -600.0]
+"values": [-150.0, -300.0]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -146,30 +146,28 @@ script = ExtResource("1_fgxnm")
 [node name="1upBonusTextControl" type="Control" parent="Node2D"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -104.0
+offset_top = 44.114525
+offset_right = 94.0
+offset_bottom = 190.11453
+pivot_offset = Vector2(104, 72)
 
 [node name="1upBonusTextLabel" type="RichTextLabel" parent="Node2D/1upBonusTextControl"]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -3.6000001
-anchor_top = -1.6
-anchor_right = 3.4
-anchor_bottom = 1.1750001
-offset_left = -104.0
-offset_top = -69.5
-offset_right = 112.0
-offset_bottom = 69.5
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 0
+offset_left = 39.0
+offset_right = 159.0
+offset_bottom = 146.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(248, 133.4574)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 9
+theme_override_constants/outline_size = 15
 theme_override_fonts/normal_font = ExtResource("2_fgxnm")
-theme_override_font_sizes/normal_font_size = 100
-text = "1-up!"
+theme_override_font_sizes/normal_font_size = 95
+text = "+1"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1

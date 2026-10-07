@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cnbj5rintioff"
+path="res://.godot/imported/536773__egomassive__siren.ogg-5cdb4c7eb670e411a772ccd742a57afb.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/temporary assets/temp audio/536773__egomassive__siren.ogg"
+dest_files=["res://.godot/imported/536773__egomassive__siren.ogg-5cdb4c7eb670e411a772ccd742a57afb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

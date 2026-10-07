@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dk65er3u6k3i6"
+path="res://.godot/imported/692523__newlocknew__vehsirn_police-car-sirengo-under-sfx_em.wav-9a58068ee1c3277cc062cb1728fbaab7.sample"
+
+[deps]
+
+source_file="res://resources/temporary assets/temp audio/692523__newlocknew__vehsirn_police-car-sirengo-under-sfx_em.wav"
+dest_files=["res://.godot/imported/692523__newlocknew__vehsirn_police-car-sirengo-under-sfx_em.wav-9a58068ee1c3277cc062cb1728fbaab7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
