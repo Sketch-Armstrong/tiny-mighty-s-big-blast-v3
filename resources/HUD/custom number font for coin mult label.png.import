@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://bbh71cpuwd5v"
+path="res://.godot/imported/custom number font for coin mult label.png-22190ea268c2115ab6df181a1e7c4e30.fontdata"
+
+[deps]
+
+source_file="res://resources/HUD/custom number font for coin mult label.png"
+dest_files=["res://.godot/imported/custom number font for coin mult label.png-22190ea268c2115ab6df181a1e7c4e30.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\'0\'-\'9\'", "\'.\'")
+kerning_pairs=PackedStringArray()
+columns=11
+rows=1
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=false
+scaling_mode=1

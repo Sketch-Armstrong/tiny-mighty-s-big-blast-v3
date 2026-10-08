@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c2l744fld5gcu"
+path="res://.godot/imported/712745__enoodle__slam_door.wav-6ca90593f4383cbf715743773d614f0d.sample"
+
+[deps]
+
+source_file="res://resources/audio/temp/temp sfx/712745__enoodle__slam_door.wav"
+dest_files=["res://.godot/imported/712745__enoodle__slam_door.wav-6ca90593f4383cbf715743773d614f0d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

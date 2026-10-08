@@ -1,0 +1,444 @@
+[gd_scene load_steps=15 format=3 uid="uid://cff8kn466e7eb"]
+
+[ext_resource type="Script" uid="uid://crwiqxgd52bpf" path="res://Singletons/highscore_handler.gd" id="1_yeg6h"]
+[ext_resource type="Script" uid="uid://cla7tx5fm8wnn" path="res://resources/menus/high score menu/high_scores_panel.gd" id="2_056gn"]
+[ext_resource type="FontFile" uid="uid://bob38lm8684j4" path="res://resources/fonts/BitcountPropDouble-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="2_iwmtd"]
+[ext_resource type="FontFile" uid="uid://cmb0cakpnob6w" path="res://resources/fonts/MetalMania-Regular.ttf" id="2_pvkmt"]
+[ext_resource type="Texture2D" uid="uid://bj615kqutwboc" path="res://resources/temporary assets/highscores gutter 1 idea.png" id="3_rt4oo"]
+[ext_resource type="Script" uid="uid://xja6w2gy36vk" path="res://Singletons/save_panel.gd" id="3_wnx2b"]
+[ext_resource type="Texture2D" uid="uid://crmdf45m45frc" path="res://resources/temporary assets/highscores gutter 2 idea.png" id="4_pvkmt"]
+[ext_resource type="Script" uid="uid://by5exe7x8250u" path="res://Singletons/bonuses_panel.gd" id="4_rsr31"]
+[ext_resource type="PackedScene" uid="uid://c8xdrejwy7770" path="res://resources/menus/high score menu/high_scores_initials_inputter.tscn" id="6_2uy8k"]
+[ext_resource type="Texture2D" uid="uid://d06ueq0tmkn2p" path="res://resources/Hazards/Sprites/final design coin sheet-Sheet.png" id="6_idmtf"]
+[ext_resource type="Texture2D" uid="uid://ipejk1shr1s7" path="res://resources/HUD/clock sprite.png" id="7_5rntb"]
+[ext_resource type="Texture2D" uid="uid://bmson1xtp777s" path="res://resources/HUD/clock x coins.png" id="8_5rntb"]
+[ext_resource type="Texture2D" uid="uid://dhj8ql4qxwtke" path="res://resources/HUD/garbage pile bonus sprite.png" id="9_yh864"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2uy8k"]
+
+[node name="HighScoreHandler" type="Node2D"]
+script = ExtResource("1_yeg6h")
+
+[node name="HighScoresPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 64.0
+offset_right = 64.0
+mouse_filter = 2
+mouse_behavior_recursive = 2
+script = ExtResource("2_056gn")
+
+[node name="Control" type="Control" parent="HighScoresPanel"]
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 800.0
+mouse_filter = 2
+mouse_behavior_recursive = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HighScoresPanel/Control"]
+layout_mode = 0
+offset_left = 952.0
+offset_right = 1120.0
+offset_bottom = 470.0
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2uy8k")
+
+[node name="MarginContainer" type="MarginContainer" parent="HighScoresPanel/Control/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HighScoresPanel/Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/separation = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "0000"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "0000"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "0000"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "0000"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "0000"
+fit_content = true
+
+[node name="PanelContainer2" type="PanelContainer" parent="HighScoresPanel/Control"]
+layout_mode = 0
+offset_left = 1102.0
+offset_right = 1270.0
+offset_bottom = 470.0
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2uy8k")
+
+[node name="MarginContainer" type="MarginContainer" parent="HighScoresPanel/Control/PanelContainer2"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/separation = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "AAA"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "AAA"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "AAA"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "AAA"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HighScoresPanel/Control/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "AAA"
+fit_content = true
+
+[node name="Control2" type="Control" parent="HighScoresPanel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BonusesPanel" type="VBoxContainer" parent="HighScoresPanel/Control2"]
+layout_mode = 0
+offset_left = 1023.0
+offset_top = 491.0
+offset_right = 1195.0
+offset_bottom = 773.0
+theme_override_constants/separation = 18
+script = ExtResource("4_rsr31")
+
+[node name="TimerLabel" type="RichTextLabel" parent="HighScoresPanel/Control2/BonusesPanel"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 50
+text = "test"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="CoinsLabel" type="RichTextLabel" parent="HighScoresPanel/Control2/BonusesPanel"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 50
+text = "test"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="CoinTimerLabel" type="RichTextLabel" parent="HighScoresPanel/Control2/BonusesPanel"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 50
+text = "test"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="RoundsLabel" type="RichTextLabel" parent="HighScoresPanel/Control2/BonusesPanel"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 50
+text = "test"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="BonusIndicators" type="Node2D" parent="HighScoresPanel/Control2"]
+position = Vector2(-77, 1)
+
+[node name="Clock" type="Sprite2D" parent="HighScoresPanel/Control2/BonusIndicators"]
+position = Vector2(1055, 517)
+texture = ExtResource("7_5rntb")
+
+[node name="Coin" type="Sprite2D" parent="HighScoresPanel/Control2/BonusIndicators"]
+position = Vector2(1057, 588)
+texture = ExtResource("6_idmtf")
+hframes = 7
+
+[node name="CoinsXClock" type="Sprite2D" parent="HighScoresPanel/Control2/BonusIndicators"]
+position = Vector2(1062, 664)
+texture = ExtResource("8_5rntb")
+
+[node name="Garbage" type="Sprite2D" parent="HighScoresPanel/Control2/BonusIndicators"]
+position = Vector2(1080, 743)
+texture = ExtResource("9_yh864")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(1432, 440)
+texture = ExtResource("3_rt4oo")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1397, 440)
+rotation = -0.034906585
+texture = ExtResource("4_pvkmt")
+
+[node name="InitialInputter" parent="." instance=ExtResource("6_2uy8k")]
+visible = false
+
+[node name="HighScoresTitleScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoresLabels" type="PanelContainer" parent="HighScoresTitleScreen"]
+layout_mode = 0
+offset_left = 320.0
+offset_right = 488.0
+offset_bottom = 770.0
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2uy8k")
+
+[node name="MarginContainer" type="MarginContainer" parent="HighScoresTitleScreen/ScoresLabels"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HighScoresTitleScreen/ScoresLabels/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/separation = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HighScoresTitleScreen/ScoresLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 1"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HighScoresTitleScreen/ScoresLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 2"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HighScoresTitleScreen/ScoresLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 3"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="HighScoresTitleScreen/ScoresLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 4"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HighScoresTitleScreen/ScoresLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_iwmtd")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 5"
+fit_content = true
+
+[node name="InitialsLabels" type="PanelContainer" parent="HighScoresTitleScreen"]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 56.0
+offset_right = 760.0
+offset_bottom = 526.0
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2uy8k")
+
+[node name="MarginContainer" type="MarginContainer" parent="HighScoresTitleScreen/InitialsLabels"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HighScoresTitleScreen/InitialsLabels/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/separation = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 1"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 2"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 3"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 4"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HighScoresTitleScreen/InitialsLabels/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_pvkmt")
+theme_override_font_sizes/normal_font_size = 56
+text = "Label 5"
+fit_content = true
+
+[node name="SavePanel" type="Panel" parent="HighScoresTitleScreen"]
+layout_mode = 0
+offset_left = 536.0
+offset_top = -72.0
+offset_right = 704.0
+offset_bottom = -32.0
+script = ExtResource("3_wnx2b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HighScoresTitleScreen/SavePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SaveButton" type="Button" parent="HighScoresTitleScreen/SavePanel/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "save"
+
+[node name="LoadButton" type="Button" parent="HighScoresTitleScreen/SavePanel/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "load"
+
+[node name="ClearButton" type="Button" parent="HighScoresTitleScreen/SavePanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "clear"
+
+[connection signal="pressed" from="HighScoresTitleScreen/SavePanel/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="HighScoresTitleScreen/SavePanel/HBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="HighScoresTitleScreen/SavePanel/HBoxContainer/ClearButton" to="." method="_on_clear_button_pressed"]

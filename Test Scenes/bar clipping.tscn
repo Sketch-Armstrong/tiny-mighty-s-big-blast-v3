@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cihb1ao5gu587"]
+
+[ext_resource type="Script" uid="uid://lo2kp0hxi1lh" path="res://Test Scenes/bar_clipping.gd" id="1_4vqmx"]
+[ext_resource type="Texture2D" uid="uid://dhckljbagcfio" path="res://resources/HUD/style meter outline-export temp notches-export.png" id="2_whgei"]
+[ext_resource type="Texture2D" uid="uid://cg7l0gdalkopj" path="res://resources/HUD/style meter white backing.png" id="4_bnsae"]
+[ext_resource type="Texture2D" uid="uid://b78584c7kmkrl" path="res://resources/HUD/style meter white backing backing.png" id="5_1015m"]
+[ext_resource type="PackedScene" uid="uid://cvucq27djloqa" path="res://resources/HUD/scenes/style meter icon.tscn" id="5_whgei"]
+
+[node name="VisualBarRoot" type="Node2D"]
+script = ExtResource("1_4vqmx")
+
+[node name="BlackOutline" type="Sprite2D" parent="."]
+clip_children = 2
+z_index = 1
+texture = ExtResource("2_whgei")
+
+[node name="BarMaskTest" type="Sprite2D" parent="."]
+clip_children = 2
+texture = ExtResource("4_bnsae")
+
+[node name="StyleMeterIcon" parent="BarMaskTest" instance=ExtResource("5_whgei")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("5_1015m")

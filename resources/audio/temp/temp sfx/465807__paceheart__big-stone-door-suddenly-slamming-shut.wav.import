@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cxb077wjfblpp"
+path="res://.godot/imported/465807__paceheart__big-stone-door-suddenly-slamming-shut.wav-08995a4506d41da3f6b68d2790187a67.sample"
+
+[deps]
+
+source_file="res://resources/audio/temp/temp sfx/465807__paceheart__big-stone-door-suddenly-slamming-shut.wav"
+dest_files=["res://.godot/imported/465807__paceheart__big-stone-door-suddenly-slamming-shut.wav-08995a4506d41da3f6b68d2790187a67.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

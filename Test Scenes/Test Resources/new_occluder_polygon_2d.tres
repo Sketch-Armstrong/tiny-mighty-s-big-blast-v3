@@ -1,0 +1,6 @@
+[gd_resource type="OccluderPolygon2D" format=3 uid="uid://8x0kn5wd13n"]
+
+[resource]
+resource_local_to_scene = true
+resource_name = "test polygon"
+polygon = PackedVector2Array(107, 192, 166, 376, 268, 376, 316, 187)

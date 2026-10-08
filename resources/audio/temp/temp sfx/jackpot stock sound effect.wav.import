@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ceb8xha5omsq3"
+path="res://.godot/imported/jackpot stock sound effect.wav-61bd6db46a3c9455f40fe068b0ea30bf.sample"
+
+[deps]
+
+source_file="res://resources/audio/temp/temp sfx/jackpot stock sound effect.wav"
+dest_files=["res://.godot/imported/jackpot stock sound effect.wav-61bd6db46a3c9455f40fe068b0ea30bf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

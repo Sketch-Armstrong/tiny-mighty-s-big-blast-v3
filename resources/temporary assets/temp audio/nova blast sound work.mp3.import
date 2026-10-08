@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://btxtkvcgclrsp"
+path="res://.godot/imported/nova blast sound work.mp3-ef241ad5548e67be1d6e9b6db9c6dff1.mp3str"
+
+[deps]
+
+source_file="res://resources/temporary assets/temp audio/nova blast sound work.mp3"
+dest_files=["res://.godot/imported/nova blast sound work.mp3-ef241ad5548e67be1d6e9b6db9c6dff1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

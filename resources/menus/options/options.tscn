@@ -1,0 +1,428 @@
+[gd_scene load_steps=29 format=3 uid="uid://drb12hb6ul2cr"]
+
+[ext_resource type="Script" uid="uid://d1v53fcgqch8j" path="res://resources/menus/options/options.gd" id="1_1ssaa"]
+[ext_resource type="Texture2D" uid="uid://dk0yecertxb2d" path="res://resources/temporary assets/arrow test.png" id="2_8bxk8"]
+[ext_resource type="FontFile" uid="uid://cmb0cakpnob6w" path="res://resources/fonts/MetalMania-Regular.ttf" id="3_g2gsc"]
+[ext_resource type="Script" uid="uid://do6jlh7g8f433" path="res://input_button.gd" id="3_qsv3m"]
+[ext_resource type="Texture2D" uid="uid://kxlgtobkkp6g" path="res://resources/menus/input settings/input settings backing texture.png" id="3_rt4v4"]
+[ext_resource type="FontFile" uid="uid://dnav6lhamfw13" path="res://resources/fonts/Bangers-Regular.ttf" id="4_g2gsc"]
+[ext_resource type="PackedScene" uid="uid://dwbuxcde3f5uy" path="res://resources/audio/volume_slider.tscn" id="4_rt4v4"]
+[ext_resource type="Texture2D" uid="uid://dxjnsfcvya7jl" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 1.png" id="7_jcj0d"]
+[ext_resource type="Theme" uid="uid://cnv77ybkxrbgw" path="res://resources/themes/black button theme test.tres" id="7_y6is1"]
+[ext_resource type="Texture2D" uid="uid://bsu3c4lej74" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 3.png" id="8_8bxk8"]
+[ext_resource type="Script" uid="uid://byps8j82h2ujt" path="res://resources/menus/options/focus_arrow_up.gd" id="8_tg5p4"]
+[ext_resource type="Script" uid="uid://b3kaqhmtrmwtj" path="res://resources/menus/options/focus_arrow_music_slider.gd" id="9_28pe5"]
+[ext_resource type="Script" uid="uid://cldkr2rmbtqpd" path="res://resources/menus/options/focus_arrow_reset.gd" id="9_hwbdq"]
+[ext_resource type="Script" uid="uid://dkpfcjkg6rkyq" path="res://resources/menus/options/focus_arrow_down.gd" id="9_ov61f"]
+[ext_resource type="Texture2D" uid="uid://bevdnbcs3ac14" path="res://resources/menus/main menu/sprites/Buttons/Back/Back 2.png" id="9_y6is1"]
+[ext_resource type="Script" uid="uid://chyof00aasvrd" path="res://resources/menus/options/focus_arrow_sfx_slider.gd" id="10_axiic"]
+[ext_resource type="Script" uid="uid://cohdrwn3nvitn" path="res://resources/menus/options/focus_arrow_left.gd" id="10_xbnut"]
+[ext_resource type="Script" uid="uid://hjdik2y4g8k7" path="res://resources/menus/options/focus_arrow_right.gd" id="11_8m6oc"]
+[ext_resource type="Script" uid="uid://cb0dpu4v40qdy" path="res://resources/menus/options/focus_arrow_taunt.gd" id="12_3pmhh"]
+[ext_resource type="Script" uid="uid://b2sxfak5cf5nm" path="res://resources/menus/options/focus_arrow_back.gd" id="12_y6is1"]
+[ext_resource type="Script" uid="uid://8vwplvl1mmkq" path="res://resources/menus/options/focus_arrow_master_slider.gd" id="14_nitmg"]
+[ext_resource type="Texture2D" uid="uid://mlu01lp5k7no" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton 2.png" id="17_8m6oc"]
+[ext_resource type="Script" uid="uid://daojgvn32nij" path="res://resources/menus/options/full_screen_check_button.gd" id="17_ov61f"]
+[ext_resource type="Texture2D" uid="uid://shasqx28byx4" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton 1.png" id="18_3pmhh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vh1wk"]
+texture = ExtResource("3_rt4v4")
+texture_margin_left = 25.0
+texture_margin_top = 30.0
+texture_margin_right = 35.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8m6oc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwbdq"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6is1"]
+bg_color = Color(0.76, 0.76, 0.76, 1)
+
+[node name="Options" type="Node2D"]
+script = ExtResource("1_1ssaa")
+
+[node name="InputSettings" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 803.0
+offset_top = 530.0
+offset_right = 803.0
+offset_bottom = 530.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_behavior_recursive = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="InputSettings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -464.0
+offset_right = 255.0
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vh1wk")
+
+[node name="MarginContainer" type="MarginContainer" parent="InputSettings/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 22
+
+[node name="OptionsList" type="VBoxContainer" parent="InputSettings/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
+layout_direction = 2
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 48
+text = "up"
+
+[node name="UpRemapButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+mouse_default_cursor_shape = 2
+theme = ExtResource("7_y6is1")
+theme_override_fonts/font = ExtResource("4_g2gsc")
+theme_override_font_sizes/font_size = 30
+script = ExtResource("3_qsv3m")
+action = "tiny_move_up"
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="FocusArrowUp" type="Sprite2D" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer/UpRemapButton"]
+visible = false
+position = Vector2(-36, 26)
+texture = ExtResource("2_8bxk8")
+script = ExtResource("8_tg5p4")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 46
+text = "down"
+
+[node name="DownRemapButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+focus_neighbor_top = NodePath("../../HBoxContainer/UpRemapButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../HBoxContainer3/LeftRemapButton")
+mouse_default_cursor_shape = 2
+theme = ExtResource("7_y6is1")
+theme_override_fonts/font = ExtResource("4_g2gsc")
+theme_override_font_sizes/font_size = 30
+script = ExtResource("3_qsv3m")
+action = "tiny_move_down"
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="FocusArrowDown" type="Sprite2D" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer2/DownRemapButton"]
+visible = false
+position = Vector2(-36, 31)
+texture = ExtResource("2_8bxk8")
+script = ExtResource("9_ov61f")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 46
+text = "left"
+
+[node name="LeftRemapButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+focus_neighbor_top = NodePath("../../HBoxContainer2/DownRemapButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../HBoxContainer4/RightRemapButton")
+mouse_default_cursor_shape = 2
+theme = ExtResource("7_y6is1")
+theme_override_fonts/font = ExtResource("4_g2gsc")
+theme_override_font_sizes/font_size = 30
+script = ExtResource("3_qsv3m")
+action = "tiny_move_left"
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="FocusArrowLeft" type="Sprite2D" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer3/LeftRemapButton"]
+visible = false
+position = Vector2(-36, 29)
+texture = ExtResource("2_8bxk8")
+script = ExtResource("10_xbnut")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 46
+text = "right"
+
+[node name="RightRemapButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer4"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+focus_neighbor_top = NodePath("../../HBoxContainer3/LeftRemapButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../HBoxContainer5/TauntRemapButton")
+mouse_default_cursor_shape = 2
+theme = ExtResource("7_y6is1")
+theme_override_fonts/font = ExtResource("4_g2gsc")
+theme_override_font_sizes/font_size = 30
+script = ExtResource("3_qsv3m")
+action = "tiny_move_right"
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="FocusArrowRight" type="Sprite2D" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer4/RightRemapButton"]
+visible = false
+position = Vector2(-36, 29)
+texture = ExtResource("2_8bxk8")
+script = ExtResource("11_8m6oc")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 46
+text = "taunt"
+
+[node name="TauntRemapButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer5"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+focus_neighbor_top = NodePath("../../HBoxContainer4/RightRemapButton")
+focus_neighbor_right = NodePath(".")
+mouse_default_cursor_shape = 2
+theme = ExtResource("7_y6is1")
+theme_override_fonts/font = ExtResource("4_g2gsc")
+theme_override_font_sizes/font_size = 30
+script = ExtResource("3_qsv3m")
+action = "taunt"
+metadata/_custom_type_script = "uid://do6jlh7g8f433"
+
+[node name="FocusArrowTaunt" type="Sprite2D" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer5/TauntRemapButton"]
+visible = false
+position = Vector2(-34, 32)
+texture = ExtResource("2_8bxk8")
+script = ExtResource("12_3pmhh")
+
+[node name="Label6" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 46
+text = "master volume"
+
+[node name="MasterSlider" parent="InputSettings/PanelContainer/MarginContainer/OptionsList" instance=ExtResource("4_rt4v4")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+bus_name = "Master"
+
+[node name="FocusArrowMasterSlider" type="Sprite2D" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/MasterSlider"]
+visible = false
+position = Vector2(88, 6)
+texture = ExtResource("2_8bxk8")
+script = ExtResource("14_nitmg")
+
+[node name="Label7" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 46
+text = "Music volume"
+
+[node name="MusicSlider" parent="InputSettings/PanelContainer/MarginContainer/OptionsList" instance=ExtResource("4_rt4v4")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+bus_name = "Music"
+
+[node name="FocusArrowMusicSlider" type="Sprite2D" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/MusicSlider"]
+visible = false
+position = Vector2(88, 6)
+texture = ExtResource("2_8bxk8")
+script = ExtResource("9_28pe5")
+
+[node name="Label8" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 46
+text = "SFX volume"
+
+[node name="SFXSlider" parent="InputSettings/PanelContainer/MarginContainer/OptionsList" instance=ExtResource("4_rt4v4")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+bus_name = "SFX"
+
+[node name="FocusArrowSFXSlider" type="Sprite2D" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/SFXSlider"]
+visible = false
+position = Vector2(88, 6)
+texture = ExtResource("2_8bxk8")
+script = ExtResource("10_axiic")
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/OptionsList"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../SFXSlider")
+focus_neighbor_right = NodePath("../../../../../../BackButton")
+focus_neighbor_bottom = NodePath("../../../../../../BackButton")
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8m6oc")
+theme_override_icons/checked = ExtResource("17_8m6oc")
+theme_override_icons/unchecked = ExtResource("18_3pmhh")
+script = ExtResource("17_ov61f")
+
+[node name="Sprite2D" type="Sprite2D" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton"]
+visible = false
+position = Vector2(110, 30.5)
+texture = ExtResource("2_8bxk8")
+
+[node name="Label" type="Label" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g2gsc")
+theme_override_font_sizes/font_size = 48
+text = "Fullscreen"
+
+[node name="MarginContainer" type="MarginContainer" parent="InputSettings"]
+visible = false
+layout_mode = 0
+offset_left = 25.0
+offset_top = -154.0
+offset_right = 333.0
+offset_bottom = 56.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ResetButton" type="Button" parent="InputSettings"]
+layout_mode = 0
+offset_left = -163.0
+offset_top = 183.0
+offset_right = 76.0
+offset_bottom = 235.0
+focus_neighbor_right = NodePath("../../BackButton")
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_g2gsc")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_hwbdq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y6is1")
+text = "Reset inputs"
+
+[node name="FocusArrowReset" type="Sprite2D" parent="InputSettings/ResetButton"]
+visible = false
+position = Vector2(97, 25)
+texture = ExtResource("2_8bxk8")
+script = ExtResource("9_hwbdq")
+
+[node name="Button" type="Button" parent="InputSettings"]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 25.0
+offset_top = 97.0
+offset_right = 333.0
+offset_bottom = 128.0
+focus_neighbor_left = NodePath("../PanelContainer/MarginContainer/OptionsList")
+theme_override_colors/font_focus_color = Color(0.9490196, 0, 0.9490196, 1)
+text = "back placeholder"
+
+[node name="BackButton" type="TextureButton" parent="."]
+offset_left = 916.0
+offset_top = 659.0
+offset_right = 1237.0
+offset_bottom = 788.0
+focus_neighbor_left = NodePath("../InputSettings/ResetButton")
+focus_neighbor_top = NodePath("../InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton")
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("7_jcj0d")
+texture_pressed = ExtResource("8_8bxk8")
+texture_hover = ExtResource("9_y6is1")
+
+[node name="FocusArrowBack" type="Sprite2D" parent="BackButton"]
+visible = false
+position = Vector2(100, 79)
+texture = ExtResource("2_8bxk8")
+script = ExtResource("12_y6is1")
+
+[connection signal="done_remapping" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer/UpRemapButton" to="." method="_on_up_remap_button_done_remapping"]
+[connection signal="focus_entered" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer/UpRemapButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer/UpRemapButton/FocusArrowUp" method="show_self"]
+[connection signal="focus_exited" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer/UpRemapButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer/UpRemapButton/FocusArrowUp" method="hide_self"]
+[connection signal="done_remapping" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer2/DownRemapButton" to="." method="_on_down_remap_button_done_remapping"]
+[connection signal="focus_entered" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer2/DownRemapButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer2/DownRemapButton/FocusArrowDown" method="show_self"]
+[connection signal="focus_exited" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer2/DownRemapButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer2/DownRemapButton/FocusArrowDown" method="hide_self"]
+[connection signal="done_remapping" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer3/LeftRemapButton" to="." method="_on_left_remap_button_done_remapping"]
+[connection signal="focus_entered" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer3/LeftRemapButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer3/LeftRemapButton/FocusArrowLeft" method="show_self"]
+[connection signal="focus_exited" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer3/LeftRemapButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer3/LeftRemapButton/FocusArrowLeft" method="hide_self"]
+[connection signal="done_remapping" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer4/RightRemapButton" to="." method="_on_right_remap_button_done_remapping"]
+[connection signal="focus_entered" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer4/RightRemapButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer4/RightRemapButton/FocusArrowRight" method="show_self"]
+[connection signal="focus_exited" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer4/RightRemapButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer4/RightRemapButton/FocusArrowRight" method="hide_self"]
+[connection signal="done_remapping" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer5/TauntRemapButton" to="." method="_on_taunt_remap_button_done_remapping"]
+[connection signal="focus_entered" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer5/TauntRemapButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer5/TauntRemapButton/FocusArrowTaunt" method="show_self"]
+[connection signal="focus_exited" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer5/TauntRemapButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer5/TauntRemapButton/FocusArrowTaunt" method="hide_self"]
+[connection signal="focus_entered" from="InputSettings/PanelContainer/MarginContainer/OptionsList/MasterSlider" to="InputSettings/PanelContainer/MarginContainer/OptionsList/MasterSlider/FocusArrowMasterSlider" method="_on_master_slider_focus_entered"]
+[connection signal="focus_exited" from="InputSettings/PanelContainer/MarginContainer/OptionsList/MasterSlider" to="InputSettings/PanelContainer/MarginContainer/OptionsList/MasterSlider/FocusArrowMasterSlider" method="_on_master_slider_focus_exited"]
+[connection signal="focus_entered" from="InputSettings/PanelContainer/MarginContainer/OptionsList/MusicSlider" to="InputSettings/PanelContainer/MarginContainer/OptionsList/MusicSlider/FocusArrowMusicSlider" method="_on_music_slider_focus_entered"]
+[connection signal="focus_exited" from="InputSettings/PanelContainer/MarginContainer/OptionsList/MusicSlider" to="InputSettings/PanelContainer/MarginContainer/OptionsList/MusicSlider/FocusArrowMusicSlider" method="_on_music_slider_focus_exited"]
+[connection signal="focus_entered" from="InputSettings/PanelContainer/MarginContainer/OptionsList/SFXSlider" to="InputSettings/PanelContainer/MarginContainer/OptionsList/SFXSlider/FocusArrowSFXSlider" method="_on_sfx_slider_focus_entered"]
+[connection signal="focus_exited" from="InputSettings/PanelContainer/MarginContainer/OptionsList/SFXSlider" to="InputSettings/PanelContainer/MarginContainer/OptionsList/SFXSlider/FocusArrowSFXSlider" method="_on_sfx_slider_focus_exited"]
+[connection signal="focus_entered" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton" method="_on_focus_exited"]
+[connection signal="toggled" from="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton" to="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer6/CheckButton" method="_on_toggled"]
+[connection signal="focus_entered" from="InputSettings/ResetButton" to="InputSettings/ResetButton/FocusArrowReset" method="_on_reset_button_focus_entered"]
+[connection signal="focus_exited" from="InputSettings/ResetButton" to="InputSettings/ResetButton/FocusArrowReset" method="_on_reset_button_focus_exited"]
+[connection signal="pressed" from="InputSettings/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="focus_entered" from="BackButton" to="BackButton/FocusArrowBack" method="_on_back_button_focus_entered"]
+[connection signal="focus_exited" from="BackButton" to="BackButton/FocusArrowBack" method="_on_back_button_focus_exited"]
+[connection signal="pressed" from="BackButton" to="." method="_on_options_back_button_pressed"]

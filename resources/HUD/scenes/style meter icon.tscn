@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvucq27djloqa"]
+
+[ext_resource type="Script" uid="uid://d1qjed4527kts" path="res://resources/HUD/scenes/style_meter_icon.gd" id="1_00ake"]
+[ext_resource type="Texture2D" uid="uid://c1laiqs2vw1uw" path="res://resources/background/sprites/BG scene assets/Background 2 Sprites/top half back black.png" id="2_00ake"]
+[ext_resource type="Texture2D" uid="uid://b3jpcscgrwip0" path="res://resources/HUD/style meter outline-export temp notches white lines for behind-export.png" id="3_whbib"]
+
+[sub_resource type="Animation" id="Animation_rdo2p"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IconSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_00ake"]
+resource_name = "animate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IconSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gabv4"]
+_data = {
+&"RESET": SubResource("Animation_rdo2p"),
+&"animate": SubResource("Animation_00ake")
+}
+
+[node name="StyleMeterIcon" type="Node2D"]
+script = ExtResource("1_00ake")
+
+[node name="IconSprite" type="Sprite2D" parent="."]
+position = Vector2(283, 0)
+texture = ExtResource("2_00ake")
+hframes = 3
+
+[node name="StyleIconAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gabv4")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("3_whbib")

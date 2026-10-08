@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg536nu03etdk"]
+
+[ext_resource type="PackedScene" uid="uid://b6kjyahoovv0s" path="res://resources/menus/input settings/input_settings.tscn" id="1_refgo"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="InputSettings" parent="." instance=ExtResource("1_refgo")]

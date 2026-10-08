@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://th3tpqh83vwn"]
+
+[ext_resource type="Script" uid="uid://pkoes2disoxa" path="res://resources/Hazards/Scenes/hazard_a.gd" id="1_nir3k"]
+[ext_resource type="Material" uid="uid://dohviwbi7bs1w" path="res://Shaders/Tests/shader_test copy for hazards.tres" id="2_10tql"]
+[ext_resource type="Texture2D" uid="uid://b7cmx2a02tdfj" path="res://resources/Hazards/Sprites/hazards sprites-Sheet.png" id="3_10tql"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x64uq"]
+radius = 15.0
+
+[sub_resource type="Animation" id="Animation_10tql"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_coi2i"]
+resource_name = "spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ydfuv"]
+_data = {
+&"RESET": SubResource("Animation_10tql"),
+&"spin": SubResource("Animation_coi2i")
+}
+
+[node name="HazardA" type="RigidBody2D" groups=["Hazards"]]
+position = Vector2(80, 96)
+collision_layer = 128
+mass = 1000.0
+gravity_scale = 10.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_nir3k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x64uq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+material = ExtResource("2_10tql")
+texture = ExtResource("3_10tql")
+hframes = 3
+vframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ydfuv")
+}

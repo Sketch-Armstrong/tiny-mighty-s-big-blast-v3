@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfwhutypthcb1"]
+
+[ext_resource type="Texture2D" uid="uid://b5xgxqfnwknor" path="res://resources/menus/main menu/Tiny's Sprites/main menu tiny body sheet.png" id="1_3duqe"]
+[ext_resource type="Texture2D" uid="uid://nhcth2k01m0p" path="res://resources/temporary assets/tiny red.png" id="2_bh25e"]
+[ext_resource type="Texture2D" uid="uid://dl8xcw3it2r5u" path="res://resources/temporary assets/white circle.png" id="3_ep171"]
+[ext_resource type="Texture2D" uid="uid://cg34xtnyk32s" path="res://resources/temporary assets/hollow circle.png" id="4_47ajs"]
+[ext_resource type="Texture2D" uid="uid://dhdnb3gn8o0ct" path="res://resources/temporary assets/light test alpha channel.png" id="5_ep171"]
+[ext_resource type="OccluderPolygon2D" uid="uid://8x0kn5wd13n" path="res://Test Scenes/Test Resources/new_occluder_polygon_2d.tres" id="6_47ajs"]
+
+[sub_resource type="Animation" id="Animation_cpm3t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body2/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-33, 560)]
+}
+
+[sub_resource type="Animation" id="Animation_ni0mq"]
+resource_name = "spotlight move up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body2/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-33, 560), Vector2(-33, -29)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pqts2"]
+_data = {
+&"RESET": SubResource("Animation_cpm3t"),
+&"spotlight move up": SubResource("Animation_ni0mq")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.32941177)
+position = Vector2(841, 441)
+texture = ExtResource("3_ep171")
+
+[node name="Body" type="Sprite2D" parent="."]
+clip_children = 2
+position = Vector2(694, 233)
+texture = ExtResource("1_3duqe")
+hframes = 2
+frame = 1
+
+[node name="Body3" type="Sprite2D" parent="."]
+clip_children = 2
+position = Vector2(393, 294)
+texture = ExtResource("1_3duqe")
+hframes = 2
+frame = 1
+
+[node name="Body2" type="Sprite2D" parent="."]
+position = Vector2(393, 294)
+texture = ExtResource("2_bh25e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body2"]
+z_index = -4
+position = Vector2(-33, 560)
+scale = Vector2(1.6391982, 1.6391981)
+texture = ExtResource("4_47ajs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries/ = SubResource("AnimationLibrary_pqts2")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Node"]
+top_level = true
+light_mask = 1023
+visibility_layer = 1023
+position = Vector2(755, 319)
+range_layer_max = 10
+shadow_enabled = true
+texture = ExtResource("5_ep171")
+texture_scale = 1.41
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Node"]
+position = Vector2(490, -57)
+occluder = ExtResource("6_47ajs")

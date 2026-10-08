@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5vh10xcpw6d5"]
+
+[ext_resource type="Script" uid="uid://c04lanxmqe40" path="res://input_remap_testing.gd" id="1_l33dj"]
+
+[node name="InputRemapTesting" type="Node2D"]
+script = ExtResource("1_l33dj")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbelx6p58370d"]
+
+[ext_resource type="Material" uid="uid://cjwh072dhg4bd" path="res://Shaders/Tests/shader_test.tres" id="1_8fgmq"]
+[ext_resource type="Texture2D" uid="uid://dj2c2ycvqsvuu" path="res://resources/character/sprites/TinyMighty.png" id="2_u1cjd"]
+[ext_resource type="Script" uid="uid://b3a0dnkusb46y" path="res://sprite_2d.gd" id="3_nf8ad"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("1_8fgmq")
+position = Vector2(461, 169)
+texture = ExtResource("2_u1cjd")
+script = ExtResource("3_nf8ad")

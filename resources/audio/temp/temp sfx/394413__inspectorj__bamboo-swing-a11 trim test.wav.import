@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://12a1qvs8ipwi"
+path="res://.godot/imported/394413__inspectorj__bamboo-swing-a11 trim test.wav-82c81cf521a8b11f42990a776b3588b5.sample"
+
+[deps]
+
+source_file="res://resources/audio/temp/temp sfx/394413__inspectorj__bamboo-swing-a11 trim test.wav"
+dest_files=["res://.godot/imported/394413__inspectorj__bamboo-swing-a11 trim test.wav-82c81cf521a8b11f42990a776b3588b5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
