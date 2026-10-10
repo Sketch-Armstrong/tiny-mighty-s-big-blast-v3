@@ -243,6 +243,23 @@ horizontal_alignment = 1
 [node name="1upBonusText" parent="Miss" instance=ExtResource("16_5smuj")]
 position = Vector2(88, 1)
 
+[node name="ShimmerTimers" type="Node" parent="Miss"]
+
+[node name="ShimmerTimer1" type="Timer" parent="Miss/ShimmerTimers"]
+wait_time = 60.0
+
+[node name="ShimmerTimer2" type="Timer" parent="Miss/ShimmerTimers"]
+wait_time = 30.0
+
+[node name="ShimmerTimer3" type="Timer" parent="Miss/ShimmerTimers"]
+wait_time = 5.0
+
+[node name="ShimmerTimer4" type="Timer" parent="Miss/ShimmerTimers"]
+wait_time = 2.0
+
+[node name="ShimmerTimer5" type="Timer" parent="Miss/ShimmerTimers"]
+wait_time = 1.4
+
 [node name="StyleMeterRoot" parent="." instance=ExtResource("7_nfk4m")]
 z_index = 5
 position = Vector2(538, 734)
@@ -262,7 +279,7 @@ horizontal_alignment = 1
 script = ExtResource("14_ak604")
 
 [node name="GameTimer" type="Timer" parent="TimeLeft"]
-wait_time = 5.0
+wait_time = 300.0
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TimeLeft"]
@@ -378,6 +395,11 @@ scale = Vector2(1.16708, 1.18784)
 [connection signal="taunt" from="Player" to="StyleMeterRoot" method="_taunt_style_cooldown"]
 [connection signal="taunt_release" from="Player" to="StyleMeterRoot" method="_on_player_taunt_release"]
 [connection signal="round_timer_timeout" from="RoundMeterMain" to="." method="_on_round_meter_main_round_timer_timeout"]
+[connection signal="timeout" from="Miss/ShimmerTimers/ShimmerTimer1" to="." method="_on_shimmer_timer_1_timeout"]
+[connection signal="timeout" from="Miss/ShimmerTimers/ShimmerTimer2" to="." method="_on_shimmer_timer_2_timeout"]
+[connection signal="timeout" from="Miss/ShimmerTimers/ShimmerTimer3" to="." method="_on_shimmer_timer_3_timeout"]
+[connection signal="timeout" from="Miss/ShimmerTimers/ShimmerTimer4" to="." method="_on_shimmer_timer_4_timeout"]
+[connection signal="timeout" from="Miss/ShimmerTimers/ShimmerTimer5" to="." method="_on_shimmer_timer_5_timeout"]
 [connection signal="rank_a" from="StyleMeterRoot" to="Hazards" method="_on_style_meter_root_rank_a"]
 [connection signal="rank_b" from="StyleMeterRoot" to="Hazards" method="_on_style_meter_root_rank_b"]
 [connection signal="rank_c" from="StyleMeterRoot" to="Hazards" method="_on_style_meter_root_rank_c"]

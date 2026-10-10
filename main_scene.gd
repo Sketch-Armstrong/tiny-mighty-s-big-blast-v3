@@ -31,6 +31,20 @@ extends Node2D
 
 @onready var multiple_of_500_previous := 0
 
+@onready var shimmered_bool_0_to_1000 := true
+@onready var shimmered_bool_1000_to_2000 := true
+@onready var shimmered_bool_2000_to_3000 := true
+@onready var shimmered_bool_3000_to_4000 := true
+@onready var shimmered_bool_4000_to_5000 := true
+@onready var shimmered_bool_5000_plus := false
+
+@onready var shimmer_timer_1 = $Miss/ShimmerTimers/ShimmerTimer1
+@onready var shimmer_timer_2 = $Miss/ShimmerTimers/ShimmerTimer2
+@onready var shimmer_timer_3 = $Miss/ShimmerTimers/ShimmerTimer3
+@onready var shimmer_timer_4 = $Miss/ShimmerTimers/ShimmerTimer4
+@onready var shimmer_timer_5 = $Miss/ShimmerTimers/ShimmerTimer5
+
+
 @onready var player_still_blasting := false
 signal player_truly_done_with_game
 
@@ -48,6 +62,7 @@ signal game_over
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#change_bombs_to_gems()
 	$MusicTester.play()
 	#GlobalVariables.hazard_count = 0
 	#GlobalHighscoreHandler.global_highscore_snapper = GlobalVariables.results_snapshot
@@ -67,6 +82,7 @@ func _ready() -> void:
 	game_over_screen.hide()
 	_round_timer_start()
 	_on_main_game_start()
+	_start_all_shimmer_timers()
 
 func _round_timer_start() -> void:
 	#await get_tree().create_timer(0.0).timeout
@@ -104,7 +120,7 @@ func _process(delta: float) -> void:
 		#pass
 	
 	if Input.is_action_just_pressed("debugging_score_up"):
-		score += 100
+		score += 500
 	
 	#score_label.text = str("123456789")
 	"""
@@ -117,7 +133,98 @@ func _process(delta: float) -> void:
 	#print("global results snapshot was ", GlobalVariables.results_snapshot)
 	check_lives_count()
 	show_or_hide_lives_label()
+	check_score_and_shimmer()
 	pass
+
+func check_score_and_shimmer():
+	if score >= 0:
+		pass
+		if score >= 5000 and shimmered_bool_5000_plus == false and GlobalVariables.a_plus_tripwire == true:
+			_stop_all_shimmer_timers()
+			_set_all_shimmer_bools_true()
+			change_bombs_to_gems()
+			return
+			## play the change shape animation
+		
+		elif score >= 4000  and score < 5000 and shimmered_bool_4000_to_5000 == false and GlobalVariables.a_plus_tripwire == true:
+			Bomb3.bomb_shimmer()
+			shimmered_bool_4000_to_5000 = true
+			return
+		
+		elif score >= 3000 and score < 4000 and shimmered_bool_3000_to_4000 == false and GlobalVariables.a_plus_tripwire == true:
+			Bomb3.bomb_shimmer()
+			shimmered_bool_3000_to_4000 = true
+			return
+		
+		elif score >= 2000 and score < 3000 and shimmered_bool_2000_to_3000 == false and GlobalVariables.a_plus_tripwire == true:
+			Bomb3.bomb_shimmer()
+			shimmered_bool_2000_to_3000 = true
+			return
+		
+		elif score >= 1000 and score < 2000 and shimmered_bool_1000_to_2000 == false and GlobalVariables.a_plus_tripwire == true:
+			Bomb3.bomb_shimmer()
+			shimmered_bool_1000_to_2000 = true
+			return
+
+		elif score >= 0 and score < 1000 and shimmered_bool_0_to_1000 == false and GlobalVariables.a_plus_tripwire == true:
+			Bomb3.bomb_shimmer()
+			shimmered_bool_0_to_1000 = true
+			return
+
+
+func _on_shimmer_timer_1_timeout() -> void:
+	shimmered_bool_0_to_1000 = false
+
+
+func _on_shimmer_timer_2_timeout() -> void:
+	shimmered_bool_1000_to_2000 = false
+
+
+func _on_shimmer_timer_3_timeout() -> void:
+	shimmered_bool_3000_to_4000 = false
+
+
+func _on_shimmer_timer_4_timeout() -> void:
+	shimmered_bool_4000_to_5000 = false
+
+
+func _on_shimmer_timer_5_timeout() -> void:
+	pass
+
+func _stop_all_shimmer_timers() -> void:
+	shimmer_timer_1.stop()
+	shimmer_timer_2.stop()
+	shimmer_timer_3.stop()
+	shimmer_timer_4.stop()
+
+func _start_all_shimmer_timers() -> void:
+	shimmer_timer_1.start()
+	shimmer_timer_2.start()
+	shimmer_timer_3.start()
+	shimmer_timer_4.start()
+
+func _set_all_shimmer_bools_true() -> void:
+	shimmered_bool_0_to_1000 = true
+	shimmered_bool_2000_to_3000 = true
+	shimmered_bool_2000_to_3000 = true
+	shimmered_bool_3000_to_4000 = true
+	shimmered_bool_5000_plus = true
+
+func _set_all_shimmer_bools_false() -> void:
+	shimmered_bool_0_to_1000 = false
+	shimmered_bool_2000_to_3000 = false
+	shimmered_bool_2000_to_3000 = false
+	shimmered_bool_3000_to_4000 = false
+	shimmered_bool_5000_plus = false
+
+
+func change_bombs_to_gems() -> void:
+	Bomb3.change_to_gem()
+	await get_tree().create_timer(0.2).timeout
+	Bomb2.change_to_gem()
+	await get_tree().create_timer(0.2).timeout
+	Bomb1.change_to_gem()
+	
 
 func show_or_hide_lives_label():
 	if lives > 3:
@@ -294,6 +401,8 @@ func _on_game_over_retry() -> void:
 	Bomb1.bomb_reset()
 	Player.reset_tiny()
 	$TimeLeft/GameTimer.start()
+	_start_all_shimmer_timers()
+	_set_all_shimmer_bools_false()
 
 func _on_main_game_start() -> void:
 
@@ -319,6 +428,8 @@ func _on_main_game_game_over():
 	$TimeLeft/GameTimer.stop()
 	$MusicTester.stop()
 	if player_still_blasting == true:
+		_stop_all_shimmer_timers()
+		_set_all_shimmer_bools_true()
 		await player_truly_done_with_game
 		Player.game_over_stop_player()
 		print("game over time extension working")
@@ -328,6 +439,8 @@ func _on_main_game_game_over():
 		game_over.emit()
 	
 	else:
+		_stop_all_shimmer_timers()
+		_set_all_shimmer_bools_true()
 		print("2 second time extension")
 		GlobalVariables.results_snapshot = score
 		game_over.emit()

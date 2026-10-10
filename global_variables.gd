@@ -7,6 +7,7 @@ var score_global := 0
 var results_snapshot := 0
 var coin_snapshot := 0
 var lives_global
+var time_left_global := 0
 
 var end_coin_bonus_total := 0
 var end_timer_bonus_total := 0

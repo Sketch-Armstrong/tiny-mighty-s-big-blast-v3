@@ -130,8 +130,6 @@ texture = ExtResource("6_du6rp")
 hframes = 7
 
 [node name="CoinPlayer" type="AnimationPlayer" parent="MeterCoin"]
-libraries = {
-&"": SubResource("AnimationLibrary_uafof")
-}
+libraries/ = SubResource("AnimationLibrary_uafof")
 
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

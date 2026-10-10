@@ -15,6 +15,9 @@ func _ready() -> void:
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	set_time()
+	GlobalVariables.time_left_global = roundi($GameTimer.time_left)
+	#print(str(GlobalVariables.time_left_global))
+	
 
 func set_time() -> void: 
 	game_timer = round($GameTimer.time_left)
