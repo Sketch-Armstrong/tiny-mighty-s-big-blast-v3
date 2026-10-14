@@ -17,12 +17,14 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+
 	var round_timer_value = $RoundTimer.get_time_left()
 	#print(round_timer_value)
 	var coin_mult_num = 11 - round_timer_value
 	progress_bar.value = round_timer_value
 	
 	coin_mult_text.set_frame(coin_mult_num)
+	
 
 func _start_round_timer() -> void:
 	round_timer.start()
@@ -52,6 +54,9 @@ func _on_round_timer_timeout() -> void:
 
 func _on_main_round_timer_stop() -> void:
 	round_timer.set_paused(true)
+
+func _on_main_round_timer_actually_stop() -> void:
+	round_timer.stop()
 
 
 func _on_main_round_timer_start() -> void:

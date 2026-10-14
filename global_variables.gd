@@ -29,6 +29,7 @@ var style_meter_rank := 0
 var a_plus_tripwire := true
 
 var tiny_visible := true
+var miss_active := false
 
 var can_retry := true
 var can_quit := true

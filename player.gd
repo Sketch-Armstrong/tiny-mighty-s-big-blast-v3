@@ -286,6 +286,7 @@ func play_game_over_sound() -> void:
 		## do extra stuff on a game over
 
 func miss_function() -> void:
+	GlobalVariables.miss_active = true
 	can_move = false
 	player_miss.emit()
 
@@ -327,6 +328,7 @@ func reset_tiny() -> void:
 	player_animation_player.play("RESET")
 	player_reset.emit()
 	GlobalVariables.music_player_boolean = false
+	GlobalVariables.miss_active = false
 	_idle()
 	## ============
 	## include the timers giga reset here

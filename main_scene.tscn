@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://of1qt3olovgl"]
+[gd_scene load_steps=33 format=3 uid="uid://of1qt3olovgl"]
 
 [ext_resource type="Script" uid="uid://cionb2fw474m3" path="res://main_scene.gd" id="1_iwt3a"]
 [ext_resource type="PackedScene" uid="uid://xflhitgj8yn4" path="res://resources/menus/pause menu/pause_menu.tscn" id="2_42l1d"]
@@ -25,6 +25,57 @@
 [ext_resource type="PackedScene" uid="uid://cggafeqh1tirw" path="res://resources/HUD/scenes/1up_text.tscn" id="16_5smuj"]
 [ext_resource type="FontFile" uid="uid://drivmg7j5cy1e" path="res://resources/fonts/FontdinerSwanky-Regular.ttf" id="16_fv2he"]
 [ext_resource type="PackedScene" uid="uid://bw5b4c2gd4eod" path="res://resources/HUD/scenes/round_timer.tscn" id="17_u0ygc"]
+
+[sub_resource type="Animation" id="Animation_5smuj"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TimeOverText:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_y5ved"]
+resource_name = "Time_Over"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TimeOverText:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../RoundMeterMain")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_main_round_timer_stop"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kv3aw"]
+_data = {
+&"RESET": SubResource("Animation_5smuj"),
+&"Time_Over": SubResource("Animation_y5ved")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6324"]
 size = Vector2(1474.85, 438.806)
@@ -143,6 +194,21 @@ mouse_filter = 1
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("3_2jcla")]
 z_index = 10
 mouse_filter = 1
+
+[node name="GameOverMainNodes" type="Node" parent="."]
+
+[node name="GameOverAnimationPlayer" type="AnimationPlayer" parent="GameOverMainNodes"]
+libraries/ = SubResource("AnimationLibrary_kv3aw")
+
+[node name="TimeOverText" type="Label" parent="GameOverMainNodes"]
+visible = false
+offset_left = 221.0
+offset_top = 201.0
+offset_right = 1098.0
+offset_bottom = 503.0
+theme_override_constants/outline_size = 29
+theme_override_font_sizes/font_size = 221
+text = "TIME UP"
 
 [node name="Score" type="RichTextLabel" parent="."]
 z_index = 6
@@ -279,7 +345,7 @@ horizontal_alignment = 1
 script = ExtResource("14_ak604")
 
 [node name="GameTimer" type="Timer" parent="TimeLeft"]
-wait_time = 300.0
+wait_time = 10.0
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TimeLeft"]
@@ -288,6 +354,7 @@ libraries/ = SubResource("AnimationLibrary_fv2he")
 [node name="Background" parent="." instance=ExtResource("9_7ycvg")]
 
 [node name="Control" parent="." instance=ExtResource("12_671wp")]
+position = Vector2(1079, -380)
 
 [node name="MusicTester" type="AudioStreamPlayer" parent="."]
 process_mode = 3

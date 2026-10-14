@@ -424,7 +424,7 @@ func _on_round_meter_main_round_timer_timeout() -> void:
 	_on_hazard_a_hazard_a_miss()
 
 func _on_main_game_game_over():
-	GlobalVariables.results_snapshot = score
+	#GlobalVariables.results_snapshot = score
 	$TimeLeft/GameTimer.stop()
 	$MusicTester.stop()
 	if player_still_blasting == true:
@@ -435,6 +435,9 @@ func _on_main_game_game_over():
 		print("game over time extension working")
 		await get_tree().create_timer(2).timeout
 		print("2 second time extension")
+		
+				## I think right here is where to put what you were talking about
+		
 		GlobalVariables.results_snapshot = score
 		game_over.emit()
 	
@@ -442,12 +445,21 @@ func _on_main_game_game_over():
 		_stop_all_shimmer_timers()
 		_set_all_shimmer_bools_true()
 		print("2 second time extension")
+		
+				## and here
+		
 		GlobalVariables.results_snapshot = score
+		#await get_tree().create_timer(2).timeout
+		pass
+		
+		$GameOverMainNodes/GameOverAnimationPlayer.play("Time_Over")
+		await $GameOverMainNodes/GameOverAnimationPlayer.animation_finished
+		
+		pass
 		game_over.emit()
 		Player.game_over_stop_player()
 	
 	#game_over_screen.show()
-
 
 
 func _on_pause_menu_main_theme_pause() -> void:
