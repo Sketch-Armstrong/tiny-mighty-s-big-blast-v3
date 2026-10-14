@@ -26,6 +26,7 @@ collision_layer = 132
 gravity_scale = 10.0
 
 [node name="BouncyCoinShell" parent="." instance=ExtResource("4_as1as")]
+visible = false
 position = Vector2(300, 0)
 
 [node name="HazardCoin" parent="." instance=ExtResource("4_2dhwo")]

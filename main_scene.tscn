@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://of1qt3olovgl"]
+[gd_scene load_steps=37 format=3 uid="uid://of1qt3olovgl"]
 
 [ext_resource type="Script" uid="uid://cionb2fw474m3" path="res://main_scene.gd" id="1_iwt3a"]
 [ext_resource type="PackedScene" uid="uid://xflhitgj8yn4" path="res://resources/menus/pause menu/pause_menu.tscn" id="2_42l1d"]
@@ -11,10 +11,13 @@
 [ext_resource type="Script" uid="uid://tkc2gxx432i4" path="res://game_over_main_nodes.gd" id="5_y5ved"]
 [ext_resource type="PackedScene" uid="uid://qbl3ytyr8x4x" path="res://resources/HUD/scenes/miss_bomb.tscn" id="6_7ycvg"]
 [ext_resource type="FontFile" uid="uid://cmb0cakpnob6w" path="res://resources/fonts/MetalMania-Regular.ttf" id="6_84odl"]
+[ext_resource type="FontFile" uid="uid://cuvp1pfrqn4m2" path="res://resources/fonts/AguafinaScript-Regular.ttf" id="6_ijoax"]
 [ext_resource type="PackedScene" uid="uid://cff8kn466e7eb" path="res://Singletons/highscore handler.tscn" id="7_6jybn"]
 [ext_resource type="PackedScene" uid="uid://48wh1xmsbnwk" path="res://resources/HUD/scenes/bonus_text.tscn" id="7_84odl"]
 [ext_resource type="PackedScene" uid="uid://bn7wr7ya6rnku" path="res://resources/non standard/style_meter.tscn" id="7_nfk4m"]
+[ext_resource type="Texture2D" uid="uid://bqi2b8rvs3wku" path="res://resources/HUD/X.png" id="7_o7u2a"]
 [ext_resource type="PackedScene" uid="uid://brm3svg6n4770" path="res://resources/HUD/scenes/round_bonus_text.tscn" id="8_ak604"]
+[ext_resource type="Texture2D" uid="uid://cge16palsc0m8" path="res://resources/HUD/bomb white outline.png" id="8_ijoax"]
 [ext_resource type="PackedScene" uid="uid://0tk34jlfox77" path="res://resources/background/scenes/backdrop/background.tscn" id="9_7ycvg"]
 [ext_resource type="PackedScene" uid="uid://bdl6km1k10wdd" path="res://Test Scenes/control node testing.tscn" id="12_671wp"]
 [ext_resource type="Texture2D" uid="uid://ccm2bjgyfwaer" path="res://resources/HUD/repeatable chains.png" id="12_vimvf"]
@@ -41,49 +44,169 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(433, 445)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node2D2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TimeOverText:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../RoundMeterMain:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_y5ved"]
 resource_name = "Time_Over"
 length = 5.0
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TimeOverText:visible")
+tracks/0/path = NodePath("../RoundMeterMain")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../RoundMeterMain")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.9),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"_on_main_round_timer_stop"
 }]
 }
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(2.7),
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5333333),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"add_lives_to_score"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TimeOverText:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node2D2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4.766667, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node2D2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.0666667, 1.5666667, 2.5666666, 2.8666666),
+"transitions": PackedFloat32Array(1, 0.40612632, 1, 3.2490067, 1),
+"update": 0,
+"values": [Vector2(433, 650), Vector2(433, 650), Vector2(433, 445), Vector2(433, 400), Vector2(433, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Node2D2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.43333334, 1.5666667, 2.5666666, 2.8666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TimeOverText:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.0666667, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../RoundMeterMain:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kv3aw"]
@@ -216,15 +339,66 @@ script = ExtResource("5_y5ved")
 [node name="GameOverAnimationPlayer" type="AnimationPlayer" parent="GameOverMainNodes"]
 libraries/ = SubResource("AnimationLibrary_kv3aw")
 
-[node name="TimeOverText" type="Label" parent="GameOverMainNodes"]
+[node name="TimeOverText" type="RichTextLabel" parent="GameOverMainNodes"]
 visible = false
-offset_left = 221.0
-offset_top = 201.0
-offset_right = 1098.0
-offset_bottom = 503.0
+offset_left = 309.0
+offset_top = 113.0
+offset_right = 932.0
+offset_bottom = 400.0
 theme_override_constants/outline_size = 29
-theme_override_font_sizes/font_size = 221
-text = "TIME UP"
+theme_override_fonts/normal_font = ExtResource("6_ijoax")
+theme_override_font_sizes/normal_font_size = 211
+theme_override_font_sizes/italics_font_size = 86
+bbcode_enabled = true
+text = "Cease!"
+horizontal_alignment = 1
+
+[node name="Node2D2" type="Node2D" parent="GameOverMainNodes"]
+visible = false
+position = Vector2(433, 445)
+
+[node name="Node2D" type="Control" parent="GameOverMainNodes/Node2D2"]
+layout_mode = 3
+anchors_preset = 0
+pivot_offset = Vector2(213, 0)
+
+[node name="LivesBonusTextControl" type="HBoxContainer" parent="GameOverMainNodes/Node2D2/Node2D"]
+layout_mode = 0
+offset_right = 425.0
+offset_bottom = 147.0
+pivot_offset = Vector2(213, 78)
+
+[node name="LivesBonusValueText" type="Label" parent="GameOverMainNodes/Node2D2/Node2D/LivesBonusTextControl"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("16_fv2he")
+theme_override_font_sizes/font_size = 96
+text = "+50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton3" type="TextureButton" parent="GameOverMainNodes/Node2D2/Node2D/LivesBonusTextControl"]
+layout_mode = 2
+texture_normal = ExtResource("7_o7u2a")
+stretch_mode = 3
+
+[node name="LivesBonusTextLabel" type="Label" parent="GameOverMainNodes/Node2D2/Node2D/LivesBonusTextControl"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("16_fv2he")
+theme_override_font_sizes/font_size = 96
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="GameOverMainNodes/Node2D2/Node2D/LivesBonusTextControl"]
+layout_mode = 2
+texture_normal = ExtResource("8_ijoax")
+stretch_mode = 3
 
 [node name="Score" type="RichTextLabel" parent="."]
 z_index = 6
@@ -370,7 +544,6 @@ libraries/ = SubResource("AnimationLibrary_fv2he")
 [node name="Background" parent="." instance=ExtResource("9_7ycvg")]
 
 [node name="Control" parent="." instance=ExtResource("12_671wp")]
-position = Vector2(742, -261)
 
 [node name="MusicTester" type="AudioStreamPlayer" parent="."]
 process_mode = 3

@@ -335,15 +335,36 @@ func reset_tiny() -> void:
 	## ============
 
 func game_over_stop_player() -> void:
+	can_move = false
+	ULTIMATE_CAN_MOVE = false
 	if player_animation_player.current_animation == "Explosion":
 		await player_animation_player.animation_finished
-	if tiny_collision.disabled == false:
-		tiny_collision.set_deferred("disabled", true)
-	self.global_position = spawn_point
-	#ULTIMATE_CAN_MOVE = false
-	position_counter = 0
-	can_move = false
-	_idle()
+		player_animation_player.play("Idle")
+		if tiny_collision.disabled == false:
+			tiny_collision.set_deferred("disabled", true)
+		self.global_position = spawn_point
+		#ULTIMATE_CAN_MOVE = false
+		position_counter = 0
+		_idle()
+	elif player_animation_player.current_animation == "Miss":
+		await player_animation_player.animation_finished
+		player_animation_player.play("Idle")
+		if tiny_collision.disabled == false:
+			tiny_collision.set_deferred("disabled", true)
+		self.global_position = spawn_point
+		#ULTIMATE_CAN_MOVE = false
+		position_counter = 0
+		_idle()
+	
+	else:
+		await player_animation_player.animation_finished
+		player_animation_player.play("Idle")
+		if tiny_collision.disabled == false:
+			tiny_collision.set_deferred("disabled", true)
+		self.global_position = spawn_point
+		#ULTIMATE_CAN_MOVE = false
+		position_counter = 0
+		_idle()
 	pass
 
 func can_move_on() -> void:

@@ -360,7 +360,7 @@ func _miss() -> void:
 		Bomb2.bomb_blow()
 	if lives == 0:
 		Bomb1.bomb_blow()
-		game_over_screen.show()
+		#game_over_screen.show()
 		_on_main_game_game_over()
 		$MusicTester.stop()
 	return
@@ -432,17 +432,26 @@ func _on_main_game_game_over():
 		_set_all_shimmer_bools_true()
 		await player_truly_done_with_game
 		Player.game_over_stop_player()
-		print("game over time extension working")
-		await get_tree().create_timer(2).timeout
-		print("2 second time extension")
-		
+		#print("game over time extension working")
+		#await get_tree().create_timer(2).timeout
+		#print("2 second time extension")
+		GlobalVariables.score_global = score
+		GlobalVariables.results_snapshot = GlobalVariables.score_global
+		pass
+		print("local score before lives was: ", str(score))
+		print("global score before lives was: ", str(GlobalVariables.score_global))
 		$GameOverMainNodes/GameOverAnimationPlayer.play("Time_Over")
 		await $GameOverMainNodes/GameOverAnimationPlayer.animation_finished
+		GlobalVariables.score_global = score
+		GlobalVariables.results_snapshot = GlobalVariables.score_global
 		
-		GlobalVariables.results_snapshot = score
+
+		pass
 		game_over.emit()
+		Player.game_over_stop_player()
 	
 	else:
+		Player.game_over_stop_player()
 		_stop_all_shimmer_timers()
 		_set_all_shimmer_bools_true()
 		print("2 second time extension")
@@ -470,7 +479,7 @@ func _on_main_game_game_over():
 
 func add_lives_to_score() -> void:
 	pass
-	
+	$GameOverMainNodes/Node2D2/Node2D/LivesBonusTextControl/LivesBonusTextLabel.text = str(GlobalVariables.lives_global)
 	var lives_bonus = GlobalVariables.lives_global
 	score += lives_bonus * 50
 	
