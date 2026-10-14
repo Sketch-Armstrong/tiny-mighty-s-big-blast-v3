@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://b5jxq4x0sh2uf" path="res://player.gd" id="1_n3u4o"]
 [ext_resource type="Script" uid="uid://c8pcdqbwxg1ib" path="res://move_timer.gd" id="3_x6gf6"]
 [ext_resource type="Script" uid="uid://dy67jj3fdbhrx" path="res://label.gd" id="4_6k2rg"]
+[ext_resource type="Texture2D" uid="uid://b3hlif6ujaise" path="res://resources/character/sprites/nova blast sheet temp burning test.png" id="4_j5n4i"]
 [ext_resource type="Texture2D" uid="uid://45c8fym3hnj2" path="res://resources/character/sprites/Tiny Mighty Temp sprite sheet-Sheet.png" id="5_n60oq"]
 [ext_resource type="Texture2D" uid="uid://co416e1vqyvao" path="res://resources/character/sprites/nova blast star-Sheet.png" id="6_n7ghd"]
-[ext_resource type="Texture2D" uid="uid://bgwyvl132khxm" path="res://resources/character/sprites/Nova Blast imported frames animation (frames cleaned)-Sheet.png" id="7_dw050"]
 [ext_resource type="Texture2D" uid="uid://p6ex68mo6jnc" path="res://resources/character/sprites/Tiny landing impact effects-Sheet.png" id="7_nvl01"]
 [ext_resource type="Material" uid="uid://cjwh072dhg4bd" path="res://Shaders/Tests/shader_test.tres" id="9_q13i1"]
 [ext_resource type="Texture2D" uid="uid://x5yrgb58sp86" path="res://resources/character/sprites/Dash Sheet.png" id="10_bwjto"]
@@ -4629,7 +4629,7 @@ vframes = 3
 visible = false
 z_index = 5
 material = ExtResource("9_q13i1")
-texture = ExtResource("7_dw050")
+texture = ExtResource("4_j5n4i")
 hframes = 5
 vframes = 8
 
