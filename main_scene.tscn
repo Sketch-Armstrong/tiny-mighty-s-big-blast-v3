@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://of1qt3olovgl"]
+[gd_scene load_steps=34 format=3 uid="uid://of1qt3olovgl"]
 
 [ext_resource type="Script" uid="uid://cionb2fw474m3" path="res://main_scene.gd" id="1_iwt3a"]
 [ext_resource type="PackedScene" uid="uid://xflhitgj8yn4" path="res://resources/menus/pause menu/pause_menu.tscn" id="2_42l1d"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://baxx8rlylcu71" path="res://resources/character/sprites/desaturated distance marker.png" id="4_82dhx"]
 [ext_resource type="Texture2D" uid="uid://dv62j4myb4bkw" path="res://resources/background/sprites/temp background.png" id="5_0qlbb"]
 [ext_resource type="Texture2D" uid="uid://ubpnbwmha4h5" path="res://resources/character/sprites/corrected grid.png" id="5_hssss"]
+[ext_resource type="Script" uid="uid://tkc2gxx432i4" path="res://game_over_main_nodes.gd" id="5_y5ved"]
 [ext_resource type="PackedScene" uid="uid://qbl3ytyr8x4x" path="res://resources/HUD/scenes/miss_bomb.tscn" id="6_7ycvg"]
 [ext_resource type="FontFile" uid="uid://cmb0cakpnob6w" path="res://resources/fonts/MetalMania-Regular.ttf" id="6_84odl"]
 [ext_resource type="PackedScene" uid="uid://cff8kn466e7eb" path="res://Singletons/highscore handler.tscn" id="7_6jybn"]
@@ -68,6 +69,20 @@ tracks/1/keys = {
 "values": [{
 "args": [],
 "method": &"_on_main_round_timer_stop"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"add_lives_to_score"
 }]
 }
 
@@ -196,6 +211,7 @@ z_index = 10
 mouse_filter = 1
 
 [node name="GameOverMainNodes" type="Node" parent="."]
+script = ExtResource("5_y5ved")
 
 [node name="GameOverAnimationPlayer" type="AnimationPlayer" parent="GameOverMainNodes"]
 libraries/ = SubResource("AnimationLibrary_kv3aw")
@@ -354,7 +370,7 @@ libraries/ = SubResource("AnimationLibrary_fv2he")
 [node name="Background" parent="." instance=ExtResource("9_7ycvg")]
 
 [node name="Control" parent="." instance=ExtResource("12_671wp")]
-position = Vector2(1079, -380)
+position = Vector2(742, -261)
 
 [node name="MusicTester" type="AudioStreamPlayer" parent="."]
 process_mode = 3

@@ -66,6 +66,7 @@ func _on_quit_button_pressed() -> void:
 
 func _on_main_game_over() -> void:
 	#await get_tree().create_timer(5).timeout
+	print("global score after lives was: ", str(GlobalVariables.score_global))
 	game_over_score_check.emit()
 	#print("global bonuses tracking was ",GlobalVariables.end_coin_bonus_total," ",
 	#GlobalVariables.end_four_round_complete_bonus_total," ",GlobalVariables.end_timer_bonus_total)

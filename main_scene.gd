@@ -436,7 +436,8 @@ func _on_main_game_game_over():
 		await get_tree().create_timer(2).timeout
 		print("2 second time extension")
 		
-				## I think right here is where to put what you were talking about
+		$GameOverMainNodes/GameOverAnimationPlayer.play("Time_Over")
+		await $GameOverMainNodes/GameOverAnimationPlayer.animation_finished
 		
 		GlobalVariables.results_snapshot = score
 		game_over.emit()
@@ -448,18 +449,31 @@ func _on_main_game_game_over():
 		
 				## and here
 		
-		GlobalVariables.results_snapshot = score
 		#await get_tree().create_timer(2).timeout
+		GlobalVariables.score_global = score
+		GlobalVariables.results_snapshot = GlobalVariables.score_global
 		pass
-		
+		print("local score before lives was: ", str(score))
+		print("global score before lives was: ", str(GlobalVariables.score_global))
 		$GameOverMainNodes/GameOverAnimationPlayer.play("Time_Over")
 		await $GameOverMainNodes/GameOverAnimationPlayer.animation_finished
+		GlobalVariables.score_global = score
+		GlobalVariables.results_snapshot = GlobalVariables.score_global
 		
+
 		pass
 		game_over.emit()
 		Player.game_over_stop_player()
 	
 	#game_over_screen.show()
+
+
+func add_lives_to_score() -> void:
+	pass
+	
+	var lives_bonus = GlobalVariables.lives_global
+	score += lives_bonus * 50
+	
 
 
 func _on_pause_menu_main_theme_pause() -> void:
