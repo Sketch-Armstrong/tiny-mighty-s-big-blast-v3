@@ -2,27 +2,30 @@
 
 [ext_resource type="Script" uid="uid://co28qsq2f1s48" path="res://resources/menus/game over menu/game_over_score_stats.gd" id="1_5cs3e"]
 
-[node name="Node2D" type="Node2D"]
+[node name="GameOverStats" type="Node2D"]
 script = ExtResource("1_5cs3e")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(500, 500)
-layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_right = 500.0
 offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 custom_minimum_size = Vector2(500, 100)
-layout_mode = 0
-offset_right = 500.0
-offset_bottom = 428.0
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="SecondsLeft11" type="HBoxContainer" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="TimeLeftDescription" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft11"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/TimeLeftDescription"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 text = "Times you had these many
@@ -30,7 +33,6 @@ seconds left:"
 fit_content = true
 
 [node name="SecondsLeft10" type="HBoxContainer" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft10"]
@@ -222,17 +224,49 @@ layout_mode = 2
 text = "RIGHT"
 fit_content = true
 
-[node name="ExtraLivesEndCount" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="ExtraLivesCollected" type="HBoxContainer" parent="Control/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/ExtraLivesEndCount"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/ExtraLivesCollected"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "Extra lives"
+text = "Extra lives collected"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/ExtraLivesEndCount"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/ExtraLivesCollected"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "RIGHT"
+fit_content = true
+
+[node name="LivesEndCount" type="HBoxContainer" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/LivesEndCount"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Total lives at end"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/LivesEndCount"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "RIGHT"
+fit_content = true
+
+[node name="TotalMisses" type="HBoxContainer" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/TotalMisses"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Total Misses"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/TotalMisses"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "RIGHT"
@@ -261,7 +295,7 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/TotalGarbageBonuses"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "Total garbage blasted"
+text = "Total garbage piles blasted"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/TotalGarbageBonuses"]
@@ -270,9 +304,10 @@ layout_mode = 2
 text = "RIGHT"
 fit_content = true
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
-layout_mode = 0
-offset_right = 448.0
-offset_bottom = 464.0
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 480.0
+offset_bottom = 536.0
 color = Color(0, 0, 0, 1)

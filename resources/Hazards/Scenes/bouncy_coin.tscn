@@ -85,6 +85,7 @@ _data = {
 }
 
 [node name="BouncyCoin" type="Area2D"]
+editor_description = "this one isn't used anymore, and has been dummied out"
 z_index = 5
 collision_layer = 0
 collision_mask = 16

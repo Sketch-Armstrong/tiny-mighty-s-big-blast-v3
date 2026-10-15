@@ -64,9 +64,7 @@ script = ExtResource("1_13m4h")
 [node name="BouncyCoin" parent="." instance=ExtResource("1_j2a2b")]
 
 [node name="BouncyCoinAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_vqqjj")
-}
+libraries/ = SubResource("AnimationLibrary_vqqjj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

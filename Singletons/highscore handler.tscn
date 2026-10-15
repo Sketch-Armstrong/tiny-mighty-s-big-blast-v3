@@ -171,15 +171,6 @@ theme_override_font_sizes/normal_font_size = 56
 text = "AAA"
 fit_content = true
 
-[node name="Button" type="Button" parent="HighScoresPanel"]
-layout_mode = 0
-offset_left = 964.0
-offset_top = 449.0
-offset_right = 1144.0
-offset_bottom = 578.0
-text = "INFO
-(finish me)"
-
 [node name="Control2" type="Control" parent="HighScoresPanel"]
 anchors_preset = 0
 offset_right = 40.0

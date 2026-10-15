@@ -17,6 +17,7 @@ func _ready() -> void:
 
 func _on_body_entered(body):
 	if body is CharacterBody2D:
+		GlobalStatTracking.total_coins_grabbed += 1
 		GlobalVariables.end_coin_bonus_total += 1
 		GlobalVariables.coin_counter_tracker_global += 1
 		main_root_node._on_hazard_coin_score()

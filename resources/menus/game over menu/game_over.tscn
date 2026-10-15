@@ -1,13 +1,13 @@
 [gd_scene load_steps=21 format=3 uid="uid://cbmyj2nvqrgf6"]
 
 [ext_resource type="Script" uid="uid://vie4dqnbdiv6" path="res://resources/menus/game over menu/game_over.gd" id="1_dec6c"]
-[ext_resource type="AudioStream" uid="uid://c63vs55hp8etx" path="res://resources/audio/394413__inspectorj__bamboo-swing-a11.wav" id="2_6r6k6"]
 [ext_resource type="Texture2D" uid="uid://s8pnavu1rt4c" path="res://resources/menus/game over menu/try again 2.png" id="2_d047s"]
 [ext_resource type="Texture2D" uid="uid://mqpsncp1xn1n" path="res://resources/menus/game over menu/quit 3.png" id="2_xqyb0"]
 [ext_resource type="Texture2D" uid="uid://b7xplbmnafgql" path="res://resources/menus/game over menu/try again 3.png" id="3_0bugr"]
 [ext_resource type="Texture2D" uid="uid://dkac0nm4jfox1" path="res://resources/menus/game over menu/quit 2.png" id="3_igg2g"]
 [ext_resource type="Texture2D" uid="uid://dr76njcyt43u" path="res://resources/menus/game over menu/try again 1.png" id="4_172wu"]
 [ext_resource type="Texture2D" uid="uid://cvod2t4xxawwh" path="res://resources/menus/game over menu/quit 1.png" id="4_lgbbr"]
+[ext_resource type="AudioStream" uid="uid://dl4mjd3e5w244" path="res://resources/audio/temp/temp sfx/applause.wav" id="8_cwdcb"]
 [ext_resource type="Texture2D" uid="uid://bgaar8qcllf0q" path="res://resources/menus/game over menu/papers sprite 7 (complete).png" id="9_33qy4"]
 [ext_resource type="Texture2D" uid="uid://di0kpexv4l7dw" path="res://resources/menus/game over menu/rankings sheet (sig adjusted).png" id="10_d047s"]
 [ext_resource type="PackedScene" uid="uid://cff8kn466e7eb" path="res://Singletons/highscore handler.tscn" id="11_0bugr"]
@@ -264,6 +264,13 @@ script = ExtResource("1_dec6c")
 arrow_position_GO = Vector2(310, 220)
 arrow_position_RETRY = Vector2(214, 551)
 
+[node name="HighScoreHandler" parent="." instance=ExtResource("11_0bugr")]
+
+[node name="GameOverStats" parent="." instance=ExtResource("14_cwdcb")]
+visible = false
+z_index = 2
+position = Vector2(393, 137)
+
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 z_index = 1
@@ -285,6 +292,16 @@ offset_top = -32.0
 offset_right = 1320.0
 offset_bottom = 840.0
 color = Color(0, 0, 0, 1)
+
+[node name="StatsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1035.0
+offset_top = 462.0
+offset_right = 1224.0
+offset_bottom = 567.0
+toggle_mode = true
+text = "INFO
+(finish me)"
 
 [node name="RetryButton" type="TextureButton" parent="."]
 layout_mode = 1
@@ -316,9 +333,6 @@ texture_normal = ExtResource("2_xqyb0")
 texture_pressed = ExtResource("3_igg2g")
 texture_hover = ExtResource("4_lgbbr")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_6r6k6")
-
 [node name="ResultsLabel" type="Label" parent="."]
 visible = false
 layout_mode = 0
@@ -346,23 +360,25 @@ texture = ExtResource("10_d047s")
 vframes = 6
 frame = 5
 
-[node name="GameOverPlayer" type="AnimationPlayer" parent="."]
-libraries/ = SubResource("AnimationLibrary_37gxc")
-
-[node name="HighScoreHandler" parent="." instance=ExtResource("11_0bugr")]
-
 [node name="GameOverArrow" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(214, 551)
+position = Vector2(1139, 512)
 texture = ExtResource("13_cwdcb")
 script = ExtResource("14_7g46l")
+
+[node name="GameOverPlayer" type="AnimationPlayer" parent="."]
+libraries/ = SubResource("AnimationLibrary_37gxc")
 
 [node name="ArrowPlayer" type="AnimationPlayer" parent="."]
 libraries/ = SubResource("AnimationLibrary_7g46l")
 
-[node name="Node2D" parent="." instance=ExtResource("14_cwdcb")]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_cwdcb")
+bus = &"SFX"
 
 [connection signal="game_over_score_check" from="." to="HighScoreHandler" method="_on_game_over_game_over_score_check"]
+[connection signal="focus_entered" from="StatsButton" to="." method="_on_stats_button_focus_entered"]
+[connection signal="toggled" from="StatsButton" to="." method="_on_button_toggled"]
 [connection signal="focus_entered" from="RetryButton" to="." method="_on_retry_button_focus_entered"]
 [connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="focus_entered" from="QuitButton" to="." method="_on_quit_button_focus_entered"]

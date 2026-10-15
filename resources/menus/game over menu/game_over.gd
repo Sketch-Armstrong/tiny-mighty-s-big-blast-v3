@@ -10,7 +10,7 @@ signal game_over_score_check
 
 @export var arrow_position_GO := Vector2(390.0, 290.0)
 @export var arrow_position_RETRY := Vector2(290.0, 625.0)
-
+@export var arrow_position_INFO := Vector2(1139.0, 512.0)
 #var highscores = ResourceLoader.load("user://save") as Highscores
 
 # Called when the node enters the scene tree for the first time.
@@ -96,6 +96,7 @@ func _on_main_game_over() -> void:
 		rank_sprites.set_frame(4)
 	if GlobalVariables.results_snapshot >= 5000 and GlobalVariables.a_plus_tripwire == true:
 		## A PLUS Rank
+		$AudioStreamPlayer.play()
 		rank_sprites.set_frame(5)
 	g_over_player.play("papers_slide")
 	
@@ -116,3 +117,14 @@ func _on_retry_button_focus_entered() -> void:
 func _on_quit_button_focus_entered() -> void:
 	pass # Replace with function body.
 	$GameOverArrow.position = arrow_position_GO
+
+
+func _on_stats_button_focus_entered() -> void:
+	$GameOverArrow.position = arrow_position_INFO
+
+func _on_button_toggled(toggled_on: bool) -> void:
+	pass # Replace with function body.
+	if toggled_on == true:
+		$GameOverStats.show()
+	if toggled_on == false:
+		$GameOverStats.hide()

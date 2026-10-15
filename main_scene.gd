@@ -97,6 +97,7 @@ func _process(delta: float) -> void:
 	score_label.text = str(score)
 	
 	GlobalVariables.lives_global = lives
+	GlobalStatTracking.total_lives_at_end = lives
 	
 	if GlobalVariables.music_player_boolean == true:
 		$MusicTester.volume_db = -20.0
@@ -253,6 +254,7 @@ func check_lives_count():
 	
 	for i in extra_lives:
 		lives += 1
+		GlobalStatTracking.total_extra_lives_collected += 1
 		$"Miss/1upBonusText".play_1up_animation()
 		if lives == 3:
 			$Miss/BombSprite2.bomb_reset()
@@ -276,7 +278,7 @@ func update_bonus_label():
 func increment_score() -> void:
 	var timer_bonus = round(round_timer.time_left)
 	GlobalStatTracking.time_bonus_counts[timer_bonus] += 1
-	print(str(GlobalStatTracking.time_bonus_counts))
+	#print(str(GlobalStatTracking.time_bonus_counts))
 	#print(10 - timer_bonus)
 	four_times_bonus_counter += 1
 	if four_times_bonus_counter == 4:
@@ -293,6 +295,7 @@ func increment_score() -> void:
 	#GlobalVariables.end_coin_bonus_total += (coin_bonus + 1)
 	coin_bonus = 0
 	GlobalVariables.coin_counter_tracker_global = 1
+	GlobalStatTracking.test_print_stats()
 	_round_timer_start()
 	
 
@@ -311,6 +314,7 @@ func taunt_bonus() -> void:
 
 func near_miss() -> void:
 	score += 5
+	GlobalStatTracking.total_near_misses += 1
 
 #func _on_hazards_miss() -> void:
 	#miss += 1
@@ -347,6 +351,7 @@ func _on_hazard_b_hazard_b_miss() -> void:
 func _miss() -> void:
 	#print("Oh no! Player lost ", coin_bonus, " coins!")
 	lives -= 1
+	GlobalStatTracking.total_misses += 1
 	if score < 5000:
 		GlobalVariables.a_plus_tripwire = false
 	GlobalVariables.music_player_boolean = true
@@ -407,10 +412,11 @@ func _on_game_over_retry() -> void:
 	_start_all_shimmer_timers()
 	_set_all_shimmer_bools_false()
 	Hazards.show()
+	GlobalStatTracking.reset_stat_trackers()
 	$GameOverMainNodes/GameOverAnimationPlayer.play("RESET")
 
 func _on_main_game_start() -> void:
-
+	GlobalStatTracking.reset_stat_trackers()
 	GlobalVariables.a_plus_tripwire = true
 	game_over_screen.hide()
 	lives = 3
@@ -430,6 +436,7 @@ func _on_round_meter_main_round_timer_timeout() -> void:
 
 func _on_main_game_game_over():
 	#GlobalVariables.results_snapshot = score
+	GlobalStatTracking.test_print_stats()
 	$TimeLeft/GameTimer.stop()
 	$MusicTester.stop()
 	if player_still_blasting == true:
@@ -486,6 +493,7 @@ func add_lives_to_score() -> void:
 	pass
 	$GameOverMainNodes/Node2D2/Node2D/LivesBonusTextControl/LivesBonusTextLabel.text = str(GlobalVariables.lives_global)
 	var lives_bonus = GlobalVariables.lives_global
+	
 	score += lives_bonus * 50
 	
 
