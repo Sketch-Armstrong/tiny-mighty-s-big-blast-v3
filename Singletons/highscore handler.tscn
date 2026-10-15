@@ -171,6 +171,15 @@ theme_override_font_sizes/normal_font_size = 56
 text = "AAA"
 fit_content = true
 
+[node name="Button" type="Button" parent="HighScoresPanel"]
+layout_mode = 0
+offset_left = 964.0
+offset_top = 449.0
+offset_right = 1144.0
+offset_bottom = 578.0
+text = "INFO
+(finish me)"
+
 [node name="Control2" type="Control" parent="HighScoresPanel"]
 anchors_preset = 0
 offset_right = 40.0
@@ -178,10 +187,10 @@ offset_bottom = 40.0
 
 [node name="BonusesPanel" type="VBoxContainer" parent="HighScoresPanel/Control2"]
 layout_mode = 0
-offset_left = 1023.0
-offset_top = 491.0
-offset_right = 1195.0
-offset_bottom = 773.0
+offset_left = 1021.0
+offset_top = 566.0
+offset_right = 1193.0
+offset_bottom = 848.0
 theme_override_constants/separation = 18
 script = ExtResource("4_rsr31")
 
@@ -202,6 +211,7 @@ fit_content = true
 horizontal_alignment = 2
 
 [node name="CoinTimerLabel" type="RichTextLabel" parent="HighScoresPanel/Control2/BonusesPanel"]
+visible = false
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_iwmtd")
 theme_override_font_sizes/normal_font_size = 50
@@ -221,15 +231,16 @@ horizontal_alignment = 2
 position = Vector2(-77, 1)
 
 [node name="Clock" type="Sprite2D" parent="HighScoresPanel/Control2/BonusIndicators"]
-position = Vector2(1055, 517)
+position = Vector2(1060, 593)
 texture = ExtResource("7_5rntb")
 
 [node name="Coin" type="Sprite2D" parent="HighScoresPanel/Control2/BonusIndicators"]
-position = Vector2(1057, 588)
+position = Vector2(1066, 668)
 texture = ExtResource("6_idmtf")
 hframes = 7
 
 [node name="CoinsXClock" type="Sprite2D" parent="HighScoresPanel/Control2/BonusIndicators"]
+visible = false
 position = Vector2(1062, 664)
 texture = ExtResource("8_5rntb")
 

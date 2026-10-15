@@ -27,6 +27,7 @@ GlobalHighscoreHandler="*res://Singletons/GlobalHighscoreHandler.gd"
 GlobalFocusBooleans="*res://GlobalFocusBooleans.gd"
 InputConfigHandler="*res://InputConfigHandler.gd"
 GlobalMiscOptionsSave="*res://Singletons/GlobalMiscOptionsSave.gd"
+GlobalStatTracking="*res://Singletons/global_stat_tracking.gd"
 
 [display]
 

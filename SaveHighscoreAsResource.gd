@@ -10,8 +10,10 @@ const SAVE_GAME_BASE_PATH := "user://save"
 @export var version := 1
 	#detect old player saves and update their data
 
-@export var highscores: Resource = Highscores.new()
+#@export var highscores: Resource = Highscores.new()
 	#I guess this is to save the auxillary resources alongside this resource, in the demo
+	# I think it's just the old name for the resource I used, and I stopped using it somewhere
+	# in this mess of code
 
 # the following three functions were said to be thin wrappers that keep the save API inside of
 # the SaveHighscoreAsResource resource.

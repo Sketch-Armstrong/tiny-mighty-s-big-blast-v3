@@ -275,6 +275,8 @@ func update_bonus_label():
 
 func increment_score() -> void:
 	var timer_bonus = round(round_timer.time_left)
+	GlobalStatTracking.time_bonus_counts[timer_bonus] += 1
+	print(str(GlobalStatTracking.time_bonus_counts))
 	#print(10 - timer_bonus)
 	four_times_bonus_counter += 1
 	if four_times_bonus_counter == 4:
@@ -282,6 +284,7 @@ func increment_score() -> void:
 		score += four_times_bonus_score
 		$RoundBonusText.show_round_bonus()
 		GlobalVariables.end_four_round_complete_bonus_total += four_times_bonus_score
+		GlobalStatTracking.total_garbage_bonuses += 1
 			#4 times bonus needs to be rewarding enough to feel good, but not 
 			#OP to the point where the best strat is just spamming right
 	score += (10 - timer_bonus) * (coin_bonus + 1)

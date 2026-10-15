@@ -509,7 +509,9 @@ layer = 2
 
 [node name="CRT" type="CanvasLayer" parent="CanvasLayer2"]
 layer = 3
+visible = false
 script = ExtResource("7_a52uf")
+update_in_editor = false
 resolution = Vector2(1280, 800)
 scan_line_amount = 0.1
 warp_amount = 0.3
@@ -773,10 +775,6 @@ y_sort_enabled = true
 visible = false
 z_index = 6
 z_as_relative = false
-custom_minimum_size = Vector2(1200, 800)
-offset_right = 1200.0
-offset_bottom = 800.0
-mouse_filter = 1
 
 [node name="Background" type="CanvasGroup" parent="."]
 z_index = -1

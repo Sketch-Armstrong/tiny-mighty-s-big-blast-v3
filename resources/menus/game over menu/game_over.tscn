@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cbmyj2nvqrgf6"]
+[gd_scene load_steps=21 format=3 uid="uid://cbmyj2nvqrgf6"]
 
 [ext_resource type="Script" uid="uid://vie4dqnbdiv6" path="res://resources/menus/game over menu/game_over.gd" id="1_dec6c"]
 [ext_resource type="AudioStream" uid="uid://c63vs55hp8etx" path="res://resources/audio/394413__inspectorj__bamboo-swing-a11.wav" id="2_6r6k6"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cff8kn466e7eb" path="res://Singletons/highscore handler.tscn" id="11_0bugr"]
 [ext_resource type="Texture2D" uid="uid://dk0yecertxb2d" path="res://resources/temporary assets/arrow test.png" id="13_cwdcb"]
 [ext_resource type="Script" uid="uid://bav2fa5en0t72" path="res://resources/menus/game over menu/sprite_2d.gd" id="14_7g46l"]
+[ext_resource type="PackedScene" uid="uid://mn62wjj70ygu" path="res://resources/menus/game over menu/game_over_score_stats.tscn" id="14_cwdcb"]
 
 [sub_resource type="Animation" id="Animation_6r6k6"]
 resource_name = "RESET"
@@ -358,6 +359,8 @@ script = ExtResource("14_7g46l")
 
 [node name="ArrowPlayer" type="AnimationPlayer" parent="."]
 libraries/ = SubResource("AnimationLibrary_7g46l")
+
+[node name="Node2D" parent="." instance=ExtResource("14_cwdcb")]
 
 [connection signal="game_over_score_check" from="." to="HighScoreHandler" method="_on_game_over_game_over_score_check"]
 [connection signal="focus_entered" from="RetryButton" to="." method="_on_retry_button_focus_entered"]
