@@ -104,6 +104,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Hazards:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_y5ved"]
 resource_name = "Time_Over"
@@ -203,6 +215,18 @@ tracks/7/path = NodePath("../RoundMeterMain:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Hazards:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -363,6 +387,7 @@ anchors_preset = 0
 pivot_offset = Vector2(213, 0)
 
 [node name="LivesBonusTextControl" type="HBoxContainer" parent="GameOverMainNodes/Node2D2/Node2D"]
+z_index = 4
 layout_mode = 0
 offset_right = 425.0
 offset_bottom = 147.0

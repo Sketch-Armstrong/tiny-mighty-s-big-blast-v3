@@ -351,7 +351,7 @@ func game_over_stop_player() -> void:
 	disable_collision_layers()
 	disable_collision_mask()
 	can_move = false
-	#ULTIMATE_CAN_MOVE = false
+	ULTIMATE_CAN_MOVE = false
 	if player_animation_player.current_animation == "Explosion":
 		await player_animation_player.animation_finished
 		player_animation_player.play("Idle")
@@ -359,7 +359,7 @@ func game_over_stop_player() -> void:
 		#ULTIMATE_CAN_MOVE = false
 		position_counter = 0
 		_idle()
-	elif player_animation_player.current_animation == "Miss":
+	if player_animation_player.current_animation == "Miss":
 		await player_animation_player.animation_finished
 		player_animation_player.play("Idle")
 		self.global_position = spawn_point
@@ -370,7 +370,7 @@ func game_over_stop_player() -> void:
 	else:
 		await player_animation_player.animation_finished
 		player_animation_player.play("Idle")
-		self.global_position = spawn_point
+		#self.global_position = spawn_point
 		#ULTIMATE_CAN_MOVE = false
 		position_counter = 0
 		_idle()

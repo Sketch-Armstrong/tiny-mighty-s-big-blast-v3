@@ -403,6 +403,8 @@ func _on_game_over_retry() -> void:
 	$TimeLeft/GameTimer.start()
 	_start_all_shimmer_timers()
 	_set_all_shimmer_bools_false()
+	Hazards.show()
+	$GameOverMainNodes/GameOverAnimationPlayer.play("RESET")
 
 func _on_main_game_start() -> void:
 
