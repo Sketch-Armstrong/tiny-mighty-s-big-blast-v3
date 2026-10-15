@@ -31,10 +31,11 @@ var position_counter := 0
 @onready var down_taunt_boolean := false
 @onready var sound_fx_test := $SoundEffectTester
 @onready var lives_player := 0
+@onready var _default_mask = collision_mask
+@onready var _default_layer: int
 
 @onready var ULTIMATE_CAN_MOVE := true
 
-@onready var _default_layer: int
 
 signal style_test
 
@@ -58,6 +59,7 @@ signal near_miss
 
 
 func _ready() -> void:
+	_default_mask = collision_mask
 	_default_layer = collision_layer
 	self.global_position = spawn_point
 	move_timer.start()
@@ -125,10 +127,16 @@ func _physics_process(delta: float) -> void:
 	
 	
 
-func collision_layers_off() -> void:
+func disable_collision_mask() -> void:
+	set_deferred("collision_mask", 0)
+
+func restore_collision_mask() -> void:
+	set_deferred("collision_mask", _default_mask)
+
+func disable_collision_layers() -> void:
 	set_deferred("collision_layer", 0)
 
-func collision_layers_on() -> void:
+func restore_collision_layers() -> void:
 	set_deferred("collision_layer", _default_layer)
 
 
@@ -138,7 +146,7 @@ func _parent_move_state() -> void:
 
 
 func _idle() -> void:
-	GlobalVariables.miss_active = false
+	
 
 	if player_animation_player.is_playing() == false:
 		player_animation_player.play("Idle")
@@ -340,29 +348,28 @@ func reset_tiny() -> void:
 	## ============
 
 func game_over_stop_player() -> void:
+	disable_collision_layers()
+	disable_collision_mask()
 	can_move = false
-	ULTIMATE_CAN_MOVE = false
+	#ULTIMATE_CAN_MOVE = false
 	if player_animation_player.current_animation == "Explosion":
 		await player_animation_player.animation_finished
 		player_animation_player.play("Idle")
-		collision_layers_off()
 		self.global_position = spawn_point
 		#ULTIMATE_CAN_MOVE = false
 		position_counter = 0
 		_idle()
 	elif player_animation_player.current_animation == "Miss":
-		GlobalVariables.miss_active = true
 		await player_animation_player.animation_finished
 		player_animation_player.play("Idle")
-		collision_layers_off()
 		self.global_position = spawn_point
 		#ULTIMATE_CAN_MOVE = false
 		position_counter = 0
 		_idle()
 	
 	else:
+		await player_animation_player.animation_finished
 		player_animation_player.play("Idle")
-		collision_layers_off()
 		self.global_position = spawn_point
 		#ULTIMATE_CAN_MOVE = false
 		position_counter = 0
@@ -375,8 +382,7 @@ func can_move_on() -> void:
 func can_move_off() -> void:
 	can_move = false
 
-func collision_off() -> void:
-	tiny_collision.set_deferred("disabled", true)
+
 
 func hazard_collision_on() -> void:
 	main_scene.can_collide_master_on()
@@ -400,12 +406,12 @@ func player_near_miss():
 
 
 func _on_main_game_over() -> void:
-	collision_layers_off()
 	ULTIMATE_CAN_MOVE = false
 
 
 func _on_game_over_retry() -> void:
-	collision_layers_on()
+	restore_collision_layers()
+	restore_collision_mask()
 	ULTIMATE_CAN_MOVE = true
 
 

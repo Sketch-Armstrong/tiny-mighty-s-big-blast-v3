@@ -535,7 +535,7 @@ horizontal_alignment = 1
 script = ExtResource("14_ak604")
 
 [node name="GameTimer" type="Timer" parent="TimeLeft"]
-wait_time = 10.0
+wait_time = 5.0
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TimeLeft"]
