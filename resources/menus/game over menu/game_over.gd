@@ -28,18 +28,18 @@ func _process(delta: float) -> void:
 	#results_label.text = str(GlobalVariables.results_snapshot / 10)
 	if GlobalVariables.can_retry == true:
 		$RetryButton.disabled = false
-		$GameOverArrow.hide()
+		#$GameOverArrow.hide()
 	if GlobalVariables.can_retry == false:
 		$RetryButton.disabled = true
-		$GameOverArrow.hide()
+		#$GameOverArrow.hide()
 
 	if GlobalVariables.can_quit == true:
 		$QuitButton.disabled = false
-		$GameOverArrow.show()
+		#$GameOverArrow.show()
 		
 	if GlobalVariables.can_quit == false:
 		$QuitButton.disabled = true
-		$GameOverArrow.hide()
+		#$GameOverArrow.hide()
 		
 	pass
 	

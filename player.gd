@@ -34,6 +34,7 @@ var position_counter := 0
 
 @onready var ULTIMATE_CAN_MOVE := true
 
+@onready var _default_layer: int
 
 signal style_test
 
@@ -57,7 +58,7 @@ signal near_miss
 
 
 func _ready() -> void:
-	
+	_default_layer = collision_layer
 	self.global_position = spawn_point
 	move_timer.start()
 	near_miss_collision.enabled = true
@@ -124,7 +125,11 @@ func _physics_process(delta: float) -> void:
 	
 	
 
+func collision_layers_off() -> void:
+	set_deferred("collision_layer", 0)
 
+func collision_layers_on() -> void:
+	set_deferred("collision_layer", _default_layer)
 
 
 func _parent_move_state() -> void:
@@ -133,7 +138,7 @@ func _parent_move_state() -> void:
 
 
 func _idle() -> void:
-	
+	GlobalVariables.miss_active = false
 
 	if player_animation_player.is_playing() == false:
 		player_animation_player.play("Idle")
@@ -340,27 +345,24 @@ func game_over_stop_player() -> void:
 	if player_animation_player.current_animation == "Explosion":
 		await player_animation_player.animation_finished
 		player_animation_player.play("Idle")
-		if tiny_collision.disabled == false:
-			tiny_collision.set_deferred("disabled", true)
+		collision_layers_off()
 		self.global_position = spawn_point
 		#ULTIMATE_CAN_MOVE = false
 		position_counter = 0
 		_idle()
 	elif player_animation_player.current_animation == "Miss":
+		GlobalVariables.miss_active = true
 		await player_animation_player.animation_finished
 		player_animation_player.play("Idle")
-		if tiny_collision.disabled == false:
-			tiny_collision.set_deferred("disabled", true)
+		collision_layers_off()
 		self.global_position = spawn_point
 		#ULTIMATE_CAN_MOVE = false
 		position_counter = 0
 		_idle()
 	
 	else:
-		await player_animation_player.animation_finished
 		player_animation_player.play("Idle")
-		if tiny_collision.disabled == false:
-			tiny_collision.set_deferred("disabled", true)
+		collision_layers_off()
 		self.global_position = spawn_point
 		#ULTIMATE_CAN_MOVE = false
 		position_counter = 0
@@ -398,10 +400,12 @@ func player_near_miss():
 
 
 func _on_main_game_over() -> void:
+	collision_layers_off()
 	ULTIMATE_CAN_MOVE = false
 
 
 func _on_game_over_retry() -> void:
+	collision_layers_on()
 	ULTIMATE_CAN_MOVE = true
 
 

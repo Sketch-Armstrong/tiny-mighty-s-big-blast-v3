@@ -390,6 +390,7 @@ func _on_game_over_quit() -> void:
 
 func _on_game_over_retry() -> void:
 	$MusicTester.play()
+	$RoundMeterMain.show()
 	GlobalVariables.a_plus_tripwire = true
 	game_over_screen.hide()
 	lives = 3
@@ -405,7 +406,7 @@ func _on_game_over_retry() -> void:
 	_set_all_shimmer_bools_false()
 
 func _on_main_game_start() -> void:
-
+	$RoundMeterMain.show()
 	GlobalVariables.a_plus_tripwire = true
 	game_over_screen.hide()
 	lives = 3
@@ -448,10 +449,11 @@ func _on_main_game_game_over():
 
 		pass
 		game_over.emit()
+		
 		Player.game_over_stop_player()
 	
 	else:
-		Player.game_over_stop_player()
+		#Player.game_over_stop_player()
 		_stop_all_shimmer_timers()
 		_set_all_shimmer_bools_true()
 		print("2 second time extension")
@@ -468,7 +470,7 @@ func _on_main_game_game_over():
 		await $GameOverMainNodes/GameOverAnimationPlayer.animation_finished
 		GlobalVariables.score_global = score
 		GlobalVariables.results_snapshot = GlobalVariables.score_global
-		
+		await get_tree().create_timer(0.1).timeout
 
 		pass
 		game_over.emit()

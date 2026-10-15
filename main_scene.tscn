@@ -119,7 +119,7 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"_on_main_round_timer_stop"
+"method": &"_on_main_round_timer_actually_stop"
 }]
 }
 tracks/1/type = "method"
@@ -129,7 +129,7 @@ tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.5333333),
+"times": PackedFloat32Array(1.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -167,7 +167,7 @@ tracks/4/path = NodePath("Node2D2:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.0666667, 1.5666667, 2.5666666, 2.8666666),
+"times": PackedFloat32Array(0, 1.5, 2, 2.8333333, 3.2333333),
 "transitions": PackedFloat32Array(1, 0.40612632, 1, 3.2490067, 1),
 "update": 0,
 "values": [Vector2(433, 650), Vector2(433, 650), Vector2(433, 445), Vector2(433, 400), Vector2(433, 0)]
@@ -179,7 +179,7 @@ tracks/5/path = NodePath("Node2D2:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.43333334, 1.5666667, 2.5666666, 2.8666666),
+"times": PackedFloat32Array(0.43333334, 1.5, 2.8333333, 3.2333333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]

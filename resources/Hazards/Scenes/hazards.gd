@@ -159,75 +159,85 @@ func _difficulty_adjustment() -> void:
 
 func _spawn() -> void:
 	if ULTIMATE_CAN_SPAWN == true:
-		var spawn_mover = randi_range(-1,1)
-		
-		spawn_number += spawn_mover
-		#spawn_number = 2
-		
-		if spawn_number == 0:
-			spawn_number = 1
-		
-		if spawn_number == 6:
-			spawn_number = 5
-		
-		
-		
+			#spawn_number = 2
+		spawn_number = 1
 		if spawn_number == 1:
-			if last_spawn_number != 1:
-				last_spawn_number = 1
-				inst(hazard_one_spawn)
-			elif last_spawn_number == 1:
-				last_spawn_number = 2
-				inst(hazard_two_spawn)
-		
+			inst(hazard_one_spawn)
 
-		if spawn_number == 2:
-			if last_spawn_number != 2:
-				#if randi_range(0, 100) < 75:
-				inst(hazard_two_spawn)
-				last_spawn_number = 2
-			elif last_spawn_number == 2:
-				if randi_range(0, 100) <= end_zone_spawn_RNG_chance:
-					inst(hazard_one_spawn)
-					last_spawn_number = 1
-				else:
-					inst(hazard_three_spawn)
-					last_spawn_number = 3
-		
-		if spawn_number == 3:
-			if last_spawn_number != 3:
-				inst(hazard_three_spawn)
-				last_spawn_number = 3
-			elif last_spawn_number == 3:
-				if randi_range(1, 2) == 1:
-					inst(hazard_two_spawn)
-					last_spawn_number = 2
-				else:
-					inst(hazard_four_spawn)
-					last_spawn_number = 4
-		
-		if spawn_number == 4:
-			if last_spawn_number != 4:
-				inst(hazard_four_spawn)
-				last_spawn_number = 4
-			elif last_spawn_number == 4:
-				if randi_range(0, 100) > end_zone_spawn_RNG_chance:
-					inst(hazard_three_spawn)
-					last_spawn_number = 3
-				else:
-					inst(hazard_five_spawn)
-					last_spawn_number = 5
-		
-		
-		if spawn_number == 5:
-			if last_spawn_number != 5:
-				last_spawn_number = 5
-				inst(hazard_five_spawn)
-			elif last_spawn_number == 5:
-				last_spawn_number = 4
-				inst(hazard_four_spawn)
 	else:
 		pass
+
+#func _spawn() -> void:
+	#if ULTIMATE_CAN_SPAWN == true:
+		#var spawn_mover = randi_range(-1,1)
+		#
+		#spawn_number += spawn_mover
+		##spawn_number = 2
+		#
+		#if spawn_number == 0:
+			#spawn_number = 1
+		#
+		#if spawn_number == 6:
+			#spawn_number = 5
+		#
+		#
+		#
+		#if spawn_number == 1:
+			#if last_spawn_number != 1:
+				#last_spawn_number = 1
+				#inst(hazard_one_spawn)
+			#elif last_spawn_number == 1:
+				#last_spawn_number = 2
+				#inst(hazard_two_spawn)
+		#
+#
+		#if spawn_number == 2:
+			#if last_spawn_number != 2:
+				##if randi_range(0, 100) < 75:
+				#inst(hazard_two_spawn)
+				#last_spawn_number = 2
+			#elif last_spawn_number == 2:
+				#if randi_range(0, 100) <= end_zone_spawn_RNG_chance:
+					#inst(hazard_one_spawn)
+					#last_spawn_number = 1
+				#else:
+					#inst(hazard_three_spawn)
+					#last_spawn_number = 3
+		#
+		#if spawn_number == 3:
+			#if last_spawn_number != 3:
+				#inst(hazard_three_spawn)
+				#last_spawn_number = 3
+			#elif last_spawn_number == 3:
+				#if randi_range(1, 2) == 1:
+					#inst(hazard_two_spawn)
+					#last_spawn_number = 2
+				#else:
+					#inst(hazard_four_spawn)
+					#last_spawn_number = 4
+		#
+		#if spawn_number == 4:
+			#if last_spawn_number != 4:
+				#inst(hazard_four_spawn)
+				#last_spawn_number = 4
+			#elif last_spawn_number == 4:
+				#if randi_range(0, 100) > end_zone_spawn_RNG_chance:
+					#inst(hazard_three_spawn)
+					#last_spawn_number = 3
+				#else:
+					#inst(hazard_five_spawn)
+					#last_spawn_number = 5
+		#
+		#
+		#if spawn_number == 5:
+			#if last_spawn_number != 5:
+				#last_spawn_number = 5
+				#inst(hazard_five_spawn)
+			#elif last_spawn_number == 5:
+				#last_spawn_number = 4
+				#inst(hazard_four_spawn)
+	#else:
+		#pass
 
 func _coin_chance() -> int:
 	var result = randi_range(0, 100)

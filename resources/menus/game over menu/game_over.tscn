@@ -76,6 +76,42 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GameOverArrow:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CurtainCallRect:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CurtainCallRect:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_wbq12"]
 resource_name = "papers_slide"
@@ -140,6 +176,42 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GameOverArrow:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CurtainCallRect:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CurtainCallRect:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.39999998, 2.5, 3.0333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37gxc"]
 _data = {
@@ -175,6 +247,18 @@ offset_top = -32.0
 offset_right = 1320.0
 offset_bottom = 840.0
 color = Color(0, 0, 0, 0.60784316)
+
+[node name="CurtainCallRect" type="ColorRect" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+z_index = -5
+z_as_relative = false
+layout_mode = 0
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 1320.0
+offset_bottom = 840.0
+color = Color(0, 0, 0, 1)
 
 [node name="RetryButton" type="TextureButton" parent="."]
 layout_mode = 1
@@ -241,6 +325,7 @@ libraries/ = SubResource("AnimationLibrary_37gxc")
 [node name="HighScoreHandler" parent="." instance=ExtResource("11_0bugr")]
 
 [node name="GameOverArrow" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(214, 551)
 texture = ExtResource("13_cwdcb")
 script = ExtResource("14_7g46l")
