@@ -265,6 +265,7 @@ arrow_position_RETRY = Vector2(214, 551)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
+z_index = 1
 layout_mode = 0
 offset_left = -16.0
 offset_top = -32.0

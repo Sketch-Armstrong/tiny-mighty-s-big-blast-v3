@@ -5,6 +5,8 @@
 [ext_resource type="FontFile" uid="uid://daneqp485q651" path="res://resources/fonts/Alisandra Demo.ttf" id="2_r750c"]
 
 [node name="InitialInputter" type="Node2D"]
+z_index = 11
+z_as_relative = false
 script = ExtResource("1_fboh4")
 
 [node name="InitialLabel2" type="RichTextLabel" parent="."]
