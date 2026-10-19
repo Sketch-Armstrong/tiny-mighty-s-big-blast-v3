@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b5jxq4x0sh2uf" path="res://player.gd" id="1_n3u4o"]
 [ext_resource type="Script" uid="uid://c8pcdqbwxg1ib" path="res://move_timer.gd" id="3_x6gf6"]
 [ext_resource type="Script" uid="uid://dy67jj3fdbhrx" path="res://label.gd" id="4_6k2rg"]
-[ext_resource type="Texture2D" uid="uid://b3hlif6ujaise" path="res://resources/character/sprites/nova blast sheet temp burning test.png" id="4_j5n4i"]
+[ext_resource type="Texture2D" uid="uid://cnsvl1ackssc3" path="res://resources/character/sprites/Nova Blast imported frames animation (frames cleaned colors changed)-Sheet.png" id="4_j5n4i"]
 [ext_resource type="Texture2D" uid="uid://45c8fym3hnj2" path="res://resources/character/sprites/Tiny Mighty Temp sprite sheet-Sheet.png" id="5_n60oq"]
 [ext_resource type="Texture2D" uid="uid://co416e1vqyvao" path="res://resources/character/sprites/nova blast star-Sheet.png" id="6_n7ghd"]
 [ext_resource type="Texture2D" uid="uid://p6ex68mo6jnc" path="res://resources/character/sprites/Tiny landing impact effects-Sheet.png" id="7_nvl01"]
@@ -1186,7 +1186,7 @@ tracks/16/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.0989),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10]
+"values": [39, 40, 39, 40, 39, 40, 39, 40, 39, 40, 39, 40]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
@@ -1625,7 +1625,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.4329, 0.4662, 0.4995, 0.5328, 0.5661, 0.5994, 0.6327, 0.666),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 10, 9, 10, 9, 10, 9, 10, 9, 10]
+"values": [46, 40, 39, 40, 39, 40, 39, 40, 39, 40]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -1880,7 +1880,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.4329, 0.4662, 0.4995, 0.5328, 0.5661, 0.5994, 0.6327, 0.666),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 10, 9, 10, 9, 10, 9, 10, 9, 10]
+"values": [0, 40, 39, 40, 39, 40, 39, 40, 39, 40]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -2176,7 +2176,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.43333334, 0.53333336, 0.6666667, 0.8, 0.93333334, 1.0666667, 1.2, 1.3333334, 1.4666667, 1.6, 1.7333333, 1.8666666, 1.9667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [22, 14, 12, 13, 12, 14, 12, 13, 12, 14, 12, 13, 12, 14]
+"values": [45, 43, 42, 44, 42, 43, 42, 44, 42, 43, 42, 44, 42, 43]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -2944,7 +2944,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.0666, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 9, 10, 9, 10, 9, 10, 9, 10, 23]
+"values": [46, 47, 39, 40, 39, 40, 39, 40, 39, 40, 48]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -4630,8 +4630,8 @@ visible = false
 z_index = 5
 material = ExtResource("9_q13i1")
 texture = ExtResource("4_j5n4i")
-hframes = 5
-vframes = 8
+hframes = 7
+vframes = 7
 
 [node name="NovaStar" type="Sprite2D" parent="."]
 visible = false

@@ -41,7 +41,7 @@
 [ext_resource type="Script" uid="uid://bkadg64sbjfh0" path="res://resources/menus/main menu/rich_text_label.gd" id="27_rvsea"]
 [ext_resource type="Script" uid="uid://dsjtbg8dbop2h" path="res://resources/menus/main menu/score_back_button.gd" id="28_j7q13"]
 [ext_resource type="Texture2D" uid="uid://dwbmayjybtbwm" path="res://resources/menus/main menu/sprites/Buttons/How To Play/Screenshot from 2026-09-24 17-04-46.png" id="31_mq70l"]
-[ext_resource type="Texture2D" uid="uid://cp4ofstf5p2ig" path="res://resources/menus/main menu/sprites/Buttons/How To Play/Screenshot from 2026-09-24 17-09-08.png" id="32_7pexp"]
+[ext_resource type="PackedScene" uid="uid://cbicjph8r6ecx" path="res://resources/menus/how to play/how_to_play_screen.tscn" id="32_7pexp"]
 [ext_resource type="Texture2D" uid="uid://ccm2bjgyfwaer" path="res://resources/HUD/repeatable chains.png" id="40_sl6gj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5bj2"]
@@ -174,7 +174,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(-1200, 0)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -216,7 +216,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1200, 0)]
+"values": [Vector2(-1200, 0), Vector2(125, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_tmic1"]
@@ -231,7 +231,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1200, 0), Vector2(0, 0)]
+"values": [Vector2(125, 0), Vector2(-1200, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_sucl3"]
@@ -742,17 +742,13 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("31_mq70l")
 
 [node name="HowToPlay" type="Node2D" parent="CanvasLayer2/HowToPlay"]
-
-[node name="TempHowToPlayImage" type="Sprite2D" parent="CanvasLayer2/HowToPlay/HowToPlay"]
-position = Vector2(-555, 511.00006)
-scale = Vector2(3.9715724, 6.4036694)
-texture = ExtResource("32_7pexp")
+position = Vector2(-1200, 0)
 
 [node name="HowToPlayBackButton" type="TextureButton" parent="CanvasLayer2/HowToPlay/HowToPlay"]
-offset_left = -203.0
-offset_top = 799.0
-offset_right = 118.0
-offset_bottom = 928.0
+offset_left = 995.0
+offset_top = 775.0
+offset_right = 1316.0
+offset_bottom = 904.0
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath(".")
@@ -766,6 +762,8 @@ texture_hover = ExtResource("15_gbyhc")
 [node name="FocusArrowHowToPlayBack" type="Sprite2D" parent="CanvasLayer2/HowToPlay/HowToPlay/HowToPlayBackButton"]
 position = Vector2(96, 80)
 texture = ExtResource("21_byh02")
+
+[node name="Node2D" parent="CanvasLayer2/HowToPlay/HowToPlay" instance=ExtResource("32_7pexp")]
 
 [node name="Node2D" parent="." instance=ExtResource("5_btbi6")]
 visible = false

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbicjph8r6ecx"]
+
+[ext_resource type="Texture2D" uid="uid://c2f7625cxy1ew" path="res://resources/background/sprites/BG scene assets/Chains/chains test.png" id="1_u6mx4"]
+[ext_resource type="Script" uid="uid://bypyvtf7rya74" path="res://resources/menus/how to play/how_to_play_screen.gd" id="1_x76kw"]
+[ext_resource type="Texture2D" uid="uid://cfki3cogi7oaf" path="res://resources/background/sprites/BG scene assets/Chains/chain_test_sprite.png" id="2_x76kw"]
+[ext_resource type="Texture2D" uid="uid://diljv8woo4efi" path="res://resources/background/sprites/BG scene assets/junk pile/chair.png" id="3_5lgwc"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_x76kw")
+
+[node name="Screen1" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Screen1"]
+position = Vector2(583, 396)
+texture = ExtResource("1_u6mx4")
+
+[node name="Screen2" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Screen2"]
+position = Vector2(573, 383)
+texture = ExtResource("2_x76kw")
+
+[node name="Screen3" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Screen3"]
+position = Vector2(580, 372)
+texture = ExtResource("3_5lgwc")
+
+[node name="Node" type="Node2D" parent="."]
+
+[node name="ButtonPrevious" type="Button" parent="Node"]
+offset_top = 320.0
+offset_right = 128.0
+offset_bottom = 480.0
+
+[node name="ButtonNext" type="Button" parent="Node"]
+offset_left = 1152.0
+offset_top = 320.0
+offset_right = 1280.0
+offset_bottom = 480.0
+
+[connection signal="pressed" from="Node/ButtonPrevious" to="." method="_on_button_previous_pressed"]
+[connection signal="pressed" from="Node/ButtonNext" to="." method="_on_button_next_pressed"]
