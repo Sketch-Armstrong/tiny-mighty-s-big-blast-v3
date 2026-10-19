@@ -63,10 +63,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -182.0
-offset_top = -464.0
+offset_left = -224.0
+offset_top = -508.5
 offset_right = 255.0
-offset_bottom = 157.0
+offset_bottom = 201.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vh1wk")
@@ -95,7 +95,7 @@ theme_override_font_sizes/font_size = 48
 text = "up"
 
 [node name="UpRemapButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 focus_neighbor_top = NodePath(".")
@@ -126,7 +126,7 @@ theme_override_font_sizes/font_size = 46
 text = "down"
 
 [node name="DownRemapButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer2"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 focus_neighbor_top = NodePath("../../HBoxContainer/UpRemapButton")
@@ -158,7 +158,7 @@ theme_override_font_sizes/font_size = 46
 text = "left"
 
 [node name="LeftRemapButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer3"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 focus_neighbor_top = NodePath("../../HBoxContainer2/DownRemapButton")
@@ -190,7 +190,7 @@ theme_override_font_sizes/font_size = 46
 text = "right"
 
 [node name="RightRemapButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer4"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 focus_neighbor_top = NodePath("../../HBoxContainer3/LeftRemapButton")
@@ -222,7 +222,7 @@ theme_override_font_sizes/font_size = 46
 text = "taunt"
 
 [node name="TauntRemapButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/HBoxContainer5"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 focus_neighbor_top = NodePath("../../HBoxContainer4/RightRemapButton")

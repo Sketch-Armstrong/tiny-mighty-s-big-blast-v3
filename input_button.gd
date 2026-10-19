@@ -193,7 +193,7 @@ func refresh_label() -> void:
 			right = OS.get_keycode_string(code)
 	text_left = left
 	text_right = right
-	text = text_left + "    " + text_right
+	text = text_left + "   |   " + text_right
 
 func undo_duplicate_label() -> void:
 	if action == "tiny_move_up" && InputConfigHandler.duplicate_detection_keyword == "dupe_up":

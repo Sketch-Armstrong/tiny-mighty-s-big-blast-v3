@@ -11,7 +11,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 500.0
-offset_bottom = 500.0
+offset_bottom = 512.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -215,7 +215,7 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/TotalCoinsCollected"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "total coins collected"
+text = "Total Shields collected"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/TotalCoinsCollected"]
@@ -231,7 +231,7 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/ExtraLivesCollected"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "Extra lives collected"
+text = "Extra bombs collected"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/ExtraLivesCollected"]
@@ -247,7 +247,7 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/LivesEndCount"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "Total lives at end"
+text = "Total bombs at end"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/LivesEndCount"]
@@ -295,7 +295,7 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/TotalGarbageBonuses"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "Total garbage piles blasted"
+text = "Total junk piles blasted"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/TotalGarbageBonuses"]
