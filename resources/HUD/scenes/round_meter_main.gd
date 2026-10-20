@@ -3,33 +3,36 @@ extends Node2D
 #@onready var round_timer_value = $RoundTimer.get_time_left()
 @onready var round_timer := $RoundTimer
 @onready var progress_bar = $Control/ProgressBar
-@onready var timer_bomb := $TimerBomb
-@onready var meter_coin := $MeterCoin
-@onready var coin_mult_text := $CoinMult
+@onready var fuse: Node2D = $Fuse
 
 
 signal round_timer_timeout
 
 func _ready() -> void:
-	
+	$Fuse/FuseSprite.hide()
+	$Fuse/AnimationPlayer.play("Fuse_Burn")
 	pass # Replace with function body.
 	#$ProgressBar.value = 75
 
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
-
 	var round_timer_value = $RoundTimer.get_time_left()
-	#print(round_timer_value)
-	var coin_mult_num = 11 - round_timer_value
 	progress_bar.value = round_timer_value
-	
-	coin_mult_text.set_frame(coin_mult_num)
-	
+	var tex_size: Vector2 = progress_bar.texture_progress.get_size()
+	var edge_local := Vector2(
+		progress_bar.texture_progress_offset.x + tex_size.x * progress_bar.get_as_ratio(),
+		progress_bar.texture_progress_offset.y + tex_size.y * 0.5  # vertical middle of the bar
+	)
+	fuse.global_position = progress_bar.get_global_transform() * edge_local
+
+
+
 
 func _start_round_timer() -> void:
 	round_timer.start()
 	round_timer.set_paused(false)
-
+	$Fuse/FuseSprite.show()
 
 
 func _on_player_player_reset() -> void:

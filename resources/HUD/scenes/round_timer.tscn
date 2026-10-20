@@ -1,25 +1,32 @@
-[gd_scene load_steps=14 format=3 uid="uid://bw5b4c2gd4eod"]
+[gd_scene load_steps=8 format=3 uid="uid://bw5b4c2gd4eod"]
 
 [ext_resource type="Script" uid="uid://bq172qfe5cdo0" path="res://resources/HUD/scenes/round_meter_main.gd" id="1_wlf2u"]
-[ext_resource type="Texture2D" uid="uid://b8h1nec35lp2k" path="res://resources/HUD/miss bomb.png" id="3_du6rp"]
-[ext_resource type="Material" uid="uid://cjwh072dhg4bd" path="res://Shaders/Tests/shader_test.tres" id="3_s81ks"]
-[ext_resource type="Texture2D" uid="uid://dgfvpp21m1vi6" path="res://resources/HUD/cheesing the font kerning timer text.png" id="4_h85yy"]
-[ext_resource type="Script" uid="uid://b80r6hxfalxgj" path="res://resources/HUD/scenes/meter_coin.gd" id="5_h85yy"]
-[ext_resource type="Texture2D" uid="uid://d06ueq0tmkn2p" path="res://resources/Hazards/Sprites/final design coin sheet-Sheet.png" id="6_du6rp"]
-[ext_resource type="Texture2D" uid="uid://bqi2b8rvs3wku" path="res://resources/HUD/X.png" id="7_du6rp"]
+[ext_resource type="Texture2D" uid="uid://d1ty5bb45luvs" path="res://resources/character/sprites/round timer wick black.png" id="2_mleo7"]
+[ext_resource type="Texture2D" uid="uid://ch3q1ke8enx3u" path="res://resources/character/sprites/round timer wick.png" id="3_lyp64"]
+[ext_resource type="Texture2D" uid="uid://dk0gsgtw7ku8r" path="res://resources/character/sprites/fuse burn sprite-Sheet.png" id="10_lyp64"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wlf2u"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="Animation" id="Animation_s81ks"]
+resource_name = "fuse_burn"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FuseSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prlc4"]
-bg_color = Color(1, 1, 1, 1)
-
-[sub_resource type="Animation" id="Animation_hptx7"]
+[sub_resource type="Animation" id="Animation_sw1v6"]
 resource_name = "RESET"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CoinSprite:frame")
+tracks/0/path = NodePath("FuseSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -29,42 +36,10 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_uafof"]
-resource_name = "new_animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CoinSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [4, 5, 6]
-}
-
-[sub_resource type="Animation" id="Animation_gq71i"]
-resource_name = "spin"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CoinSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uafof"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h85yy"]
 _data = {
-&"RESET": SubResource("Animation_hptx7"),
-&"pickup": SubResource("Animation_uafof"),
-&"spin": SubResource("Animation_gq71i")
+&"Fuse_Burn": SubResource("Animation_s81ks"),
+&"RESET": SubResource("Animation_sw1v6")
 }
 
 [node name="RoundMeterMain" type="Node2D"]
@@ -91,45 +66,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="Control"]
+[node name="ProgressBar" type="TextureProgressBar" parent="Control"]
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 27.0
-theme_override_styles/background = SubResource("StyleBoxFlat_wlf2u")
-theme_override_styles/fill = SubResource("StyleBoxFlat_prlc4")
 max_value = 10.0
-show_percentage = false
+step = 0.01
+texture_under = ExtResource("2_mleo7")
+texture_progress = ExtResource("3_lyp64")
 
-[node name="TimerBomb" type="Sprite2D" parent="."]
-visible = false
-z_index = -1
-material = ExtResource("3_s81ks")
-position = Vector2(0, 8)
-texture = ExtResource("3_du6rp")
+[node name="Fuse" type="Node2D" parent="."]
 
-[node name="CoinMult" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(128, 16)
-texture = ExtResource("4_h85yy")
-hframes = 12
+[node name="FuseSprite" type="Sprite2D" parent="Fuse"]
+texture = ExtResource("10_lyp64")
+offset = Vector2(10, -15)
+vframes = 3
 
-[node name="X" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(224, 8)
-texture = ExtResource("7_du6rp")
-
-[node name="MeterCoin" type="Node2D" parent="."]
-visible = false
-z_index = 5
-position = Vector2(312, 16)
-script = ExtResource("5_h85yy")
-
-[node name="CoinSprite" type="Sprite2D" parent="MeterCoin"]
-position = Vector2(16, 0)
-texture = ExtResource("6_du6rp")
-hframes = 7
-
-[node name="CoinPlayer" type="AnimationPlayer" parent="MeterCoin"]
-libraries/ = SubResource("AnimationLibrary_uafof")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fuse"]
+libraries/ = SubResource("AnimationLibrary_h85yy")
 
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]
