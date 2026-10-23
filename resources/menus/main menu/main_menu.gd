@@ -33,7 +33,7 @@ func _make_control_click_through(node: Node) -> void:
 func _on_start_pressed():
 	$Control.show()
 	$CanvasLayer2/Node2D/ButtonManager.hide()
-	$CanvasLayer2/HowToPlay/HowToPlayButton.hide()
+	$CanvasLayer2/Node2D3/HowToPlayButton.hide()
 	$FocusArrow.hide()
 	$Control/Control/ColorRect/AnimationPlayer.play("fade_in")
 	#$Node2D/AnimationPlayer.play("test")
@@ -113,7 +113,7 @@ func _on_legal_back_button_pressed() -> void:
 func _on_how_to_play_button_pressed() -> void:
 	pass # Replace with function body.
 	$FocusArrow.hide()
-	$CanvasLayer2/HowToPlay/HowToPlayButton.release_focus()
+	$CanvasLayer2/Node2D3/HowToPlayButton.release_focus()
 	menu_player.play("main_buttons_exit")
 	await menu_player.animation_finished
 	menu_player.play("how_to_play_enter")
@@ -123,10 +123,10 @@ func _on_how_to_play_button_pressed() -> void:
 
 func _on_how_to_play_back_button_pressed() -> void:
 	pass # Replace with function body.
-	$CanvasLayer2/HowToPlay/HowToPlayButton.release_focus()
+	$CanvasLayer2/Node2D3/HowToPlayButton.release_focus()
 	menu_player.play("how_to_play_exit")
 	await menu_player.animation_finished
 	menu_player.play("main_buttons_enter")
 	$FocusArrow.show()
 	await menu_player.animation_finished
-	$CanvasLayer2/HowToPlay/HowToPlayButton.grab_focus()
+	$CanvasLayer2/Node2D3/HowToPlayButton.grab_focus()

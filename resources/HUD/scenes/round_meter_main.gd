@@ -19,12 +19,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var round_timer_value = $RoundTimer.get_time_left()
 	progress_bar.value = round_timer_value
-	var tex_size: Vector2 = progress_bar.texture_progress.get_size()
-	var edge_local := Vector2(
-		progress_bar.texture_progress_offset.x + tex_size.x * progress_bar.get_as_ratio(),
-		progress_bar.texture_progress_offset.y + tex_size.y * 0.5  # vertical middle of the bar
+	var texture_size: Vector2 = progress_bar.texture_progress.get_size()
+	var bar_edge := Vector2(
+		progress_bar.texture_progress_offset.x + texture_size.x * progress_bar.get_as_ratio(),
+		progress_bar.texture_progress_offset.y + texture_size.y * 0.5  # vertical middle of the bar
 	)
-	fuse.global_position = progress_bar.get_global_transform() * edge_local
+	fuse.global_position = progress_bar.get_global_transform() * bar_edge
 
 
 

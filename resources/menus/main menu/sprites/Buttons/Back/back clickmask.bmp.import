@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cpkjyypxcl0jl"
+path="res://.godot/imported/back clickmask.bmp-9b2b4720cbd134ee261f546ac10b77e0.res"
+
+[deps]
+
+source_file="res://resources/menus/main menu/sprites/Buttons/Back/back clickmask.bmp"
+dest_files=["res://.godot/imported/back clickmask.bmp-9b2b4720cbd134ee261f546ac10b77e0.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
