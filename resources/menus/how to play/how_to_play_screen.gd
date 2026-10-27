@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var page_count := 1
-@export var max_page_count := 34
+@export var max_page_count := 100
 signal page_count_changed
 
 var manual_Intro_end := 4
@@ -181,3 +181,14 @@ func _update_section_label() -> void:
 		if page_count <= section[0]:
 			$Node/Section.text = section[1] + " "
 			break
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	page_count = $HSlider.value
+	_check_page_count()
+	pass
+
+
+func _on_h_slider_changed() -> void:
+	#page_count = $HSlider.value
+	pass

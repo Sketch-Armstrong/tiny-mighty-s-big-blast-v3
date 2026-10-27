@@ -4,6 +4,7 @@ signal main_menu
 
 @onready var menu_player := $MenusAnimationPlayer
 @onready var tiny_player := $TinyAnimationPlayer
+@onready var logo_player := $LogoAnimationPlayer
 @onready var back_button := $CanvasLayer2/Node2D2/BackButton
 @onready var highscore_handler := $CanvasLayer2/HighScores/HighScoreHandler
 @onready var highscore_control := $CanvasLayer2/HighScores
@@ -18,9 +19,11 @@ func _ready() -> void:
 	highscore_handler.hide_end_highscores_panel()
 	highscore_handler.show_title_scores_panels()
 	main_menu.emit()
+	logo_player.play("title_hover")
 	tiny_player.play("tiny_enter")
 	await tiny_player.animation_finished
 	tiny_player.play("tiny_idle")
+	
 	pass
 	#$ColorRect/AnimationPlayer.play("fade_in")
 

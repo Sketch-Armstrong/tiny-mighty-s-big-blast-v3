@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://bkjyvdxuebm0n"]
+[gd_scene load_steps=64 format=3 uid="uid://bkjyvdxuebm0n"]
 
 [ext_resource type="Script" uid="uid://bmp62hod205fu" path="res://resources/menus/main menu/main_menu.gd" id="1_qhkso"]
 [ext_resource type="Script" uid="uid://dkun673nnkv2u" path="res://resources/menus/main menu/focus_arrow.gd" id="3_34pwb"]
@@ -40,7 +40,7 @@
 [ext_resource type="Script" uid="uid://bj1e2r7y57ycc" path="res://resources/menus/main menu/focus_arrow_legal_back.gd" id="26_j7q13"]
 [ext_resource type="Script" uid="uid://bkadg64sbjfh0" path="res://resources/menus/main menu/rich_text_label.gd" id="27_rvsea"]
 [ext_resource type="Script" uid="uid://dsjtbg8dbop2h" path="res://resources/menus/main menu/score_back_button.gd" id="28_j7q13"]
-[ext_resource type="Texture2D" uid="uid://dwbmayjybtbwm" path="res://resources/menus/main menu/sprites/Buttons/How To Play/Screenshot from 2026-09-24 17-04-46.png" id="31_mq70l"]
+[ext_resource type="Texture2D" uid="uid://de7f4677vb10a" path="res://resources/menus/main menu/sprites/Buttons/How To Play/manual button icon.png" id="31_itvd4"]
 [ext_resource type="PackedScene" uid="uid://cbicjph8r6ecx" path="res://resources/menus/how to play/how_to_play_screen.tscn" id="32_7pexp"]
 [ext_resource type="BitMap" uid="uid://cpkjyypxcl0jl" path="res://resources/menus/main menu/sprites/Buttons/Back/back clickmask.bmp" id="32_itvd4"]
 [ext_resource type="Texture2D" uid="uid://ccm2bjgyfwaer" path="res://resources/HUD/repeatable chains.png" id="40_sl6gj"]
@@ -200,6 +200,30 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1237, 548)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Tiny/Body:offset:x")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Tiny/Hands:offset:x")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_x3ts8"]
@@ -469,7 +493,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_w07cb"]
 resource_name = "tiny_idle"
-length = 2.0
+length = 5.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -478,10 +502,10 @@ tracks/0/path = NodePath("Tiny/Body:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.25, 2.5, 3.75),
+"transitions": PackedFloat32Array(0.2588162, 1.6817931, 0.17677678, 2.7320807),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, -10)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -502,10 +526,34 @@ tracks/2/path = NodePath("Tiny/Fuse:offset")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(3.0314324, 2.6390178),
+"times": PackedFloat32Array(0, 1, 1.8666667, 2.8666668, 3.6333334, 4.633333),
+"transitions": PackedFloat32Array(3.0314324, 2.6390178, 3.0314324, 2.6390178, 3.0314324, 2.6390178),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 5)]
+"values": [Vector2(0, 0), Vector2(0, 5), Vector2(0, 0), Vector2(0, 5), Vector2(0, 0), Vector2(0, 5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tiny/Body:offset:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.25, 2.5, 3.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -10.0, 10.0, 20.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tiny/Hands:offset:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.25, 2.5, 3.75),
+"transitions": PackedFloat32Array(0.4204483, 1.6817931, 0.6155722, 2.1435473),
+"update": 0,
+"values": [0.0, 5.0, 0.0, -5.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o5ce5"]
@@ -526,6 +574,44 @@ _data = {
 &"tiny_idle": SubResource("Animation_w07cb")
 }
 
+[sub_resource type="Animation" id="Animation_1h6b8"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5.0]
+}
+
+[sub_resource type="Animation" id="Animation_ypmer"]
+resource_name = "title_hover"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [5.0, -5.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cghce"]
+_data = {
+&"RESET": SubResource("Animation_1h6b8"),
+&"title_hover": SubResource("Animation_ypmer")
+}
+
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_qhkso")
 
@@ -540,6 +626,7 @@ BF_start_position = Vector2(700, 230)
 BF_options_position = Vector2(700, 360)
 BF_quit_position = Vector2(700, 490)
 BF_legal_position = Vector2(700, 620)
+BF_h2p_position = Vector2(-88, 620)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2
@@ -587,7 +674,7 @@ offset = Vector2(540, 150)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
-focus_neighbor_left = NodePath("../../../../Node2D/HowToPlayButton")
+focus_neighbor_left = NodePath("../../../Node2D3/HowToPlayButton")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../Start")
@@ -601,7 +688,7 @@ texture_hover = ExtResource("8_sl6gj")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
-focus_neighbor_left = NodePath("../../../../Node2D/HowToPlayButton")
+focus_neighbor_left = NodePath("../../../Node2D3/HowToPlayButton")
 focus_neighbor_top = NodePath("../Scores")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../Options")
@@ -614,7 +701,7 @@ texture_hover = ExtResource("5_23658")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
-focus_neighbor_left = NodePath("../../../../Node2D/HowToPlayButton")
+focus_neighbor_left = NodePath("../../../Node2D3/HowToPlayButton")
 focus_neighbor_top = NodePath("../Start")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../Quit")
@@ -628,7 +715,7 @@ texture_hover = ExtResource("8_gbyhc")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
-focus_neighbor_left = NodePath("../../../../Node2D/HowToPlayButton")
+focus_neighbor_left = NodePath("../../../Node2D3/HowToPlayButton")
 focus_neighbor_top = NodePath("../Options")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../Legal")
@@ -643,7 +730,7 @@ stretch_mode = 3
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
-focus_neighbor_left = NodePath("../../../../Node2D/HowToPlayButton")
+focus_neighbor_left = NodePath("../../../Node2D3/HowToPlayButton")
 focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
@@ -756,20 +843,33 @@ z_index = -1
 position = Vector2(731, 408)
 
 [node name="Node2D3" type="Node2D" parent="CanvasLayer2"]
-position = Vector2(-1280, 0)
+position = Vector2(-1232, -19)
 
 [node name="HowToPlayButton" type="TextureButton" parent="CanvasLayer2/Node2D3"]
 z_as_relative = false
 offset_left = 1237.0
 offset_top = 548.0
 offset_right = 1645.0002
-offset_bottom = 789.0
+offset_bottom = 821.0
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../Node2D/ButtonManager/Scores")
 focus_neighbor_right = NodePath("../../Node2D/ButtonManager/Legal")
-focus_neighbor_bottom = NodePath(".")
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("31_mq70l")
+texture_normal = ExtResource("31_itvd4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Node2D3/HowToPlayButton"]
+visible = false
+layout_mode = 0
+offset_left = 55.0
+offset_top = 8.0
+offset_right = 446.0
+offset_bottom = 124.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/table_odd_row_bg = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 41
+text = "MANUAL"
 
 [node name="HowToPlay" type="Control" parent="CanvasLayer2"]
 z_as_relative = false
@@ -781,16 +881,19 @@ offset_right = -1280.0
 [node name="HowToPlay" type="Node2D" parent="CanvasLayer2/HowToPlay"]
 
 [node name="HowToPlayBackButton" type="TextureButton" parent="CanvasLayer2/HowToPlay/HowToPlay"]
+visible = false
 z_index = 2
-offset_left = 953.0
-offset_top = 676.0
-offset_right = 1274.0
-offset_bottom = 805.0
+offset_left = 1030.0
+offset_top = 707.0
+offset_right = 1351.0
+offset_bottom = 836.0
+scale = Vector2(0.75, 0.75)
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 mouse_filter = 1
+mouse_behavior_recursive = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("13_eujnn")
 texture_pressed = ExtResource("14_gvlbf")
@@ -802,6 +905,12 @@ position = Vector2(96, 80)
 texture = ExtResource("21_byh02")
 
 [node name="Node2D" parent="CanvasLayer2/HowToPlay/HowToPlay" instance=ExtResource("32_7pexp")]
+
+[node name="Button" type="Button" parent="CanvasLayer2/HowToPlay/HowToPlay"]
+offset_left = 1215.0
+offset_top = 509.0
+offset_right = 1278.0
+offset_bottom = 677.0
 
 [node name="Node2D" parent="." instance=ExtResource("5_btbi6")]
 visible = false
@@ -885,9 +994,13 @@ speed_scale = 4.0
 libraries/ = SubResource("AnimationLibrary_o5ce5")
 speed_scale = 1.5
 
+[node name="LogoAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries/ = SubResource("AnimationLibrary_cghce")
+
 [node name="Title" type="Sprite2D" parent="."]
 position = Vector2(464, 324)
 texture = ExtResource("25_gvlbf")
+offset = Vector2(0, 5)
 
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2(288, 624)
@@ -909,6 +1022,13 @@ offset_top = 744.0
 offset_right = 1032.0
 offset_bottom = 1752.0
 color = Color(0, 0, 0, 1)
+
+[node name="Music" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Music"]
+volume_db = -7.638
+autoplay = true
+bus = &"Music"
 
 [connection signal="options_focus" from="." to="CanvasLayer2/Node2D2/Options" method="_on_main_menu_options_focus"]
 [connection signal="focus_entered" from="CanvasLayer2/Node2D/ButtonManager/Scores" to="FocusArrow" method="_on_scores_focus_entered"]
@@ -941,3 +1061,4 @@ color = Color(0, 0, 0, 1)
 [connection signal="focus_exited" from="CanvasLayer2/Node2D3/HowToPlayButton" to="FocusArrow" method="_on_how_to_play_button_focus_exited"]
 [connection signal="pressed" from="CanvasLayer2/Node2D3/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer2/HowToPlay/HowToPlay/HowToPlayBackButton" to="." method="_on_how_to_play_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/HowToPlay/HowToPlay/Button" to="." method="_on_how_to_play_back_button_pressed"]
