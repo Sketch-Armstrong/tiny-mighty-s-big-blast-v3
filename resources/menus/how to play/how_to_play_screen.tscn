@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cbicjph8r6ecx"]
+[gd_scene load_steps=56 format=3 uid="uid://cbicjph8r6ecx"]
 
 [ext_resource type="Script" uid="uid://bypyvtf7rya74" path="res://resources/menus/how to play/how_to_play_screen.gd" id="1_x76kw"]
 [ext_resource type="Texture2D" uid="uid://3swgynw8n7g4" path="res://resources/menus/how to play/how to play 1 maybe 3.png" id="2_5lgwc"]
@@ -46,6 +46,15 @@
 [ext_resource type="Texture2D" uid="uid://sr5hdctsk2id" path="res://resources/menus/how to play/how to play screen style meter spinout down black.png" id="35_imiha"]
 [ext_resource type="Texture2D" uid="uid://bcvwpe4cbuj8x" path="res://resources/menus/how to play/how to play screen style meter short hop.png" id="36_rt1xp"]
 [ext_resource type="Texture2D" uid="uid://dimlr7s7m4j5u" path="res://resources/menus/how to play/how to play screen style meter short hop black.png" id="37_ym8sk"]
+[ext_resource type="Texture2D" uid="uid://cboruyw4pnqa2" path="res://resources/menus/how to play/how to play screen style meter move left.png" id="46_o5ism"]
+[ext_resource type="Texture2D" uid="uid://dx6uylgo3vymo" path="res://resources/menus/how to play/how to play screen style meter move left black.png" id="47_8veyr"]
+[ext_resource type="Texture2D" uid="uid://bbnfsd76ri1is" path="res://resources/menus/how to play/how to play screen style meter move right.png" id="48_nk1od"]
+[ext_resource type="Texture2D" uid="uid://gsvs6sermfa1" path="res://resources/menus/how to play/how to play screen style meter move right black.png" id="49_qyp1x"]
+[ext_resource type="Texture2D" uid="uid://ccwtdio2lg5a7" path="res://resources/menus/how to play/how to play screen move right graze.png" id="50_v1b1b"]
+[ext_resource type="Texture2D" uid="uid://cgxxfrfj55qpa" path="res://resources/menus/how to play/how to play screen move right graze spotlight.png" id="51_0o8rk"]
+[ext_resource type="Texture2D" uid="uid://bl1kwcj4ds7tc" path="res://resources/menus/how to play/how to play screen move right graze spotlight 2.png" id="52_poiek"]
+[ext_resource type="Texture2D" uid="uid://cylyq8kaj48nx" path="res://resources/menus/how to play/how to play screen shot hop graze.png" id="53_qd0l2"]
+[ext_resource type="Texture2D" uid="uid://cyclyng5diq0a" path="res://resources/menus/how to play/how to play screen shot hop graze spotlight.png" id="54_5map8"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_x76kw")
@@ -2688,15 +2697,16 @@ fit_content = true
 horizontal_alignment = 1
 
 [node name="Screen35" type="Node2D" parent="Pages" groups=["manual_page"]]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Pages/Screen35"]
 position = Vector2(640, 400)
-texture = ExtResource("36_rt1xp")
+texture = ExtResource("46_o5ism")
 
 [node name="Sprite2D" type="Sprite2D" parent="Pages/Screen35/Sprite2D"]
 self_modulate = Color(1, 1, 1, 0.61960787)
 z_index = 1
-texture = ExtResource("37_ym8sk")
+texture = ExtResource("47_8veyr")
 
 [node name="ColorRect" type="ColorRect" parent="Pages/Screen35/Sprite2D"]
 visible = false
@@ -2720,10 +2730,20 @@ vframes = 2
 frame = 1
 
 [node name="Sprite2D8" type="Sprite2D" parent="Pages/Screen35"]
+visible = false
 z_index = 1
-position = Vector2(620.99994, 460.00003)
+position = Vector2(550, 494.99997)
 rotation = 3.0191565
 scale = Vector2(0.66840434, 0.66840434)
+texture = ExtResource("3_iwnyd")
+flip_h = true
+vframes = 2
+
+[node name="Sprite2D7" type="Sprite2D" parent="Pages/Screen35"]
+z_index = 2
+position = Vector2(545, 542)
+rotation = 1.7116945
+scale = Vector2(0.6684045, 0.6684045)
 texture = ExtResource("3_iwnyd")
 flip_h = true
 vframes = 2
@@ -2738,21 +2758,13 @@ texture = ExtResource("3_iwnyd")
 flip_h = true
 vframes = 2
 
-[node name="Sprite2D7" type="Sprite2D" parent="Pages/Screen35"]
-z_index = 2
-position = Vector2(979, 672.99994)
-rotation = 6.475853
-scale = Vector2(0.6684045, 0.6684045)
-texture = ExtResource("3_iwnyd")
-flip_h = true
-vframes = 2
-
 [node name="Sprite2D4" type="Sprite2D" parent="Pages/Screen35"]
 z_index = 1
 position = Vector2(648, 548)
 texture = ExtResource("7_d7plf")
 
 [node name="Sprite2D6" type="Sprite2D" parent="Pages/Screen35"]
+visible = false
 z_index = 1
 position = Vector2(639, 401)
 texture = ExtResource("31_k216w")
@@ -2770,14 +2782,15 @@ vframes = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pages/Screen35"]
 z_index = 1
-offset_left = 86.0
-offset_top = 123.0
-offset_right = 728.0
-offset_bottom = 675.0
+offset_left = 340.0
+offset_top = 88.0
+offset_right = 725.0
+offset_bottom = 640.0
 theme_override_constants/outline_size = 15
 theme_override_fonts/normal_font = ExtResource("4_d7plf")
 theme_override_font_sizes/normal_font_size = 86
-text = "this point in the outline was \"why don't I spam the same tricks?\""
+text = "even just
+moving left . . ."
 fit_content = true
 horizontal_alignment = 1
 
@@ -2805,6 +2818,660 @@ theme_override_constants/outline_size = 11
 theme_override_fonts/normal_font = ExtResource("4_d7plf")
 theme_override_font_sizes/normal_font_size = 51
 text = "(D-)"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Screen44" type="Node2D" parent="Pages" groups=["manual_page"]]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Pages/Screen44"]
+position = Vector2(640, 400)
+texture = ExtResource("48_nk1od")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pages/Screen44/Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.61960787)
+z_index = 1
+texture = ExtResource("49_qyp1x")
+
+[node name="ColorRect" type="ColorRect" parent="Pages/Screen44/Sprite2D"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.7294118)
+offset_left = -576.0
+offset_top = -360.0
+offset_right = 576.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Pages/Screen44"]
+visible = false
+z_index = 2
+position = Vector2(539, 534.99994)
+rotation = -0.5235988
+scale = Vector2(0.66840434, 0.66840434)
+texture = ExtResource("3_iwnyd")
+flip_h = true
+vframes = 2
+frame = 1
+
+[node name="Sprite2D8" type="Sprite2D" parent="Pages/Screen44"]
+visible = false
+z_index = 1
+position = Vector2(550, 494.99997)
+rotation = 3.0191565
+scale = Vector2(0.66840434, 0.66840434)
+texture = ExtResource("3_iwnyd")
+flip_h = true
+vframes = 2
+
+[node name="Sprite2D7" type="Sprite2D" parent="Pages/Screen44"]
+z_index = 2
+position = Vector2(760, 552)
+rotation = 4.830536
+scale = Vector2(0.6684045, 0.6684045)
+texture = ExtResource("3_iwnyd")
+flip_h = true
+vframes = 2
+
+[node name="Sprite2D9" type="Sprite2D" parent="Pages/Screen44"]
+visible = false
+z_index = 1
+position = Vector2(610.10425, 342.84042)
+rotation = 3.1415927
+scale = Vector2(0.66840434, 0.66840434)
+texture = ExtResource("3_iwnyd")
+flip_h = true
+vframes = 2
+
+[node name="Sprite2D4" type="Sprite2D" parent="Pages/Screen44"]
+z_index = 1
+position = Vector2(648, 548)
+texture = ExtResource("7_d7plf")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Pages/Screen44"]
+visible = false
+z_index = 1
+position = Vector2(639, 401)
+texture = ExtResource("31_k216w")
+hframes = 7
+vframes = 7
+frame = 40
+
+[node name="Sprite2D5" type="Sprite2D" parent="Pages/Screen44"]
+visible = false
+z_index = 1
+position = Vector2(808, 523)
+rotation = -1.5707964
+texture = ExtResource("3_iwnyd")
+vframes = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pages/Screen44"]
+z_index = 1
+offset_left = 566.0
+offset_top = 172.0
+offset_right = 833.0
+offset_bottom = 724.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 84
+text = "and right,"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Pages/Screen44"]
+z_index = 1
+offset_left = 871.0
+offset_top = 318.0
+offset_right = 1179.0
+offset_bottom = 664.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 68
+text = "will increase your style a little"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Pages/Screen44"]
+visible = false
+z_index = 1
+offset_left = 869.0
+offset_top = 246.0
+offset_right = 1091.0
+offset_bottom = 582.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 51
+text = "HAVE THE FUSE  YOU'RE PASTING BE AROUND HERE"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Pages/Screen44"]
+visible = false
+offset_left = 318.0
+offset_top = 554.0
+offset_right = 643.0
+offset_bottom = 722.0
+theme_override_constants/outline_size = 11
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 51
+text = "(D-)"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Screen43" type="Node2D" parent="Pages" groups=["manual_page"]]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Pages/Screen43"]
+position = Vector2(640, 400)
+texture = ExtResource("21_aaigu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pages/Screen43/Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.47058824)
+z_index = 1
+texture = ExtResource("22_awdbb")
+
+[node name="ColorRect" type="ColorRect" parent="Pages/Screen43/Sprite2D"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.7294118)
+offset_left = -576.0
+offset_top = -360.0
+offset_right = 576.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Pages/Screen43"]
+z_index = 1
+position = Vector2(685, 717)
+rotation = 1.5707964
+texture = ExtResource("3_iwnyd")
+vframes = 2
+frame = 1
+
+[node name="Sprite2D4" type="Sprite2D" parent="Pages/Screen43"]
+visible = false
+position = Vector2(784, 160)
+texture = ExtResource("3_iwnyd")
+vframes = 2
+frame = 1
+
+[node name="Sprite2D5" type="Sprite2D" parent="Pages/Screen43"]
+visible = false
+z_index = 1
+position = Vector2(947, 629.00006)
+rotation = 1.0797687
+texture = ExtResource("3_iwnyd")
+vframes = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pages/Screen43"]
+z_index = 1
+offset_left = 337.0
+offset_top = 276.0
+offset_right = 574.0
+offset_bottom = 520.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 56
+text = "mix up your actions"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Pages/Screen43"]
+z_index = 1
+offset_left = 678.0
+offset_top = 289.0
+offset_right = 994.0
+offset_bottom = 533.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 56
+text = "repeating them decays the style bonus"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Pages/Screen43"]
+visible = false
+z_index = 1
+offset_left = 800.0
+offset_top = 284.0
+offset_right = 1125.0
+offset_bottom = 452.0
+theme_override_constants/outline_size = 11
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 51
+text = "and increase
+your paycheck by †1.00 "
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Screen45" type="Node2D" parent="Pages" groups=["manual_page"]]
+visible = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Pages/Screen45"]
+position = Vector2(640, 400)
+texture = ExtResource("26_1dblu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pages/Screen45/Sprite2D2"]
+self_modulate = Color(1, 1, 1, 0.47058824)
+z_index = 1
+texture = ExtResource("22_awdbb")
+
+[node name="ColorRect" type="ColorRect" parent="Pages/Screen45/Sprite2D2"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.7294118)
+offset_left = -576.0
+offset_top = -360.0
+offset_right = 576.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Pages/Screen45"]
+z_index = 1
+position = Vector2(685, 717)
+rotation = 4.6416283
+texture = ExtResource("3_iwnyd")
+vframes = 2
+frame = 1
+
+[node name="Sprite2D4" type="Sprite2D" parent="Pages/Screen45"]
+visible = false
+position = Vector2(784, 160)
+texture = ExtResource("3_iwnyd")
+vframes = 2
+frame = 1
+
+[node name="Sprite2D5" type="Sprite2D" parent="Pages/Screen45"]
+visible = false
+z_index = 1
+position = Vector2(947, 629.00006)
+rotation = 1.0797687
+texture = ExtResource("3_iwnyd")
+vframes = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pages/Screen45"]
+z_index = 1
+offset_left = 535.0
+offset_top = 417.0
+offset_right = 772.0
+offset_bottom = 661.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 56
+text = "while fresh ones increase it"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Pages/Screen45"]
+visible = false
+z_index = 1
+offset_left = 678.0
+offset_top = 289.0
+offset_right = 994.0
+offset_bottom = 533.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 56
+text = "repeating them decays the style bonus"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Pages/Screen45"]
+visible = false
+z_index = 1
+offset_left = 800.0
+offset_top = 284.0
+offset_right = 1125.0
+offset_bottom = 452.0
+theme_override_constants/outline_size = 11
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 51
+text = "and increase
+your paycheck by †1.00 "
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Screen46" type="Node2D" parent="Pages" groups=["manual_page"]]
+visible = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Pages/Screen46"]
+position = Vector2(640, 400)
+texture = ExtResource("46_o5ism")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pages/Screen46/Sprite2D2"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.47058824)
+z_index = 1
+texture = ExtResource("22_awdbb")
+
+[node name="ColorRect" type="ColorRect" parent="Pages/Screen46/Sprite2D2"]
+self_modulate = Color(1, 1, 1, 0.7294118)
+offset_left = -576.0
+offset_top = -360.0
+offset_right = 576.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Pages/Screen46"]
+visible = false
+z_index = 1
+position = Vector2(685, 717)
+rotation = 4.6416283
+texture = ExtResource("3_iwnyd")
+vframes = 2
+frame = 1
+
+[node name="Sprite2D4" type="Sprite2D" parent="Pages/Screen46"]
+visible = false
+position = Vector2(784, 160)
+texture = ExtResource("3_iwnyd")
+vframes = 2
+frame = 1
+
+[node name="Sprite2D5" type="Sprite2D" parent="Pages/Screen46"]
+visible = false
+z_index = 1
+position = Vector2(947, 629.00006)
+rotation = 1.0797687
+texture = ExtResource("3_iwnyd")
+vframes = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pages/Screen46"]
+z_index = 1
+offset_left = 522.0
+offset_top = 255.0
+offset_right = 759.0
+offset_bottom = 499.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 56
+text = "You can also gain style by \"grazing\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Pages/Screen46"]
+visible = false
+z_index = 1
+offset_left = 678.0
+offset_top = 289.0
+offset_right = 994.0
+offset_bottom = 533.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 56
+text = "repeating them decays the style bonus"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Pages/Screen46"]
+visible = false
+z_index = 1
+offset_left = 800.0
+offset_top = 284.0
+offset_right = 1125.0
+offset_bottom = 452.0
+theme_override_constants/outline_size = 11
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 51
+text = "and increase
+your paycheck by †1.00 "
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Screen47" type="Node2D" parent="Pages" groups=["manual_page"]]
+visible = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Pages/Screen47"]
+position = Vector2(640, 400)
+texture = ExtResource("50_v1b1b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pages/Screen47/Sprite2D2"]
+self_modulate = Color(1, 1, 1, 0.89411765)
+z_index = 1
+texture = ExtResource("51_0o8rk")
+
+[node name="ColorRect" type="ColorRect" parent="Pages/Screen47/Sprite2D2"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.7294118)
+offset_left = -576.0
+offset_top = -360.0
+offset_right = 576.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Pages/Screen47"]
+z_index = 1
+position = Vector2(414, 472)
+rotation = 4.6416283
+texture = ExtResource("3_iwnyd")
+vframes = 2
+
+[node name="Sprite2D4" type="Sprite2D" parent="Pages/Screen47"]
+z_index = 1
+position = Vector2(668, 399)
+texture = ExtResource("3_iwnyd")
+vframes = 2
+frame = 1
+
+[node name="Sprite2D5" type="Sprite2D" parent="Pages/Screen47"]
+visible = false
+z_index = 1
+position = Vector2(947, 629.00006)
+rotation = 1.0797687
+texture = ExtResource("3_iwnyd")
+vframes = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pages/Screen47"]
+z_index = 1
+offset_left = 158.0
+offset_top = 298.0
+offset_right = 395.0
+offset_bottom = 542.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 56
+text = "graze past hazards"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Pages/Screen47"]
+z_index = 1
+offset_left = 582.0
+offset_top = 103.0
+offset_right = 898.0
+offset_bottom = 347.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 56
+text = "and you'll hear a distinct sound, and see an indicator"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Pages/Screen47"]
+visible = false
+z_index = 1
+offset_left = 800.0
+offset_top = 284.0
+offset_right = 1125.0
+offset_bottom = 452.0
+theme_override_constants/outline_size = 11
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 51
+text = "and increase
+your paycheck by †1.00 "
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Screen49" type="Node2D" parent="Pages" groups=["manual_page"]]
+visible = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Pages/Screen49"]
+position = Vector2(640, 400)
+texture = ExtResource("50_v1b1b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pages/Screen49/Sprite2D2"]
+self_modulate = Color(1, 1, 1, 0.89411765)
+z_index = 1
+texture = ExtResource("52_poiek")
+
+[node name="ColorRect" type="ColorRect" parent="Pages/Screen49/Sprite2D2"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.7294118)
+offset_left = -576.0
+offset_top = -360.0
+offset_right = 576.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Pages/Screen49"]
+z_index = 1
+position = Vector2(1064, 606)
+rotation = 5.3436303
+texture = ExtResource("3_iwnyd")
+vframes = 2
+
+[node name="Sprite2D4" type="Sprite2D" parent="Pages/Screen49"]
+z_index = 1
+position = Vector2(586, 578)
+rotation = 0.0053456426
+texture = ExtResource("3_iwnyd")
+vframes = 2
+frame = 1
+
+[node name="Sprite2D5" type="Sprite2D" parent="Pages/Screen49"]
+visible = false
+z_index = 1
+position = Vector2(947, 629.00006)
+rotation = 1.0797687
+texture = ExtResource("3_iwnyd")
+vframes = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pages/Screen49"]
+z_index = 1
+offset_left = 431.0
+offset_top = 289.0
+offset_right = 722.0
+offset_bottom = 533.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 56
+text = "You'll get a fixed boost to your style meter"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Pages/Screen49"]
+z_index = 1
+offset_left = 848.0
+offset_top = 451.0
+offset_right = 1094.0
+offset_bottom = 616.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 56
+text = "and †5"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Pages/Screen49"]
+visible = false
+z_index = 1
+offset_left = 484.0
+offset_top = 293.0
+offset_right = 743.0
+offset_bottom = 461.0
+theme_override_constants/outline_size = 11
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 51
+text = "by \"fixed\" I mean it never decays"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Screen48" type="Node2D" parent="Pages" groups=["manual_page"]]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Pages/Screen48"]
+position = Vector2(640, 400)
+texture = ExtResource("53_qd0l2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pages/Screen48/Sprite2D2"]
+self_modulate = Color(1, 1, 1, 0.89411765)
+z_index = 1
+texture = ExtResource("54_5map8")
+
+[node name="ColorRect" type="ColorRect" parent="Pages/Screen48/Sprite2D2"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.7294118)
+offset_left = -576.0
+offset_top = -360.0
+offset_right = 576.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Pages/Screen48"]
+visible = false
+z_index = 1
+position = Vector2(414, 472)
+rotation = 4.6416283
+texture = ExtResource("3_iwnyd")
+vframes = 2
+
+[node name="Sprite2D4" type="Sprite2D" parent="Pages/Screen48"]
+visible = false
+z_index = 1
+position = Vector2(668, 399)
+texture = ExtResource("3_iwnyd")
+vframes = 2
+frame = 1
+
+[node name="Sprite2D5" type="Sprite2D" parent="Pages/Screen48"]
+visible = false
+z_index = 1
+position = Vector2(947, 629.00006)
+rotation = 1.0797687
+texture = ExtResource("3_iwnyd")
+vframes = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pages/Screen48"]
+z_index = 1
+offset_left = 535.0
+offset_top = 188.0
+offset_right = 772.0
+offset_bottom = 554.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 56
+text = "Combine grazes and tricks to soar to new heights"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Pages/Screen48"]
+z_index = 1
+offset_left = 867.0
+offset_top = 227.0
+offset_right = 1061.0
+offset_bottom = 471.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 56
+text = "the riskier the better!"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Pages/Screen48"]
+visible = false
+z_index = 1
+offset_left = 800.0
+offset_top = 284.0
+offset_right = 1125.0
+offset_bottom = 452.0
+theme_override_constants/outline_size = 11
+theme_override_fonts/normal_font = ExtResource("4_d7plf")
+theme_override_font_sizes/normal_font_size = 51
+text = "and increase
+your paycheck by †1.00 "
 fit_content = true
 horizontal_alignment = 1
 

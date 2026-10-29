@@ -168,6 +168,7 @@ func _on_button_next_pressed() -> void:
 		return
 
 func _check_page_count() -> void:
+	$HSlider.value = page_count
 	$Node/PageNumberLabel.text = str(page_count)
 	_update_section_label()
 	for i in pages_dictionary.size():

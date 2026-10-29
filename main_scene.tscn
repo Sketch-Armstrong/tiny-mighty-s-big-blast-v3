@@ -337,6 +337,7 @@ script = ExtResource("1_iwt3a")
 visible = false
 
 [node name="CRT" type="CanvasLayer" parent="CanvasLayer"]
+visible = false
 follow_viewport_enabled = true
 script = ExtResource("13_mo76n")
 update_in_editor = false

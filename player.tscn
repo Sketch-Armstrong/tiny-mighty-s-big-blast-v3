@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://csbs8n2714pdv"]
+[gd_scene load_steps=61 format=3 uid="uid://csbs8n2714pdv"]
 
 [ext_resource type="Script" uid="uid://b5jxq4x0sh2uf" path="res://player.gd" id="1_n3u4o"]
 [ext_resource type="Script" uid="uid://c8pcdqbwxg1ib" path="res://move_timer.gd" id="3_x6gf6"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c0bqqoke84cfb" path="res://resources/character/sprites/pullback-Sheet.png" id="12_urp6f"]
 [ext_resource type="Texture2D" uid="uid://dc3nv3ddjy2sf" path="res://resources/character/sprites/Dash VFX Sheet.png" id="14_606se"]
 [ext_resource type="Script" uid="uid://qr6kmeuatkyt" path="res://taunt_timer.gd" id="15_u1c27"]
+[ext_resource type="PackedScene" uid="uid://cvno3b810375u" path="res://resources/character/sprites/graze scene.tscn" id="16_634y6"]
 [ext_resource type="Script" uid="uid://dbnk18ukj430a" path="res://taunt_timer_label.gd" id="16_op7ga"]
 [ext_resource type="Texture2D" uid="uid://baxx8rlylcu71" path="res://resources/character/sprites/desaturated distance marker.png" id="17_op7ga"]
 [ext_resource type="AudioStream" uid="uid://d20jmv0ecqhpl" path="res://resources/audio/temp/temp sfx/394413__inspectorj__bamboo-swing-a11 trim test 2.wav" id="19_pylmc"]
@@ -4736,6 +4737,8 @@ shape = SubResource("CircleShape2D_pbfsw")
 [node name="CoinCountText" parent="CollisionShape2D" instance=ExtResource("22_7ahtn")]
 z_index = 6
 position = Vector2(0, 121)
+
+[node name="Graze2DNode" parent="CollisionShape2D" instance=ExtResource("16_634y6")]
 
 [node name="NearMissMainLanes" type="RayCast2D" parent="."]
 rotation = 3.14159

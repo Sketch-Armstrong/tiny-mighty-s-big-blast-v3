@@ -418,8 +418,11 @@ func _on_game_over_retry() -> void:
 func show_coin_count() -> void:
 	$CollisionShape2D/CoinCountText.show_coin_counter()
 
+func show_graze() -> void:
+	$CollisionShape2D/Graze2DNode.play_graze()
 
 func _on_near_miss() -> void:
 	print("near missed")
 	$NearMissSoundPlayer.play()
 	main_scene.near_miss()
+	show_graze()

@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvno3b810375u"]
+
+[ext_resource type="Script" uid="uid://cxs18otyqeq46" path="res://resources/character/sprites/graze_scene.gd" id="1_0n4ko"]
+[ext_resource type="Texture2D" uid="uid://40csqpl0b1ib" path="res://resources/character/sprites/graze 2x.png" id="1_h0vs3"]
+[ext_resource type="Texture2D" uid="uid://y0bry4aij0ny" path="res://resources/character/sprites/graze 2x borders top and bottom attempt 4.png" id="2_binn8"]
+
+[sub_resource type="Animation" id="Animation_h0vs3"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(2.0705357, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0n4ko"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_binn8"]
+_data = {
+&"GRAZE": SubResource("Animation_h0vs3"),
+&"RESET": SubResource("Animation_0n4ko")
+}
+
+[node name="Graze2DNode" type="Node2D"]
+modulate = Color(1, 1, 1, 0)
+script = ExtResource("1_0n4ko")
+
+[node name="GrazeLeftControl" type="Control" parent="."]
+clip_children = 1
+clip_contents = true
+custom_minimum_size = Vector2(34, 104)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -52.0
+offset_right = -62.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="LeftParallax" type="Parallax2D" parent="GrazeLeftControl"]
+repeat_size = Vector2(0, 100)
+autoscroll = Vector2(0, 25)
+repeat_times = 2
+
+[node name="GrazeLeft" type="Sprite2D" parent="GrazeLeftControl/LeftParallax"]
+texture = ExtResource("1_h0vs3")
+centered = false
+
+[node name="GrazeLeftBorders" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-96, -56)
+scale = Vector2(1, 0.9655172)
+texture = ExtResource("2_binn8")
+centered = false
+
+[node name="GrazeRightControl" type="Control" parent="."]
+clip_children = 1
+clip_contents = true
+custom_minimum_size = Vector2(34, 104)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -52.0
+offset_right = 98.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="RightParallax" type="Parallax2D" parent="GrazeRightControl"]
+repeat_size = Vector2(0, 100)
+autoscroll = Vector2(0, -25)
+repeat_times = 2
+
+[node name="GrazeRight" type="Sprite2D" parent="GrazeRightControl/RightParallax"]
+texture = ExtResource("1_h0vs3")
+centered = false
+
+[node name="GrazeRightBorders2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(64, -56)
+scale = Vector2(1, 0.9655172)
+texture = ExtResource("2_binn8")
+centered = false
+
+[node name="GrazeAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries/ = SubResource("AnimationLibrary_binn8")
