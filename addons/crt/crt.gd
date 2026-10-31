@@ -3,8 +3,17 @@
 class_name CRT
 extends CanvasLayer
 
+##$CRT.set_crt_enabled(false)
+##$CRT.set_crt_enabled(true)
+	##functions you can call from other scripts to enable and disable the CRT filter with less issues
+
 # Material and update control
 var material: ShaderMaterial
+@export var warp_mouse_input: bool = true
+@export var crt_enabled: bool = true:
+	set(value):
+		crt_enabled = value
+		visible = _should_update()
 @export var update_in_editor: bool = true:
 	set(value):
 		update_in_editor = value
@@ -133,6 +142,30 @@ func _set_shader_param(param_name: String, value) -> void:
 
 
 func _should_update() -> bool:
+	if not crt_enabled:
+		return false
 	if Engine.is_editor_hint():
 		return update_in_editor
 	return true
+
+
+func _input(event: InputEvent) -> void:
+	if Engine.is_editor_hint() or not warp_mouse_input or not visible:
+		return
+	var mouse_event := event as InputEventMouse
+	if mouse_event:
+		var view_size: Vector2 = get_viewport().get_visible_rect().size
+		var uv: Vector2 = mouse_event.position / view_size
+		mouse_event.position = _warp_uv(uv) * view_size
+		mouse_event.global_position = mouse_event.position
+
+# GDScript port of warp() from crt.gdshader
+func _warp_uv(uv: Vector2) -> Vector2:
+	var center := Vector2(0.5, 0.5)
+	var delta := uv - center
+	var d2 := delta.dot(delta)
+	var warped := uv + delta * (d2 * d2 * warp_amount)
+	return (warped - center) / lerpf(1.0, 1.2, warp_amount / 5.0) + center
+
+func set_crt_enabled(enabled: bool) -> void:
+	crt_enabled = enabled

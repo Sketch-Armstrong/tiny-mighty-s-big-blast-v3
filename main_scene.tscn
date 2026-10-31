@@ -442,7 +442,7 @@ scroll_active = false
 horizontal_alignment = 2
 
 [node name="BonusText" parent="." instance=ExtResource("7_84odl")]
-z_index = 6
+z_index = 8
 position = Vector2(951, 287)
 
 [node name="RoundBonusText" parent="." instance=ExtResource("8_ak604")]

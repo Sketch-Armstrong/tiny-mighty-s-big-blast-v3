@@ -10,7 +10,12 @@ var manual_Basics_Moving := 11
 var manual_Basics_Hazards := 15
 var manual_Cash := 18
 var manual_Style_Meter := 26
-var manual_Tricks := 34
+var manual_Tricks := 44
+var manual_Graze := 48
+var manual_Cashout := 55
+var manual_Survival := 61
+
+
 
 
 @onready var manual_sections := [
@@ -20,7 +25,13 @@ var manual_Tricks := 34
 	[manual_Basics_Hazards, "Basics: Hazards"],
 	[manual_Cash, "Cash"],
 	[manual_Style_Meter, "Style: Meter"],
-	[manual_Tricks, "Style: Tricks"]
+	[manual_Tricks, "Style: Tricks"],
+	[manual_Graze, "Style: Graze"],
+	[manual_Cashout, "Cashout"],
+	[manual_Survival, "Nova Blast"],
+	
+	
+	
 ]
 
 #@onready var pages_dictionary: Array[Node] = [

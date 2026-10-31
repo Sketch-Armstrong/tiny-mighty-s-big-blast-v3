@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://drb12hb6ul2cr"]
+[gd_scene load_steps=30 format=3 uid="uid://drb12hb6ul2cr"]
 
 [ext_resource type="Script" uid="uid://d1v53fcgqch8j" path="res://resources/menus/options/options.gd" id="1_1ssaa"]
 [ext_resource type="Texture2D" uid="uid://dk0yecertxb2d" path="res://resources/temporary assets/arrow test.png" id="2_8bxk8"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://mlu01lp5k7no" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton 2.png" id="17_8m6oc"]
 [ext_resource type="Script" uid="uid://daojgvn32nij" path="res://resources/menus/options/full_screen_check_button.gd" id="17_ov61f"]
 [ext_resource type="Texture2D" uid="uid://shasqx28byx4" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton 1.png" id="18_3pmhh"]
+[ext_resource type="Script" uid="uid://dtewbr03n2i4h" path="res://resources/menus/options/Options_Button_Testing.gd" id="21_3pmhh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vh1wk"]
 texture = ExtResource("3_rt4v4")
@@ -365,17 +366,18 @@ position = Vector2(97, 25)
 texture = ExtResource("2_8bxk8")
 script = ExtResource("9_hwbdq")
 
-[node name="Button" type="Button" parent="InputSettings"]
-visible = false
+[node name="Button" type="CheckButton" parent="InputSettings"]
 z_index = 2
 layout_mode = 0
-offset_left = 25.0
-offset_top = 97.0
-offset_right = 333.0
-offset_bottom = 128.0
+offset_left = -548.0
+offset_top = 94.0
+offset_right = -240.0
+offset_bottom = 125.0
 focus_neighbor_left = NodePath("../PanelContainer/MarginContainer/OptionsList")
 theme_override_colors/font_focus_color = Color(0.9490196, 0, 0.9490196, 1)
+button_pressed = true
 text = "back placeholder"
+script = ExtResource("21_3pmhh")
 
 [node name="BackButton" type="TextureButton" parent="."]
 offset_left = 916.0
@@ -423,6 +425,7 @@ script = ExtResource("12_y6is1")
 [connection signal="focus_entered" from="InputSettings/ResetButton" to="InputSettings/ResetButton/FocusArrowReset" method="_on_reset_button_focus_entered"]
 [connection signal="focus_exited" from="InputSettings/ResetButton" to="InputSettings/ResetButton/FocusArrowReset" method="_on_reset_button_focus_exited"]
 [connection signal="pressed" from="InputSettings/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="toggled" from="InputSettings/Button" to="InputSettings/Button" method="_on_toggled"]
 [connection signal="focus_entered" from="BackButton" to="BackButton/FocusArrowBack" method="_on_back_button_focus_entered"]
 [connection signal="focus_exited" from="BackButton" to="BackButton/FocusArrowBack" method="_on_back_button_focus_exited"]
 [connection signal="pressed" from="BackButton" to="." method="_on_options_back_button_pressed"]
