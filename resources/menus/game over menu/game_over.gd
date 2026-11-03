@@ -10,8 +10,10 @@ signal game_over_score_check
 
 @export var arrow_position_GO := Vector2(390.0, 290.0)
 @export var arrow_position_RETRY := Vector2(290.0, 625.0)
-@export var arrow_position_INFO := Vector2(1139.0, 512.0)
+@export var arrow_position_INFO := Vector2(1169.0, 512.0)
 #var highscores = ResourceLoader.load("user://save") as Highscores
+
+@onready var stats_button := $StatsButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -128,3 +130,17 @@ func _on_button_toggled(toggled_on: bool) -> void:
 		$GameOverStats.show()
 	if toggled_on == false:
 		$GameOverStats.hide()
+
+
+func _on_stats_button_button_down() -> void:
+	$GameOverStats.show()
+
+
+func _on_stats_button_button_up() -> void:
+	$GameOverStats.hide()
+
+
+func _on_pause_menu_hidden() -> void:
+	pass # Replace with function body.
+	stats_button.grab_focus()
+	print("pause menu left")

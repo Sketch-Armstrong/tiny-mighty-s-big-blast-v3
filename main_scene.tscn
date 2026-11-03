@@ -650,6 +650,7 @@ scale = Vector2(1.16708, 1.18784)
 [connection signal="round_timer_stop" from="." to="RoundMeterMain" method="_on_main_round_timer_stop"]
 [connection signal="style_off" from="." to="StyleMeterRoot" method="_on_main_style_off"]
 [connection signal="style_on" from="." to="StyleMeterRoot" method="_on_main_style_on"]
+[connection signal="hidden" from="CanvasLayer/PauseMenu" to="CanvasLayer/GameOver" method="_on_pause_menu_hidden"]
 [connection signal="main_theme_pause" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_main_theme_pause"]
 [connection signal="main_theme_resume" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_main_theme_resume"]
 [connection signal="quit" from="CanvasLayer/GameOver" to="." method="_on_game_over_quit"]

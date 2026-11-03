@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://cbmyj2nvqrgf6"]
+[gd_scene load_steps=27 format=3 uid="uid://cbmyj2nvqrgf6"]
 
 [ext_resource type="Script" uid="uid://vie4dqnbdiv6" path="res://resources/menus/game over menu/game_over.gd" id="1_dec6c"]
 [ext_resource type="Texture2D" uid="uid://s8pnavu1rt4c" path="res://resources/menus/game over menu/try again 2.png" id="2_d047s"]
 [ext_resource type="Texture2D" uid="uid://mqpsncp1xn1n" path="res://resources/menus/game over menu/quit 3.png" id="2_xqyb0"]
 [ext_resource type="Texture2D" uid="uid://b7xplbmnafgql" path="res://resources/menus/game over menu/try again 3.png" id="3_0bugr"]
 [ext_resource type="Texture2D" uid="uid://dkac0nm4jfox1" path="res://resources/menus/game over menu/quit 2.png" id="3_igg2g"]
+[ext_resource type="FontFile" uid="uid://dnav6lhamfw13" path="res://resources/fonts/Bangers-Regular.ttf" id="4_7g46l"]
 [ext_resource type="Texture2D" uid="uid://dr76njcyt43u" path="res://resources/menus/game over menu/try again 1.png" id="4_172wu"]
 [ext_resource type="Texture2D" uid="uid://cvod2t4xxawwh" path="res://resources/menus/game over menu/quit 1.png" id="4_lgbbr"]
 [ext_resource type="AudioStream" uid="uid://dl4mjd3e5w244" path="res://resources/audio/temp/temp sfx/applause.wav" id="8_cwdcb"]
@@ -14,6 +15,16 @@
 [ext_resource type="Texture2D" uid="uid://dk0yecertxb2d" path="res://resources/temporary assets/arrow test.png" id="13_cwdcb"]
 [ext_resource type="Script" uid="uid://bav2fa5en0t72" path="res://resources/menus/game over menu/sprite_2d.gd" id="14_7g46l"]
 [ext_resource type="PackedScene" uid="uid://mn62wjj70ygu" path="res://resources/menus/game over menu/game_over_score_stats.tscn" id="14_cwdcb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7g46l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7oft"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0sru6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x1m7e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mtocm"]
 
 [sub_resource type="Animation" id="Animation_6r6k6"]
 resource_name = "RESET"
@@ -269,7 +280,7 @@ arrow_position_RETRY = Vector2(214, 551)
 [node name="GameOverStats" parent="." instance=ExtResource("14_cwdcb")]
 visible = false
 z_index = 2
-position = Vector2(393, 137)
+position = Vector2(449, 87)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -299,9 +310,20 @@ offset_left = 1035.0
 offset_top = 462.0
 offset_right = 1224.0
 offset_bottom = 567.0
-toggle_mode = true
-text = "INFO
-(finish me)"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.5890966, 0.5890952, 0.5890955, 1)
+theme_override_colors/font_hover_color = Color(0.6255969, 0.62559724, 0.62559694, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_7g46l")
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7g46l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g7oft")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0sru6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_x1m7e")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mtocm")
+text = "STATS"
 
 [node name="RetryButton" type="TextureButton" parent="."]
 layout_mode = 1
@@ -377,8 +399,9 @@ stream = ExtResource("8_cwdcb")
 bus = &"SFX"
 
 [connection signal="game_over_score_check" from="." to="HighScoreHandler" method="_on_game_over_game_over_score_check"]
+[connection signal="button_down" from="StatsButton" to="." method="_on_stats_button_button_down"]
+[connection signal="button_up" from="StatsButton" to="." method="_on_stats_button_button_up"]
 [connection signal="focus_entered" from="StatsButton" to="." method="_on_stats_button_focus_entered"]
-[connection signal="toggled" from="StatsButton" to="." method="_on_button_toggled"]
 [connection signal="focus_entered" from="RetryButton" to="." method="_on_retry_button_focus_entered"]
 [connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="focus_entered" from="QuitButton" to="." method="_on_quit_button_focus_entered"]

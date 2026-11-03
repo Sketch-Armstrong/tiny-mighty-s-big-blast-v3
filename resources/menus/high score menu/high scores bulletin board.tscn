@@ -62,6 +62,7 @@ script = ExtResource("1_8kha8")
 texture = ExtResource("2_y1amr")
 
 [node name="reminder" type="Sprite2D" parent="BulletinBoardSprite"]
+visible = false
 position = Vector2(-344, -320)
 texture = ExtResource("4_wll3b")
 

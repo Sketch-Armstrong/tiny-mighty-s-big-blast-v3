@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://mn62wjj70ygu"]
+[gd_scene load_steps=4 format=3 uid="uid://mn62wjj70ygu"]
 
 [ext_resource type="Script" uid="uid://co28qsq2f1s48" path="res://resources/menus/game over menu/game_over_score_stats.gd" id="1_5cs3e"]
+[ext_resource type="FontFile" uid="uid://dnav6lhamfw13" path="res://resources/fonts/Bangers-Regular.ttf" id="2_n4rob"]
+[ext_resource type="FontFile" uid="uid://cmb0cakpnob6w" path="res://resources/fonts/MetalMania-Regular.ttf" id="4_t2ehl"]
 
 [node name="GameOverStats" type="Node2D"]
 script = ExtResource("1_5cs3e")
@@ -11,7 +13,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 500.0
-offset_bottom = 512.0
+offset_bottom = 697.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -28,183 +30,240 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/TimeLeftDescription"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "Times you had these many
-seconds left:"
+theme_override_fonts/normal_font = ExtResource("2_n4rob")
+theme_override_font_sizes/normal_font_size = 35
+text = "time bonuses:"
 fit_content = true
 
-[node name="SecondsLeft10" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 325)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft10"]
+[node name="SecondsLeft10" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft10"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "10"
-fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft10"]
-custom_minimum_size = Vector2(50, 0)
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft10"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "RIGHT"
 fit_content = true
 
-[node name="SecondsLeft9" type="HBoxContainer" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="SecondsLeft9" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft9"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft9"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "9"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft9"]
-custom_minimum_size = Vector2(50, 0)
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft9"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "RIGHT"
 fit_content = true
 
-[node name="SecondsLeft8" type="HBoxContainer" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="SecondsLeft8" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft8"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft8"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "8
 "
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft8"]
-custom_minimum_size = Vector2(50, 0)
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft8"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "RIGHT"
 fit_content = true
 
-[node name="SecondsLeft7" type="HBoxContainer" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="SecondsLeft7" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft7"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft7"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "7"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft7"]
-custom_minimum_size = Vector2(50, 0)
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft7"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "RIGHT"
 fit_content = true
 
-[node name="SecondsLeft6" type="HBoxContainer" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="SecondsLeft6" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft6"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft6"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "6"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft6"]
-custom_minimum_size = Vector2(50, 0)
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft6"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "RIGHT"
 fit_content = true
 
-[node name="SecondsLeft5" type="HBoxContainer" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="SecondsLeft5" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft5"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft5"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "5"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft5"]
-custom_minimum_size = Vector2(50, 0)
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft5"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "RIGHT"
 fit_content = true
 
-[node name="SecondsLeft4" type="HBoxContainer" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft4"]
+[node name="SecondsLeft4" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2/SecondsLeft4"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "4"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft4"]
-custom_minimum_size = Vector2(50, 0)
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2/SecondsLeft4"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "RIGHT"
 fit_content = true
 
-[node name="SecondsLeft3" type="HBoxContainer" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="SecondsLeft3" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft3"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2/SecondsLeft3"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "3"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft3"]
-custom_minimum_size = Vector2(50, 0)
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2/SecondsLeft3"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "RIGHT"
 fit_content = true
 
-[node name="SecondsLeft2" type="HBoxContainer" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="SecondsLeft2" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2/SecondsLeft2"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "2"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft2"]
-custom_minimum_size = Vector2(50, 0)
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2/SecondsLeft2"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "RIGHT"
 fit_content = true
 
-[node name="SecondsLeft1" type="HBoxContainer" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="SecondsLeft1" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft1"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2/SecondsLeft1"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "1"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft1"]
-custom_minimum_size = Vector2(50, 0)
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2/SecondsLeft1"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "RIGHT"
 fit_content = true
 
-[node name="SecondsLeft0" type="HBoxContainer" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="SecondsLeft0" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft0"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2/SecondsLeft0"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "0"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/SecondsLeft0"]
-custom_minimum_size = Vector2(50, 0)
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2/SecondsLeft0"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_t2ehl")
+theme_override_font_sizes/normal_font_size = 36
 text = "RIGHT"
 fit_content = true
 
@@ -215,12 +274,16 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/TotalCoinsCollected"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "Total Shields collected"
+theme_override_fonts/normal_font = ExtResource("2_n4rob")
+theme_override_font_sizes/normal_font_size = 31
+text = "Total Shields collected:"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/TotalCoinsCollected"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_n4rob")
+theme_override_font_sizes/normal_font_size = 35
 text = "RIGHT"
 fit_content = true
 
@@ -231,12 +294,16 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/ExtraLivesCollected"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "Extra bombs collected"
+theme_override_fonts/normal_font = ExtResource("2_n4rob")
+theme_override_font_sizes/normal_font_size = 31
+text = "Extra bombs collected:"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/ExtraLivesCollected"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_n4rob")
+theme_override_font_sizes/normal_font_size = 35
 text = "RIGHT"
 fit_content = true
 
@@ -247,12 +314,16 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/LivesEndCount"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "Total bombs at end"
+theme_override_fonts/normal_font = ExtResource("2_n4rob")
+theme_override_font_sizes/normal_font_size = 31
+text = "Total bombs at end:"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/LivesEndCount"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_n4rob")
+theme_override_font_sizes/normal_font_size = 35
 text = "RIGHT"
 fit_content = true
 
@@ -263,12 +334,16 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/TotalMisses"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "Total Misses"
+theme_override_fonts/normal_font = ExtResource("2_n4rob")
+theme_override_font_sizes/normal_font_size = 31
+text = "Total Misses:"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/TotalMisses"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_n4rob")
+theme_override_font_sizes/normal_font_size = 35
 text = "RIGHT"
 fit_content = true
 
@@ -279,12 +354,16 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/TotalNearMisses"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "Total grazes"
+theme_override_fonts/normal_font = ExtResource("2_n4rob")
+theme_override_font_sizes/normal_font_size = 31
+text = "Total grazes:"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/TotalNearMisses"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_n4rob")
+theme_override_font_sizes/normal_font_size = 35
 text = "RIGHT"
 fit_content = true
 
@@ -295,19 +374,76 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/TotalGarbageBonuses"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "Total junk piles blasted"
+theme_override_fonts/normal_font = ExtResource("2_n4rob")
+theme_override_font_sizes/normal_font_size = 31
+text = "Total junk piles blasted:"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/TotalGarbageBonuses"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_n4rob")
+theme_override_font_sizes/normal_font_size = 35
 text = "RIGHT"
 fit_content = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="visuals" type="Node2D" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="visuals"]
 z_index = -1
-offset_left = -32.0
-offset_top = -16.0
-offset_right = 480.0
-offset_bottom = 536.0
+offset_left = -71.0
+offset_top = -47.0
+offset_right = 444.0
+offset_bottom = 689.0
+
+[node name="ColorRect" type="ColorRect" parent="visuals"]
+z_index = -1
+offset_left = -64.0
+offset_top = -40.0
+offset_right = 434.0
+offset_bottom = 680.0
 color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" parent="visuals"]
+visible = false
+position = Vector2(3, 36)
+
+[node name="Line2D8" type="Line2D" parent="visuals/Node2D"]
+position = Vector2(3, 148)
+points = PackedVector2Array(187, -138, 187, 142)
+width = 2.0
+
+[node name="Line2D7" type="Line2D" parent="visuals/Node2D"]
+position = Vector2(1, 313)
+points = PackedVector2Array(0, 0, 16, 0, 40, 0, 80, 0, 353, 0)
+width = 2.0
+
+[node name="Line2D" type="Line2D" parent="visuals/Node2D"]
+position = Vector2(169, 520)
+points = PackedVector2Array(0, 0, 16, 0, 40, 0, 80, 0, 120, 0)
+width = 2.0
+
+[node name="Line2D6" type="Line2D" parent="visuals/Node2D"]
+position = Vector2(218, 564)
+points = PackedVector2Array(60, 0, 72, 0)
+width = 2.0
+
+[node name="Line2D2" type="Line2D" parent="visuals/Node2D"]
+position = Vector2(165, 479)
+points = PackedVector2Array(0, 0, 16, 0, 40, 0, 80, 0, 127, 0)
+width = 2.0
+
+[node name="Line2D3" type="Line2D" parent="visuals/Node2D"]
+position = Vector2(161, 438)
+points = PackedVector2Array(88, 0, 80, 0, 127, 0)
+width = 2.0
+
+[node name="Line2D4" type="Line2D" parent="visuals/Node2D"]
+position = Vector2(162, 395)
+points = PackedVector2Array(111, 0, 127, 0)
+width = 2.0
+
+[node name="Line2D5" type="Line2D" parent="visuals/Node2D"]
+position = Vector2(164, 353)
+points = PackedVector2Array(111, 0, 127, 0)
+width = 2.0
