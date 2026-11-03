@@ -10,7 +10,7 @@ signal game_over_score_check
 
 @export var arrow_position_GO := Vector2(390.0, 290.0)
 @export var arrow_position_RETRY := Vector2(290.0, 625.0)
-@export var arrow_position_INFO := Vector2(1169.0, 512.0)
+@export var arrow_position_INFO := Vector2(1175.0, 512.0)
 #var highscores = ResourceLoader.load("user://save") as Highscores
 
 @onready var stats_button := $StatsButton
@@ -22,7 +22,8 @@ func _ready() -> void:
 	highscore_handler.hide_title_scores_panels()
 	#g_over_player.play("papers_slide")
 	pass
-	
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")

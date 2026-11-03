@@ -52,7 +52,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_t2ehl")
 theme_override_font_sizes/normal_font_size = 36
-text = "10"
+text = "0"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft10"]
 custom_minimum_size = Vector2(100, 0)
@@ -71,7 +71,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_t2ehl")
 theme_override_font_sizes/normal_font_size = 36
-text = "9"
+text = "1"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft9"]
@@ -91,7 +91,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_t2ehl")
 theme_override_font_sizes/normal_font_size = 36
-text = "8
+text = "2
 "
 fit_content = true
 
@@ -112,7 +112,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_t2ehl")
 theme_override_font_sizes/normal_font_size = 36
-text = "7"
+text = "3"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft7"]
@@ -132,7 +132,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_t2ehl")
 theme_override_font_sizes/normal_font_size = 36
-text = "6"
+text = "4"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer/SecondsLeft6"]
@@ -176,7 +176,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_t2ehl")
 theme_override_font_sizes/normal_font_size = 36
-text = "4"
+text = "6"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2/SecondsLeft4"]
@@ -196,7 +196,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_t2ehl")
 theme_override_font_sizes/normal_font_size = 36
-text = "3"
+text = "7"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2/SecondsLeft3"]
@@ -216,7 +216,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_t2ehl")
 theme_override_font_sizes/normal_font_size = 36
-text = "2"
+text = "8"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2/SecondsLeft2"]
@@ -236,7 +236,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_t2ehl")
 theme_override_font_sizes/normal_font_size = 36
-text = "1"
+text = "9"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2/SecondsLeft1"]
@@ -256,7 +256,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_t2ehl")
 theme_override_font_sizes/normal_font_size = 36
-text = "0"
+text = "10"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2/SecondsLeft0"]
@@ -389,11 +389,19 @@ fit_content = true
 
 [node name="visuals" type="Node2D" parent="."]
 
+[node name="ColorRect3" type="ColorRect" parent="visuals"]
+z_index = -1
+offset_left = -75.0
+offset_top = -51.0
+offset_right = 446.0
+offset_bottom = 692.0
+color = Color(0, 0, 0, 1)
+
 [node name="ColorRect2" type="ColorRect" parent="visuals"]
 z_index = -1
-offset_left = -71.0
-offset_top = -47.0
-offset_right = 444.0
+offset_left = -73.0
+offset_top = -49.0
+offset_right = 443.0
 offset_bottom = 689.0
 
 [node name="ColorRect" type="ColorRect" parent="visuals"]
@@ -403,47 +411,3 @@ offset_top = -40.0
 offset_right = 434.0
 offset_bottom = 680.0
 color = Color(0, 0, 0, 1)
-
-[node name="Node2D" type="Node2D" parent="visuals"]
-visible = false
-position = Vector2(3, 36)
-
-[node name="Line2D8" type="Line2D" parent="visuals/Node2D"]
-position = Vector2(3, 148)
-points = PackedVector2Array(187, -138, 187, 142)
-width = 2.0
-
-[node name="Line2D7" type="Line2D" parent="visuals/Node2D"]
-position = Vector2(1, 313)
-points = PackedVector2Array(0, 0, 16, 0, 40, 0, 80, 0, 353, 0)
-width = 2.0
-
-[node name="Line2D" type="Line2D" parent="visuals/Node2D"]
-position = Vector2(169, 520)
-points = PackedVector2Array(0, 0, 16, 0, 40, 0, 80, 0, 120, 0)
-width = 2.0
-
-[node name="Line2D6" type="Line2D" parent="visuals/Node2D"]
-position = Vector2(218, 564)
-points = PackedVector2Array(60, 0, 72, 0)
-width = 2.0
-
-[node name="Line2D2" type="Line2D" parent="visuals/Node2D"]
-position = Vector2(165, 479)
-points = PackedVector2Array(0, 0, 16, 0, 40, 0, 80, 0, 127, 0)
-width = 2.0
-
-[node name="Line2D3" type="Line2D" parent="visuals/Node2D"]
-position = Vector2(161, 438)
-points = PackedVector2Array(88, 0, 80, 0, 127, 0)
-width = 2.0
-
-[node name="Line2D4" type="Line2D" parent="visuals/Node2D"]
-position = Vector2(162, 395)
-points = PackedVector2Array(111, 0, 127, 0)
-width = 2.0
-
-[node name="Line2D5" type="Line2D" parent="visuals/Node2D"]
-position = Vector2(164, 353)
-points = PackedVector2Array(111, 0, 127, 0)
-width = 2.0

@@ -22,3 +22,11 @@ func gem_shimmer() -> void:
 
 func bomb_reset() -> void:
 	bomb_player.play("RESET")
+
+
+func _on_screen_80_draw() -> void:
+	bomb_shimmer()
+
+
+func _on_screen_80_hidden() -> void:
+	bomb_reset()

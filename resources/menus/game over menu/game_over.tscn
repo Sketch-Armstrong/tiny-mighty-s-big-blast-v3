@@ -306,10 +306,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="StatsButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1035.0
-offset_top = 462.0
-offset_right = 1224.0
-offset_bottom = 567.0
+offset_left = 1042.0
+offset_top = 461.0
+offset_right = 1231.0
+offset_bottom = 566.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.5890966, 0.5890952, 0.5890955, 1)
