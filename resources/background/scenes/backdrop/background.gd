@@ -69,7 +69,10 @@ func _room_shake() -> void:
 			JunkPlayer.advance(0.0)
 		if change_tracker == 3:
 			JunkPlayer.play("Shake_3")
-		BGAPlayer.play("shake")
+		if GlobalMiscOptionsSave.reduce_screen_shake == false:
+			BGAPlayer.play("shake")
+		elif GlobalMiscOptionsSave.reduce_screen_shake == true:
+			BGAPlayer.play("shake_reduced_1")
 		HigherJunkPlayer.play("junk_shake_external")
 
 	elif GlobalVariables.room_number_global == 2:
@@ -85,7 +88,10 @@ func _room_shake() -> void:
 			JunkPlayer.play("Shake_3")
 		BarrelPlayer.play("barrels_bounce")
 		HigherJunkPlayer.play("junk_shake_external")
-		BGAPlayer.play("shake_2")
+		if GlobalMiscOptionsSave.reduce_screen_shake == false:
+			BGAPlayer.play("shake_2")
+		elif GlobalMiscOptionsSave.reduce_screen_shake == true:
+			BGAPlayer.play("shake_reduced_2")
 
 	elif GlobalVariables.room_number_global == 3:
 		await get_tree().create_timer(0.7).timeout
@@ -98,7 +104,10 @@ func _room_shake() -> void:
 		if change_tracker == 3:
 			JunkPlayer.play("Shake_3")
 		HigherJunkPlayer.play("junk_shake_external")
-		BGAPlayer.play("shake_3")
+		if GlobalMiscOptionsSave.reduce_screen_shake == false:
+			BGAPlayer.play("shake_3")
+		elif GlobalMiscOptionsSave.reduce_screen_shake == true:
+			BGAPlayer.play("shake_reduced_3")
 		
 
 func _change_level_animation() -> void:
@@ -125,7 +134,10 @@ func _set_bg_room() -> void:
 		if change_tracker == 4:
 			change_tracker = 0
 			await get_tree().create_timer(0.7).timeout
-			BGAPlayer.play("shake_3")
+			if GlobalMiscOptionsSave.reduce_screen_shake == false:
+				BGAPlayer.play("shake_3")
+			elif GlobalMiscOptionsSave.reduce_screen_shake == true:
+				BGAPlayer.play("shake_reduced_3")
 			JunkPlayer.play("Shake_4")
 			await BGAPlayer.animation_finished
 			_change_level_animation()
@@ -140,7 +152,10 @@ func _set_bg_room() -> void:
 		if change_tracker == 4:
 			change_tracker = 0
 			await get_tree().create_timer(0.7).timeout
-			BGAPlayer.play("shake")
+			if GlobalMiscOptionsSave.reduce_screen_shake == false:
+				BGAPlayer.play("shake")
+			elif GlobalMiscOptionsSave.reduce_screen_shake == true:
+				BGAPlayer.play("shake_reduced_1")
 			JunkPlayer.play("Shake_4")
 			await BGAPlayer.animation_finished
 			_change_level_animation()
@@ -155,7 +170,10 @@ func _set_bg_room() -> void:
 		if change_tracker == 4:
 			change_tracker = 0
 			await get_tree().create_timer(0.7).timeout
-			BGAPlayer.play("shake_2")
+			if GlobalMiscOptionsSave.reduce_screen_shake == false:
+				BGAPlayer.play("shake_2")
+			elif GlobalMiscOptionsSave.reduce_screen_shake == true:
+				BGAPlayer.play("shake_reduced_2")
 			JunkPlayer.play("Shake_4")
 			BarrelPlayer.play("barrels_bounce")
 			await BGAPlayer.animation_finished

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cbmyj2nvqrgf6"]
+[gd_scene load_steps=28 format=3 uid="uid://cbmyj2nvqrgf6"]
 
 [ext_resource type="Script" uid="uid://vie4dqnbdiv6" path="res://resources/menus/game over menu/game_over.gd" id="1_dec6c"]
 [ext_resource type="Texture2D" uid="uid://s8pnavu1rt4c" path="res://resources/menus/game over menu/try again 2.png" id="2_d047s"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dk0yecertxb2d" path="res://resources/temporary assets/arrow test.png" id="13_cwdcb"]
 [ext_resource type="Script" uid="uid://bav2fa5en0t72" path="res://resources/menus/game over menu/sprite_2d.gd" id="14_7g46l"]
 [ext_resource type="PackedScene" uid="uid://mn62wjj70ygu" path="res://resources/menus/game over menu/game_over_score_stats.tscn" id="14_cwdcb"]
+[ext_resource type="Texture2D" uid="uid://ctjhwdl02vhtu" path="res://resources/menus/game over menu/stats.png" id="16_g7oft"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7g46l"]
 
@@ -398,7 +399,24 @@ libraries/ = SubResource("AnimationLibrary_7g46l")
 stream = ExtResource("8_cwdcb")
 bus = &"SFX"
 
+[node name="DummyButtons" type="Node2D" parent="."]
+visible = false
+
+[node name="Quit" type="Sprite2D" parent="DummyButtons"]
+position = Vector2(253, 216)
+texture = ExtResource("2_xqyb0")
+
+[node name="TryAgain" type="Sprite2D" parent="DummyButtons"]
+position = Vector2(204, 586)
+texture = ExtResource("2_d047s")
+
+[node name="Stats" type="Sprite2D" parent="DummyButtons"]
+position = Vector2(1133, 529)
+texture = ExtResource("16_g7oft")
+
 [connection signal="game_over_score_check" from="." to="HighScoreHandler" method="_on_game_over_game_over_score_check"]
+[connection signal="InitialInputterHidden" from="HighScoreHandler" to="." method="enable_game_over_inputs"]
+[connection signal="InitialInputterVisible" from="HighScoreHandler" to="." method="disable_game_over_inputs"]
 [connection signal="button_down" from="StatsButton" to="." method="_on_stats_button_button_down"]
 [connection signal="button_up" from="StatsButton" to="." method="_on_stats_button_button_up"]
 [connection signal="focus_entered" from="StatsButton" to="." method="_on_stats_button_focus_entered"]

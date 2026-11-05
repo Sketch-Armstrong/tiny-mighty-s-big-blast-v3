@@ -14,6 +14,7 @@ signal game_over_score_check
 #var highscores = ResourceLoader.load("user://save") as Highscores
 
 @onready var stats_button := $StatsButton
+@onready var inputs_locked := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,26 +29,18 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
-	#results_label.text = str(GlobalVariables.results_snapshot / 10)
-	if GlobalVariables.can_retry == true:
-		$RetryButton.disabled = false
-		#$GameOverArrow.hide()
-	if GlobalVariables.can_retry == false:
-		$RetryButton.disabled = true
-		#$GameOverArrow.hide()
+	$RetryButton.disabled = inputs_locked or not GlobalVariables.can_retry
+	$QuitButton.disabled = inputs_locked or not GlobalVariables.can_quit
+	stats_button.disabled = inputs_locked
 
-	if GlobalVariables.can_quit == true:
-		$QuitButton.disabled = false
-		#$GameOverArrow.show()
-		
-	if GlobalVariables.can_quit == false:
-		$QuitButton.disabled = true
-		#$GameOverArrow.hide()
-		
-	pass
+func disable_game_over_inputs() -> void:
+	inputs_locked = true
+	$GameOverArrow.z_index = -10
 	
 
-	
+func enable_game_over_inputs() -> void:
+	inputs_locked = false
+	$GameOverArrow.z_index = 0
 
 func _on_retry_button_pressed() -> void:
 	retry.emit()
@@ -113,17 +106,27 @@ func _on_game_over_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_retry_button_focus_entered() -> void:
 	pass # Replace with function body.
-	$GameOverArrow.position = arrow_position_RETRY
-	
+	if GlobalHighscoreHandler.global_initials_can_input == false:
+		$GameOverArrow.show()
+		$GameOverArrow.position = arrow_position_RETRY
+	else: 
+		$GameOverArrow.hide()
 
 
 func _on_quit_button_focus_entered() -> void:
 	pass # Replace with function body.
-	$GameOverArrow.position = arrow_position_GO
-
+	if GlobalHighscoreHandler.global_initials_can_input == false:
+		$GameOverArrow.show()
+		$GameOverArrow.position = arrow_position_GO
+	else: 
+		$GameOverArrow.hide()
 
 func _on_stats_button_focus_entered() -> void:
-	$GameOverArrow.position = arrow_position_INFO
+	if GlobalHighscoreHandler.global_initials_can_input == false:
+		$GameOverArrow.show()
+		$GameOverArrow.position = arrow_position_INFO
+	else: 
+		$GameOverArrow.hide()
 
 func _on_button_toggled(toggled_on: bool) -> void:
 	pass # Replace with function body.
@@ -145,3 +148,17 @@ func _on_pause_menu_hidden() -> void:
 	pass # Replace with function body.
 	stats_button.grab_focus()
 	print("pause menu left")
+
+func hide_the_buttons() -> void:
+	$StatsButton.hide()
+	$RetryButton.hide()
+	$QuitButton.hide()
+	$GameOverArrow.hide()
+	$DummyButtons.show()
+
+func show_the_buttons() -> void:
+	$StatsButton.show()
+	$RetryButton.show()
+	$QuitButton.show()
+	$GameOverArrow.show()
+	$DummyButtons.hide()

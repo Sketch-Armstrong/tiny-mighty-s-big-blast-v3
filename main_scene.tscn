@@ -351,9 +351,7 @@ aberation_amount = 0.05
 metadata/_custom_type_script = "uid://bghaddibpt6f1"
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_42l1d")]
-visible = false
-z_index = 12
-mouse_filter = 1
+z_index = 13
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("3_2jcla")]
 z_index = 10
@@ -650,7 +648,9 @@ scale = Vector2(1.16708, 1.18784)
 [connection signal="round_timer_stop" from="." to="RoundMeterMain" method="_on_main_round_timer_stop"]
 [connection signal="style_off" from="." to="StyleMeterRoot" method="_on_main_style_off"]
 [connection signal="style_on" from="." to="StyleMeterRoot" method="_on_main_style_on"]
+[connection signal="draw" from="CanvasLayer/PauseMenu" to="CanvasLayer/GameOver" method="hide_the_buttons"]
 [connection signal="hidden" from="CanvasLayer/PauseMenu" to="CanvasLayer/GameOver" method="_on_pause_menu_hidden"]
+[connection signal="hidden" from="CanvasLayer/PauseMenu" to="CanvasLayer/GameOver" method="show_the_buttons"]
 [connection signal="main_theme_pause" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_main_theme_pause"]
 [connection signal="main_theme_resume" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_main_theme_resume"]
 [connection signal="quit" from="CanvasLayer/GameOver" to="." method="_on_game_over_quit"]

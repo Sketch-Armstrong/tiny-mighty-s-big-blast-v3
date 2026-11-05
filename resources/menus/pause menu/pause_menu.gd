@@ -39,6 +39,20 @@ func _on_options_button_pressed() -> void:
 	#print("options button pressed. Add options later please")
 	pass
 
+func show_manual() -> void:
+	$Manual/HowToPlay2.show()
+	$Manual/HowToPlayButton.hide()
+	$QuitButton.hide()
+	$BackButton.hide()
+	$Manual/HowToPlay2/Button.show()
+
+func hide_manual() -> void:
+	$Manual/HowToPlay2.hide()
+	$Manual/HowToPlay2/Button.hide()
+	$Manual/HowToPlayButton.show()
+	$QuitButton.show()
+	$BackButton.show()
+	
 
 func _on_quit_button_pressed() -> void:
 	get_tree().paused = false

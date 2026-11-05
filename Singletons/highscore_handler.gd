@@ -36,7 +36,8 @@ extends Node2D
 
 
 
-
+signal InitialInputterHidden
+signal InitialInputterVisible
 
 
 
@@ -106,3 +107,11 @@ func _equalize_labels() -> void:
 	Score_Title_Iniitals3.text = Score_End_Initials3.text
 	Score_Title_Iniitals4.text = Score_End_Initials4.text
 	Score_Title_Iniitals5.text = Score_End_Initials5.text
+
+
+func _on_initial_inputter_draw() -> void:
+	InitialInputterVisible.emit()
+
+
+func _on_initial_inputter_hidden() -> void:
+	InitialInputterHidden.emit()

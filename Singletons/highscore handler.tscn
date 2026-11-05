@@ -25,7 +25,6 @@ anchors_preset = 0
 offset_left = 64.0
 offset_right = 64.0
 mouse_filter = 2
-mouse_behavior_recursive = 2
 script = ExtResource("2_056gn")
 
 [node name="Control" type="Control" parent="HighScoresPanel"]
@@ -175,6 +174,8 @@ fit_content = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
+mouse_behavior_recursive = 2
 
 [node name="BonusesPanel" type="VBoxContainer" parent="HighScoresPanel/Control2"]
 layout_mode = 0
@@ -182,11 +183,13 @@ offset_left = 1021.0
 offset_top = 566.0
 offset_right = 1193.0
 offset_bottom = 848.0
+mouse_filter = 2
 theme_override_constants/separation = 18
 script = ExtResource("4_rsr31")
 
 [node name="TimerLabel" type="RichTextLabel" parent="HighScoresPanel/Control2/BonusesPanel"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_iwmtd")
 theme_override_font_sizes/normal_font_size = 50
 text = "test"
@@ -195,6 +198,7 @@ horizontal_alignment = 2
 
 [node name="CoinsLabel" type="RichTextLabel" parent="HighScoresPanel/Control2/BonusesPanel"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_iwmtd")
 theme_override_font_sizes/normal_font_size = 50
 text = "test"
@@ -204,6 +208,7 @@ horizontal_alignment = 2
 [node name="CoinTimerLabel" type="RichTextLabel" parent="HighScoresPanel/Control2/BonusesPanel"]
 visible = false
 layout_mode = 2
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_iwmtd")
 theme_override_font_sizes/normal_font_size = 50
 text = "test"
@@ -212,6 +217,7 @@ horizontal_alignment = 2
 
 [node name="RoundsLabel" type="RichTextLabel" parent="HighScoresPanel/Control2/BonusesPanel"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_iwmtd")
 theme_override_font_sizes/normal_font_size = 50
 text = "test"
@@ -259,6 +265,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
+mouse_behavior_recursive = 2
 
 [node name="ScoresLabels" type="PanelContainer" parent="HighScoresTitleScreen"]
 layout_mode = 0
@@ -441,6 +449,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "clear"
 
+[connection signal="draw" from="InitialInputter" to="." method="_on_initial_inputter_draw"]
+[connection signal="hidden" from="InitialInputter" to="." method="_on_initial_inputter_hidden"]
 [connection signal="pressed" from="HighScoresTitleScreen/SavePanel/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="HighScoresTitleScreen/SavePanel/HBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="HighScoresTitleScreen/SavePanel/HBoxContainer/ClearButton" to="." method="_on_clear_button_pressed"]

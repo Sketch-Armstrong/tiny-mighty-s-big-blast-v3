@@ -1024,7 +1024,6 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Screen78" type="Node2D" parent="Pages" groups=["manual_page"]]
-visible = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="Pages/Screen78"]
 position = Vector2(640, 400)
@@ -7616,141 +7615,8 @@ text = "and make it count"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Screen79" type="Node2D" parent="Pages" groups=["manual_page"]]
-visible = false
-
-[node name="Sprite2D2" type="Sprite2D" parent="Pages/Screen79"]
-position = Vector2(640, 400)
-texture = ExtResource("83_qy0gc")
-
-[node name="Sprite2D" type="Sprite2D" parent="Pages/Screen79/Sprite2D2"]
-self_modulate = Color(1, 1, 1, 0.9098039)
-z_index = 1
-texture = ExtResource("85_uu3el")
-
-[node name="ColorRect" type="ColorRect" parent="Pages/Screen79/Sprite2D2"]
-offset_left = -576.0
-offset_top = -360.0
-offset_right = 576.0
-offset_bottom = 360.0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Pages/Screen79"]
-visible = false
-self_modulate = Color(1, 1, 1, 0.92156863)
-offset_left = 102.0
-offset_top = 252.0
-offset_right = 380.0
-offset_bottom = 527.0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Sprite2D3" type="Sprite2D" parent="Pages/Screen79"]
-visible = false
-z_index = 1
-position = Vector2(1042, 647.00006)
-rotation = 11.741347
-texture = ExtResource("3_iwnyd")
-vframes = 2
-
-[node name="Sprite2D4" type="Sprite2D" parent="Pages/Screen79"]
-visible = false
-z_index = 1
-position = Vector2(589, 532)
-texture = ExtResource("3_iwnyd")
-vframes = 2
-frame = 1
-
-[node name="Sprite2D6" type="Sprite2D" parent="Pages/Screen79"]
-visible = false
-z_index = 1
-position = Vector2(719, 552)
-texture = ExtResource("3_iwnyd")
-vframes = 2
-frame = 1
-
-[node name="Sprite2D7" type="Sprite2D" parent="Pages/Screen79"]
-visible = false
-z_index = 1
-position = Vector2(719, 552)
-texture = ExtResource("3_iwnyd")
-vframes = 2
-frame = 1
-
-[node name="Sprite2D5" type="Sprite2D" parent="Pages/Screen79"]
-visible = false
-z_index = 1
-position = Vector2(393.00003, 535)
-rotation = -0.03302622
-texture = ExtResource("3_iwnyd")
-vframes = 2
-
-[node name="Sprite2D9" type="Sprite2D" parent="Pages/Screen79"]
-visible = false
-z_index = 1
-position = Vector2(310, 211)
-rotation = -0.03302622
-texture = ExtResource("78_qy0gc")
-
-[node name="Sprite2D8" type="Sprite2D" parent="Pages/Screen79"]
-visible = false
-z_index = 1
-position = Vector2(312.00003, 325)
-rotation = -0.03302622
-texture = ExtResource("79_r2sn7")
-
-[node name="Sprite2D10" type="Sprite2D" parent="Pages/Screen79"]
-visible = false
-z_index = 1
-position = Vector2(317.99997, 432.99997)
-rotation = -0.03302622
-texture = ExtResource("80_uu3el")
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="Pages/Screen79"]
-z_index = 1
-offset_left = 123.0
-offset_top = 199.0
-offset_right = 1174.0
-offset_bottom = 719.0
-theme_override_constants/outline_size = 10
-theme_override_fonts/normal_font = ExtResource("4_d7plf")
-theme_override_font_sizes/normal_font_size = 37
-text = "-when I said you're invincible during \"Nova Blast\" I mean you're truly invincible. Not even the global game timer will stop you
-
--if you're just shy of earning a new letter grade, don't worry. Every extra try gives you an additional 50 points at the end, which counts towards the next rank
-
--eyes on the prize! Instead of staring at the game timer, you can listen for a distinct sound every 1:00, and what part of the song you're on"
-fit_content = true
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="Pages/Screen79"]
-z_index = 1
-offset_left = 100.0
-offset_top = 81.0
-offset_right = 617.0
-offset_bottom = 213.0
-theme_override_constants/outline_size = 11
-theme_override_fonts/normal_font = ExtResource("4_d7plf")
-theme_override_font_sizes/normal_font_size = 83
-text = "tips and tricks:"
-fit_content = true
-horizontal_alignment = 1
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="Pages/Screen79"]
-visible = false
-z_index = 1
-offset_left = 471.0
-offset_top = 199.0
-offset_right = 823.0
-offset_bottom = 586.0
-theme_override_constants/outline_size = 28
-theme_override_fonts/normal_font = ExtResource("4_d7plf")
-theme_override_font_sizes/normal_font_size = 121
-text = "and make it count"
-fit_content = true
-horizontal_alignment = 1
-
 [node name="Screen80" type="Node2D" parent="Pages" groups=["manual_page"]]
+visible = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="Pages/Screen80"]
 position = Vector2(640, 400)
@@ -7980,6 +7846,12 @@ position = Vector2(1214.0001, 358)
 rotation = 4.842079
 scale = Vector2(1.8330935, 0.57010174)
 texture = ExtResource("2_e1alp")
+
+[node name="ColorRect" type="ColorRect" parent="Back"]
+z_index = -5
+offset_right = 1280.0
+offset_bottom = 800.0
+mouse_filter = 2
 
 [node name="HSlider" type="HSlider" parent="."]
 offset_left = 71.0

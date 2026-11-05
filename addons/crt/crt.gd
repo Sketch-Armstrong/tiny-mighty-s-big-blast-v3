@@ -104,6 +104,13 @@ var material: ShaderMaterial
 
 
 func _ready() -> void:
+	add_to_group("crt")
+	if not Engine.is_editor_hint():
+		process_mode = Node.PROCESS_MODE_ALWAYS
+		var settings := get_node_or_null("/root/GlobalMiscOptionsSave")
+		if settings:
+			crt_enabled = settings.global_crt_enabled
+
 	var color_rect = ColorRect.new()
 	color_rect.color = Color.WHITE
 	color_rect.set_anchors_preset(Control.PRESET_FULL_RECT)

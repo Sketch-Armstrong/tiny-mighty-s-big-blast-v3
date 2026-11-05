@@ -61,3 +61,12 @@ func _on_options_back_button_pressed() -> void:
 func _on_main_menu_options_focus() -> void:
 	pass # Replace with function body.
 	$BackButton.grab_focus()
+
+func hide_back_button() -> void:
+	$BackButton.hide()
+
+func show_how_to_play_screen() -> void:
+	$Accessabilities/AccessabilitiesControl/Manual/HowToPlay2.show()
+
+func hide_how_to_play_screen() -> void:
+	$Accessabilities/AccessabilitiesControl/Manual/HowToPlay2.hide()
