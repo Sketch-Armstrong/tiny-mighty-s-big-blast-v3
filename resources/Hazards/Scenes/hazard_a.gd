@@ -10,6 +10,8 @@ extends RigidBody2D
 
 signal hazard_a_miss
 
+@onready var already_printed := false
+
 
 @onready var bg_number = GlobalVariables.room_number_global
 @onready var easy_fall_speed = get_parent().easy_fall_speed
@@ -42,7 +44,11 @@ func _ready() -> void:
 	elif bg_number == 3:
 		max_y_velocity = hard_fall_speed
 
-
+func _physics_process(_delta):
+	if not already_printed and global_position.y > 500:
+		#print("Past Y = 500!")
+		$AnimationPlayer2.play("fade_out")
+		already_printed = true
 
 func _process(delta: float) -> void:
 	if hazard_parent.can_collide_parent == true: 
@@ -81,6 +87,8 @@ func _on_body_entered(body):
 	elif body is StaticBody2D:
 		GlobalVariables.hazard_count -= 1
 		#print("static")
+		#hazard_a_player.play("destroy_self")
+		#await hazard_a_player.animation_finished
 		queue_free()
 
 

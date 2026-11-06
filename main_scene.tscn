@@ -351,6 +351,7 @@ aberation_amount = 0.05
 metadata/_custom_type_script = "uid://bghaddibpt6f1"
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_42l1d")]
+visible = false
 z_index = 13
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("3_2jcla")]
@@ -451,10 +452,20 @@ visible = false
 position = Vector2(-608, -504)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(136, 80)
+position = Vector2(131, 74)
 disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3232, 1112)
+shape = SubResource("RectangleShape2D_a6324")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(136, 80)
+disable_mode = 1
+collision_layer = 1024
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(3232, 1112)
 shape = SubResource("RectangleShape2D_a6324")
 
@@ -568,6 +579,7 @@ libraries/ = SubResource("AnimationLibrary_fv2he")
 [node name="Background" parent="." instance=ExtResource("9_7ycvg")]
 
 [node name="Control" parent="." instance=ExtResource("12_671wp")]
+visible = false
 
 [node name="MusicTester" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -649,8 +661,8 @@ scale = Vector2(1.16708, 1.18784)
 [connection signal="style_off" from="." to="StyleMeterRoot" method="_on_main_style_off"]
 [connection signal="style_on" from="." to="StyleMeterRoot" method="_on_main_style_on"]
 [connection signal="draw" from="CanvasLayer/PauseMenu" to="CanvasLayer/GameOver" method="hide_the_buttons"]
-[connection signal="hidden" from="CanvasLayer/PauseMenu" to="CanvasLayer/GameOver" method="_on_pause_menu_hidden"]
 [connection signal="hidden" from="CanvasLayer/PauseMenu" to="CanvasLayer/GameOver" method="show_the_buttons"]
+[connection signal="hidden" from="CanvasLayer/PauseMenu" to="CanvasLayer/GameOver" method="_on_pause_menu_hidden"]
 [connection signal="main_theme_pause" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_main_theme_pause"]
 [connection signal="main_theme_resume" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_main_theme_resume"]
 [connection signal="quit" from="CanvasLayer/GameOver" to="." method="_on_game_over_quit"]

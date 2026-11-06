@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://drb12hb6ul2cr"]
+[gd_scene load_steps=47 format=3 uid="uid://drb12hb6ul2cr"]
 
 [ext_resource type="Script" uid="uid://d1v53fcgqch8j" path="res://resources/menus/options/options.gd" id="1_1ssaa"]
 [ext_resource type="Texture2D" uid="uid://dk0yecertxb2d" path="res://resources/temporary assets/arrow test.png" id="2_8bxk8"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://cb0dpu4v40qdy" path="res://resources/menus/options/focus_arrow_taunt.gd" id="12_3pmhh"]
 [ext_resource type="Script" uid="uid://b2sxfak5cf5nm" path="res://resources/menus/options/focus_arrow_back.gd" id="12_y6is1"]
 [ext_resource type="Script" uid="uid://8vwplvl1mmkq" path="res://resources/menus/options/focus_arrow_master_slider.gd" id="14_nitmg"]
+[ext_resource type="Texture2D" uid="uid://bk2i26klxubyn" path="res://resources/menus/options/slider thing.png" id="16_n74dx"]
 [ext_resource type="Texture2D" uid="uid://mlu01lp5k7no" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton 2.png" id="17_8m6oc"]
 [ext_resource type="Script" uid="uid://daojgvn32nij" path="res://resources/menus/options/full_screen_check_button.gd" id="17_ov61f"]
 [ext_resource type="Texture2D" uid="uid://shasqx28byx4" path="res://resources/menus/main menu/sprites/Buttons/checkbuttons/checkbutton 1.png" id="18_3pmhh"]
@@ -35,6 +36,42 @@ texture_margin_left = 25.0
 texture_margin_top = 30.0
 texture_margin_right = 35.0
 texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n74dx"]
+content_margin_top = 5.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6s6h"]
+content_margin_top = 5.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xv8j7"]
+content_margin_top = 5.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6tdm"]
+content_margin_top = 5.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5ury"]
+content_margin_top = 5.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un6qe"]
+content_margin_top = 5.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m35md"]
+content_margin_top = 5.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vphc2"]
+content_margin_top = 5.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bu42r"]
+content_margin_top = 5.0
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8m6oc"]
 
@@ -266,6 +303,12 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
+theme_override_icons/grabber = ExtResource("16_n74dx")
+theme_override_icons/grabber_highlight = ExtResource("16_n74dx")
+theme_override_icons/grabber_disabled = ExtResource("16_n74dx")
+theme_override_styles/slider = SubResource("StyleBoxFlat_n74dx")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_r6s6h")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_xv8j7")
 bus_name = "Master"
 
 [node name="FocusArrowMasterSlider" type="Sprite2D" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/MasterSlider"]
@@ -287,6 +330,12 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
+theme_override_icons/grabber = ExtResource("16_n74dx")
+theme_override_icons/grabber_highlight = ExtResource("16_n74dx")
+theme_override_icons/grabber_disabled = ExtResource("16_n74dx")
+theme_override_styles/slider = SubResource("StyleBoxFlat_i6tdm")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_t5ury")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_un6qe")
 bus_name = "Music"
 
 [node name="FocusArrowMusicSlider" type="Sprite2D" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/MusicSlider"]
@@ -308,6 +357,12 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
+theme_override_icons/grabber = ExtResource("16_n74dx")
+theme_override_icons/grabber_highlight = ExtResource("16_n74dx")
+theme_override_icons/grabber_disabled = ExtResource("16_n74dx")
+theme_override_styles/slider = SubResource("StyleBoxFlat_m35md")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_vphc2")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_bu42r")
 bus_name = "SFX"
 
 [node name="FocusArrowSFXSlider" type="Sprite2D" parent="InputSettings/PanelContainer/MarginContainer/OptionsList/SFXSlider"]

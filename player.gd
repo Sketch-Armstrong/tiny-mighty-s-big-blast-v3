@@ -113,6 +113,8 @@ func _physics_process(delta: float) -> void:
 				near_miss_hop.enabled = false
 				await player_animation_player.animation_finished
 				near_miss_hop.enabled = true
+			
+
 
 		if Input.is_action_just_pressed("taunt"):
 			BRUTE_FORCE_TAUNT_PRESSED.emit()

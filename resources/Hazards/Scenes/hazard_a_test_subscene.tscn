@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://th3tpqh83vwn"]
+[gd_scene load_steps=10 format=3 uid="uid://th3tpqh83vwn"]
 
 [ext_resource type="Script" uid="uid://pkoes2disoxa" path="res://resources/Hazards/Scenes/hazard_a.gd" id="1_nir3k"]
-[ext_resource type="Material" uid="uid://dohviwbi7bs1w" path="res://Shaders/Tests/shader_test copy for hazards.tres" id="2_10tql"]
 [ext_resource type="Texture2D" uid="uid://b7cmx2a02tdfj" path="res://resources/Hazards/Sprites/hazards sprites-Sheet.png" id="3_10tql"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x64uq"]
@@ -20,6 +19,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_coi2i"]
@@ -44,6 +67,43 @@ _data = {
 &"spin": SubResource("Animation_coi2i")
 }
 
+[sub_resource type="Animation" id="Animation_er0yg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ydfuv"]
+resource_name = "fade_out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qss0k"]
+_data = {
+&"RESET": SubResource("Animation_er0yg"),
+&"fade_out": SubResource("Animation_ydfuv")
+}
+
 [node name="HazardA" type="RigidBody2D" groups=["Hazards"]]
 position = Vector2(80, 96)
 collision_layer = 128
@@ -58,10 +118,12 @@ shape = SubResource("CircleShape2D_x64uq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 10
-material = ExtResource("2_10tql")
 texture = ExtResource("3_10tql")
-hframes = 3
-vframes = 5
+hframes = 5
+vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries/ = SubResource("AnimationLibrary_ydfuv")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries/ = SubResource("AnimationLibrary_qss0k")
